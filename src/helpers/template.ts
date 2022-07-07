@@ -17,16 +17,17 @@ export async function renderProgramTemplates(
     const solanaKeypair = getSolanaConfigKeypair();
     for (var file of templateFiles) {
         const path = root + file;
-        let contents = nunjucks.render(
+        const contents = nunjucks.render(
             path, 
             {
-                dap_name: dappName,
-                dap_name_snake: snakeCase(dappName),
-                dap_name_camel: camelCase(dappName),
-                dap_name_camel_upper: camelCaseWithFirstUpper(dappName),
+                dapp_name: dappName,
+                dapp_name_snake: snakeCase(dappName),
+                dapp_name_camel_upper: camelCaseWithFirstUpper(dappName),
                 solana_wallet: solanaKeypair,
             }
         );
+        console.log(`CONTENTS OF: ${path}`);
+        console.log(contents);
         fs.writeFileSync(path, contents);
     };
 }
@@ -35,15 +36,13 @@ function snakeCase(dappName: string): string {
     return dappName.replace('-', '_');
 }
 
-function camelCase(dappName: string): string {
-    return dappName.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
-        return index === 0 ? word.toLowerCase() : word.toUpperCase();
-      }).replace(/\s+/g, '');
-}
-
 function camelCaseWithFirstUpper(dappName: string): string {
-    let camel = camelCase(dappName);
-    return camel.replace(camel.charAt(0), camel.charAt(0).toUpperCase());
+    let splitArray = dappName.split('-');
+    let result = "";
+    for (var word of splitArray) {
+        result += word.replace(word.charAt(0), word.charAt(0).toUpperCase());
+    };
+    return result;
 }
 
 function getAnchorTemplateFiles(dappName: string): string[] {
@@ -51,7 +50,7 @@ function getAnchorTemplateFiles(dappName: string): string[] {
         `/program/programs/${dappName}/Cargo.toml`,
         `/program/programs/${dappName}/src/lib.rs`,
         `/program/tests/${dappName}.ts`,
-        `/program/Anchor.toml.njk`,
+        `/program/Anchor.toml`,
         `/README.md`
     ];
 }
