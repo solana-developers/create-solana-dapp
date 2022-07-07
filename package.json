@@ -53,6 +53,6 @@
     "copy-files": "copyfiles --up 1 \"src/gitignore\" dist/",
     "build": "ncc build ./src/index.ts --out dist/ && yarn copy-files",
     "watch": "ncc build ./src/index.ts --out dist/ --watch",
-    "quick": "rm -rf sample-dapp && yarn run build && node dist/index.js sample-dapp -f vue"
+    "quick": "rm -rf sample-dapp && yarn run build && node dist/index.js sample-dapp -f vue -p anchor"
   }
 }

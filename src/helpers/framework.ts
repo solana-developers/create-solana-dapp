@@ -40,7 +40,6 @@ export async function validateFramework(framework: string, type: string): Promis
     if (!(await urlExists(url))) {
         throwFrameworkNotFoundError(framework, type);
     };
-    console.log(url);
 }
 
 function uiFrameworkUrl(framework: string, filePath?: string): string {

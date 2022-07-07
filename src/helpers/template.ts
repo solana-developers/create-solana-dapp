@@ -16,9 +16,8 @@ export async function renderProgramTemplates(
     };
     const solanaKeypair = getSolanaConfigKeypair();
     for (var file of templateFiles) {
-        const path = root + "/../" + file;
+        const path = root + file;
         let contents = nunjucks.render(
-            // root + "/program/" + file, 
             path, 
             {
                 dap_name: dappName,
@@ -49,16 +48,18 @@ function camelCaseWithFirstUpper(dappName: string): string {
 
 function getAnchorTemplateFiles(dappName: string): string[] {
     return [
-        `/programs/${dappName}/Cargo.toml`,
-        `/programs/${dappName}/src/lib.rs`,
-        `/tests/${dappName}.ts`,
-        `Anchor.toml`
+        `/program/programs/${dappName}/Cargo.toml`,
+        `/program/programs/${dappName}/src/lib.rs`,
+        `/program/tests/${dappName}.ts`,
+        `/program/Anchor.toml.njk`,
+        `/README.md`
     ];
 }
 
 function getNativeTemplateFiles(): string[] {
     return [
-        `/program/Cargo.toml`,
-        `/tests/test.ts`
+        `/program/program/Cargo.toml`,
+        `/program/tests/test.ts`,
+        `/README.md`
     ];
 }

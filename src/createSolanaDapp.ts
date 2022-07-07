@@ -107,4 +107,5 @@ export async function createSolanaDapp({
     console.log(`Successfully created Solana dApp: ${chalk.greenBright(dappName)}!`);
     console.log();
     console.log(`${chalk.magentaBright("  Happy dApp Hacking!")}`);
+    console.log();
 }
