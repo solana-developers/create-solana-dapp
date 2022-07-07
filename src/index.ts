@@ -51,18 +51,18 @@ const program: Commander.Command = new Commander.Command(packageJson.name)
   .exitOverride(function () {
     printDirectoryInstructions();
   })
-  .parse(process.argv)
+  .parse(process.argv);
   
 
 async function run(): Promise<void> {
 
     if (typeof projectPath === "string") {
         projectPath = projectPath.trim();
-    }
+    };
     
     if (!projectPath) {
         printDirectoryInstructions();
-    }
+    };
     
     const resolvedProjectPath = path.resolve(projectPath);
     const projectName = path.basename(resolvedProjectPath);
@@ -79,7 +79,7 @@ async function run(): Promise<void> {
             });
         }
         process.exit(1);
-    }
+    };
     
     const options = program.opts();
     await createSolanaDapp({

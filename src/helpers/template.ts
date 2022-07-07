@@ -26,8 +26,6 @@ export async function renderProgramTemplates(
                 solana_wallet: solanaKeypair,
             }
         );
-        console.log(`CONTENTS OF: ${path}`);
-        console.log(contents);
         fs.writeFileSync(path, contents);
     };
 }
