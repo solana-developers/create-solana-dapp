@@ -11,7 +11,7 @@
     "got": "^12.1.0",
     "path": "^0.12.7",
     "update-check": "^1.5.4",
-    "url-exist": "^3.0.0",
+    "url-exist": "2.0.2",
     "validate-npm-package-name": "^4.0.0"
   },
   "devDependencies": {
@@ -48,6 +48,6 @@
     "copy-files": "copyfiles --up 1 \"src/gitignore\" dist/",
     "build": "ncc build ./src/index.ts --out dist/ && yarn copy-files",
     "watch": "ncc build ./src/index.ts --out dist/ --watch",
-    "quick": "rm -rf joe && yarn run build && node dist/index.js joe"
+    "quick": "rm -rf joe && yarn run build && node dist/index.js joe -f vue -p anchor"
   }
 }

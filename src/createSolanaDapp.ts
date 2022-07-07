@@ -1,8 +1,14 @@
+import chalk from "chalk";
+
 import { 
-    hasProgramFramework, 
-    hasUiFramework, 
+    validateProgramFramework, 
+    validateUiFramework, 
     throwFrameworkNotFoundError
  } from './helpers/framework';
+ import {
+    defaultUiFramework,
+    defaultProgramFramework,
+ } from './helpers/constants';
 
 
 export async function createSolanaDapp({
@@ -15,15 +21,30 @@ export async function createSolanaDapp({
     program?: string;
 }): Promise<void> {
 
+    console.log();
     console.log(`Creating Solana dApp: ${dappPath}`);
+    console.log();
 
     if (framework) {
-        const foundUiFramework: boolean = await hasUiFramework(framework);
-        const foundProgramFramework: boolean = await hasProgramFramework(framework);
-        if (!foundUiFramework || !foundProgramFramework) {
-            throwFrameworkNotFoundError(framework);
+        const validUiFramework: boolean = await validateUiFramework(framework);
+        if (!validUiFramework) {
+            throwFrameworkNotFoundError(framework, "UI");
         }
     } else {
-        framework = "react";
+        framework = defaultUiFramework;
     }
+    if (program) {
+        const validProgramFramework: boolean = await validateProgramFramework(program);
+        if (!validProgramFramework) {
+            throwFrameworkNotFoundError(program, "program");
+        }
+    } else {
+        program = defaultProgramFramework;
+    }
+    
+    console.log(`${chalk.magentaBright("UI Framework      : ")} ${framework}`);
+    console.log(`${chalk.magentaBright("Program Framework : ")} ${program}`);
+    console.log();
+    console.log("Building...");
+    console.log();
 }
