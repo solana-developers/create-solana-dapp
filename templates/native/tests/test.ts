@@ -17,8 +17,8 @@ function createKeypairFromFile(path: string): Keypair {
 describe("hello-solana", () => {
 
     const connection = new Connection(`http://localhost:8899`, 'confirmed');
-    const payer = createKeypairFromFile(require('os').homedir() + '/.config/solana/id.json');
-    const program = createKeypairFromFile('./program/solana/some_program_name-keypair.json');
+    const payer = createKeypairFromFile('{{ solana_wallet }}');
+    const program = createKeypairFromFile('./program/solana/{{ dap_name_snake }}-keypair.json');
   
     it("Say hello!", async () => {
 

@@ -85,7 +85,7 @@ export async function createSolanaDapp({
 
     console.log("Extracting...");
     console.log();
-    renderProgramTemplates(dappName, program);
+    renderProgramTemplates(root, dappName, program);
 
     console.log(`Installing dependencies for ${chalk.magentaBright(framework)} UI framework...`);
     console.log();

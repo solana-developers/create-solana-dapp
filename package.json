@@ -11,6 +11,7 @@
     "cross-spawn": "^7.0.3",
     "fs": "^0.0.1-security",
     "fs-extra": "^10.1.0",
+    "nunjucks": "^3.2.3",
     "path": "^0.12.7",
     "url-exist": "2.0.2",
     "validate-npm-package-name": "^4.0.0"
@@ -19,6 +20,7 @@
     "@types/cross-spawn": "^6.0.2",
     "@types/fs-extra": "^9.0.13",
     "@types/node": "^18.0.3",
+    "@types/nunjucks": "^3.2.1",
     "@types/validate-npm-package-name": "^4.0.0",
     "@vercel/ncc": "^0.34.0",
     "typescript": "^4.7.4"
@@ -51,6 +53,6 @@
     "copy-files": "copyfiles --up 1 \"src/gitignore\" dist/",
     "build": "ncc build ./src/index.ts --out dist/ && yarn copy-files",
     "watch": "ncc build ./src/index.ts --out dist/ --watch",
-    "quick": "rm -rf joe && yarn run build && node dist/index.js joe -f vue"
+    "quick": "rm -rf sample-dapp && yarn run build && node dist/index.js sample-dapp -f vue"
   }
 }

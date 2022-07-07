@@ -1,12 +1,12 @@
 import * as anchor from "@project-serum/anchor";
 import { Program } from "@project-serum/anchor";
-import { SomeProgramName } from "../target/types/some_program_name";
+import { {{ dapp_name_camel_upper }} } from "../target/types/{{ dapp_name_snake }}";
 
-describe("some-program-name", () => {
+describe("{{ dapp_name }}", () => {
   // Configure the client to use the local cluster.
   anchor.setProvider(anchor.AnchorProvider.env());
 
-  const program = anchor.workspace.SomeProgramName as Program<SomeProgramName>;
+  const program = anchor.workspace.{{ dapp_name_camel_upper }} as Program<{{ dapp_name_camel_upper }}>;
 
   it("Is initialized!", async () => {
     // Add your test here.

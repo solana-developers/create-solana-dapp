@@ -1,12 +1,12 @@
 [package]
-name = "some-program-name"
+name = "{{ dap_name }}"
 version = "0.1.0"
 description = "Created with Anchor"
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "some_program_name"
+name = "{{ dap_name_snake }}"
 
 [features]
 no-entrypoint = []
