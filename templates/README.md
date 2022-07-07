@@ -1,1 +1,1 @@
-# TEMPLATE
+# {{ dapp_name }}
