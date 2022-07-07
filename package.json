@@ -49,6 +49,6 @@
     "copy-files": "copyfiles --up 1 \"src/gitignore\" dist/",
     "build": "ncc build ./src/index.ts --out dist/ && yarn copy-files",
     "watch": "ncc build ./src/index.ts --out dist/ --watch",
-    "quick": "rm -rf joe && yarn run build && node dist/index.js"
+    "quick": "rm -rf joe && yarn run build && node dist/index.js joe"
   }
 }

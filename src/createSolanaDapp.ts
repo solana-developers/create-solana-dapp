@@ -10,5 +10,6 @@ export async function createSolanaDapp({
     framework?: string;
     program?: string;
 }): Promise<void> {
-    console.log("triggered");
+    
+    console.log(`Creating Solana dApp: ${dappPath}`);
 }

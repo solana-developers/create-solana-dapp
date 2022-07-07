@@ -16,14 +16,14 @@ function printDirectoryInstructions() {
     console.log();
     console.log(`${chalk.redBright("Error:")} Please specify the project directory:`);
     console.log();
-    console.log(`  ${program.name()} ${chalk.greenBright("<project-directory>")}`);
+    console.log(`  create-solana-dapp ${chalk.greenBright("<project-directory>")}`);
     console.log();
     console.log();
     console.log("For example:");
     console.log();
-    console.log(`  ${program.name()} ${chalk.greenBright("my-solana-dapp")}`);
+    console.log(`  create-solana-dapp ${chalk.greenBright("my-solana-dapp")}`);
     console.log();
-    console.log(`Run ${chalk.magentaBright(`${program.name()} --help`)} to see all options.`);
+    console.log(`Run ${chalk.magentaBright(`create-solana-dapp --help`)} to see all options.`);
     console.log();
     process.exit(1);
 }
@@ -48,6 +48,10 @@ const program: Commander.Command = new Commander.Command(packageJson.name)
   Program development framework:    [ Anchor | Native ]     ${chalk.magentaBright("Default:")} [ Anchor ] 
 `,
   )
+  .exitOverride(function () {
+    printDirectoryInstructions();
+  })
+  .parse(process.argv)
   
 
 async function run(): Promise<void> {
@@ -56,10 +60,8 @@ async function run(): Promise<void> {
         projectPath = projectPath.trim();
     }
     
-    if (!projectPath || process.argv == null) {
+    if (!projectPath) {
         printDirectoryInstructions();
-    } else {
-        program.parse(process.argv);
     }
     
     const resolvedProjectPath = path.resolve(projectPath);
