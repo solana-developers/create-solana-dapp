@@ -4,9 +4,13 @@
   "description": "Create a Solana dApp template for quick-starting!",
   "bin": "./dist/index.js",
   "dependencies": {
+    "axios": "^0.27.2",
     "chalk": "^5.0.1",
     "commander": "^9.3.0",
     "copyfiles": "^2.4.1",
+    "cross-spawn": "^7.0.3",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^10.1.0",
     "global": "^4.4.0",
     "got": "^12.1.0",
     "path": "^0.12.7",
@@ -15,6 +19,8 @@
     "validate-npm-package-name": "^4.0.0"
   },
   "devDependencies": {
+    "@types/cross-spawn": "^6.0.2",
+    "@types/fs-extra": "^9.0.13",
     "@types/node": "^18.0.3",
     "@types/validate-npm-package-name": "^4.0.0",
     "@vercel/ncc": "^0.34.0",

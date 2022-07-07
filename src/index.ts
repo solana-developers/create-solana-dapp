@@ -74,33 +74,33 @@ async function run(): Promise<void> {
             `${chalk.redBright("Could not create project:")} ${projectName} ${chalk.redBright(" : ")} violates npm naming restrictions.`,
         );
         if (problems) {
-          problems.forEach(function (problem: string) {
-            return console.error(`    ${chalk.red.bold("*")} ${problem}`);
-          });
+            problems.forEach(function (problem: string) {
+                return console.error(`    ${chalk.red.bold("*")} ${problem}`);
+            });
         }
         process.exit(1);
-      }
+    }
     
-      const options = program.opts();
-      await createSolanaDapp({
+    const options = program.opts();
+    await createSolanaDapp({
         dappPath: resolvedProjectPath,
         framework: (typeof options.framework === "string" && options.framework.trim()) || undefined,
         program: (typeof options.program === "string" && options.program.trim()) || undefined,
-      });
+    });
 }
 
 
 run()
-  .catch(async function (reason) {
+.catch(async function (reason) {
     {
-      console.log();
-      console.log("Aborting...");
-      if (reason.command) {
-        console.log(`  ${chalk.cyan(reason.command)} has failed.`);
-      } else {
-        console.log(chalk.red("Unexpected error:"));
-        console.log(reason);
-      }
-      process.exit(1);
+        console.log();
+        console.log("Aborting...");
+        if (reason.command) {
+            console.log(`  ${chalk.cyan(reason.command)} has failed.`);
+        } else {
+            console.log(chalk.red("Unexpected error:"));
+            console.log(reason);
+        }
+        process.exit(1);
     }
-  });
+});
