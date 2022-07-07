@@ -15,9 +15,12 @@ import {
     shouldUseGit, 
     tryGitInit
 } from './helpers/git';
-// import { 
-//     renderProgramTemplates
-// } from './helpers/template';
+import {
+    shouldUseSolana
+} from './helpers/solana';
+import { 
+    renderProgramTemplates
+} from './helpers/template';
 import { 
     installDeps, 
     shouldUseYarn, 
@@ -70,6 +73,8 @@ export async function createSolanaDapp({
     await fsExtra.ensureDir(root);
     await fsExtra.ensureDir(root + "/app");
     await fsExtra.ensureDir(root + "/temp"); // program dir is created during clone step
+    
+    shouldUseSolana();
     shouldUseGit();
     shouldUseYarn();
     shouldUseYarnWorkspaces();
@@ -80,7 +85,7 @@ export async function createSolanaDapp({
 
     console.log("Extracting...");
     console.log();
-    // await renderProgramTemplates(dappName, program);
+    renderProgramTemplates(dappName, program);
 
     console.log(`Installing dependencies for ${chalk.magentaBright(framework)} UI framework...`);
     console.log();
@@ -93,7 +98,7 @@ export async function createSolanaDapp({
     console.log("Initializing git...");
     console.log();
     if (tryGitInit(root)) {
-        console.log("Initialized a git repository.");
+        console.log("Initialized new git repository.");
         console.log();
     };
 

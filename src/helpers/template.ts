@@ -1,4 +1,21 @@
+import { getSolanaConfigKeypair } from "./solana";
 
+
+export async function renderProgramTemplates(
+    dappName: string,
+    program: string,
+): Promise<void> {
+    let templateFiles: string[] = [];
+    if (program === "native") {
+        templateFiles = getNativeTemplateFiles();
+    } else {
+        templateFiles = getAnchorTemplateFiles(dappName);
+    };
+    const solanaKeypair = getSolanaConfigKeypair();
+    // REPLACE:
+    //  {{ dapp_name }}         :   dappName
+    //  {{ dapp_name_snake }}   :   snakeCase(dappName)
+}
 
 function snakeCase(dappName: string): string {
     return dappName.replace('-', '_');
