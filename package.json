@@ -1,0 +1,54 @@
+{
+  "name": "create-solana-dapp",
+  "version": "1.0.0",
+  "description": "Create a Solana dApp template for quick-starting!",
+  "bin": "./dist/index.js",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "commander": "^9.3.0",
+    "copyfiles": "^2.4.1",
+    "global": "^4.4.0",
+    "got": "^12.1.0",
+    "path": "^0.12.7",
+    "prompts": "^2.4.2",
+    "update-check": "^1.5.4",
+    "validate-npm-package-name": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "@types/prompts": "^2.0.14",
+    "@types/validate-npm-package-name": "^4.0.0",
+    "@vercel/ncc": "^0.34.0",
+    "typescript": "^4.7.4"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "/dist",
+    "CHANGELOG.md"
+  ],
+  "homepage": "https://github.com/solana-developers/create-solana-dapp#readme",
+  "keywords": [
+    "ethers",
+    "ethereum",
+    "react",
+    "vue",
+    "web3",
+    "yarn"
+  ],
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "packageManager": "yarn@3.2.0",
+  "repository": {
+    "name": "solana-developers/create-solana-dapp",
+    "type": "git",
+    "url": "https://github.com/solana-developers/create-solana-dapp"
+  },
+  "scripts": {
+    "copy-files": "copyfiles --up 1 \"src/gitignore\" dist/",
+    "build": "ncc build ./src/index.ts --out dist/ && yarn copy-files",
+    "watch": "ncc build ./src/index.ts --out dist/ --watch",
+    "quick": "rm -rf joe && yarn run build && node dist/index.js"
+  }
+}
