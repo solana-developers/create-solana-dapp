@@ -1,5 +1,5 @@
 [package]
-name = "{{ dap_name }}"
+name = "{{ dapp_name }}"
 version = "0.1.0"
 edition = "2021"
 
