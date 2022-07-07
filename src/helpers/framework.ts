@@ -14,9 +14,14 @@ import {
 import { cloneUi, cloneProgram } from './git';
 
 
-export async function downloadFiles(framework: string, program: string, root: string) {
+export async function downloadFiles(
+    framework: string, 
+    program: string, 
+    root: string, 
+    dappName: string
+): Promise<void> {
     await downloadUiFramework(framework, root);
-    await downloadProgramFramework(program, root);
+    await downloadProgramFramework(program, root, dappName);
 }
 
 export async function validateFramework(framework: string, type: string): Promise<void> {
@@ -68,12 +73,16 @@ function throwFrameworkNotFoundError(framework: string, type: string): void {
     process.exit(1);
 }
 
-async function downloadUiFramework(framework: string, root: string) {
+async function downloadUiFramework(framework: string, root: string): Promise<void> {
     let url = uiFrameworkUrl(framework, "README.md");
     await cloneUi(framework, root);
 }
 
-async function downloadProgramFramework(program: string, root: string) {
+async function downloadProgramFramework(
+    program: string, 
+    root: string, 
+    dappName: string
+): Promise<void> {
     let url = programFrameworkUrl(program, "README.md");
-    await cloneProgram(program, root);
+    await cloneProgram(program, root, dappName);
 }

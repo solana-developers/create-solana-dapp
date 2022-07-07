@@ -12,10 +12,11 @@ import {
     validateFramework
 } from './helpers/framework';
 import {
+    shouldUseGit, 
     tryGitInit
 } from './helpers/git';
 // import { 
-//     renderTemplates
+//     renderProgramTemplates
 // } from './helpers/template';
 import { 
     installDeps, 
@@ -68,26 +69,26 @@ export async function createSolanaDapp({
     console.log();
     await fsExtra.ensureDir(root);
     await fsExtra.ensureDir(root + "/app");
-    // await fsExtra.ensureDir(root + "/program");
-    await fsExtra.ensureDir(root + "/temp");
+    await fsExtra.ensureDir(root + "/temp"); // program dir is created during clone step
+    shouldUseGit();
     shouldUseYarn();
     shouldUseYarnWorkspaces();
 
     console.log("Downloading templates...");
     console.log();
-    await downloadFiles(framework, program, root);
+    await downloadFiles(framework, program, root, dappName);
 
     console.log("Extracting...");
     console.log();
-    // await renderTemplates(dappName);
+    // await renderProgramTemplates(dappName, program);
 
-    console.log("Installing dependencies for UI...");
+    console.log(`Installing dependencies for ${chalk.magentaBright(framework)} UI framework...`);
     console.log();
-    // await installDeps(root + "/app");
+    await installDeps(root + "/app");
 
-    console.log("Installing dependencies for program...");
+    console.log(`Installing dependencies for ${chalk.magentaBright(program)} program framework...`);
     console.log();
-    // await installDeps(root + "/program");
+    await installDeps(root + "/program");
 
     console.log("Initializing git...");
     console.log();

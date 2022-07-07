@@ -11,10 +11,7 @@
     "cross-spawn": "^7.0.3",
     "fs": "^0.0.1-security",
     "fs-extra": "^10.1.0",
-    "global": "^4.4.0",
-    "got": "^12.1.0",
     "path": "^0.12.7",
-    "update-check": "^1.5.4",
     "url-exist": "2.0.2",
     "validate-npm-package-name": "^4.0.0"
   },
@@ -35,8 +32,8 @@
   ],
   "homepage": "https://github.com/solana-developers/create-solana-dapp#readme",
   "keywords": [
-    "ethers",
-    "ethereum",
+    "solana",
+    "next",
     "react",
     "vue",
     "web3",
@@ -54,6 +51,6 @@
     "copy-files": "copyfiles --up 1 \"src/gitignore\" dist/",
     "build": "ncc build ./src/index.ts --out dist/ && yarn copy-files",
     "watch": "ncc build ./src/index.ts --out dist/ --watch",
-    "quick": "rm -rf joe && yarn run build && node dist/index.js joe -f vue -p anchor"
+    "quick": "rm -rf joe && yarn run build && node dist/index.js joe -f vue"
   }
 }
