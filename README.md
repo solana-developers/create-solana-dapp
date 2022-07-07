@@ -2,7 +2,7 @@
 
 :zap: Get up and running fast with Solana dApps :zap:   
 
-Just run `yarn create solana-dapp` to generate a project template!   
+Just run `yarn create solana-dapp <dapp-name>` to generate a project template!   
 
 | Option | Description    | Choices    | Default    |
 | ------ | -------------- | ---------- | ---------- |
