@@ -31,7 +31,7 @@ export async function renderProgramTemplates(
 }
 
 function snakeCase(dappName: string): string {
-    return dappName.replace('-', '_');
+    return dappName.replace(/-/g, '_');
 }
 
 function camelCaseWithFirstUpper(dappName: string): string {
