@@ -1,9 +1,10 @@
+import assert from "assert";
 import chalk from "chalk";
 import { execSync } from "child_process";
 import fsExtra from "fs-extra";
 import path from "path";
 
-import { githubUiCloneUrlBase, githubProgramCloneUrl } from './constants';
+import { githubCloneUrlMap } from './constants';
 
 
 export function shouldUseGit(): void {
@@ -32,13 +33,15 @@ export function tryGitInit(dir: string): boolean {
 }
 
 export async function cloneUi(framework: string, root: string): Promise<void> {
-  const gitCloneUrl = githubUiCloneUrlBase + "-" + framework + ".git";
+  const gitCloneUrl = githubCloneUrlMap.get(framework);
+  assert(gitCloneUrl);
   await gitClone(gitCloneUrl, root + "/app");
   execSync(`rm -rf ${root}/app/.git`, { stdio: "ignore" });
 }
 
 export async function cloneProgram(program: string, root: string, dappName: string): Promise<void> {
-  const gitCloneUrl = githubProgramCloneUrl;
+  const gitCloneUrl = githubCloneUrlMap.get(program);
+  assert(gitCloneUrl);
   await gitClone(gitCloneUrl, root + "/temp");
   execSync(`mv ${root}/temp/templates/${program} ${root}/program`, { stdio: "ignore" });
   if (program === "anchor") {
