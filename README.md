@@ -6,5 +6,12 @@ Just run `yarn create-solana-dapp <dapp-name>` to generate a project template!
 
 | Option | Description    | Choices    | Default    |
 | ------ | -------------- | ---------- | ---------- |
-| `-f --framework` | UI framework. | `next` \| `vue` | `next` |
+| `-f --framework` | UI framework. | `next` \| `vue` \| `svelte` | `next` |
 | `-p --program` | Program development framework. | `native` \| `anchor` | `anchor` |
+
+## UI Frameworks
+
+You can view the UI scaffolds in our **solana-developers** repositories:
+- [dApp Scaffold Next](https://github.com/solana-developers/solana-dapp-next)
+- [dApp Scaffold Vue](https://github.com/solana-developers/dapp-scaffold-vue)
+- [dApp Scaffold Svelte](https://github.com/solana-developers/dapp-scaffold-svelte)
