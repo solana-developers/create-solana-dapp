@@ -18,7 +18,7 @@ describe("hello-solana", () => {
 
     const connection = new Connection(`http://localhost:8899`, 'confirmed');
     const payer = createKeypairFromFile('{{ solana_wallet }}');
-    const program = createKeypairFromFile('../program/solana/{{ dapp_name_snake }}-keypair.json');
+    const program = createKeypairFromFile('./program/target/solana/{{ dapp_name_snake }}-keypair.json');
   
     it("Say hello!", async () => {
 
