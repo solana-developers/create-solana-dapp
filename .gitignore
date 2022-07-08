@@ -1,5 +1,12 @@
 
 sample-dapp
+test-dapp-null
+test-dapp-next-anchor
+test-dapp-next-native
+test-dapp-vue-anchor
+test-dapp-vue-native
+test-dapp-svelte-anchor
+test-dapp-svelte-native
 
 node_modules
 dist

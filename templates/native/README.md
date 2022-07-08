@@ -4,7 +4,7 @@
 cd program
 cargo build-bpf --bpf-out-dir=./solana
 
-solana program deploy ./solana/program.so
+solana program deploy ./solana/<program_name>.so
 
 yarn install
 

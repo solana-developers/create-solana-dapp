@@ -34,6 +34,12 @@ const program: Commander.Command = new Commander.Command(packageJson.name)
   .arguments("<project-directory>")
   .usage(`${chalk.green("<project-directory>")} ${chalk.yellowBright("[options]")}`)
   .action(function (name: string) {
+    if (name.match(/[^A-Za-z\-]/g) || name.charAt(0) === '-' || name.charAt(-1) === '-') {
+      console.error(`Invalid argument format for ${chalk.green("<project-directory>")}:`);
+      console.log("   Can only be alphanumeric or '-'");
+      console.log("   Cannot begin or end with '-'");
+      process.exit(1);
+    }
     projectPath = name;
   })
   .option(
