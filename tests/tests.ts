@@ -1,7 +1,6 @@
 import { execSync } from "child_process";
 import type { ChildProcess } from "child_process";
 import { assert } from "chai";
-// import chalk from "chalk";
 import spawn from "cross-spawn";
 import fs from 'fs';
 import path from "path";
@@ -24,8 +23,8 @@ describe("create-solana-dapp", async () => {
     const testDappNameNextNative: string = "test-dapp-next-native";
     const testDappNameVueAnchor: string = "test-dapp-vue-anchor";
     const testDappNameVueNative: string = "test-dapp-vue-native";
-    const testDappNameSvelteAnchor: string = "test-dapp-svelte-anchor";
-    const testDappNameSvelteNative: string = "test-dapp-svelte-native";
+    // const testDappNameSvelteAnchor: string = "test-dapp-svelte-anchor";
+    // const testDappNameSvelteNative: string = "test-dapp-svelte-native";
 
     const testDappNameNotCreated: string = "test-dapp-null";
 
@@ -43,8 +42,8 @@ describe("create-solana-dapp", async () => {
         execSync(`${cliCommand}${testDappNameNextNative} -f next -p native`, { stdio: "ignore" });
         execSync(`${cliCommand}${testDappNameVueAnchor} -f vue -p anchor`, { stdio: "ignore" });
         execSync(`${cliCommand}${testDappNameVueNative} -f vue -p native`, { stdio: "ignore" });
-        execSync(`${cliCommand}${testDappNameSvelteAnchor} -f svelte -p anchor`);
-        execSync(`${cliCommand}${testDappNameSvelteNative} -f svelte -p native`, { stdio: "ignore" });
+        // execSync(`${cliCommand}${testDappNameSvelteAnchor} -f svelte -p anchor`);
+        // execSync(`${cliCommand}${testDappNameSvelteNative} -f svelte -p native`, { stdio: "ignore" });
     });
 
     async function testCli(cmd: string, opts?: string): Promise<boolean> {
@@ -119,9 +118,9 @@ describe("create-solana-dapp", async () => {
         await testYarnInstall(testDappNameVueAnchor, "app");
     });
 
-    it("Yarn install is valid for app: svelte", async () => {
-        await testYarnInstall(testDappNameSvelteAnchor, "app");
-    });
+    // it("Yarn install is valid for app: svelte", async () => {
+    //     await testYarnInstall(testDappNameSvelteAnchor, "app");
+    // });
     
     it("Yarn install is valid for program: anchor", async () => {
         await testYarnInstall(testDappNameNextAnchor, "program");
@@ -154,9 +153,9 @@ describe("create-solana-dapp", async () => {
         await appRuns("serve", testDappNameVueAnchor);
     });
 
-    it("The app runs for svelte", async () => {
-        await appRuns("dev", testDappNameSvelteAnchor);
-    });
+    // it("The app runs for svelte", async () => {
+    //     await appRuns("dev", testDappNameSvelteAnchor);
+    // });
 
     async function programBuilds(command: string, dappName: string): Promise<void> {
         process.chdir(path.join(originalDir, dappName, "program"));
@@ -233,8 +232,8 @@ describe("create-solana-dapp", async () => {
         execSync(`rm -rf ${path.join(process.cwd(), testDappNameNextNative)}`, { stdio: "ignore" });
         execSync(`rm -rf ${path.join(process.cwd(), testDappNameVueAnchor)}`, { stdio: "ignore" });
         execSync(`rm -rf ${path.join(process.cwd(), testDappNameVueNative)}`, { stdio: "ignore" });
-        execSync(`rm -rf ${path.join(process.cwd(), testDappNameSvelteAnchor)}`, { stdio: "ignore" });
-        execSync(`rm -rf ${path.join(process.cwd(), testDappNameSvelteNative)}`, { stdio: "ignore" });
+        // execSync(`rm -rf ${path.join(process.cwd(), testDappNameSvelteAnchor)}`, { stdio: "ignore" });
+        // execSync(`rm -rf ${path.join(process.cwd(), testDappNameSvelteNative)}`, { stdio: "ignore" });
         console.log("Test completed.");
         console.log();
     });
