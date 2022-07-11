@@ -4,6 +4,8 @@
 
 Just run `npx create-solana-dapp <dapp-name>` to generate a project template!   
 
+[Find it on NPM JS](https://www.npmjs.com/package/create-solana-dapp)
+
 | Option | Description    | Choices    | Default    |
 | ------ | -------------- | ---------- | ---------- |
 | `-f --framework` | UI framework. | `next` \| `vue` | `next` |
