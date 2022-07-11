@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "lib": ["es6"],
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "noImplicitAny": true,
+      "outDir": "dist",
+      "removeComments": true,
+      "resolveJsonModule": true,
+      "skipLibCheck": false,
+      "sourceMap": true,
+      "strict": true,
+      "target": "es6"
+    },
+    "exclude": ["dist", "lib", "node_modules", "templates"],
+    "ts-node": {
+      "files": true
+    }
+  }
+  
