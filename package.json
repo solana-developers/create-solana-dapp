@@ -1,6 +1,6 @@
 {
   "name": "create-solana-dapp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create a Solana dApp template for quick-starting!",
   "bin": "./dist/index.js",
   "main": "./dist/index.js",
