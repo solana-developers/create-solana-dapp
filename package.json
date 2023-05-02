@@ -56,14 +56,14 @@
     "yarn"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/solana-developers/create-solana-app#readme",
+  "homepage": "https://github.com/solana-developers/create-solana-dapp#readme",
   "bugs": {
-    "url": "https://github.com/solana-developers/create-solana-app/issues"
+    "url": "https://github.com/solana-developers/create-solana-dapp/issues"
   },
   "repository": {
     "name": "solana-developers/create-solana-dapp",
     "type": "git",
-    "url": "https://github.com/solana-developers/create-solana-app"
+    "url": "https://github.com/solana-developers/create-solana-dapp"
   },
   "contributors": [
     {
