@@ -53,7 +53,9 @@
     "react",
     "vue",
     "web3",
-    "yarn"
+    "yarn",
+    "blockchain",
+    "nft"
   ],
   "license": "MIT",
   "homepage": "https://github.com/solana-developers/create-solana-dapp#readme",

@@ -4,16 +4,23 @@ import { execSync } from "child_process";
 import fsExtra from "fs-extra";
 import path from "path";
 
-import { githubCloneUrlMap } from './constants';
-
+import { githubCloneUrlMap } from "./constants";
 
 export function shouldUseGit(): void {
   try {
     execSync("git --version", { stdio: "ignore" });
   } catch (error) {
-    console.error(`${chalk.greenBright("git")} is necessary for ${chalk.magentaBright("create-solana-dapp")}. Install via the official documentation:`);
+    console.error(
+      `${chalk.greenBright("git")} is necessary for ${chalk.magentaBright(
+        "create-solana-dapp",
+      )}. Install via the official documentation:`,
+    );
     console.log();
-    console.log(chalk.greenBright("  https://git-scm.com/book/en/v2/Getting-Started-Installing-Git"));
+    console.log(
+      chalk.greenBright(
+        "  https://git-scm.com/book/en/v2/Getting-Started-Installing-Git",
+      ),
+    );
     process.exit(1);
   }
 }
@@ -26,7 +33,7 @@ export function tryGitInit(dir: string): boolean {
     try {
       fsExtra.removeSync(path.join(dir, ".git"));
     } catch (_) {
-      //
+      // do nothing
     }
     return false;
   }
@@ -39,16 +46,30 @@ export async function cloneUi(framework: string, root: string): Promise<void> {
   execSync(`rm -rf ${root}/app/.git`, { stdio: "ignore" });
 }
 
-export async function cloneProgram(program: string, root: string, dappName: string): Promise<void> {
+export async function cloneProgram(
+  program: string,
+  root: string,
+  dappName: string,
+): Promise<void> {
   const gitCloneUrl = githubCloneUrlMap.get(program);
   assert(gitCloneUrl);
   await gitClone(gitCloneUrl, root + "/temp");
-  execSync(`mv ${root}/temp/templates/${program} ${root}/program`, { stdio: "ignore" });
+  execSync(`mv ${root}/temp/templates/${program} ${root}/program`, {
+    stdio: "ignore",
+  });
   if (program === "anchor") {
-    execSync(`mv ${root}/program/programs/some-program-name ${root}/program/programs/${dappName}`, { stdio: "ignore" });
-    execSync(`mv ${root}/program/tests/some-program-name.ts ${root}/program/tests/${dappName}.ts`, { stdio: "ignore" });
+    execSync(
+      `mv ${root}/program/programs/some-program-name ${root}/program/programs/${dappName}`,
+      { stdio: "ignore" },
+    );
+    execSync(
+      `mv ${root}/program/tests/some-program-name.ts ${root}/program/tests/${dappName}.ts`,
+      { stdio: "ignore" },
+    );
   }
-  execSync(`mv ${root}/temp/templates/README.md ${root}/README.md`, { stdio: "ignore" });
+  execSync(`mv ${root}/temp/templates/README.md ${root}/README.md`, {
+    stdio: "ignore",
+  });
   execSync(`rm -rf ${root}/temp`, { stdio: "ignore" });
 }
 
@@ -61,9 +82,7 @@ async function gitClone(repository: string, targetDir: string) {
 }
 
 function throwGitCloneError(repository: string): void {
-  console.error(
-      `Error cloning repository: ${chalk.red(`"${repository}"`)}.`,
-  );
+  console.error(`Error cloning repository: ${chalk.red(`"${repository}"`)}.`);
   console.log();
   process.exit(1);
 }
