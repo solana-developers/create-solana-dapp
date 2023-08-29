@@ -1,5 +1,5 @@
-import * as anchor from "@project-serum/anchor";
-import { Program } from "@project-serum/anchor";
+import * as anchor from "@coral-xyz/anchor";
+import { Program } from "@coral-xyz/anchor";
 import { {{ dapp_name_camel_upper }} } from "../target/types/{{ dapp_name_snake }}";
 
 describe("{{ dapp_name }}", () => {
