@@ -1,18 +1,31 @@
 # Anchor Solana Program
 
+First run `anchor build` to build the program.
+Then run `anchor keys sync` to update the program ID of the project.
 ```shell
 anchor build
+anchor keys sync
+```
+
+To deploy the program run `anchor deploy`.
+```shell
 anchor deploy
 ```
 
-Copy the **program ID** from the output logs; paste it in `Anchor.toml` & `lib.rs`.
-
+To run the tests, first install dependencies:
 ```shell
-anchor build
-anchor deploy
-
 yarn install
 yarn add ts-mocha
-
-anchor run test
 ```
+
+Next, run `anchor test` to run the test file.
+```shell
+anchor test
+```
+
+When running `anchor test` locally, Anchor will by default:
+- start the local test validator
+- build the program
+- deploy the program to the local test validator
+- run the test file
+- stop the local test validator

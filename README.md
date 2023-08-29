@@ -6,10 +6,10 @@ Just run `npx create-solana-dapp <dapp-name>` to generate a project template!
 
 [Find it on NPM JS](https://www.npmjs.com/package/create-solana-dapp)
 
-| Option           | Description                    | Choices              | Default  |
-| ---------------- | ------------------------------ | -------------------- | -------- |
-| `-f --framework` | UI framework.                  | `next` \| `vue`      | `next`   |
-| `-p --program`   | Program development framework. | `native` \| `anchor` | `anchor` |
+| Option           | Description                    | Choices                     | Default  |
+| ---------------- | ------------------------------ | --------------------------- | -------- |
+| `-f --framework` | UI framework.                  | `next` \| `vue` \| `svelte` | `next`   |
+| `-p --program`   | Program development framework. | `native` \| `anchor`        | `anchor` |
 
 ## UI Frameworks
 
