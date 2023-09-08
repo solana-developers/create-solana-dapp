@@ -16,11 +16,11 @@ export const githubApiUrlMap = new Map<string, string>([
   ],
   [
     "anchor",
-    "https://api.github.com/repos/solana-developers/create-solana-app/contents/templates/anchor?ref=main",
+    "https://api.github.com/repos/solana-developers/create-solana-dapp/contents/templates/anchor?ref=main",
   ],
   [
     "native",
-    "https://api.github.com/repos/solana-developers/create-solana-app/contents/templates/native?ref=main",
+    "https://api.github.com/repos/solana-developers/create-solana-dapp/contents/templates/native?ref=main",
   ],
 ]);
 
@@ -28,6 +28,6 @@ export const githubCloneUrlMap = new Map<string, string>([
   ["next", "https://github.com/solana-labs/dapp-scaffold.git"],
   ["vue", "https://github.com/solana-developers/dapp-scaffold-vue.git"],
   ["svelte", "https://github.com/solana-developers/dapp-scaffold-svelte.git"],
-  ["anchor", "https://github.com/solana-developers/create-solana-app.git"],
-  ["native", "https://github.com/solana-developers/create-solana-app.git"],
+  ["anchor", "https://github.com/solana-developers/create-solana-dapp.git"],
+  ["native", "https://github.com/solana-developers/create-solana-dapp.git"],
 ]);
