@@ -2,7 +2,9 @@
   "name": "@solana-developers/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "verify-yarn-lock": "ts-node ./verify-yarn-lock.ts"
+  },
   "private": true,
   "dependencies": {
     "@nx/devkit": "17.0.1",
