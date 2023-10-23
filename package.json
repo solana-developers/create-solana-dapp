@@ -1,0 +1,21 @@
+{
+  "name": "@solana-developers/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@nx/js": "17.0.1",
+    "@nx/workspace": "17.0.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "nx": "17.0.1",
+    "prettier": "^3.0.3"
+  },
+  "lint-staged": {
+    "*.{js,json,css,scss,md,ts,tsx,html,graphql}": [
+      "yarn nx format --uncommitted"
+    ]
+  }
+}
