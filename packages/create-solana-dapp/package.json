@@ -1,0 +1,13 @@
+{
+  "name": "create-solana-dapp",
+  "version": "0.0.1",
+  "dependencies": {
+    "create-nx-workspace": "17.0.1"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "typings": "./src/index.d.ts",
+  "bin": {
+    "create-solana-dapp": "./bin/index.js"
+  }
+}
