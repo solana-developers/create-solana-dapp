@@ -2,7 +2,8 @@
   "name": "create-solana-dapp",
   "version": "0.0.1",
   "dependencies": {
-    "create-nx-workspace": "17.0.1"
+    "create-nx-workspace": "17.0.1",
+    "tslib": "^2.3.0"
   },
   "type": "commonjs",
   "main": "./src/index.js",

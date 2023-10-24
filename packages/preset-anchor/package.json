@@ -1,0 +1,14 @@
+{
+  "name": "@solana-developers/preset-anchor",
+  "version": "0.0.1",
+  "dependencies": {
+    "@nx/devkit": "17.0.1",
+    "@solana-developers/preset-common": "*",
+    "tslib": "^2.3.0",
+    "@nx/js": "17.0.1"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "typings": "./src/index.d.ts",
+  "generators": "./generators.json"
+}

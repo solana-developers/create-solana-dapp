@@ -1,0 +1,10 @@
+{
+  "generators": {
+    "application": {
+      "factory": "./src/generators/application/application-react-generator",
+      "schema": "./src/generators/application/application-react-schema.json",
+      "description": "application generator",
+      "aliases": ["preset"]
+    }
+  }
+}

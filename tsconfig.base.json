@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@solana-developers/preset-anchor": ["packages/preset-anchor/src/index.ts"],
       "@solana-developers/preset-common": ["packages/preset-common/src/index.ts"],
       "@solana-developers/preset-next": ["packages/preset-next/src/index.ts"],
       "@solana-developers/preset-react": ["packages/preset-react/src/index.ts"]
