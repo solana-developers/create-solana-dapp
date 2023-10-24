@@ -1,0 +1,48 @@
+"use client"
+import { ReactNode } from 'react'
+import Link from 'next/link'
+import dynamic from "next/dynamic";
+
+const WalletMultiButton = dynamic(
+  async () =>
+    (await import("@solana/wallet-adapter-react-ui")).WalletMultiButton,
+  { ssr: false }
+)
+export function AppLayout({ children }: { children: ReactNode }) {
+  const { pathname } = { pathname: '' }
+  const pages = [
+    { label: 'Airdrop', path: '/airdrop' },
+    { label: 'Page 1', path: '/page-1' },
+    { label: 'Page 2', path: '/page-2' },
+  ]
+
+  return (
+    <div>
+      <div>
+        <div>
+          <Link href="/" >
+            <%= packageName %>
+          </Link>
+          <ul >
+            {pages.map(({ label, path }) => (
+              <li key={path}>
+                <Link href={path}>
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <WalletMultiButton />
+        </div>
+      </div>
+      <div>{children}</div>
+      <footer>
+        <aside>
+          <p>Generated with <%= packageName %>@<%= packageVersion %></p>
+        </aside>
+      </footer>
+    </div>
+  )
+}

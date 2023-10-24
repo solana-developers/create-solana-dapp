@@ -1,0 +1,10 @@
+{
+  "generators": {
+    "application": {
+      "factory": "./src/generators/application/application-next-generator",
+      "schema": "./src/generators/application/application-next-schema.json",
+      "description": "application generator",
+      "aliases": ["preset"]
+    }
+  }
+}

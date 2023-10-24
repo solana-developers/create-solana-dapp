@@ -19,4 +19,5 @@ export const packageVersion = {
   },
   bs58: '5.0.0',
   daisyui: '3.9.3',
+  encoding: '0.1.13',
 }

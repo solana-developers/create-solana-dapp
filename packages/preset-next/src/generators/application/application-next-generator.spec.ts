@@ -1,19 +1,16 @@
 import { getProjects, readProjectConfiguration, Tree } from '@nx/devkit'
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
 import { getRecursiveFileContents } from '@solana-developers/preset-common'
-import { normalizeApplicationReactSchema } from '../../utils/normalize-application-react-schema'
+import { ApplicationReactUiLibrary } from '@solana-developers/preset-react'
 
-import { applicationReactGenerator } from './application-react-generator'
-import {
-  ApplicationReactSchema,
-  ApplicationReactUiLibrary,
-  NormalizedApplicationReactSchema,
-} from './application-react-schema'
+import { normalizeApplicationNextSchema } from '../../utils'
+import { applicationNextGenerator } from './application-next-generator'
+import { ApplicationNextSchema, NormalizedApplicationNextSchema } from './application-next-schema'
 
-describe('application react generator', () => {
+describe('application generator', () => {
   let tree: Tree
-  const rawOptions: ApplicationReactSchema = { name: 'test-app' }
-  const options: NormalizedApplicationReactSchema = normalizeApplicationReactSchema(rawOptions)
+  const rawOptions: ApplicationNextSchema = { name: 'test-app' }
+  const options: NormalizedApplicationNextSchema = normalizeApplicationNextSchema(rawOptions)
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace()
@@ -21,7 +18,7 @@ describe('application react generator', () => {
 
   describe('default apps', () => {
     it.each([['none'], ['tailwind']])('should generate default app with "%s" ui', async (uiLibrary) => {
-      await applicationReactGenerator(tree, { ...rawOptions, uiLibrary: uiLibrary as ApplicationReactUiLibrary })
+      await applicationNextGenerator(tree, { ...rawOptions, uiLibrary: uiLibrary as ApplicationReactUiLibrary })
 
       const appConfig = readProjectConfiguration(tree, options.name)
       const anchorConfig = readProjectConfiguration(tree, options.anchorName)
@@ -35,11 +32,11 @@ describe('application react generator', () => {
   })
 
   describe('custom apps', () => {
-    it('should generate 4 React apps and 2 Anchor apps', async () => {
-      await applicationReactGenerator(tree, { ...rawOptions, uiLibrary: 'none' })
-      await applicationReactGenerator(tree, { ...rawOptions, name: 'app-1', uiLibrary: 'none' })
-      await applicationReactGenerator(tree, { ...rawOptions, name: 'app-2', uiLibrary: 'none' })
-      await applicationReactGenerator(tree, { ...rawOptions, name: 'app-3', anchorName: 'anchor-1', uiLibrary: 'none' })
+    it('should generate 4 Next apps and 2 Anchor apps', async () => {
+      await applicationNextGenerator(tree, { ...rawOptions, uiLibrary: 'none' })
+      await applicationNextGenerator(tree, { ...rawOptions, name: 'app-1', uiLibrary: 'none' })
+      await applicationNextGenerator(tree, { ...rawOptions, name: 'app-2', uiLibrary: 'none' })
+      await applicationNextGenerator(tree, { ...rawOptions, name: 'app-3', anchorName: 'anchor-1', uiLibrary: 'none' })
 
       const app0 = readProjectConfiguration(tree, options.name)
       const app1 = readProjectConfiguration(tree, 'app-1')
@@ -59,7 +56,7 @@ describe('application react generator', () => {
     })
 
     it('should generate app without anchor', async () => {
-      await applicationReactGenerator(tree, { ...rawOptions, uiLibrary: 'none', withAnchor: false })
+      await applicationNextGenerator(tree, { ...rawOptions, uiLibrary: 'none', withAnchor: false })
       const projects = getProjects(tree)
       const appProject = projects.has(options.name)
       const anchorProject = projects.has(options.anchorName)
