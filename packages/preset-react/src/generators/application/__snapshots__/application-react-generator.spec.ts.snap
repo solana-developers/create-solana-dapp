@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`application generator ui library: none should snapshot the generated structure 1`] = `
+exports[`application react generator default apps should generate default app with "none" ui 1`] = `
 "{
   ".prettierrc": {
     "path": "./.prettierrc",
@@ -310,7 +310,7 @@ exports[`application generator ui library: none should snapshot the generated st
 }"
 `;
 
-exports[`application generator ui library: tailwind should snapshot the generated structure 1`] = `
+exports[`application react generator default apps should generate default app with "tailwind" ui 1`] = `
 "{
   ".prettierrc": {
     "path": "./.prettierrc",

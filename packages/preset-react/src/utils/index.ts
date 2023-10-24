@@ -1,6 +1,6 @@
 export * from './application-react-dependencies'
-export * from './generate-react-application'
 export * from './application-substitutions'
 export * from './application-tailwind-config'
+export * from './generate-react-application'
+export * from './get-ui-dependencies'
 export * from './wallet-adapter-dependencies'
-export { getUiDependencies } from './get-ui-dependencies'

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "verify-package-versions": "ts-node ./verify-package-versions.ts",
     "verify-yarn-lock": "ts-node ./verify-yarn-lock.ts"
   },
   "private": true,
