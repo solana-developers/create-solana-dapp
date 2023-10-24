@@ -1,4 +1,11 @@
-import { formatFiles, generateFiles, installPackagesTask, Tree } from '@nx/devkit'
+import {
+  formatFiles,
+  generateFiles,
+  getProjects,
+  installPackagesTask,
+  readProjectConfiguration,
+  Tree,
+} from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { applicationAnchorGenerator } from '@solana-developers/preset-anchor'
 import { applicationCleanup } from '@solana-developers/preset-common'
@@ -41,15 +48,20 @@ export async function applicationReactGenerator(tree: Tree, rawOptions: Applicat
     await applicationTailwindConfig(tree, options.name)
   }
 
-  if (options.withAnchor) {
-    // Add the anchor dependencies.
-    await applicationAnchorGenerator(tree, { name: 'anchor', skipFormat: true })
+  if (options.withAnchor && !getProjects(tree).has(options.anchorName)) {
+    // Add the anchor application.
+    await applicationAnchorGenerator(tree, {
+      name: options.anchorName,
+      programName: options.anchorProgramName,
+      skipFormat: true,
+    })
   }
 
   // Format the files.
   if (!options.skipFormat) {
     await formatFiles(tree)
   }
+
   // Install the packages on exit.
   return () => {
     installPackagesTask(tree, true)

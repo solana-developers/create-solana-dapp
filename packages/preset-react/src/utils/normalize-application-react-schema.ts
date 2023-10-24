@@ -6,6 +6,8 @@ import {
 export function normalizeApplicationReactSchema(options: ApplicationReactSchema): NormalizedApplicationReactSchema {
   return {
     ...options,
+    anchorName: options.anchorName ?? 'anchor',
+    anchorProgramName: options.anchorProgramName ?? 'my-program',
     skipFormat: options.skipFormat ?? false,
     uiLibrary: options.uiLibrary ?? 'tailwind',
     withAnchor: options.withAnchor ?? true,
