@@ -1,0 +1,9 @@
+import { IDL } from '@<%= npmScope %>/anchor';
+
+export default async function Index() {
+  return (
+    <div>
+       <pre>{JSON.stringify(IDL, null, 2)}</pre>
+    </div>
+  )
+}

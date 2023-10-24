@@ -1,0 +1,581 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`application generator default apps should generate default app with "none" ui 1`] = `
+"{
+  ".prettierrc": {
+    "path": "./.prettierrc",
+    "isBinary": false,
+    "content": "{ \\"singleQuote\\": true }\\n"
+  },
+  "package.json": {
+    "path": "./package.json",
+    "isBinary": false,
+    "content": "{\\n  \\"name\\": \\"@proj/source\\",\\n  \\"dependencies\\": {\\n    \\"@coral-xyz/anchor\\": \\"^0.29.0\\",\\n    \\"@solana/wallet-adapter-base\\": \\"^0.9.23\\",\\n    \\"@solana/wallet-adapter-react\\": \\"^0.15.35\\",\\n    \\"@solana/wallet-adapter-react-ui\\": \\"^0.9.34\\",\\n    \\"@solana/wallet-adapter-solflare\\": \\"^0.6.28\\",\\n    \\"@solana/wallet-adapter-unsafe-burner\\": \\"^0.1.7\\",\\n    \\"@solana/web3.js\\": \\"1.87.2\\",\\n    \\"@swc/helpers\\": \\"~0.5.2\\",\\n    \\"bs58\\": \\"5.0.0\\",\\n    \\"encoding\\": \\"0.1.13\\",\\n    \\"next\\": \\"13.4.1\\",\\n    \\"react\\": \\"18.2.0\\",\\n    \\"react-dom\\": \\"18.2.0\\",\\n    \\"tslib\\": \\"^2.3.0\\"\\n  },\\n  \\"devDependencies\\": {\\n    \\"@nx/eslint\\": \\"17.0.1\\",\\n    \\"@nx/eslint-plugin\\": \\"17.0.1\\",\\n    \\"@nx/jest\\": \\"17.0.1\\",\\n    \\"@nx/js\\": \\"17.0.1\\",\\n    \\"@nx/next\\": \\"17.0.1\\",\\n    \\"@nx/react\\": \\"17.0.1\\",\\n    \\"@nx/rollup\\": \\"17.0.1\\",\\n    \\"@swc-node/register\\": \\"~1.6.7\\",\\n    \\"@swc/cli\\": \\"~0.1.62\\",\\n    \\"@swc/core\\": \\"~1.3.85\\",\\n    \\"@swc/jest\\": \\"0.2.20\\",\\n    \\"@testing-library/react\\": \\"14.0.0\\",\\n    \\"@types/jest\\": \\"^29.4.0\\",\\n    \\"@types/node\\": \\"18.14.2\\",\\n    \\"@types/react\\": \\"18.2.24\\",\\n    \\"@types/react-dom\\": \\"18.2.9\\",\\n    \\"@typescript-eslint/eslint-plugin\\": \\"^5.60.1\\",\\n    \\"@typescript-eslint/parser\\": \\"^5.60.1\\",\\n    \\"eslint\\": \\"~8.46.0\\",\\n    \\"eslint-config-next\\": \\"13.4.1\\",\\n    \\"eslint-config-prettier\\": \\"^9.0.0\\",\\n    \\"eslint-plugin-import\\": \\"2.27.5\\",\\n    \\"eslint-plugin-jsx-a11y\\": \\"6.7.1\\",\\n    \\"eslint-plugin-react\\": \\"7.32.2\\",\\n    \\"eslint-plugin-react-hooks\\": \\"4.6.0\\",\\n    \\"jest\\": \\"^29.4.1\\",\\n    \\"jest-environment-jsdom\\": \\"^29.4.1\\",\\n    \\"prettier\\": \\"^2.6.2\\",\\n    \\"ts-jest\\": \\"^29.1.0\\",\\n    \\"ts-node\\": \\"10.9.1\\",\\n    \\"typescript\\": \\"~5.1.3\\"\\n  }\\n}\\n"
+  },
+  "nx.json": {
+    "path": "./nx.json",
+    "isBinary": false,
+    "content": "{\\n  \\"affected\\": {\\n    \\"defaultBase\\": \\"main\\"\\n  },\\n  \\"targetDefaults\\": {\\n    \\"build\\": {\\n      \\"cache\\": true\\n    },\\n    \\"lint\\": {\\n      \\"cache\\": true,\\n      \\"inputs\\": [\\n        \\"default\\",\\n        \\"{workspaceRoot}/.eslintrc.json\\",\\n        \\"{workspaceRoot}/.eslintignore\\",\\n        \\"{workspaceRoot}/eslint.config.js\\"\\n      ]\\n    },\\n    \\"test\\": {\\n      \\"cache\\": true,\\n      \\"inputs\\": [\\"default\\", \\"^default\\", \\"{workspaceRoot}/jest.preset.js\\"]\\n    },\\n    \\"e2e\\": {\\n      \\"cache\\": true\\n    }\\n  },\\n  \\"generators\\": {\\n    \\"@nx/react\\": {\\n      \\"application\\": {\\n        \\"babel\\": true\\n      }\\n    },\\n    \\"@nx/next\\": {\\n      \\"application\\": {\\n        \\"style\\": \\"css\\",\\n        \\"linter\\": \\"eslint\\"\\n      }\\n    }\\n  }\\n}\\n"
+  },
+  "tsconfig.base.json": {
+    "path": "./tsconfig.base.json",
+    "isBinary": false,
+    "content": "{\\n  \\"compilerOptions\\": {\\n    \\"paths\\": {\\n      \\"@proj/anchor\\": [\\"anchor/index.ts\\"]\\n    }\\n  }\\n}\\n"
+  },
+  ".prettierignore": {
+    "path": "./.prettierignore",
+    "isBinary": false,
+    "content": "# Add files here to ignore them from prettier formatting\\n/dist\\n/coverage\\n/.nx/cache\\n.anchor\\n.DS_Store\\ntarget\\nnode_modules\\ndist\\nbuild\\ntest-ledger"
+  },
+  "test-app": {
+    "path": "./test-app",
+    "children": {
+      "index.d.ts": {
+        "path": "./test-app/index.d.ts",
+        "isBinary": false,
+        "content": "/* eslint-disable @typescript-eslint/no-explicit-any */\\ndeclare module '*.svg' {\\n  const content: any;\\n  export const ReactComponent: any;\\n  export default content;\\n}\\n"
+      },
+      "next-env.d.ts": {
+        "path": "./test-app/next-env.d.ts",
+        "isBinary": false,
+        "content": "/// <reference types=\\"next\\" />\\n/// <reference types=\\"next/image-types/global\\" />\\n\\n// NOTE: This file should not be edited\\n// see https://nextjs.org/docs/basic-features/typescript for more information.\\n"
+      },
+      "next.config.js": {
+        "path": "./test-app/next.config.js",
+        "isBinary": false,
+        "content": "//@ts-check\\n\\n// eslint-disable-next-line @typescript-eslint/no-var-requires\\nconst { composePlugins, withNx } = require('@nx/next');\\n\\n/**\\n * @type {import('@nx/next/plugins/with-nx').WithNxOptions}\\n **/\\nconst nextConfig = {\\n  nx: {\\n    // Set this to true if you would like to use SVGR\\n    // See: https://github.com/gregberge/svgr\\n    svgr: false,\\n  },\\n};\\n\\nconst plugins = [\\n  // Add more Next.js plugins to this list if needed.\\n  withNx,\\n];\\n\\nmodule.exports = composePlugins(...plugins)(nextConfig);\\n"
+      },
+      "public": {
+        "path": "./test-app/public",
+        "children": {
+          ".gitkeep": {
+            "path": "./test-app/public/.gitkeep",
+            "isBinary": false,
+            "content": ""
+          },
+          "favicon.ico": {
+            "path": "./test-app/public/favicon.ico",
+            "isBinary": true,
+            "content": null
+          },
+          "solana-logo.png": {
+            "path": "./test-app/public/solana-logo.png",
+            "isBinary": true,
+            "content": null
+          }
+        }
+      },
+      "tsconfig.json": {
+        "path": "./test-app/tsconfig.json",
+        "isBinary": false,
+        "content": "{\\n  \\"extends\\": \\"../tsconfig.base.json\\",\\n  \\"compilerOptions\\": {\\n    \\"jsx\\": \\"preserve\\",\\n\\n    \\"allowJs\\": true,\\n    \\"esModuleInterop\\": true,\\n    \\"allowSyntheticDefaultImports\\": true,\\n    \\"strict\\": true,\\n    \\"forceConsistentCasingInFileNames\\": true,\\n    \\"noEmit\\": true,\\n    \\"resolveJsonModule\\": true,\\n    \\"isolatedModules\\": true,\\n    \\"incremental\\": true,\\n    \\"plugins\\": [{ \\"name\\": \\"next\\" }]\\n  },\\n  \\"include\\": [\\n    \\"**/*.ts\\",\\n    \\"**/*.tsx\\",\\n    \\"**/*.js\\",\\n    \\"**/*.jsx\\",\\n\\n    \\"../test-app/.next/types/**/*.ts\\",\\n    \\"../dist/test-app/.next/types/**/*.ts\\",\\n\\n    \\"next-env.d.ts\\"\\n  ],\\n  \\"exclude\\": [\\n    \\"node_modules\\",\\n    \\"jest.config.ts\\",\\n    \\"src/**/*.spec.ts\\",\\n    \\"src/**/*.test.ts\\"\\n  ]\\n}\\n"
+      },
+      "app": {
+        "path": "./test-app/app",
+        "children": {
+          "api": {
+            "path": "./test-app/app/api",
+            "children": {
+              "hello": {
+                "path": "./test-app/app/api/hello",
+                "children": {
+                  "route.ts": {
+                    "path": "./test-app/app/api/hello/route.ts",
+                    "isBinary": false,
+                    "content": "export async function GET(request: Request) {\\n  return new Response('Hello, from API!');\\n}\\n"
+                  }
+                }
+              }
+            }
+          },
+          "global.css": {
+            "path": "./test-app/app/global.css",
+            "isBinary": false,
+            "content": "html,\\nbody {\\n  height: 100%;\\n}\\n"
+          },
+          "page.module.css": {
+            "path": "./test-app/app/page.module.css",
+            "isBinary": false,
+            "content": ".page {\\n}\\n"
+          },
+          "page.tsx": {
+            "path": "./test-app/app/page.tsx",
+            "isBinary": false,
+            "content": "import { IDL } from '@proj/anchor';\\n\\nexport default async function Index() {\\n  return (\\n    <div>\\n      <pre>{JSON.stringify(IDL, null, 2)}</pre>\\n    </div>\\n  );\\n}\\n"
+          },
+          "layout.tsx": {
+            "path": "./test-app/app/layout.tsx",
+            "isBinary": false,
+            "content": "import './global.css';\\nimport { AppLayout } from './app-layout';\\nimport { SolanaProvider } from './solana-provider';\\n\\nexport const metadata = {\\n  title: 'Welcome to test-app',\\n  description: 'Generated by @solana-developers/preset-next@0.0.1',\\n};\\n\\nexport default function RootLayout({\\n  children,\\n}: {\\n  children: React.ReactNode;\\n}) {\\n  return (\\n    <html lang=\\"en\\">\\n      <body>\\n        <SolanaProvider>\\n          <AppLayout>{children}</AppLayout>\\n        </SolanaProvider>\\n      </body>\\n    </html>\\n  );\\n}\\n"
+          },
+          "app-layout.tsx": {
+            "path": "./test-app/app/app-layout.tsx",
+            "isBinary": false,
+            "content": "'use client';\\nimport { ReactNode } from 'react';\\nimport Link from 'next/link';\\nimport dynamic from 'next/dynamic';\\n\\nconst WalletMultiButton = dynamic(\\n  async () =>\\n    (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,\\n  { ssr: false }\\n);\\nexport function AppLayout({ children }: { children: ReactNode }) {\\n  const { pathname } = { pathname: '' };\\n  const pages = [\\n    { label: 'Airdrop', path: '/airdrop' },\\n    { label: 'Page 1', path: '/page-1' },\\n    { label: 'Page 2', path: '/page-2' },\\n  ];\\n\\n  return (\\n    <div>\\n      <div>\\n        <div>\\n          <Link href=\\"/\\">@solana-developers/preset-next</Link>\\n          <ul>\\n            {pages.map(({ label, path }) => (\\n              <li key={path}>\\n                <Link href={path}>{label}</Link>\\n              </li>\\n            ))}\\n          </ul>\\n        </div>\\n        <div>\\n          <WalletMultiButton />\\n        </div>\\n      </div>\\n      <div>{children}</div>\\n      <footer>\\n        <aside>\\n          <p>Generated with @solana-developers/preset-next@0.0.1</p>\\n        </aside>\\n      </footer>\\n    </div>\\n  );\\n}\\n"
+          },
+          "solana-provider.tsx": {
+            "path": "./test-app/app/solana-provider.tsx",
+            "isBinary": false,
+            "content": "'use client';\\nimport { WalletError } from '@solana/wallet-adapter-base';\\nimport {\\n  ConnectionProvider,\\n  WalletProvider,\\n} from '@solana/wallet-adapter-react';\\nimport { WalletModalProvider } from '@solana/wallet-adapter-react-ui';\\nimport { SolflareWalletAdapter } from '@solana/wallet-adapter-solflare';\\nimport { UnsafeBurnerWalletAdapter } from '@solana/wallet-adapter-unsafe-burner';\\nimport { Cluster, clusterApiUrl } from '@solana/web3.js';\\nimport {\\n  createContext,\\n  ReactNode,\\n  useCallback,\\n  useContext,\\n  useMemo,\\n  useState,\\n} from 'react';\\n\\nrequire('@solana/wallet-adapter-react-ui/styles.css');\\n\\nexport interface SolanaProviderContext {\\n  cluster: Cluster;\\n  endpoint: string;\\n  setCluster?: (cluster: Cluster) => void;\\n}\\n\\nconst Context = createContext<SolanaProviderContext>(\\n  {} as SolanaProviderContext\\n);\\n\\nexport function SolanaProvider({ children }: { children: ReactNode }) {\\n  const [cluster, setCluster] = useState<Cluster>('devnet');\\n  const endpoint = useMemo(() => clusterApiUrl(cluster), [cluster]);\\n  const wallets = useMemo(\\n    () => [new UnsafeBurnerWalletAdapter(), new SolflareWalletAdapter()],\\n    [cluster]\\n  );\\n\\n  const onError = useCallback((error: WalletError) => {\\n    console.error(error);\\n  }, []);\\n\\n  const value: SolanaProviderContext = {\\n    cluster,\\n    endpoint,\\n    setCluster,\\n  };\\n  return (\\n    <ConnectionProvider endpoint={endpoint}>\\n      <WalletProvider wallets={wallets} onError={onError} autoConnect={true}>\\n        <WalletModalProvider>\\n          <Context.Provider value={value}>{children}</Context.Provider>\\n        </WalletModalProvider>\\n      </WalletProvider>\\n    </ConnectionProvider>\\n  );\\n}\\n\\nexport function useSolana() {\\n  return useContext(Context);\\n}\\n"
+          }
+        }
+      },
+      "project.json": {
+        "path": "./test-app/project.json",
+        "isBinary": false,
+        "content": "{\\n  \\"name\\": \\"test-app\\",\\n  \\"$schema\\": \\"../node_modules/nx/schemas/project-schema.json\\",\\n  \\"sourceRoot\\": \\"test-app\\",\\n  \\"projectType\\": \\"application\\",\\n  \\"targets\\": {\\n    \\"build\\": {\\n      \\"executor\\": \\"@nx/next:build\\",\\n      \\"outputs\\": [\\"{options.outputPath}\\"],\\n      \\"defaultConfiguration\\": \\"production\\",\\n      \\"options\\": {\\n        \\"outputPath\\": \\"dist/test-app\\"\\n      },\\n      \\"configurations\\": {\\n        \\"development\\": {\\n          \\"outputPath\\": \\"test-app\\"\\n        },\\n        \\"production\\": {}\\n      }\\n    },\\n    \\"serve\\": {\\n      \\"executor\\": \\"@nx/next:server\\",\\n      \\"defaultConfiguration\\": \\"development\\",\\n      \\"options\\": {\\n        \\"buildTarget\\": \\"test-app:build\\",\\n        \\"dev\\": true\\n      },\\n      \\"configurations\\": {\\n        \\"development\\": {\\n          \\"buildTarget\\": \\"test-app:build:development\\",\\n          \\"dev\\": true\\n        },\\n        \\"production\\": {\\n          \\"buildTarget\\": \\"test-app:build:production\\",\\n          \\"dev\\": false\\n        }\\n      }\\n    },\\n    \\"export\\": {\\n      \\"executor\\": \\"@nx/next:export\\",\\n      \\"options\\": {\\n        \\"buildTarget\\": \\"test-app:build:production\\"\\n      }\\n    },\\n    \\"lint\\": {\\n      \\"executor\\": \\"@nx/eslint:lint\\",\\n      \\"outputs\\": [\\"{options.outputFile}\\"],\\n      \\"options\\": {\\n        \\"lintFilePatterns\\": [\\"test-app/**/*.{ts,tsx,js,jsx}\\"]\\n      }\\n    }\\n  },\\n  \\"tags\\": []\\n}\\n"
+      },
+      ".eslintrc.json": {
+        "path": "./test-app/.eslintrc.json",
+        "isBinary": false,
+        "content": "{\\n  \\"extends\\": [\\n    \\"plugin:@nx/react-typescript\\",\\n    \\"next\\",\\n    \\"next/core-web-vitals\\",\\n    \\"../.eslintrc.json\\"\\n  ],\\n  \\"ignorePatterns\\": [\\"!**/*\\", \\".next/**/*\\"],\\n  \\"overrides\\": [\\n    {\\n      \\"files\\": [\\"*.*\\"],\\n      \\"rules\\": {\\n        \\"@next/next/no-html-link-for-pages\\": \\"off\\"\\n      }\\n    },\\n    {\\n      \\"files\\": [\\"*.ts\\", \\"*.tsx\\", \\"*.js\\", \\"*.jsx\\"],\\n      \\"rules\\": {\\n        \\"@next/next/no-html-link-for-pages\\": [\\"error\\", \\"test-app/pages\\"]\\n      }\\n    },\\n    {\\n      \\"files\\": [\\"*.ts\\", \\"*.tsx\\"],\\n      \\"rules\\": {}\\n    },\\n    {\\n      \\"files\\": [\\"*.js\\", \\"*.jsx\\"],\\n      \\"rules\\": {}\\n    }\\n  ]\\n}\\n"
+      }
+    }
+  },
+  ".eslintrc.json": {
+    "path": "./.eslintrc.json",
+    "isBinary": false,
+    "content": "{\\n  \\"root\\": true,\\n  \\"ignorePatterns\\": [\\"**/*\\"],\\n  \\"plugins\\": [\\"@nx\\"],\\n  \\"overrides\\": [\\n    {\\n      \\"files\\": [\\"*.ts\\", \\"*.tsx\\", \\"*.js\\", \\"*.jsx\\"],\\n      \\"rules\\": {\\n        \\"@nx/enforce-module-boundaries\\": [\\n          \\"error\\",\\n          {\\n            \\"enforceBuildableLibDependency\\": true,\\n            \\"allow\\": [],\\n            \\"depConstraints\\": [\\n              {\\n                \\"sourceTag\\": \\"*\\",\\n                \\"onlyDependOnLibsWithTags\\": [\\"*\\"]\\n              }\\n            ]\\n          }\\n        ]\\n      }\\n    },\\n    {\\n      \\"files\\": [\\"*.ts\\", \\"*.tsx\\"],\\n      \\"extends\\": [\\"plugin:@nx/typescript\\"],\\n      \\"rules\\": {}\\n    },\\n    {\\n      \\"files\\": [\\"*.js\\", \\"*.jsx\\"],\\n      \\"extends\\": [\\"plugin:@nx/javascript\\"],\\n      \\"rules\\": {}\\n    }\\n  ]\\n}\\n"
+  },
+  ".eslintignore": {
+    "path": "./.eslintignore",
+    "isBinary": false,
+    "content": "node_modules\\n"
+  },
+  "anchor": {
+    "path": "./anchor",
+    "children": {
+      "tsconfig.json": {
+        "path": "./anchor/tsconfig.json",
+        "isBinary": false,
+        "content": "{\\n  \\"extends\\": \\"../tsconfig.base.json\\",\\n  \\"compilerOptions\\": {\\n    \\"module\\": \\"commonjs\\"\\n  },\\n  \\"files\\": [],\\n  \\"include\\": [],\\n  \\"references\\": [\\n    {\\n      \\"path\\": \\"./tsconfig.lib.json\\"\\n    },\\n    {\\n      \\"path\\": \\"./tsconfig.spec.json\\"\\n    }\\n  ]\\n}\\n"
+      },
+      "README.md": {
+        "path": "./anchor/README.md",
+        "isBinary": false,
+        "content": "# anchor\\n\\nThis library was generated with [Nx](https://nx.dev).\\n\\n## Building\\n\\nRun \`nx build anchor\` to build the library.\\n\\n## Running unit tests\\n\\nRun \`nx test anchor\` to execute the unit tests via [Jest](https://jestjs.io).\\n"
+      },
+      "tsconfig.lib.json": {
+        "path": "./anchor/tsconfig.lib.json",
+        "isBinary": false,
+        "content": "{\\n  \\"extends\\": \\"./tsconfig.json\\",\\n  \\"compilerOptions\\": {\\n    \\"outDir\\": \\"../dist/out-tsc\\",\\n    \\"declaration\\": true,\\n    \\"types\\": [\\"node\\"],\\n    \\"rootDir\\": \\".\\"\\n  },\\n  \\"include\\": [\\"**/*.ts\\"],\\n  \\"exclude\\": [\\"jest.config.ts\\", \\"**/*.spec.ts\\", \\"**/*.test.ts\\"]\\n}\\n"
+      },
+      ".swcrc": {
+        "path": "./anchor/.swcrc",
+        "isBinary": false,
+        "content": "{\\n  \\"jsc\\": {\\n    \\"target\\": \\"es2017\\",\\n    \\"parser\\": {\\n      \\"syntax\\": \\"typescript\\",\\n      \\"decorators\\": true,\\n      \\"dynamicImport\\": true\\n    },\\n    \\"transform\\": {\\n      \\"decoratorMetadata\\": true,\\n      \\"legacyDecorator\\": true\\n    },\\n    \\"keepClassNames\\": true,\\n    \\"externalHelpers\\": true,\\n    \\"loose\\": true\\n  },\\n  \\"module\\": {\\n    \\"type\\": \\"es6\\"\\n  },\\n  \\"sourceMaps\\": true,\\n  \\"exclude\\": [\\n    \\"jest.config.ts\\",\\n    \\".*\\\\\\\\.spec.tsx?$\\",\\n    \\".*\\\\\\\\.test.tsx?$\\",\\n    \\"./jest-setup.ts$\\",\\n    \\"./**/jest-setup.ts$\\",\\n    \\".*.js$\\"\\n  ]\\n}\\n"
+      },
+      "package.json": {
+        "path": "./anchor/package.json",
+        "isBinary": false,
+        "content": "{\\n  \\"name\\": \\"@proj/anchor\\",\\n  \\"version\\": \\"0.0.1\\",\\n  \\"dependencies\\": {},\\n  \\"type\\": \\"commonjs\\",\\n  \\"main\\": \\"./index.cjs\\",\\n  \\"module\\": \\"./index.js\\"\\n}\\n"
+      },
+      "project.json": {
+        "path": "./anchor/project.json",
+        "isBinary": false,
+        "content": "{\\n  \\"name\\": \\"anchor\\",\\n  \\"$schema\\": \\"../node_modules/nx/schemas/project-schema.json\\",\\n  \\"sourceRoot\\": \\"anchor\\",\\n  \\"projectType\\": \\"library\\",\\n  \\"targets\\": {\\n    \\"build\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor\\",\\n        \\"commands\\": [\\"anchor build\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"lint\\": {\\n      \\"executor\\": \\"@nx/eslint:lint\\",\\n      \\"outputs\\": [\\"{options.outputFile}\\"],\\n      \\"options\\": {\\n        \\"lintFilePatterns\\": [\\"anchor/**/*.ts\\", \\"anchor/package.json\\"]\\n      }\\n    },\\n    \\"test\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor\\",\\n        \\"commands\\": [\\"anchor test\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"clean\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor\\",\\n        \\"commands\\": [\\"anchor clean\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"deploy\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor\\",\\n        \\"commands\\": [\\"anchor deploy\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"localnet\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor\\",\\n        \\"commands\\": [\\"anchor localnet\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"publish\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor\\",\\n        \\"commands\\": [\\"anchor publish\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"jest\\": {\\n      \\"executor\\": \\"@nx/jest:jest\\",\\n      \\"outputs\\": [\\"{workspaceRoot}/coverage/{projectRoot}\\"],\\n      \\"options\\": {\\n        \\"jestConfig\\": \\"anchor/jest.config.ts\\",\\n        \\"passWithNoTests\\": true\\n      },\\n      \\"configurations\\": {\\n        \\"ci\\": {\\n          \\"ci\\": true,\\n          \\"codeCoverage\\": true\\n        }\\n      }\\n    }\\n  },\\n  \\"tags\\": []\\n}\\n"
+      },
+      ".eslintrc.json": {
+        "path": "./anchor/.eslintrc.json",
+        "isBinary": false,
+        "content": "{\\n  \\"extends\\": [\\"../.eslintrc.json\\"],\\n  \\"ignorePatterns\\": [\\"!**/*\\"],\\n  \\"overrides\\": [\\n    {\\n      \\"files\\": [\\"*.ts\\", \\"*.tsx\\", \\"*.js\\", \\"*.jsx\\"],\\n      \\"rules\\": {}\\n    },\\n    {\\n      \\"files\\": [\\"*.ts\\", \\"*.tsx\\"],\\n      \\"rules\\": {}\\n    },\\n    {\\n      \\"files\\": [\\"*.js\\", \\"*.jsx\\"],\\n      \\"rules\\": {}\\n    },\\n    {\\n      \\"files\\": [\\"*.json\\"],\\n      \\"parser\\": \\"jsonc-eslint-parser\\",\\n      \\"rules\\": {\\n        \\"@nx/dependency-checks\\": [\\n          \\"error\\",\\n          {\\n            \\"ignoredFiles\\": [\\"{projectRoot}/rollup.config.{js,ts,mjs,mts}\\"]\\n          }\\n        ]\\n      }\\n    }\\n  ]\\n}\\n"
+      },
+      "jest.config.ts": {
+        "path": "./anchor/jest.config.ts",
+        "isBinary": false,
+        "content": "/* eslint-disable */\\nimport { readFileSync } from 'fs';\\n\\n// Reading the SWC compilation config and remove the \\"exclude\\"\\n// for the test files to be compiled by SWC\\nconst { exclude: _, ...swcJestConfig } = JSON.parse(\\n  readFileSync(\`\${__dirname}/.swcrc\`, 'utf-8')\\n);\\n\\n// disable .swcrc look-up by SWC core because we're passing in swcJestConfig ourselves.\\n// If we do not disable this, SWC Core will read .swcrc and won't transform our test files due to \\"exclude\\"\\nif (swcJestConfig.swcrc === undefined) {\\n  swcJestConfig.swcrc = false;\\n}\\n\\n// Uncomment if using global setup/teardown files being transformed via swc\\n// https://nx.dev/packages/jest/documents/overview#global-setup/teardown-with-nx-libraries\\n// jest needs EsModule Interop to find the default exported setup/teardown functions\\n// swcJestConfig.module.noInterop = false;\\n\\nexport default {\\n  displayName: 'anchor',\\n  preset: '../jest.preset.js',\\n  transform: {\\n    '^.+\\\\\\\\.[tj]s$': ['@swc/jest', swcJestConfig],\\n  },\\n  moduleFileExtensions: ['ts', 'js', 'html'],\\n  testEnvironment: '',\\n  coverageDirectory: '../coverage/anchor',\\n};\\n"
+      },
+      "tsconfig.spec.json": {
+        "path": "./anchor/tsconfig.spec.json",
+        "isBinary": false,
+        "content": "{\\n  \\"extends\\": \\"./tsconfig.json\\",\\n  \\"compilerOptions\\": {\\n    \\"outDir\\": \\"../dist/out-tsc\\",\\n    \\"module\\": \\"commonjs\\",\\n    \\"types\\": [\\"jest\\", \\"node\\"],\\n    \\"rootDir\\": \\".\\"\\n  },\\n  \\"include\\": [\\"jest.config.ts\\", \\"**/*.test.ts\\", \\"**/*.spec.ts\\", \\"**/*.d.ts\\"]\\n}\\n"
+      },
+      "Anchor.toml": {
+        "path": "./anchor/Anchor.toml",
+        "isBinary": false,
+        "content": "[features]\\nseeds = false\\nskip-lint = false\\n[programs.localnet]\\nmy_program = \\"EuJfgknXicf6iZASeagt5U6XDDPpLTQrvWPW31vgAwo8\\"\\n\\n[registry]\\nurl = \\"https://api.apr.dev\\"\\n\\n[provider]\\ncluster = \\"Localnet\\"\\nwallet = \\"~/.config/solana/id.json\\"\\n\\n[scripts]\\ntest = \\"../node_modules/.bin/nx run anchor:jest\\"\\n"
+      },
+      "Cargo.toml": {
+        "path": "./anchor/Cargo.toml",
+        "isBinary": false,
+        "content": "[workspace]\\nmembers = [\\n    \\"programs/*\\"\\n]\\nresolver = \\"2\\"\\n\\n[profile.release]\\noverflow-checks = true\\nlto = \\"fat\\"\\ncodegen-units = 1\\n[profile.release.build-override]\\nopt-level = 3\\nincremental = false\\ncodegen-units = 1\\n"
+      },
+      "index.ts": {
+        "path": "./anchor/index.ts",
+        "isBinary": false,
+        "content": "export * from './target/types/my_program';\\n"
+      },
+      "migrations": {
+        "path": "./anchor/migrations",
+        "children": {
+          "deploy.ts": {
+            "path": "./anchor/migrations/deploy.ts",
+            "isBinary": false,
+            "content": "// Migrations are an early feature. Currently, they're nothing more than this\\n// single deploy script that's invoked from the CLI, injecting a provider\\n// configured from the workspace's Anchor.toml.\\n\\nconst anchor = require('@coral-xyz/anchor');\\n\\nmodule.exports = async function (provider) {\\n  // Configure client to use the provider.\\n  anchor.setProvider(provider);\\n\\n  // Add your deploy script here.\\n};\\n"
+          }
+        }
+      },
+      "programs": {
+        "path": "./anchor/programs",
+        "children": {
+          "my-program": {
+            "path": "./anchor/programs/my-program",
+            "children": {
+              "Cargo.toml": {
+                "path": "./anchor/programs/my-program/Cargo.toml",
+                "isBinary": false,
+                "content": "[package]\\nname = \\"my-program\\"\\nversion = \\"0.1.0\\"\\ndescription = \\"Created with Anchor\\"\\nedition = \\"2021\\"\\n\\n[lib]\\ncrate-type = [\\"cdylib\\", \\"lib\\"]\\nname = \\"my_program\\"\\n\\n[features]\\nno-entrypoint = []\\nno-idl = []\\nno-log-ix-name = []\\ncpi = [\\"no-entrypoint\\"]\\ndefault = []\\n\\n[dependencies]\\nanchor-lang = \\"0.28.0\\"\\n"
+              },
+              "Xargo.toml": {
+                "path": "./anchor/programs/my-program/Xargo.toml",
+                "isBinary": false,
+                "content": "[target.bpfel-unknown-unknown.dependencies.std]\\nfeatures = []\\n"
+              },
+              "src": {
+                "path": "./anchor/programs/my-program/src",
+                "children": {
+                  "lib.rs": {
+                    "path": "./anchor/programs/my-program/src/lib.rs",
+                    "isBinary": false,
+                    "content": "use anchor_lang::prelude::*;\\n\\ndeclare_id!(\\"EuJfgknXicf6iZASeagt5U6XDDPpLTQrvWPW31vgAwo8\\");\\n\\n#[program]\\npub mod my_program {\\n    use super::*;\\n\\n    pub fn initialize(_ctx: Context<Initialize>) -> Result<()> {\\n        Ok(())\\n    }\\n}\\n\\n#[derive(Accounts)]\\npub struct Initialize {}\\n"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "target": {
+        "path": "./anchor/target",
+        "children": {
+          "types": {
+            "path": "./anchor/target/types",
+            "children": {
+              "my_program.ts": {
+                "path": "./anchor/target/types/my_program.ts",
+                "isBinary": false,
+                "content": "export type MyProgram = {\\n  version: '0.1.0';\\n  name: 'my_program';\\n  instructions: [\\n    {\\n      name: 'initialize';\\n      accounts: [];\\n      args: [];\\n    }\\n  ];\\n};\\n\\nexport const IDL: MyProgram = {\\n  version: '0.1.0',\\n  name: 'my_program',\\n  instructions: [\\n    {\\n      name: 'initialize',\\n      accounts: [],\\n      args: [],\\n    },\\n  ],\\n};\\n"
+              }
+            }
+          }
+        }
+      },
+      "tests": {
+        "path": "./anchor/tests",
+        "children": {
+          "my-program.spec.ts": {
+            "path": "./anchor/tests/my-program.spec.ts",
+            "isBinary": false,
+            "content": "import * as anchor from '@coral-xyz/anchor';\\nimport { Program } from '@coral-xyz/anchor';\\nimport { MyProgram } from '../target/types/my_program';\\n\\ndescribe('my-program', () => {\\n  // Configure the client to use the local cluster.\\n  anchor.setProvider(anchor.AnchorProvider.env());\\n\\n  const program = anchor.workspace.MyProgram as Program<MyProgram>;\\n\\n  it('Is initialized!', async () => {\\n    // Add your test here.\\n    const tx = await program.methods.initialize().rpc();\\n    console.log('Your transaction signature', tx);\\n  });\\n});\\n"
+          }
+        }
+      }
+    }
+  },
+  "jest.preset.js": {
+    "path": "./jest.preset.js",
+    "isBinary": false,
+    "content": "const nxPreset = require('@nx/jest/preset').default;\\n\\nmodule.exports = { ...nxPreset };\\n"
+  },
+  "jest.config.ts": {
+    "path": "./jest.config.ts",
+    "isBinary": false,
+    "content": "import { getJestProjects } from '@nx/jest';\\n\\nexport default {\\n  projects: getJestProjects(),\\n};\\n"
+  }
+}"
+`;
+
+exports[`application generator default apps should generate default app with "tailwind" ui 1`] = `
+"{
+  ".prettierrc": {
+    "path": "./.prettierrc",
+    "isBinary": false,
+    "content": "{ \\"singleQuote\\": true }\\n"
+  },
+  "package.json": {
+    "path": "./package.json",
+    "isBinary": false,
+    "content": "{\\n  \\"name\\": \\"@proj/source\\",\\n  \\"dependencies\\": {\\n    \\"@coral-xyz/anchor\\": \\"^0.29.0\\",\\n    \\"@solana/wallet-adapter-base\\": \\"^0.9.23\\",\\n    \\"@solana/wallet-adapter-react\\": \\"^0.15.35\\",\\n    \\"@solana/wallet-adapter-react-ui\\": \\"^0.9.34\\",\\n    \\"@solana/wallet-adapter-solflare\\": \\"^0.6.28\\",\\n    \\"@solana/wallet-adapter-unsafe-burner\\": \\"^0.1.7\\",\\n    \\"@solana/web3.js\\": \\"1.87.2\\",\\n    \\"@swc/helpers\\": \\"~0.5.2\\",\\n    \\"@tailwindcss/typography\\": \\"0.5.10\\",\\n    \\"bs58\\": \\"5.0.0\\",\\n    \\"daisyui\\": \\"3.9.3\\",\\n    \\"encoding\\": \\"0.1.13\\",\\n    \\"next\\": \\"13.4.1\\",\\n    \\"react\\": \\"18.2.0\\",\\n    \\"react-dom\\": \\"18.2.0\\",\\n    \\"tslib\\": \\"^2.3.0\\"\\n  },\\n  \\"devDependencies\\": {\\n    \\"@nx/eslint\\": \\"17.0.1\\",\\n    \\"@nx/eslint-plugin\\": \\"17.0.1\\",\\n    \\"@nx/jest\\": \\"17.0.1\\",\\n    \\"@nx/js\\": \\"17.0.1\\",\\n    \\"@nx/next\\": \\"17.0.1\\",\\n    \\"@nx/react\\": \\"17.0.1\\",\\n    \\"@nx/rollup\\": \\"17.0.1\\",\\n    \\"@swc-node/register\\": \\"~1.6.7\\",\\n    \\"@swc/cli\\": \\"~0.1.62\\",\\n    \\"@swc/core\\": \\"~1.3.85\\",\\n    \\"@swc/jest\\": \\"0.2.20\\",\\n    \\"@testing-library/react\\": \\"14.0.0\\",\\n    \\"@types/jest\\": \\"^29.4.0\\",\\n    \\"@types/node\\": \\"18.14.2\\",\\n    \\"@types/react\\": \\"18.2.24\\",\\n    \\"@types/react-dom\\": \\"18.2.9\\",\\n    \\"@typescript-eslint/eslint-plugin\\": \\"^5.60.1\\",\\n    \\"@typescript-eslint/parser\\": \\"^5.60.1\\",\\n    \\"autoprefixer\\": \\"10.4.13\\",\\n    \\"eslint\\": \\"~8.46.0\\",\\n    \\"eslint-config-next\\": \\"13.4.1\\",\\n    \\"eslint-config-prettier\\": \\"^9.0.0\\",\\n    \\"eslint-plugin-import\\": \\"2.27.5\\",\\n    \\"eslint-plugin-jsx-a11y\\": \\"6.7.1\\",\\n    \\"eslint-plugin-react\\": \\"7.32.2\\",\\n    \\"eslint-plugin-react-hooks\\": \\"4.6.0\\",\\n    \\"jest\\": \\"^29.4.1\\",\\n    \\"jest-environment-jsdom\\": \\"^29.4.1\\",\\n    \\"postcss\\": \\"8.4.21\\",\\n    \\"prettier\\": \\"^2.6.2\\",\\n    \\"tailwindcss\\": \\"3.2.7\\",\\n    \\"ts-jest\\": \\"^29.1.0\\",\\n    \\"ts-node\\": \\"10.9.1\\",\\n    \\"typescript\\": \\"~5.1.3\\"\\n  }\\n}\\n"
+  },
+  "nx.json": {
+    "path": "./nx.json",
+    "isBinary": false,
+    "content": "{\\n  \\"affected\\": {\\n    \\"defaultBase\\": \\"main\\"\\n  },\\n  \\"targetDefaults\\": {\\n    \\"build\\": {\\n      \\"cache\\": true\\n    },\\n    \\"lint\\": {\\n      \\"cache\\": true,\\n      \\"inputs\\": [\\n        \\"default\\",\\n        \\"{workspaceRoot}/.eslintrc.json\\",\\n        \\"{workspaceRoot}/.eslintignore\\",\\n        \\"{workspaceRoot}/eslint.config.js\\"\\n      ]\\n    },\\n    \\"test\\": {\\n      \\"cache\\": true,\\n      \\"inputs\\": [\\"default\\", \\"^default\\", \\"{workspaceRoot}/jest.preset.js\\"]\\n    },\\n    \\"e2e\\": {\\n      \\"cache\\": true\\n    }\\n  },\\n  \\"generators\\": {\\n    \\"@nx/react\\": {\\n      \\"application\\": {\\n        \\"babel\\": true\\n      }\\n    },\\n    \\"@nx/next\\": {\\n      \\"application\\": {\\n        \\"style\\": \\"css\\",\\n        \\"linter\\": \\"eslint\\"\\n      }\\n    }\\n  }\\n}\\n"
+  },
+  "tsconfig.base.json": {
+    "path": "./tsconfig.base.json",
+    "isBinary": false,
+    "content": "{\\n  \\"compilerOptions\\": {\\n    \\"paths\\": {\\n      \\"@proj/anchor\\": [\\"anchor/index.ts\\"]\\n    }\\n  }\\n}\\n"
+  },
+  ".prettierignore": {
+    "path": "./.prettierignore",
+    "isBinary": false,
+    "content": "# Add files here to ignore them from prettier formatting\\n/dist\\n/coverage\\n/.nx/cache\\n.anchor\\n.DS_Store\\ntarget\\nnode_modules\\ndist\\nbuild\\ntest-ledger"
+  },
+  "test-app": {
+    "path": "./test-app",
+    "children": {
+      "index.d.ts": {
+        "path": "./test-app/index.d.ts",
+        "isBinary": false,
+        "content": "/* eslint-disable @typescript-eslint/no-explicit-any */\\ndeclare module '*.svg' {\\n  const content: any;\\n  export const ReactComponent: any;\\n  export default content;\\n}\\n"
+      },
+      "next-env.d.ts": {
+        "path": "./test-app/next-env.d.ts",
+        "isBinary": false,
+        "content": "/// <reference types=\\"next\\" />\\n/// <reference types=\\"next/image-types/global\\" />\\n\\n// NOTE: This file should not be edited\\n// see https://nextjs.org/docs/basic-features/typescript for more information.\\n"
+      },
+      "next.config.js": {
+        "path": "./test-app/next.config.js",
+        "isBinary": false,
+        "content": "//@ts-check\\n\\n// eslint-disable-next-line @typescript-eslint/no-var-requires\\nconst { composePlugins, withNx } = require('@nx/next');\\n\\n/**\\n * @type {import('@nx/next/plugins/with-nx').WithNxOptions}\\n **/\\nconst nextConfig = {\\n  nx: {\\n    // Set this to true if you would like to use SVGR\\n    // See: https://github.com/gregberge/svgr\\n    svgr: false,\\n  },\\n};\\n\\nconst plugins = [\\n  // Add more Next.js plugins to this list if needed.\\n  withNx,\\n];\\n\\nmodule.exports = composePlugins(...plugins)(nextConfig);\\n"
+      },
+      "public": {
+        "path": "./test-app/public",
+        "children": {
+          ".gitkeep": {
+            "path": "./test-app/public/.gitkeep",
+            "isBinary": false,
+            "content": ""
+          },
+          "favicon.ico": {
+            "path": "./test-app/public/favicon.ico",
+            "isBinary": true,
+            "content": null
+          },
+          "solana-logo.png": {
+            "path": "./test-app/public/solana-logo.png",
+            "isBinary": true,
+            "content": null
+          }
+        }
+      },
+      "tsconfig.json": {
+        "path": "./test-app/tsconfig.json",
+        "isBinary": false,
+        "content": "{\\n  \\"extends\\": \\"../tsconfig.base.json\\",\\n  \\"compilerOptions\\": {\\n    \\"jsx\\": \\"preserve\\",\\n\\n    \\"allowJs\\": true,\\n    \\"esModuleInterop\\": true,\\n    \\"allowSyntheticDefaultImports\\": true,\\n    \\"strict\\": true,\\n    \\"forceConsistentCasingInFileNames\\": true,\\n    \\"noEmit\\": true,\\n    \\"resolveJsonModule\\": true,\\n    \\"isolatedModules\\": true,\\n    \\"incremental\\": true,\\n    \\"plugins\\": [{ \\"name\\": \\"next\\" }]\\n  },\\n  \\"include\\": [\\n    \\"**/*.ts\\",\\n    \\"**/*.tsx\\",\\n    \\"**/*.js\\",\\n    \\"**/*.jsx\\",\\n\\n    \\"../test-app/.next/types/**/*.ts\\",\\n    \\"../dist/test-app/.next/types/**/*.ts\\",\\n\\n    \\"next-env.d.ts\\"\\n  ],\\n  \\"exclude\\": [\\n    \\"node_modules\\",\\n    \\"jest.config.ts\\",\\n    \\"src/**/*.spec.ts\\",\\n    \\"src/**/*.test.ts\\"\\n  ]\\n}\\n"
+      },
+      "app": {
+        "path": "./test-app/app",
+        "children": {
+          "api": {
+            "path": "./test-app/app/api",
+            "children": {
+              "hello": {
+                "path": "./test-app/app/api/hello",
+                "children": {
+                  "route.ts": {
+                    "path": "./test-app/app/api/hello/route.ts",
+                    "isBinary": false,
+                    "content": "export async function GET(request: Request) {\\n  return new Response('Hello, from API!');\\n}\\n"
+                  }
+                }
+              }
+            }
+          },
+          "global.css": {
+            "path": "./test-app/app/global.css",
+            "isBinary": false,
+            "content": "@tailwind base;\\n@tailwind components;\\n@tailwind utilities;\\n\\nhtml,\\nbody {\\n  height: 100%;\\n}\\n"
+          },
+          "page.module.css": {
+            "path": "./test-app/app/page.module.css",
+            "isBinary": false,
+            "content": ".page {\\n}\\n"
+          },
+          "page.tsx": {
+            "path": "./test-app/app/page.tsx",
+            "isBinary": false,
+            "content": "import { IDL } from '@proj/anchor';\\n\\nexport default async function Index() {\\n  return (\\n    <div>\\n      <pre>{JSON.stringify(IDL, null, 2)}</pre>\\n    </div>\\n  );\\n}\\n"
+          },
+          "layout.tsx": {
+            "path": "./test-app/app/layout.tsx",
+            "isBinary": false,
+            "content": "import './global.css';\\nimport { AppLayout } from './app-layout';\\nimport { SolanaProvider } from './solana-provider';\\n\\nexport const metadata = {\\n  title: 'Welcome to test-app',\\n  description: 'Generated by @solana-developers/preset-next@0.0.1',\\n};\\n\\nexport default function RootLayout({\\n  children,\\n}: {\\n  children: React.ReactNode;\\n}) {\\n  return (\\n    <html lang=\\"en\\">\\n      <body>\\n        <SolanaProvider>\\n          <AppLayout>{children}</AppLayout>\\n        </SolanaProvider>\\n      </body>\\n    </html>\\n  );\\n}\\n"
+          },
+          "app-layout.tsx": {
+            "path": "./test-app/app/app-layout.tsx",
+            "isBinary": false,
+            "content": "'use client';\\nimport { ReactNode } from 'react';\\nimport Link from 'next/link';\\nimport dynamic from 'next/dynamic';\\n\\nconst WalletMultiButton = dynamic(\\n  async () =>\\n    (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,\\n  { ssr: false }\\n);\\nexport function AppLayout({ children }: { children: ReactNode }) {\\n  const { pathname } = { pathname: '' };\\n  const pages = [\\n    { label: 'Airdrop', path: '/airdrop' },\\n    { label: 'Page 1', path: '/page-1' },\\n    { label: 'Page 2', path: '/page-2' },\\n  ];\\n\\n  return (\\n    <div className=\\"h-full flex flex-col\\">\\n      <div className=\\"navbar bg-base-300 text-neutral-content\\">\\n        <div className=\\"flex-1\\">\\n          <Link href=\\"/\\" className=\\"btn btn-ghost normal-case text-xl\\">\\n            @solana-developers/preset-next\\n          </Link>\\n          <ul className=\\"menu menu-horizontal px-1\\">\\n            {pages.map(({ label, path }) => (\\n              <li key={path}>\\n                <Link\\n                  className={pathname.startsWith(path) ? 'active' : ''}\\n                  href={path}\\n                >\\n                  {label}\\n                </Link>\\n              </li>\\n            ))}\\n          </ul>\\n        </div>\\n        <div className=\\"flex-none\\">\\n          <WalletMultiButton />\\n        </div>\\n      </div>\\n      <div className=\\"flex-grow\\">{children}</div>\\n      <footer className=\\"footer footer-center p-4 bg-base-300 text-base-content\\">\\n        <aside>\\n          <p>Generated with @solana-developers/preset-next@0.0.1</p>\\n        </aside>\\n      </footer>\\n    </div>\\n  );\\n}\\n"
+          },
+          "solana-provider.tsx": {
+            "path": "./test-app/app/solana-provider.tsx",
+            "isBinary": false,
+            "content": "'use client';\\nimport { WalletError } from '@solana/wallet-adapter-base';\\nimport {\\n  ConnectionProvider,\\n  WalletProvider,\\n} from '@solana/wallet-adapter-react';\\nimport { WalletModalProvider } from '@solana/wallet-adapter-react-ui';\\nimport { SolflareWalletAdapter } from '@solana/wallet-adapter-solflare';\\nimport { UnsafeBurnerWalletAdapter } from '@solana/wallet-adapter-unsafe-burner';\\nimport { Cluster, clusterApiUrl } from '@solana/web3.js';\\nimport {\\n  createContext,\\n  ReactNode,\\n  useCallback,\\n  useContext,\\n  useMemo,\\n  useState,\\n} from 'react';\\n\\nrequire('@solana/wallet-adapter-react-ui/styles.css');\\n\\nexport interface SolanaProviderContext {\\n  cluster: Cluster;\\n  endpoint: string;\\n  setCluster?: (cluster: Cluster) => void;\\n}\\n\\nconst Context = createContext<SolanaProviderContext>(\\n  {} as SolanaProviderContext\\n);\\n\\nexport function SolanaProvider({ children }: { children: ReactNode }) {\\n  const [cluster, setCluster] = useState<Cluster>('devnet');\\n  const endpoint = useMemo(() => clusterApiUrl(cluster), [cluster]);\\n  const wallets = useMemo(\\n    () => [new UnsafeBurnerWalletAdapter(), new SolflareWalletAdapter()],\\n    [cluster]\\n  );\\n\\n  const onError = useCallback((error: WalletError) => {\\n    console.error(error);\\n  }, []);\\n\\n  const value: SolanaProviderContext = {\\n    cluster,\\n    endpoint,\\n    setCluster,\\n  };\\n  return (\\n    <ConnectionProvider endpoint={endpoint}>\\n      <WalletProvider wallets={wallets} onError={onError} autoConnect={true}>\\n        <WalletModalProvider>\\n          <Context.Provider value={value}>{children}</Context.Provider>\\n        </WalletModalProvider>\\n      </WalletProvider>\\n    </ConnectionProvider>\\n  );\\n}\\n\\nexport function useSolana() {\\n  return useContext(Context);\\n}\\n"
+          }
+        }
+      },
+      "project.json": {
+        "path": "./test-app/project.json",
+        "isBinary": false,
+        "content": "{\\n  \\"name\\": \\"test-app\\",\\n  \\"$schema\\": \\"../node_modules/nx/schemas/project-schema.json\\",\\n  \\"sourceRoot\\": \\"test-app\\",\\n  \\"projectType\\": \\"application\\",\\n  \\"targets\\": {\\n    \\"build\\": {\\n      \\"executor\\": \\"@nx/next:build\\",\\n      \\"outputs\\": [\\"{options.outputPath}\\"],\\n      \\"defaultConfiguration\\": \\"production\\",\\n      \\"options\\": {\\n        \\"outputPath\\": \\"dist/test-app\\"\\n      },\\n      \\"configurations\\": {\\n        \\"development\\": {\\n          \\"outputPath\\": \\"test-app\\"\\n        },\\n        \\"production\\": {}\\n      }\\n    },\\n    \\"serve\\": {\\n      \\"executor\\": \\"@nx/next:server\\",\\n      \\"defaultConfiguration\\": \\"development\\",\\n      \\"options\\": {\\n        \\"buildTarget\\": \\"test-app:build\\",\\n        \\"dev\\": true\\n      },\\n      \\"configurations\\": {\\n        \\"development\\": {\\n          \\"buildTarget\\": \\"test-app:build:development\\",\\n          \\"dev\\": true\\n        },\\n        \\"production\\": {\\n          \\"buildTarget\\": \\"test-app:build:production\\",\\n          \\"dev\\": false\\n        }\\n      }\\n    },\\n    \\"export\\": {\\n      \\"executor\\": \\"@nx/next:export\\",\\n      \\"options\\": {\\n        \\"buildTarget\\": \\"test-app:build:production\\"\\n      }\\n    },\\n    \\"lint\\": {\\n      \\"executor\\": \\"@nx/eslint:lint\\",\\n      \\"outputs\\": [\\"{options.outputFile}\\"],\\n      \\"options\\": {\\n        \\"lintFilePatterns\\": [\\"test-app/**/*.{ts,tsx,js,jsx}\\"]\\n      }\\n    }\\n  },\\n  \\"tags\\": []\\n}\\n"
+      },
+      ".eslintrc.json": {
+        "path": "./test-app/.eslintrc.json",
+        "isBinary": false,
+        "content": "{\\n  \\"extends\\": [\\n    \\"plugin:@nx/react-typescript\\",\\n    \\"next\\",\\n    \\"next/core-web-vitals\\",\\n    \\"../.eslintrc.json\\"\\n  ],\\n  \\"ignorePatterns\\": [\\"!**/*\\", \\".next/**/*\\"],\\n  \\"overrides\\": [\\n    {\\n      \\"files\\": [\\"*.*\\"],\\n      \\"rules\\": {\\n        \\"@next/next/no-html-link-for-pages\\": \\"off\\"\\n      }\\n    },\\n    {\\n      \\"files\\": [\\"*.ts\\", \\"*.tsx\\", \\"*.js\\", \\"*.jsx\\"],\\n      \\"rules\\": {\\n        \\"@next/next/no-html-link-for-pages\\": [\\"error\\", \\"test-app/pages\\"]\\n      }\\n    },\\n    {\\n      \\"files\\": [\\"*.ts\\", \\"*.tsx\\"],\\n      \\"rules\\": {}\\n    },\\n    {\\n      \\"files\\": [\\"*.js\\", \\"*.jsx\\"],\\n      \\"rules\\": {}\\n    }\\n  ]\\n}\\n"
+      },
+      "postcss.config.js": {
+        "path": "./test-app/postcss.config.js",
+        "isBinary": false,
+        "content": "const { join } = require('path');\\n\\n// Note: If you use library-specific PostCSS/Tailwind configuration then you should remove the \`postcssConfig\` build\\n// option from your application's configuration (i.e. project.json).\\n//\\n// See: https://nx.dev/guides/using-tailwind-css-in-react#step-4:-applying-configuration-to-libraries\\n\\nmodule.exports = {\\n  plugins: {\\n    tailwindcss: {\\n      config: join(__dirname, 'tailwind.config.js'),\\n    },\\n    autoprefixer: {},\\n  },\\n};\\n"
+      },
+      "tailwind.config.js": {
+        "path": "./test-app/tailwind.config.js",
+        "isBinary": false,
+        "content": "const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');\\nconst { join } = require('path');\\n\\n/** @type {import('tailwindcss').Config} */\\nmodule.exports = {\\n  content: [\\n    join(\\n      __dirname,\\n      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'\\n    ),\\n    ...createGlobPatternsForDependencies(__dirname),\\n  ],\\n  theme: {\\n    extend: {},\\n  },\\n  plugins: [require('daisyui')],\\n};\\n"
+      }
+    }
+  },
+  ".eslintrc.json": {
+    "path": "./.eslintrc.json",
+    "isBinary": false,
+    "content": "{\\n  \\"root\\": true,\\n  \\"ignorePatterns\\": [\\"**/*\\"],\\n  \\"plugins\\": [\\"@nx\\"],\\n  \\"overrides\\": [\\n    {\\n      \\"files\\": [\\"*.ts\\", \\"*.tsx\\", \\"*.js\\", \\"*.jsx\\"],\\n      \\"rules\\": {\\n        \\"@nx/enforce-module-boundaries\\": [\\n          \\"error\\",\\n          {\\n            \\"enforceBuildableLibDependency\\": true,\\n            \\"allow\\": [],\\n            \\"depConstraints\\": [\\n              {\\n                \\"sourceTag\\": \\"*\\",\\n                \\"onlyDependOnLibsWithTags\\": [\\"*\\"]\\n              }\\n            ]\\n          }\\n        ]\\n      }\\n    },\\n    {\\n      \\"files\\": [\\"*.ts\\", \\"*.tsx\\"],\\n      \\"extends\\": [\\"plugin:@nx/typescript\\"],\\n      \\"rules\\": {}\\n    },\\n    {\\n      \\"files\\": [\\"*.js\\", \\"*.jsx\\"],\\n      \\"extends\\": [\\"plugin:@nx/javascript\\"],\\n      \\"rules\\": {}\\n    }\\n  ]\\n}\\n"
+  },
+  ".eslintignore": {
+    "path": "./.eslintignore",
+    "isBinary": false,
+    "content": "node_modules\\n"
+  },
+  "anchor": {
+    "path": "./anchor",
+    "children": {
+      "tsconfig.json": {
+        "path": "./anchor/tsconfig.json",
+        "isBinary": false,
+        "content": "{\\n  \\"extends\\": \\"../tsconfig.base.json\\",\\n  \\"compilerOptions\\": {\\n    \\"module\\": \\"commonjs\\"\\n  },\\n  \\"files\\": [],\\n  \\"include\\": [],\\n  \\"references\\": [\\n    {\\n      \\"path\\": \\"./tsconfig.lib.json\\"\\n    },\\n    {\\n      \\"path\\": \\"./tsconfig.spec.json\\"\\n    }\\n  ]\\n}\\n"
+      },
+      "README.md": {
+        "path": "./anchor/README.md",
+        "isBinary": false,
+        "content": "# anchor\\n\\nThis library was generated with [Nx](https://nx.dev).\\n\\n## Building\\n\\nRun \`nx build anchor\` to build the library.\\n\\n## Running unit tests\\n\\nRun \`nx test anchor\` to execute the unit tests via [Jest](https://jestjs.io).\\n"
+      },
+      "tsconfig.lib.json": {
+        "path": "./anchor/tsconfig.lib.json",
+        "isBinary": false,
+        "content": "{\\n  \\"extends\\": \\"./tsconfig.json\\",\\n  \\"compilerOptions\\": {\\n    \\"outDir\\": \\"../dist/out-tsc\\",\\n    \\"declaration\\": true,\\n    \\"types\\": [\\"node\\"],\\n    \\"rootDir\\": \\".\\"\\n  },\\n  \\"include\\": [\\"**/*.ts\\"],\\n  \\"exclude\\": [\\"jest.config.ts\\", \\"**/*.spec.ts\\", \\"**/*.test.ts\\"]\\n}\\n"
+      },
+      ".swcrc": {
+        "path": "./anchor/.swcrc",
+        "isBinary": false,
+        "content": "{\\n  \\"jsc\\": {\\n    \\"target\\": \\"es2017\\",\\n    \\"parser\\": {\\n      \\"syntax\\": \\"typescript\\",\\n      \\"decorators\\": true,\\n      \\"dynamicImport\\": true\\n    },\\n    \\"transform\\": {\\n      \\"decoratorMetadata\\": true,\\n      \\"legacyDecorator\\": true\\n    },\\n    \\"keepClassNames\\": true,\\n    \\"externalHelpers\\": true,\\n    \\"loose\\": true\\n  },\\n  \\"module\\": {\\n    \\"type\\": \\"es6\\"\\n  },\\n  \\"sourceMaps\\": true,\\n  \\"exclude\\": [\\n    \\"jest.config.ts\\",\\n    \\".*\\\\\\\\.spec.tsx?$\\",\\n    \\".*\\\\\\\\.test.tsx?$\\",\\n    \\"./jest-setup.ts$\\",\\n    \\"./**/jest-setup.ts$\\",\\n    \\".*.js$\\"\\n  ]\\n}\\n"
+      },
+      "package.json": {
+        "path": "./anchor/package.json",
+        "isBinary": false,
+        "content": "{\\n  \\"name\\": \\"@proj/anchor\\",\\n  \\"version\\": \\"0.0.1\\",\\n  \\"dependencies\\": {},\\n  \\"type\\": \\"commonjs\\",\\n  \\"main\\": \\"./index.cjs\\",\\n  \\"module\\": \\"./index.js\\"\\n}\\n"
+      },
+      "project.json": {
+        "path": "./anchor/project.json",
+        "isBinary": false,
+        "content": "{\\n  \\"name\\": \\"anchor\\",\\n  \\"$schema\\": \\"../node_modules/nx/schemas/project-schema.json\\",\\n  \\"sourceRoot\\": \\"anchor\\",\\n  \\"projectType\\": \\"library\\",\\n  \\"targets\\": {\\n    \\"build\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor\\",\\n        \\"commands\\": [\\"anchor build\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"lint\\": {\\n      \\"executor\\": \\"@nx/eslint:lint\\",\\n      \\"outputs\\": [\\"{options.outputFile}\\"],\\n      \\"options\\": {\\n        \\"lintFilePatterns\\": [\\"anchor/**/*.ts\\", \\"anchor/package.json\\"]\\n      }\\n    },\\n    \\"test\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor\\",\\n        \\"commands\\": [\\"anchor test\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"clean\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor\\",\\n        \\"commands\\": [\\"anchor clean\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"deploy\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor\\",\\n        \\"commands\\": [\\"anchor deploy\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"localnet\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor\\",\\n        \\"commands\\": [\\"anchor localnet\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"publish\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor\\",\\n        \\"commands\\": [\\"anchor publish\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"jest\\": {\\n      \\"executor\\": \\"@nx/jest:jest\\",\\n      \\"outputs\\": [\\"{workspaceRoot}/coverage/{projectRoot}\\"],\\n      \\"options\\": {\\n        \\"jestConfig\\": \\"anchor/jest.config.ts\\",\\n        \\"passWithNoTests\\": true\\n      },\\n      \\"configurations\\": {\\n        \\"ci\\": {\\n          \\"ci\\": true,\\n          \\"codeCoverage\\": true\\n        }\\n      }\\n    }\\n  },\\n  \\"tags\\": []\\n}\\n"
+      },
+      ".eslintrc.json": {
+        "path": "./anchor/.eslintrc.json",
+        "isBinary": false,
+        "content": "{\\n  \\"extends\\": [\\"../.eslintrc.json\\"],\\n  \\"ignorePatterns\\": [\\"!**/*\\"],\\n  \\"overrides\\": [\\n    {\\n      \\"files\\": [\\"*.ts\\", \\"*.tsx\\", \\"*.js\\", \\"*.jsx\\"],\\n      \\"rules\\": {}\\n    },\\n    {\\n      \\"files\\": [\\"*.ts\\", \\"*.tsx\\"],\\n      \\"rules\\": {}\\n    },\\n    {\\n      \\"files\\": [\\"*.js\\", \\"*.jsx\\"],\\n      \\"rules\\": {}\\n    },\\n    {\\n      \\"files\\": [\\"*.json\\"],\\n      \\"parser\\": \\"jsonc-eslint-parser\\",\\n      \\"rules\\": {\\n        \\"@nx/dependency-checks\\": [\\n          \\"error\\",\\n          {\\n            \\"ignoredFiles\\": [\\"{projectRoot}/rollup.config.{js,ts,mjs,mts}\\"]\\n          }\\n        ]\\n      }\\n    }\\n  ]\\n}\\n"
+      },
+      "jest.config.ts": {
+        "path": "./anchor/jest.config.ts",
+        "isBinary": false,
+        "content": "/* eslint-disable */\\nimport { readFileSync } from 'fs';\\n\\n// Reading the SWC compilation config and remove the \\"exclude\\"\\n// for the test files to be compiled by SWC\\nconst { exclude: _, ...swcJestConfig } = JSON.parse(\\n  readFileSync(\`\${__dirname}/.swcrc\`, 'utf-8')\\n);\\n\\n// disable .swcrc look-up by SWC core because we're passing in swcJestConfig ourselves.\\n// If we do not disable this, SWC Core will read .swcrc and won't transform our test files due to \\"exclude\\"\\nif (swcJestConfig.swcrc === undefined) {\\n  swcJestConfig.swcrc = false;\\n}\\n\\n// Uncomment if using global setup/teardown files being transformed via swc\\n// https://nx.dev/packages/jest/documents/overview#global-setup/teardown-with-nx-libraries\\n// jest needs EsModule Interop to find the default exported setup/teardown functions\\n// swcJestConfig.module.noInterop = false;\\n\\nexport default {\\n  displayName: 'anchor',\\n  preset: '../jest.preset.js',\\n  transform: {\\n    '^.+\\\\\\\\.[tj]s$': ['@swc/jest', swcJestConfig],\\n  },\\n  moduleFileExtensions: ['ts', 'js', 'html'],\\n  testEnvironment: '',\\n  coverageDirectory: '../coverage/anchor',\\n};\\n"
+      },
+      "tsconfig.spec.json": {
+        "path": "./anchor/tsconfig.spec.json",
+        "isBinary": false,
+        "content": "{\\n  \\"extends\\": \\"./tsconfig.json\\",\\n  \\"compilerOptions\\": {\\n    \\"outDir\\": \\"../dist/out-tsc\\",\\n    \\"module\\": \\"commonjs\\",\\n    \\"types\\": [\\"jest\\", \\"node\\"],\\n    \\"rootDir\\": \\".\\"\\n  },\\n  \\"include\\": [\\"jest.config.ts\\", \\"**/*.test.ts\\", \\"**/*.spec.ts\\", \\"**/*.d.ts\\"]\\n}\\n"
+      },
+      "Anchor.toml": {
+        "path": "./anchor/Anchor.toml",
+        "isBinary": false,
+        "content": "[features]\\nseeds = false\\nskip-lint = false\\n[programs.localnet]\\nmy_program = \\"EuJfgknXicf6iZASeagt5U6XDDPpLTQrvWPW31vgAwo8\\"\\n\\n[registry]\\nurl = \\"https://api.apr.dev\\"\\n\\n[provider]\\ncluster = \\"Localnet\\"\\nwallet = \\"~/.config/solana/id.json\\"\\n\\n[scripts]\\ntest = \\"../node_modules/.bin/nx run anchor:jest\\"\\n"
+      },
+      "Cargo.toml": {
+        "path": "./anchor/Cargo.toml",
+        "isBinary": false,
+        "content": "[workspace]\\nmembers = [\\n    \\"programs/*\\"\\n]\\nresolver = \\"2\\"\\n\\n[profile.release]\\noverflow-checks = true\\nlto = \\"fat\\"\\ncodegen-units = 1\\n[profile.release.build-override]\\nopt-level = 3\\nincremental = false\\ncodegen-units = 1\\n"
+      },
+      "index.ts": {
+        "path": "./anchor/index.ts",
+        "isBinary": false,
+        "content": "export * from './target/types/my_program';\\n"
+      },
+      "migrations": {
+        "path": "./anchor/migrations",
+        "children": {
+          "deploy.ts": {
+            "path": "./anchor/migrations/deploy.ts",
+            "isBinary": false,
+            "content": "// Migrations are an early feature. Currently, they're nothing more than this\\n// single deploy script that's invoked from the CLI, injecting a provider\\n// configured from the workspace's Anchor.toml.\\n\\nconst anchor = require('@coral-xyz/anchor');\\n\\nmodule.exports = async function (provider) {\\n  // Configure client to use the provider.\\n  anchor.setProvider(provider);\\n\\n  // Add your deploy script here.\\n};\\n"
+          }
+        }
+      },
+      "programs": {
+        "path": "./anchor/programs",
+        "children": {
+          "my-program": {
+            "path": "./anchor/programs/my-program",
+            "children": {
+              "Cargo.toml": {
+                "path": "./anchor/programs/my-program/Cargo.toml",
+                "isBinary": false,
+                "content": "[package]\\nname = \\"my-program\\"\\nversion = \\"0.1.0\\"\\ndescription = \\"Created with Anchor\\"\\nedition = \\"2021\\"\\n\\n[lib]\\ncrate-type = [\\"cdylib\\", \\"lib\\"]\\nname = \\"my_program\\"\\n\\n[features]\\nno-entrypoint = []\\nno-idl = []\\nno-log-ix-name = []\\ncpi = [\\"no-entrypoint\\"]\\ndefault = []\\n\\n[dependencies]\\nanchor-lang = \\"0.28.0\\"\\n"
+              },
+              "Xargo.toml": {
+                "path": "./anchor/programs/my-program/Xargo.toml",
+                "isBinary": false,
+                "content": "[target.bpfel-unknown-unknown.dependencies.std]\\nfeatures = []\\n"
+              },
+              "src": {
+                "path": "./anchor/programs/my-program/src",
+                "children": {
+                  "lib.rs": {
+                    "path": "./anchor/programs/my-program/src/lib.rs",
+                    "isBinary": false,
+                    "content": "use anchor_lang::prelude::*;\\n\\ndeclare_id!(\\"EuJfgknXicf6iZASeagt5U6XDDPpLTQrvWPW31vgAwo8\\");\\n\\n#[program]\\npub mod my_program {\\n    use super::*;\\n\\n    pub fn initialize(_ctx: Context<Initialize>) -> Result<()> {\\n        Ok(())\\n    }\\n}\\n\\n#[derive(Accounts)]\\npub struct Initialize {}\\n"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "target": {
+        "path": "./anchor/target",
+        "children": {
+          "types": {
+            "path": "./anchor/target/types",
+            "children": {
+              "my_program.ts": {
+                "path": "./anchor/target/types/my_program.ts",
+                "isBinary": false,
+                "content": "export type MyProgram = {\\n  version: '0.1.0';\\n  name: 'my_program';\\n  instructions: [\\n    {\\n      name: 'initialize';\\n      accounts: [];\\n      args: [];\\n    }\\n  ];\\n};\\n\\nexport const IDL: MyProgram = {\\n  version: '0.1.0',\\n  name: 'my_program',\\n  instructions: [\\n    {\\n      name: 'initialize',\\n      accounts: [],\\n      args: [],\\n    },\\n  ],\\n};\\n"
+              }
+            }
+          }
+        }
+      },
+      "tests": {
+        "path": "./anchor/tests",
+        "children": {
+          "my-program.spec.ts": {
+            "path": "./anchor/tests/my-program.spec.ts",
+            "isBinary": false,
+            "content": "import * as anchor from '@coral-xyz/anchor';\\nimport { Program } from '@coral-xyz/anchor';\\nimport { MyProgram } from '../target/types/my_program';\\n\\ndescribe('my-program', () => {\\n  // Configure the client to use the local cluster.\\n  anchor.setProvider(anchor.AnchorProvider.env());\\n\\n  const program = anchor.workspace.MyProgram as Program<MyProgram>;\\n\\n  it('Is initialized!', async () => {\\n    // Add your test here.\\n    const tx = await program.methods.initialize().rpc();\\n    console.log('Your transaction signature', tx);\\n  });\\n});\\n"
+          }
+        }
+      }
+    }
+  },
+  "jest.preset.js": {
+    "path": "./jest.preset.js",
+    "isBinary": false,
+    "content": "const nxPreset = require('@nx/jest/preset').default;\\n\\nmodule.exports = { ...nxPreset };\\n"
+  },
+  "jest.config.ts": {
+    "path": "./jest.config.ts",
+    "isBinary": false,
+    "content": "import { getJestProjects } from '@nx/jest';\\n\\nexport default {\\n  projects: getJestProjects(),\\n};\\n"
+  }
+}"
+`;

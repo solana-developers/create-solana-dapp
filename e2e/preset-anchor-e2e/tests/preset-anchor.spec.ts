@@ -10,11 +10,11 @@ describe('preset-anchor', () => {
   let projectDirectory: string
 
   beforeAll(() => {
-    projectDirectory = createTestProject('preset-react-e2e')
+    projectDirectory = createTestProject('preset-anchor-e2e')
 
     // The plugin has been built and published to a local registry in the jest globalSetup
     // Install the plugin built with the latest source code into the test repo
-    execSync(`npm install @solana-developers/preset-anchor@e2e`, {
+    execSync(`npm install ${packageName}@e2e`, {
       cwd: projectDirectory,
       stdio: 'inherit',
       env: process.env,
@@ -36,7 +36,7 @@ describe('preset-anchor', () => {
 
   it('should be installed', () => {
     // npm ls will fail if the package is not installed properly
-    execSync('npm ls @solana-developers/preset-anchor', {
+    execSync(`npm ls ${packageName}`, {
       cwd: projectDirectory,
       stdio: 'inherit',
     })
