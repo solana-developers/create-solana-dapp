@@ -1,0 +1,42 @@
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { ReactNode } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+
+export function AppLayout({ children }: { children: ReactNode }) {
+  const { pathname } = useLocation();
+  const pages = [
+    { label: 'Airdrop', path: '/airdrop' },
+    { label: 'Page 1', path: '/page-1' },
+    { label: 'Page 2', path: '/page-2' },
+  ]
+
+  return (
+    <div>
+      <div>
+        <div>
+          <Link to="/">
+            <%= packageName %>
+          </Link>
+          <ul>
+            {pages.map(({ label, path }) => (
+              <li key={path}>
+                <Link to={path}>
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <WalletMultiButton />
+        </div>
+      </div>
+      <div>{children}</div>
+      <footer>
+        <aside>
+          <p>Generated with <%= packageName %>@<%= packageVersion %></p>
+        </aside>
+      </footer>
+    </div>
+  );
+}

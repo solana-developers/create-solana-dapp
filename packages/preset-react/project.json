@@ -44,7 +44,11 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/preset-react/**/*.ts", "packages/preset-react/package.json"]
+        "lintFilePatterns": [
+          "packages/preset-react/**/*.ts",
+          "packages/preset-react/package.json",
+          "packages/preset-react/generators.json"
+        ]
       }
     },
     "test": {

@@ -1,0 +1,10 @@
+{
+  "generators": {
+    "application": {
+      "factory": "./src/generators/application/application-anchor-generator",
+      "schema": "./src/generators/application/application-anchor-schema.json",
+      "description": "application generator",
+      "aliases": ["preset"]
+    }
+  }
+}

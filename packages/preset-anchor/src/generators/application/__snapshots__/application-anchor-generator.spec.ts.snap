@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`application generator should snapshot the generated structure 1`] = `
+"{
+  "tsconfig.json": {
+    "path": "anchor-app/tsconfig.json",
+    "isBinary": false,
+    "content": "{\\n  \\"extends\\": \\"../tsconfig.base.json\\",\\n  \\"compilerOptions\\": {\\n    \\"module\\": \\"commonjs\\"\\n  },\\n  \\"files\\": [],\\n  \\"include\\": [],\\n  \\"references\\": [\\n    {\\n      \\"path\\": \\"./tsconfig.lib.json\\"\\n    },\\n    {\\n      \\"path\\": \\"./tsconfig.spec.json\\"\\n    }\\n  ]\\n}\\n"
+  },
+  "README.md": {
+    "path": "anchor-app/README.md",
+    "isBinary": false,
+    "content": "# anchor-app\\n\\nThis library was generated with [Nx](https://nx.dev).\\n\\n## Building\\n\\nRun \`nx build anchor-app\` to build the library.\\n\\n## Running unit tests\\n\\nRun \`nx test anchor-app\` to execute the unit tests via [Jest](https://jestjs.io).\\n"
+  },
+  "tsconfig.lib.json": {
+    "path": "anchor-app/tsconfig.lib.json",
+    "isBinary": false,
+    "content": "{\\n  \\"extends\\": \\"./tsconfig.json\\",\\n  \\"compilerOptions\\": {\\n    \\"outDir\\": \\"../dist/out-tsc\\",\\n    \\"declaration\\": true,\\n    \\"types\\": [\\"node\\"],\\n    \\"rootDir\\": \\".\\"\\n  },\\n  \\"include\\": [\\"**/*.ts\\"],\\n  \\"exclude\\": [\\"jest.config.ts\\", \\"**/*.spec.ts\\", \\"**/*.test.ts\\"]\\n}\\n"
+  },
+  ".swcrc": {
+    "path": "anchor-app/.swcrc",
+    "isBinary": false,
+    "content": "{\\n  \\"jsc\\": {\\n    \\"target\\": \\"es2017\\",\\n    \\"parser\\": {\\n      \\"syntax\\": \\"typescript\\",\\n      \\"decorators\\": true,\\n      \\"dynamicImport\\": true\\n    },\\n    \\"transform\\": {\\n      \\"decoratorMetadata\\": true,\\n      \\"legacyDecorator\\": true\\n    },\\n    \\"keepClassNames\\": true,\\n    \\"externalHelpers\\": true,\\n    \\"loose\\": true\\n  },\\n  \\"module\\": {\\n    \\"type\\": \\"es6\\"\\n  },\\n  \\"sourceMaps\\": true,\\n  \\"exclude\\": [\\n    \\"jest.config.ts\\",\\n    \\".*\\\\\\\\.spec.tsx?$\\",\\n    \\".*\\\\\\\\.test.tsx?$\\",\\n    \\"./jest-setup.ts$\\",\\n    \\"./**/jest-setup.ts$\\",\\n    \\".*.js$\\"\\n  ]\\n}\\n"
+  },
+  "package.json": {
+    "path": "anchor-app/package.json",
+    "isBinary": false,
+    "content": "{\\n  \\"name\\": \\"@proj/anchor-app\\",\\n  \\"version\\": \\"0.0.1\\",\\n  \\"dependencies\\": {},\\n  \\"type\\": \\"commonjs\\",\\n  \\"main\\": \\"./index.cjs\\",\\n  \\"module\\": \\"./index.js\\"\\n}\\n"
+  },
+  "project.json": {
+    "path": "anchor-app/project.json",
+    "isBinary": false,
+    "content": "{\\n  \\"name\\": \\"anchor-app\\",\\n  \\"$schema\\": \\"../node_modules/nx/schemas/project-schema.json\\",\\n  \\"sourceRoot\\": \\"anchor-app\\",\\n  \\"projectType\\": \\"library\\",\\n  \\"targets\\": {\\n    \\"build\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor-app\\",\\n        \\"commands\\": [\\"anchor build\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"lint\\": {\\n      \\"executor\\": \\"@nx/eslint:lint\\",\\n      \\"outputs\\": [\\"{options.outputFile}\\"],\\n      \\"options\\": {\\n        \\"lintFilePatterns\\": [\\"anchor-app/**/*.ts\\", \\"anchor-app/package.json\\"]\\n      }\\n    },\\n    \\"test\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor-app\\",\\n        \\"commands\\": [\\"anchor test\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"clean\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor-app\\",\\n        \\"commands\\": [\\"anchor clean\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"deploy\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor-app\\",\\n        \\"commands\\": [\\"anchor deploy\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"localnet\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor-app\\",\\n        \\"commands\\": [\\"anchor localnet\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"publish\\": {\\n      \\"executor\\": \\"nx:run-commands\\",\\n      \\"options\\": {\\n        \\"cwd\\": \\"anchor-app\\",\\n        \\"commands\\": [\\"anchor publish\\"],\\n        \\"parallel\\": false\\n      }\\n    },\\n    \\"jest\\": {\\n      \\"executor\\": \\"@nx/jest:jest\\",\\n      \\"outputs\\": [\\"{workspaceRoot}/coverage/{projectRoot}\\"],\\n      \\"options\\": {\\n        \\"jestConfig\\": \\"anchor-app/jest.config.ts\\",\\n        \\"passWithNoTests\\": true\\n      },\\n      \\"configurations\\": {\\n        \\"ci\\": {\\n          \\"ci\\": true,\\n          \\"codeCoverage\\": true\\n        }\\n      }\\n    }\\n  },\\n  \\"tags\\": []\\n}\\n"
+  },
+  ".eslintrc.json": {
+    "path": "anchor-app/.eslintrc.json",
+    "isBinary": false,
+    "content": "{\\n  \\"extends\\": [\\"../.eslintrc.json\\"],\\n  \\"ignorePatterns\\": [\\"!**/*\\"],\\n  \\"overrides\\": [\\n    {\\n      \\"files\\": [\\"*.ts\\", \\"*.tsx\\", \\"*.js\\", \\"*.jsx\\"],\\n      \\"rules\\": {}\\n    },\\n    {\\n      \\"files\\": [\\"*.ts\\", \\"*.tsx\\"],\\n      \\"rules\\": {}\\n    },\\n    {\\n      \\"files\\": [\\"*.js\\", \\"*.jsx\\"],\\n      \\"rules\\": {}\\n    },\\n    {\\n      \\"files\\": [\\"*.json\\"],\\n      \\"parser\\": \\"jsonc-eslint-parser\\",\\n      \\"rules\\": {\\n        \\"@nx/dependency-checks\\": [\\n          \\"error\\",\\n          {\\n            \\"ignoredFiles\\": [\\"{projectRoot}/rollup.config.{js,ts,mjs,mts}\\"]\\n          }\\n        ]\\n      }\\n    }\\n  ]\\n}\\n"
+  },
+  "jest.config.ts": {
+    "path": "anchor-app/jest.config.ts",
+    "isBinary": false,
+    "content": "/* eslint-disable */\\nimport { readFileSync } from 'fs';\\n\\n// Reading the SWC compilation config and remove the \\"exclude\\"\\n// for the test files to be compiled by SWC\\nconst { exclude: _, ...swcJestConfig } = JSON.parse(\\n  readFileSync(\`\${__dirname}/.swcrc\`, 'utf-8')\\n);\\n\\n// disable .swcrc look-up by SWC core because we're passing in swcJestConfig ourselves.\\n// If we do not disable this, SWC Core will read .swcrc and won't transform our test files due to \\"exclude\\"\\nif (swcJestConfig.swcrc === undefined) {\\n  swcJestConfig.swcrc = false;\\n}\\n\\n// Uncomment if using global setup/teardown files being transformed via swc\\n// https://nx.dev/packages/jest/documents/overview#global-setup/teardown-with-nx-libraries\\n// jest needs EsModule Interop to find the default exported setup/teardown functions\\n// swcJestConfig.module.noInterop = false;\\n\\nexport default {\\n  displayName: 'anchor-app',\\n  preset: '../jest.preset.js',\\n  transform: {\\n    '^.+\\\\\\\\.[tj]s$': ['@swc/jest', swcJestConfig],\\n  },\\n  moduleFileExtensions: ['ts', 'js', 'html'],\\n  testEnvironment: '',\\n  coverageDirectory: '../coverage/anchor-app',\\n};\\n"
+  },
+  "tsconfig.spec.json": {
+    "path": "anchor-app/tsconfig.spec.json",
+    "isBinary": false,
+    "content": "{\\n  \\"extends\\": \\"./tsconfig.json\\",\\n  \\"compilerOptions\\": {\\n    \\"outDir\\": \\"../dist/out-tsc\\",\\n    \\"module\\": \\"commonjs\\",\\n    \\"types\\": [\\"jest\\", \\"node\\"],\\n    \\"rootDir\\": \\".\\"\\n  },\\n  \\"include\\": [\\"jest.config.ts\\", \\"**/*.test.ts\\", \\"**/*.spec.ts\\", \\"**/*.d.ts\\"]\\n}\\n"
+  },
+  "Anchor.toml": {
+    "path": "anchor-app/Anchor.toml",
+    "isBinary": false,
+    "content": "[features]\\nseeds = false\\nskip-lint = false\\n[programs.localnet]\\nmy_test_program = \\"EuJfgknXicf6iZASeagt5U6XDDPpLTQrvWPW31vgAwo8\\"\\n\\n[registry]\\nurl = \\"https://api.apr.dev\\"\\n\\n[provider]\\ncluster = \\"Localnet\\"\\nwallet = \\"~/.config/solana/id.json\\"\\n\\n[scripts]\\ntest = \\"../node_modules/.bin/nx run anchor-app:jest\\"\\n"
+  },
+  "Cargo.toml": {
+    "path": "anchor-app/Cargo.toml",
+    "isBinary": false,
+    "content": "[workspace]\\nmembers = [\\n    \\"programs/*\\"\\n]\\nresolver = \\"2\\"\\n\\n[profile.release]\\noverflow-checks = true\\nlto = \\"fat\\"\\ncodegen-units = 1\\n[profile.release.build-override]\\nopt-level = 3\\nincremental = false\\ncodegen-units = 1\\n"
+  },
+  "index.ts": {
+    "path": "anchor-app/index.ts",
+    "isBinary": false,
+    "content": "export * from './target/types/my_test_program';\\n"
+  },
+  "migrations": {
+    "path": "anchor-app/migrations",
+    "children": {
+      "deploy.ts": {
+        "path": "anchor-app/migrations/deploy.ts",
+        "isBinary": false,
+        "content": "// Migrations are an early feature. Currently, they're nothing more than this\\n// single deploy script that's invoked from the CLI, injecting a provider\\n// configured from the workspace's Anchor.toml.\\n\\nconst anchor = require('@coral-xyz/anchor');\\n\\nmodule.exports = async function (provider) {\\n  // Configure client to use the provider.\\n  anchor.setProvider(provider);\\n\\n  // Add your deploy script here.\\n};\\n"
+      }
+    }
+  },
+  "programs": {
+    "path": "anchor-app/programs",
+    "children": {
+      "my-test-program": {
+        "path": "anchor-app/programs/my-test-program",
+        "children": {
+          "Cargo.toml": {
+            "path": "anchor-app/programs/my-test-program/Cargo.toml",
+            "isBinary": false,
+            "content": "[package]\\nname = \\"my-test-program\\"\\nversion = \\"0.1.0\\"\\ndescription = \\"Created with Anchor\\"\\nedition = \\"2021\\"\\n\\n[lib]\\ncrate-type = [\\"cdylib\\", \\"lib\\"]\\nname = \\"my_test_program\\"\\n\\n[features]\\nno-entrypoint = []\\nno-idl = []\\nno-log-ix-name = []\\ncpi = [\\"no-entrypoint\\"]\\ndefault = []\\n\\n[dependencies]\\nanchor-lang = \\"0.28.0\\"\\n"
+          },
+          "Xargo.toml": {
+            "path": "anchor-app/programs/my-test-program/Xargo.toml",
+            "isBinary": false,
+            "content": "[target.bpfel-unknown-unknown.dependencies.std]\\nfeatures = []\\n"
+          },
+          "src": {
+            "path": "anchor-app/programs/my-test-program/src",
+            "children": {
+              "lib.rs": {
+                "path": "anchor-app/programs/my-test-program/src/lib.rs",
+                "isBinary": false,
+                "content": "use anchor_lang::prelude::*;\\n\\ndeclare_id!(\\"EuJfgknXicf6iZASeagt5U6XDDPpLTQrvWPW31vgAwo8\\");\\n\\n#[program]\\npub mod my_test_program {\\n    use super::*;\\n\\n    pub fn initialize(_ctx: Context<Initialize>) -> Result<()> {\\n        Ok(())\\n    }\\n}\\n\\n#[derive(Accounts)]\\npub struct Initialize {}\\n"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "target": {
+    "path": "anchor-app/target",
+    "children": {
+      "types": {
+        "path": "anchor-app/target/types",
+        "children": {
+          "my_test_program.ts": {
+            "path": "anchor-app/target/types/my_test_program.ts",
+            "isBinary": false,
+            "content": "export type MyTestProgram = {\\n  version: '0.1.0';\\n  name: 'my_test_program';\\n  instructions: [\\n    {\\n      name: 'initialize';\\n      accounts: [];\\n      args: [];\\n    }\\n  ];\\n};\\n\\nexport const IDL: MyTestProgram = {\\n  version: '0.1.0',\\n  name: 'my_test_program',\\n  instructions: [\\n    {\\n      name: 'initialize',\\n      accounts: [],\\n      args: [],\\n    },\\n  ],\\n};\\n"
+          }
+        }
+      }
+    }
+  },
+  "tests": {
+    "path": "anchor-app/tests",
+    "children": {
+      "my-test-program.spec.ts": {
+        "path": "anchor-app/tests/my-test-program.spec.ts",
+        "isBinary": false,
+        "content": "import * as anchor from '@coral-xyz/anchor';\\nimport { Program } from '@coral-xyz/anchor';\\nimport { MyTestProgram } from '../target/types/my_test_program';\\n\\ndescribe('my-test-program', () => {\\n  // Configure the client to use the local cluster.\\n  anchor.setProvider(anchor.AnchorProvider.env());\\n\\n  const program = anchor.workspace.MyTestProgram as Program<MyTestProgram>;\\n\\n  it('Is initialized!', async () => {\\n    // Add your test here.\\n    const tx = await program.methods.initialize().rpc();\\n    console.log('Your transaction signature', tx);\\n  });\\n});\\n"
+      }
+    }
+  }
+}"
+`;
+
+exports[`application generator should snapshot the generated structure 2`] = `
+"{
+  "compilerOptions": {
+    "paths": {
+      "@proj/anchor-app": ["anchor-app/index.ts"]
+    }
+  }
+}
+"
+`;
