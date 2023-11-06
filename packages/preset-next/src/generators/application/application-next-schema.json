@@ -12,6 +12,34 @@
         "index": 0
       },
       "x-prompt": "What name would you like to use?"
+    },
+    "skipFormat": {
+      "description": "Skip formatting files",
+      "type": "boolean",
+      "default": false,
+      "x-priority": "internal"
+    },
+    "uiLibrary": {
+      "description": "The UI library to use",
+      "type": "string",
+      "enum": ["none", "tailwind"],
+      "default": "tailwind"
+    },
+    "withAnchor": {
+      "description": "Create an anchor program",
+      "type": "boolean",
+      "default": true
+    },
+    "anchorName": {
+      "type": "string",
+      "description": "Anchor project name",
+      "default": "program"
+    },
+    "anchorTemplate": {
+      "type": "string",
+      "enum": ["counter", "hello-world"],
+      "description": "The template to use",
+      "default": "counter"
     }
   },
   "required": ["name"]

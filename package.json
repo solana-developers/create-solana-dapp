@@ -8,10 +8,14 @@
   },
   "private": true,
   "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "@inquirer/prompts": "^3.2.0",
     "@nx/devkit": "17.0.1",
     "@swc/helpers": "~0.5.2",
+    "commander": "^11.1.0",
     "create-nx-workspace": "17.0.1",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
     "@nx/eslint": "17.0.1",

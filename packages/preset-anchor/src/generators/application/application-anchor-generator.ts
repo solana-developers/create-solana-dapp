@@ -38,7 +38,7 @@ export async function applicationAnchorGenerator(tree: Tree, rawOptions: Applica
 
   const substitutions = {
     projectName: options.name,
-    ...names(options.programName),
+    ...names(options.template),
   }
   generateFiles(tree, path.join(__dirname, 'files'), options.name, {
     ...options,

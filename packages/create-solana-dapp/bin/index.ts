@@ -1,27 +1,30 @@
 #!/usr/bin/env node
-
+import { intro, note, outro } from '@clack/prompts'
 import { createWorkspace } from 'create-nx-workspace'
+import { app, getArgs } from '../lib/get-args'
 
 async function main() {
-  const name = process.argv[2] // TODO: use libraries like yargs or enquirer to set your workspace name
-  if (!name) {
-    throw new Error('Please provide a name for the workspace')
+  intro(`${app.name} ${app.version}`)
+  const args = await getArgs()
+
+  if (!args.dryRun) {
+    const { directory } = await createWorkspace(`${args.package}`, {
+      name: args.name,
+      nxCloud: false,
+      packageManager: args.packageManager,
+      commit: {
+        name: 'Solana Developers',
+        email: 'no-reply@solana.org',
+        message: 'chore: initial commit',
+      },
+    })
+
+    note(`Successfully created the workspace: ${directory}.`)
+    outro(`Run \`cd ${directory}\` to get started.`)
+  } else {
+    note('Dry run, no changes were made.')
+    outro(`Would have created the workspace: ${args.name} with preset: ${args.preset}.`)
   }
-
-  console.log(`Creating the workspace: ${name}`)
-
-  // This assumes "@solana-developers/preset-common" and "create-solana-dapp" are at the same version
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const presetVersion = require('../package.json').version
-
-  // TODO: update below to customize the workspace
-  const { directory } = await createWorkspace(`@solana-developers/preset-common@${presetVersion}`, {
-    name,
-    nxCloud: false,
-    packageManager: 'npm',
-  })
-
-  console.log(`Successfully created the workspace: ${directory}.`)
 }
 
 main()

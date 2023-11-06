@@ -1,0 +1,23 @@
+export type <%= className %> = {
+	"version": "0.1.0",
+	"name": "<%= fileNameUnderscore %>",
+	"instructions": [
+		{
+			"name": "initialize",
+			"accounts": [],
+			"args": []
+		}
+	]
+};
+
+export const IDL: <%= className %> = {
+	"version": "0.1.0",
+	"name": "<%= fileNameUnderscore %>",
+	"instructions": [
+		{
+			"name": "initialize",
+			"accounts": [],
+			"args": []
+		}
+	]
+};

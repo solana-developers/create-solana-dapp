@@ -29,6 +29,17 @@
       "description": "Create an anchor program",
       "type": "boolean",
       "default": true
+    },
+    "anchorName": {
+      "type": "string",
+      "description": "Anchor project name",
+      "default": "program"
+    },
+    "anchorTemplate": {
+      "type": "string",
+      "enum": ["counter", "hello-world"],
+      "description": "The template to use",
+      "default": "counter"
     }
   },
   "required": ["name"]
