@@ -13,17 +13,18 @@
       },
       "x-prompt": "What name would you like to use?"
     },
-    "programName": {
-      "type": "string",
-      "description": "The name of the Anchor program",
-      "default": "my-program"
-    },
     "skipFormat": {
       "description": "Skip formatting files",
       "type": "boolean",
       "default": false,
       "x-priority": "internal"
+    },
+    "template": {
+      "type": "string",
+      "enum": ["counter", "hello-world"],
+      "description": "The template to use",
+      "default": "counter"
     }
   },
-  "required": ["name", "programName"]
+  "required": ["name"]
 }

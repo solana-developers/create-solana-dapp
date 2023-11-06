@@ -1,11 +1,4 @@
-import {
-  formatFiles,
-  generateFiles,
-  getProjects,
-  installPackagesTask,
-  readProjectConfiguration,
-  Tree,
-} from '@nx/devkit'
+import { formatFiles, generateFiles, getProjects, installPackagesTask, Tree } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { applicationAnchorGenerator } from '@solana-developers/preset-anchor'
 import { applicationCleanup } from '@solana-developers/preset-common'
@@ -52,8 +45,8 @@ export async function applicationReactGenerator(tree: Tree, rawOptions: Applicat
     // Add the anchor application.
     await applicationAnchorGenerator(tree, {
       name: options.anchorName,
-      programName: options.anchorProgramName,
       skipFormat: true,
+      template: options.anchorTemplate,
     })
   }
 

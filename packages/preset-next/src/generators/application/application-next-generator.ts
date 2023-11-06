@@ -62,7 +62,6 @@ export async function applicationNextGenerator(tree: Tree, rawOptions: Applicati
     // Add the anchor application.
     await applicationAnchorGenerator(tree, {
       name: options.anchorName,
-      programName: options.anchorProgramName,
       skipFormat: true,
     })
   }
