@@ -8,6 +8,7 @@ export function normalizeApplicationReactSchema(options: ApplicationReactSchema)
     ...options,
     anchorName: options.anchorName ?? 'program',
     anchorTemplate: options.anchorTemplate ?? 'counter',
+    appName: options.appName ?? options.name,
     skipFormat: options.skipFormat ?? false,
     uiLibrary: options.uiLibrary ?? 'tailwind',
     withAnchor: options.withAnchor ?? true,

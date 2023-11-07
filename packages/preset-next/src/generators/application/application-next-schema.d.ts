@@ -4,6 +4,7 @@ import { ApplicationReactUiLibrary } from '@solana-developers/preset-react'
 export interface ApplicationNextSchema {
   anchorName?: string
   anchorTemplate?: ApplicationAnchorTemplate
+  appName?: string
   name: string
   skipFormat?: boolean
   uiLibrary?: ApplicationReactUiLibrary

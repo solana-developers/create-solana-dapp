@@ -5,7 +5,6 @@ import * as path from 'path'
 import { join } from 'path'
 import { addAnchorIgnoreFields, applicationAnchorDependencies } from '../../utils'
 import { normalizeApplicationAnchorSchema } from '../../utils/normalize-application-anchor-schema'
-import { removeSrcDirReferences } from '../../utils/remove-src-dir-references'
 import { ApplicationAnchorSchema } from './application-anchor-schema'
 
 export async function applicationAnchorGenerator(tree: Tree, rawOptions: ApplicationAnchorSchema) {
@@ -40,14 +39,13 @@ export async function applicationAnchorGenerator(tree: Tree, rawOptions: Applica
     projectName: options.name,
     ...names(options.template),
   }
-  generateFiles(tree, path.join(__dirname, 'files'), options.name, {
+  generateFiles(tree, path.join(__dirname, 'files', options.template), options.name, {
     ...options,
     ...substitutions,
     fileNameUnderscore: substitutions.fileName.replace(/-/g, '_'),
   })
   applicationAnchorDependencies(tree)
   addAnchorIgnoreFields(tree)
-  removeSrcDirReferences(tree, options.name)
 
   if (!options.skipFormat) {
     await formatFiles(tree)

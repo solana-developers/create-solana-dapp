@@ -2,9 +2,9 @@ import { getProjects, Tree } from '@nx/devkit'
 import { Linter } from '@nx/linter'
 import { applicationGenerator as reactApplicationGenerator } from '@nx/next/src/generators/application/application'
 
-export async function generateNextApplication(tree: Tree, options: { name: string }) {
+export async function generateNextApplication(tree: Tree, options: { appName: string }) {
   await reactApplicationGenerator(tree, {
-    name: options.name,
+    name: options.appName,
     style: 'css',
     skipFormat: true,
     projectNameAndRootFormat: 'as-provided',
@@ -14,5 +14,5 @@ export async function generateNextApplication(tree: Tree, options: { name: strin
     rootProject: false,
   })
 
-  return getProjects(tree).get(options.name)
+  return getProjects(tree).get(options.appName)
 }
