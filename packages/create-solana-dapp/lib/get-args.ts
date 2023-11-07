@@ -30,12 +30,13 @@ export async function getArgs(): Promise<any> {
   const result = program
     .name(packageJson.name)
     .version(packageJson.version)
-    .option('-n, --name <name>', comment(`Name of the project`))
-    .option('-p, --preset <preset>', comment(`Preset to use`))
+    .option('-n, --name <name>', comment(`Name of the workspace`))
+    .option('--app-name <name>', comment(`Name of the frontend project (default: web)`))
+    .option('-p, --preset <preset>', comment(`Preset to use (options: ${presetChoices.join(', ')})`))
     .option('-d, --dry-run', comment(`Dry run (default: false)`))
     .option('-a, --anchor', comment(`Include anchor in the project (default: true)`))
-    .option('-an, --anchor-name <anchor-name>', comment(`Anchor project name (default: anchor)`))
-    .option('-at, --anchor-template <anchor-template>', comment(`Anchor template (default: counter)`))
+    .option('--anchor-name <anchor-name>', comment(`Anchor project name (default: anchor)`))
+    .option('--anchor-template <anchor-template>', comment(`Anchor template (default: counter)`))
     .option('-pm, --package-manager <package-manager>', comment(`Package manager to use (default: npm)`))
     .addHelpText(
       'after',
@@ -53,6 +54,7 @@ Examples:
     anchor: result.anchor ?? true,
     anchorName: result.anchorName ?? 'anchor',
     anchorTemplate: result.anchorTemplate ?? 'counter',
+    appName: result.appName ?? 'web',
     dryRun: result.dryRun ?? false,
     name: result.name,
     package: '',
@@ -85,14 +87,6 @@ Examples:
     options.anchorTemplate = undefined
   }
 
-  if (!options.anchorName?.length) {
-    options.anchorName = 'anchor'
-  }
-
-  if (!options.anchorTemplate?.length) {
-    options.anchorTemplate = 'counter'
-  }
-
   return options
 }
 
@@ -100,6 +94,7 @@ export interface ArgsOptions {
   anchor: boolean
   anchorName: string | undefined
   anchorTemplate: string | undefined
+  appName: string
   dryRun: boolean
   name: string | undefined
   package: string

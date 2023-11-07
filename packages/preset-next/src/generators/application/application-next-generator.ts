@@ -35,7 +35,7 @@ export async function applicationNextGenerator(tree: Tree, rawOptions: Applicati
   applicationCleanup(tree, join(project.sourceRoot, 'app'), cleanup)
 
   const substitutions = applicationSubstitutions({
-    name: options.name,
+    name: options.appName,
     npmScope,
   })
 

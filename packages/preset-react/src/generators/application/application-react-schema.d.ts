@@ -4,6 +4,7 @@ export type ApplicationReactUiLibrary = 'none' | 'tailwind'
 export interface ApplicationReactSchema {
   anchorName?: string
   anchorTemplate?: ApplicationAnchorTemplate
+  appName?: string
   name: string
   skipFormat?: boolean
   uiLibrary?: ApplicationReactUiLibrary

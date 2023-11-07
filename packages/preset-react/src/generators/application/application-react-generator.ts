@@ -26,7 +26,7 @@ export async function applicationReactGenerator(tree: Tree, rawOptions: Applicat
     join(__dirname, 'files', options.uiLibrary),
     project.root,
     applicationSubstitutions({
-      name: options.name,
+      name: options.appName,
       npmScope,
     }),
   )
@@ -38,7 +38,7 @@ export async function applicationReactGenerator(tree: Tree, rawOptions: Applicat
 
   if (options.uiLibrary === 'tailwind') {
     // Add the tailwind config.
-    await applicationTailwindConfig(tree, options.name)
+    await applicationTailwindConfig(tree, options.appName)
   }
 
   if (options.withAnchor && !getProjects(tree).has(options.anchorName)) {
