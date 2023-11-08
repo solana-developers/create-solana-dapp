@@ -55,7 +55,7 @@ export async function applicationNextGenerator(tree: Tree, rawOptions: Applicati
 
   if (options.uiLibrary === 'tailwind') {
     // Add the tailwind config.
-    await applicationTailwindConfig(tree, options.name)
+    await applicationTailwindConfig(tree, options.appName)
   }
 
   if (options.withAnchor && !getProjects(tree).has(options.anchorName)) {
