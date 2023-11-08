@@ -1,0 +1,45 @@
+{
+  "name": "solana-dev",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/solana-dev/bin",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/solana-dev",
+        "main": "packages/solana-dev/bin/index.ts",
+        "tsConfig": "packages/solana-dev/tsconfig.lib.json",
+        "assets": ["packages/solana-dev/*.md"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs solana-dev {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/solana-dev/**/*.ts", "packages/solana-dev/package.json"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/solana-dev/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["preset-anchor"]
+}

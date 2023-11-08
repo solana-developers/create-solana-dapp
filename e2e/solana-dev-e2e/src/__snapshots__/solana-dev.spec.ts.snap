@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`solana-dev should print the help command 1`] = `
+"Usage: solana-dev [options] [command]
+Options:
+-V, --version output the version number
+-h, --help display help for command
+Commands:
+doctor
+help [command] display help for command"
+`;
