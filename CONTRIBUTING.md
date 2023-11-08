@@ -177,27 +177,31 @@ yarn local-registry
 In another terminal, run the following command to publish the packages to the local registry:
 
 ```shell
-npx nx run-many --targets publish --ver <you-version> --tag <your-tag>
+npx nx run-many --targets publish --ver <your-version> --tag local
 ```
+
+Note: This will publish all the packages to the local registry with the `local` tag. Therefore, to utilize any of these
+packages from your local registry, you must specify using this same `local` tag on the packages (e.g.
+`create-solana-dapp@local`).
 
 Once that's done, with the local registry still running, you can run the `create-solana-dapp` CLI by invoking the
 following command:
 
 ```shell
-npx create-solana-dapp@latest
+npx create-solana-dapp@local
 ```
 
 For example, this one-liner will create a new app with the latest version of the `create-solana-dapp` CLI using the
 React preset and yarn as the package manager:
 
 ```shell
- npx --yes create-solana-dapp@latest --name app-"$(date +%s)" --preset react --package-manager yarn
+ npx --yes create-solana-dapp@local --name app-"$(date +%s)" --preset react --package-manager yarn
 ```
 
 To check all the options, run:
 
 ```shell
-npx create-solana-dapp@latest --help
+npx create-solana-dapp@local --help
 ```
 
 The local registry will be running at http://localhost:4873 and in order to use it, changes to the `~/.npmrc` file are
