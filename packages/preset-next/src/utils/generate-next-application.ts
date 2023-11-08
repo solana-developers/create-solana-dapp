@@ -1,8 +1,10 @@
-import { getProjects, Tree } from '@nx/devkit'
+import { getProjects, Tree, updateJson } from '@nx/devkit'
 import { Linter } from '@nx/linter'
 import { applicationGenerator as reactApplicationGenerator } from '@nx/next/src/generators/application/application'
+import { join } from 'path'
+import { NormalizedApplicationNextSchema } from '../generators/application/application-next-schema'
 
-export async function generateNextApplication(tree: Tree, options: { appName: string }) {
+export async function generateNextApplication(tree: Tree, options: NormalizedApplicationNextSchema) {
   await reactApplicationGenerator(tree, {
     name: options.appName,
     style: 'css',
@@ -14,5 +16,12 @@ export async function generateNextApplication(tree: Tree, options: { appName: st
     rootProject: false,
   })
 
-  return getProjects(tree).get(options.appName)
+  const project = getProjects(tree).get(options.appName)
+
+  updateJson(tree, join(project.root, 'project.json'), (json) => {
+    json.targets.serve.options.port = options.port
+    return json
+  })
+
+  return project
 }
