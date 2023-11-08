@@ -136,18 +136,32 @@ yarn nx lint preset-react
 
 If you want to quickly test your changes to the CLI, you can do the following:
 
+#### create-solana-dapp
+
 Run the build in watch mode in one terminal:
 
 ```shell
 yarn nx build create-solana-dapp --watch
 ```
 
-In another terminal, move to the directory where you want to test the CLI and run by invoking the `node` command with
-the path to the compiled CLI:
+In another terminal, move to the directory where you want to test the `create-solana-dapp` CLI and run by invoking the
+`node` command with the path to the compiled CLI:
 
 ```shell
 cd /tmp
-node ~/path/to/create-solana-dapp/dist/packages/create-solana-dapp/bin/index.js --dry-run
+node ~/path/to/create-solana-dapp/dist/packages/create-solana-dapp/bin/index.js --help
+```
+
+#### solana-dev
+
+The same goes for the `solana-dev` CLI:
+
+```shell
+# In one terminal
+yarn nx build solana-dev --watch
+# In another terminal
+cd /tmp
+node ~/path/to/create-solana-dapp/dist/packages/solana-dev/bin/index.js --help
 ```
 
 ### Publishing to a local registry
@@ -166,14 +180,15 @@ In another terminal, run the following command to publish the packages to the lo
 npx nx run-many --targets publish --ver <you-version> --tag <your-tag>
 ```
 
-Once that's done, with the local registry still running, you can run the CLI by invoking the following command:
+Once that's done, with the local registry still running, you can run the `create-solana-dapp` CLI by invoking the
+following command:
 
 ```shell
 npx create-solana-dapp@latest
 ```
 
-For example, this one-liner will create a new app with the latest version of the CLI using the React preset and yarn as
-the package manager:
+For example, this one-liner will create a new app with the latest version of the `create-solana-dapp` CLI using the
+React preset and yarn as the package manager:
 
 ```shell
  npx --yes create-solana-dapp@latest --name app-"$(date +%s)" --preset react --package-manager yarn
