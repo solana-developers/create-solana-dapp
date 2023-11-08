@@ -1,7 +1,7 @@
 import { getProjects, readProjectConfiguration, Tree } from '@nx/devkit'
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
 import { getRecursiveFileContents } from '@solana-developers/preset-common'
-import { ApplicationReactUiLibrary } from '@solana-developers/preset-react'
+import { applicationReactGenerator, ApplicationReactUiLibrary } from '@solana-developers/preset-react'
 
 import { normalizeApplicationNextSchema } from '../../utils'
 import { applicationNextGenerator } from './application-next-generator'
@@ -59,6 +59,22 @@ describe('application generator', () => {
       await applicationNextGenerator(tree, { ...rawOptions, uiLibrary: 'none', withAnchor: false })
       const projects = getProjects(tree)
       const appProject = projects.has(options.appName)
+      const anchorProject = projects.has(options.anchorName)
+
+      expect(projects.size).toEqual(1)
+      expect(appProject).toBeDefined()
+      expect(anchorProject).toBeFalsy()
+    })
+
+    it.each([['none'], ['tailwind']])('should generate app with custom name and "%s" ui', async (uiLibrary) => {
+      await applicationReactGenerator(tree, {
+        ...rawOptions,
+        appName: 'web-app',
+        uiLibrary: uiLibrary as ApplicationReactUiLibrary,
+        withAnchor: false,
+      })
+      const projects = getProjects(tree)
+      const appProject = projects.has('web-app')
       const anchorProject = projects.has(options.anchorName)
 
       expect(projects.size).toEqual(1)
