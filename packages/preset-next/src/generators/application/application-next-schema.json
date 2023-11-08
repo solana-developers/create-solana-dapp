@@ -17,6 +17,11 @@
       "type": "string",
       "description": "Name of the application (overrides name)"
     },
+    "port": {
+      "type": "number",
+      "description": "Port to run the application on",
+      "default": 3000
+    },
     "skipFormat": {
       "description": "Skip formatting files",
       "type": "boolean",
