@@ -20,3 +20,8 @@ Just run `npx create-solana-dapp@latest` to generate a new project!
 ## Contributing
 
 Contributions are welcome! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for more info.
+
+## Local development
+
+Detailed instructions on the local development workflow are outlined in the
+[Development Workflow](./CONTRIBUTING.md#development-workflow) section of the CONTRIBUTING guidelines.
