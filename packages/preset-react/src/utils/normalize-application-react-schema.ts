@@ -1,7 +1,8 @@
-import {
-  ApplicationReactSchema,
-  NormalizedApplicationReactSchema,
-} from '../generators/application/application-react-schema'
+import { ApplicationReactSchema } from '../generators/application/application-react-schema'
+
+export type NormalizedApplicationReactSchema = Required<ApplicationReactSchema>
+
+export type ApplicationReactUiLibrary = ApplicationReactSchema['uiLibrary']
 
 export function normalizeApplicationReactSchema(options: ApplicationReactSchema): NormalizedApplicationReactSchema {
   return {

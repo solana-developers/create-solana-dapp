@@ -3,9 +3,9 @@ import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
 import { getRecursiveFileContents } from '@solana-developers/preset-common'
 import { applicationReactGenerator, ApplicationReactUiLibrary } from '@solana-developers/preset-react'
 
-import { normalizeApplicationNextSchema } from '../../utils'
+import { normalizeApplicationNextSchema, NormalizedApplicationNextSchema } from '../../utils'
 import { applicationNextGenerator } from './application-next-generator'
-import { ApplicationNextSchema, NormalizedApplicationNextSchema } from './application-next-schema'
+import { ApplicationNextSchema } from './application-next-schema'
 
 describe('application generator', () => {
   let tree: Tree

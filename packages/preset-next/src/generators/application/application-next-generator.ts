@@ -15,11 +15,16 @@ import {
   walletAdapterDependencies,
 } from '@solana-developers/preset-react'
 import { join } from 'path'
-import { applicationSubstitutions, generateNextApplication, normalizeApplicationNextSchema } from '../../utils'
+import {
+  applicationSubstitutions,
+  generateNextApplication,
+  normalizeApplicationNextSchema,
+  NormalizedApplicationNextSchema,
+} from '../../utils'
 import { ApplicationNextSchema } from './application-next-schema'
 
 export async function applicationNextGenerator(tree: Tree, rawOptions: ApplicationNextSchema) {
-  const options = normalizeApplicationNextSchema(rawOptions)
+  const options: NormalizedApplicationNextSchema = normalizeApplicationNextSchema(rawOptions)
   const project = await generateNextApplication(tree, options)
   const npmScope = getNpmScope(tree)
 

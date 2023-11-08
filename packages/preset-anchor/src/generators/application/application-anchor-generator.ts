@@ -3,12 +3,16 @@ import { libraryGenerator } from '@nx/js'
 import { applicationCleanup, runCommand } from '@solana-developers/preset-common'
 import * as path from 'path'
 import { join } from 'path'
-import { addAnchorIgnoreFields, applicationAnchorDependencies } from '../../utils'
-import { normalizeApplicationAnchorSchema } from '../../utils/normalize-application-anchor-schema'
+import {
+  addAnchorIgnoreFields,
+  applicationAnchorDependencies,
+  normalizeApplicationAnchorSchema,
+  NormalizedApplicationAnchorSchema,
+} from '../../utils'
 import { ApplicationAnchorSchema } from './application-anchor-schema'
 
 export async function applicationAnchorGenerator(tree: Tree, rawOptions: ApplicationAnchorSchema) {
-  const options = normalizeApplicationAnchorSchema(rawOptions)
+  const options: NormalizedApplicationAnchorSchema = normalizeApplicationAnchorSchema(rawOptions)
   await libraryGenerator(tree, {
     name: options.name,
     bundler: 'rollup',

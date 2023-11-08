@@ -1,5 +1,5 @@
 import { packageVersion } from '@solana-developers/preset-common'
-import { ApplicationReactUiLibrary } from '../generators/application/application-react-schema'
+import { ApplicationReactUiLibrary } from './normalize-application-react-schema'
 
 export function getUiDependencies(type: ApplicationReactUiLibrary): {
   dependencies?: Record<string, string>

@@ -8,10 +8,11 @@ import {
   applicationSubstitutions,
   applicationTailwindConfig,
   generateReactApplication,
+  normalizeApplicationReactSchema,
+  NormalizedApplicationReactSchema,
   walletAdapterDependencies,
 } from '../../utils'
-import { normalizeApplicationReactSchema } from '../../utils/normalize-application-react-schema'
-import { ApplicationReactSchema, NormalizedApplicationReactSchema } from './application-react-schema'
+import { ApplicationReactSchema } from './application-react-schema'
 
 export async function applicationReactGenerator(tree: Tree, rawOptions: ApplicationReactSchema) {
   const options: NormalizedApplicationReactSchema = normalizeApplicationReactSchema(rawOptions)
