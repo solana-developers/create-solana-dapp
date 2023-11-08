@@ -7,6 +7,7 @@
     "format": "yarn nx format:write --all",
     "lint": "yarn nx run-many --target=lint --all",
     "local-registry": "nx run @solana-developers/source:local-registry",
+    "local-publish": "nx run-many --targets publish --tag local --ver ",
     "test": "yarn nx run-many --target=test --all",
     "verify-package-versions": "ts-node ./verify-package-versions.ts",
     "verify-yarn-lock": "ts-node ./verify-yarn-lock.ts"
