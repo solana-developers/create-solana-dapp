@@ -2,7 +2,7 @@ import { Tree } from '@nx/devkit'
 
 export interface FileContents {
   path: string
-  content?: string
+  content?: string | string[]
   isBinary?: boolean
   children?: Record<string, FileContents>
 }
@@ -40,7 +40,7 @@ export function getRecursiveFileContents(tree: Tree, path: string, includeBinari
       contents[file] = {
         path: `${path}/${file}`,
         isBinary,
-        content: isBinary ? binaryContent : content.toString('utf-8'),
+        content: isBinary ? binaryContent : formatOutput(content.toString('utf-8')),
       }
     } else {
       contents[file] = {
@@ -51,4 +51,11 @@ export function getRecursiveFileContents(tree: Tree, path: string, includeBinari
   })
 
   return contents
+}
+
+export function formatOutput(value: string) {
+  return value
+    .split('\n')
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0)
 }
