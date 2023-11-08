@@ -1,8 +1,6 @@
-import {
-  ApplicationNextSchema,
-  NormalizedApplicationNextSchema,
-} from '../generators/application/application-next-schema'
+import { ApplicationNextSchema } from '../generators/application/application-next-schema'
 
+export type NormalizedApplicationNextSchema = Required<ApplicationNextSchema>
 export function normalizeApplicationNextSchema(options: ApplicationNextSchema): NormalizedApplicationNextSchema {
   return {
     ...options,

@@ -1,12 +1,12 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "$id": "Application",
+  "$id": "ApplicationAnchorSchema",
   "title": "",
   "type": "object",
   "properties": {
     "name": {
       "type": "string",
-      "description": "",
+      "description": "Name of the application",
       "$default": {
         "$source": "argv",
         "index": 0

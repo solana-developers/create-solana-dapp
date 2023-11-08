@@ -2,4 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 yarn verify-yarn-lock
+yarn sync-schemas --check
 yarn lint-staged

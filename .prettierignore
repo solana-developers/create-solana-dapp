@@ -6,3 +6,5 @@ tmp
 /.yarn
 
 .nx/cache
+# Ignore generated schema files in packages
+/packages/*/src/generators/**/*-schema.d.ts
