@@ -1,4 +1,4 @@
-import { packageVersion } from './packages/preset-common/src/utils/package-versions'
+import { packageVersion } from '../../packages/preset-common/src/utils/package-versions'
 
 const pvs: any = { ...packageVersion }
 

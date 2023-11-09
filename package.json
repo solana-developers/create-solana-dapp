@@ -9,8 +9,9 @@
     "local-registry": "nx run @solana-developers/source:local-registry",
     "local-publish": "nx run-many --targets publish --tag local --ver ",
     "test": "yarn nx run-many --target=test --all",
-    "verify-package-versions": "ts-node ./verify-package-versions.ts",
-    "verify-yarn-lock": "ts-node ./verify-yarn-lock.ts"
+    "sync-schemas": "ts-node ./tools/scripts/sync-schemas.ts",
+    "verify-package-versions": "ts-node tools/scripts/verify-package-versions.ts",
+    "verify-yarn-lock": "ts-node tools/scripts/verify-yarn-lock.ts"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +21,7 @@
     "@swc/helpers": "~0.5.2",
     "commander": "^11.1.0",
     "create-nx-workspace": "17.0.1",
+    "json-schema-to-typescript": "^13.1.1",
     "tslib": "^2.3.0",
     "yargs": "^17.7.2"
   },

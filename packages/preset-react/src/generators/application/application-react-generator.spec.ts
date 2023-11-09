@@ -1,14 +1,14 @@
 import { getProjects, readProjectConfiguration, Tree } from '@nx/devkit'
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
 import { getRecursiveFileContents } from '@solana-developers/preset-common'
-import { normalizeApplicationReactSchema } from '../../utils/normalize-application-react-schema'
+import {
+  ApplicationReactUiLibrary,
+  normalizeApplicationReactSchema,
+  NormalizedApplicationReactSchema,
+} from '../../utils'
 
 import { applicationReactGenerator } from './application-react-generator'
-import {
-  ApplicationReactSchema,
-  ApplicationReactUiLibrary,
-  NormalizedApplicationReactSchema,
-} from './application-react-schema'
+import { ApplicationReactSchema } from './application-react-schema'
 
 describe('application react generator', () => {
   let tree: Tree

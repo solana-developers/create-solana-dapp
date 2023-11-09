@@ -1,7 +1,4 @@
-import {
-  ApplicationAnchorSchema,
-  NormalizedApplicationAnchorSchema,
-} from '../generators/application/application-anchor-schema'
+import { ApplicationAnchorSchema } from '../'
 
 export function normalizeApplicationAnchorSchema(options: ApplicationAnchorSchema): NormalizedApplicationAnchorSchema {
   return {
@@ -10,3 +7,6 @@ export function normalizeApplicationAnchorSchema(options: ApplicationAnchorSchem
     template: options.template ?? 'counter',
   }
 }
+
+export type NormalizedApplicationAnchorSchema = Required<ApplicationAnchorSchema>
+export type ApplicationAnchorTemplate = ApplicationAnchorSchema['template']

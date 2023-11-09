@@ -1,13 +1,18 @@
 import { readProjectConfiguration, Tree } from '@nx/devkit'
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
 import { getRecursiveFileContents } from '@solana-developers/preset-common'
-
+import {
+  ApplicationAnchorTemplate,
+  normalizeApplicationAnchorSchema,
+  NormalizedApplicationAnchorSchema,
+} from '../../utils'
 import { applicationAnchorGenerator } from './application-anchor-generator'
-import { ApplicationAnchorSchema, ApplicationAnchorTemplate } from './application-anchor-schema'
+import { ApplicationAnchorSchema } from './application-anchor-schema'
 
 describe('application generator', () => {
   let tree: Tree
-  const options: ApplicationAnchorSchema = { name: 'anchor-app' }
+  const rawOptions: ApplicationAnchorSchema = { name: 'anchor-app' }
+  const options: NormalizedApplicationAnchorSchema = normalizeApplicationAnchorSchema(rawOptions)
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace()

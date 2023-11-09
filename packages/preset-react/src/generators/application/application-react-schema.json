@@ -6,7 +6,7 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "",
+      "description": "Name of the application",
       "$default": {
         "$source": "argv",
         "index": 0
