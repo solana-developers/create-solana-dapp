@@ -5,7 +5,7 @@ import { app, getArgs } from '../lib/get-args'
 
 async function main() {
   intro(`${app.name} ${app.version}`)
-  const args = await getArgs()
+  const args = await getArgs(process.argv)
 
   if (!args.dryRun) {
     const { directory } = await createWorkspace(`${args.package}`, {

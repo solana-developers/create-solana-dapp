@@ -1,4 +1,3 @@
-import { input } from '@inquirer/prompts'
 import { program } from 'commander'
 import { select, text } from '@clack/prompts'
 
@@ -24,17 +23,17 @@ function comment(text: string) {
 `
 }
 
-export async function getArgs(): Promise<any> {
+export async function getArgs(argv: string[]): Promise<ArgsOptions> {
   const { presets, presetChoices } = getPresets(packageJson.version)
 
-  const result = program
+  const res = program
     .name(packageJson.name)
     .version(packageJson.version)
-    .option('-n, --name <name>', comment(`Name of the workspace`))
+    .argument('[name]', 'Name of the project')
     .option('--app-name <name>', comment(`Name of the frontend project (default: web)`))
     .option('-p, --preset <preset>', comment(`Preset to use (options: ${presetChoices.join(', ')})`))
     .option('-d, --dry-run', comment(`Dry run (default: false)`))
-    .option('-a, --anchor', comment(`Include anchor in the project (default: true)`))
+    .option('-a, --anchor', comment(`Include anchor in the project`), (validate) => Boolean(validate), true)
     .option('--anchor-name <anchor-name>', comment(`Anchor project name (default: anchor)`))
     .option('--anchor-template <anchor-template>', comment(`Anchor template (default: counter)`))
     .option('-pm, --package-manager <package-manager>', comment(`Package manager to use (default: npm)`))
@@ -42,21 +41,23 @@ export async function getArgs(): Promise<any> {
       'after',
       `
 Examples:
-  $ ${packageJson.name} --name my-app --preset react
-  $ ${packageJson.name} --name my-app --preset react --package-manager yarn
-  $ ${packageJson.name} --name my-app --preset react --anchor-template hello-world
+  $ ${packageJson.name} my-app --preset react
+  $ ${packageJson.name} my-app --preset react --package-manager yarn
+  $ ${packageJson.name} my-app --preset react --anchor-template hello-world
       `,
     )
-    .parse(process.argv)
-    .opts()
+    .parse(argv)
+
+  const name = res.args[0]
+  const result = res.opts()
 
   const options: ArgsOptions = {
-    anchor: result.anchor ?? true,
+    anchor: result.anchor,
     anchorName: result.anchorName ?? 'anchor',
     anchorTemplate: result.anchorTemplate ?? 'counter',
     appName: result.appName ?? 'web',
     dryRun: result.dryRun ?? false,
-    name: result.name,
+    name: name ?? '',
     package: '',
     packageManager: (result.packageManager ?? 'npm') as CreateWorkspaceOptions['packageManager'],
     preset: result.preset,
