@@ -29,8 +29,7 @@ describe('application generator', () => {
 
     const config = readProjectConfiguration(tree, options.name)
     const contents = getRecursiveFileContents(tree, config.root)
-    const stringified = JSON.stringify(contents, null, 2)
-    expect(stringified).toMatchSnapshot()
+    expect(contents).toMatchSnapshot()
 
     const rootTsConfig = tree.read('tsconfig.base.json').toString()
     expect(rootTsConfig).toMatchSnapshot()

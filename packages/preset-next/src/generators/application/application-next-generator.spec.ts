@@ -26,8 +26,7 @@ describe('application generator', () => {
       expect(anchorConfig).toBeDefined()
 
       const contents = getRecursiveFileContents(tree, '.')
-      const stringified = JSON.stringify(contents, null, 2)
-      expect(stringified).toMatchSnapshot()
+      expect(contents).toMatchSnapshot()
     })
   })
 
