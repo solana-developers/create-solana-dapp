@@ -2,11 +2,11 @@
 
 exports[`create-solana-dapp should print the help command 1`] = `
 "┌ create-solana-dapp 1.0.0
-Usage: create-solana-dapp [options]
+Usage: create-solana-dapp [options] [name]
+Arguments:
+name Name of the project
 Options:
 -V, --version output the version number
--n, --name <name>
-Name of the workspace
 --app-name <name>
 Name of the frontend project (default: web)
 -p, --preset <preset>
@@ -14,7 +14,8 @@ Preset to use (options: next, react)
 -d, --dry-run
 Dry run (default: false)
 -a, --anchor
-Include anchor in the project (default: true)
+Include anchor in the project
+(default: true)
 --anchor-name <anchor-name>
 Anchor project name (default: anchor)
 --anchor-template <anchor-template>
@@ -23,7 +24,7 @@ Anchor template (default: counter)
 Package manager to use (default: npm)
 -h, --help display help for command
 Examples:
-$ create-solana-dapp --name my-app --preset react
-$ create-solana-dapp --name my-app --preset react --package-manager yarn
-$ create-solana-dapp --name my-app --preset react --anchor-template hello-world"
+$ create-solana-dapp my-app --preset react
+$ create-solana-dapp my-app --preset react --package-manager yarn
+$ create-solana-dapp my-app --preset react --anchor-template hello-world"
 `;

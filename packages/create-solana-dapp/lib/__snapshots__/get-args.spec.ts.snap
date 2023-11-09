@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`get-args should get args with minimal parameters 1`] = `
+{
+  "anchor": true,
+  "anchorName": "anchor",
+  "anchorTemplate": "counter",
+  "appName": "web",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-next@0.0.1",
+  "packageManager": "npm",
+  "preset": "next",
+}
+`;
+
+exports[`get-args should get args with preset: --preset next 1`] = `
+{
+  "anchor": true,
+  "anchorName": "anchor",
+  "anchorTemplate": "counter",
+  "appName": "web",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-next@0.0.1",
+  "packageManager": "npm",
+  "preset": "next",
+}
+`;
+
+exports[`get-args should get args with preset: --preset react --anchor false 1`] = `
+{
+  "anchor": false,
+  "anchorName": undefined,
+  "anchorTemplate": undefined,
+  "appName": "web",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "npm",
+  "preset": "react",
+}
+`;
+
+exports[`get-args should get args with preset: --preset react --anchor-template hello-world --anchor-name program 1`] = `
+{
+  "anchor": true,
+  "anchorName": "program",
+  "anchorTemplate": "hello-world",
+  "appName": "web",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "npm",
+  "preset": "react",
+}
+`;
+
+exports[`get-args should get args with preset: --preset react 1`] = `
+{
+  "anchor": true,
+  "anchorName": "anchor",
+  "anchorTemplate": "counter",
+  "appName": "web",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "npm",
+  "preset": "react",
+}
+`;
