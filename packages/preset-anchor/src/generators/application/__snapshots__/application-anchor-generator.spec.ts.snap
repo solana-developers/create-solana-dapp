@@ -91,6 +91,11 @@ exports[`application generator should generate app with "counter" template 1`] =
     "isBinary": false,
     "path": "anchor-app/Anchor.toml",
   },
+  "Cargo.lock": {
+    "content": null,
+    "isBinary": true,
+    "path": "anchor-app/Cargo.lock",
+  },
   "Cargo.toml": {
     "content": [
       "[workspace]",
@@ -711,6 +716,11 @@ exports[`application generator should generate app with "hello-world" template 1
     ],
     "isBinary": false,
     "path": "anchor-app/Anchor.toml",
+  },
+  "Cargo.lock": {
+    "content": null,
+    "isBinary": true,
+    "path": "anchor-app/Cargo.lock",
   },
   "Cargo.toml": {
     "content": [
