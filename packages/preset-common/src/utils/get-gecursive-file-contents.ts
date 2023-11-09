@@ -26,6 +26,7 @@ const binaries = [
   'ttf',
   'woff',
   'woff2',
+  'lock',
 ]
 
 export function getRecursiveFileContents(tree: Tree, path: string, includeBinaries = false) {
