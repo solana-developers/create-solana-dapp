@@ -286,6 +286,11 @@ exports[`application generator default apps should generate default app with "no
         "isBinary": false,
         "path": "./program/Anchor.toml",
       },
+      "Cargo.lock": {
+        "content": null,
+        "isBinary": true,
+        "path": "./program/Cargo.lock",
+      },
       "Cargo.toml": {
         "content": [
           "[workspace]",
@@ -1510,6 +1515,11 @@ exports[`application generator default apps should generate default app with "ta
         ],
         "isBinary": false,
         "path": "./program/Anchor.toml",
+      },
+      "Cargo.lock": {
+        "content": null,
+        "isBinary": true,
+        "path": "./program/Cargo.lock",
       },
       "Cargo.toml": {
         "content": [

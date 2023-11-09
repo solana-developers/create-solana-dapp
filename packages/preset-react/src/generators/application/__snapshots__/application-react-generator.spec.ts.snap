@@ -294,6 +294,11 @@ exports[`application react generator default apps should generate default app wi
         "isBinary": false,
         "path": "./program/Anchor.toml",
       },
+      "Cargo.lock": {
+        "content": null,
+        "isBinary": true,
+        "path": "./program/Cargo.lock",
+      },
       "Cargo.toml": {
         "content": [
           "[workspace]",
@@ -1667,6 +1672,11 @@ exports[`application react generator default apps should generate default app wi
         ],
         "isBinary": false,
         "path": "./program/Anchor.toml",
+      },
+      "Cargo.lock": {
+        "content": null,
+        "isBinary": true,
+        "path": "./program/Cargo.lock",
       },
       "Cargo.toml": {
         "content": [
