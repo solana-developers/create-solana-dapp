@@ -27,6 +27,8 @@ describe('get-args', () => {
       '--preset react --anchor counter --anchor-name program --ui tailwind',
       '--preset=react --anchor=counter --anchor-name=program --ui=tailwind',
       '--preset=react --anchor=counter --anchor-name=program --anchor-build --ui=tailwind',
+      '--preset react --anchor none --ui none --pnpm',
+      '--preset react --anchor none --ui none --yarn',
     ])('should get args with preset: %s', async (preset: string) => {
       const result = await getArgs(['', '', 'my-app', ...preset.split(' ')])
 
@@ -60,6 +62,16 @@ describe('get-args', () => {
         console.log(x)
       } catch (e) {
         expect(e.message).toContain('Invalid ui library for preset react: jquery-ui')
+      }
+    })
+
+    it('should fail with two package managers', async () => {
+      expect.assertions(1)
+      try {
+        const x = await getArgs(['', '', 'my-app', '--preset', 'react', '--ui', 'none', '--yarn', '--pnpm'])
+        console.log(x)
+      } catch (e) {
+        expect(e.message).toContain('Both pnpm and yarn were specified. Please specify only one.')
       }
     })
   })

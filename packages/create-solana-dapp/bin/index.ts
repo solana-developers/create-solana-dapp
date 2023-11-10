@@ -41,6 +41,7 @@ async function main() {
         }
         s.start('Building anchor...')
         try {
+          await execAndWait(`anchor keys sync`, join(args.name, args.anchorName))
           await execAndWait(`npx nx run ${args.anchorName}:build`, join(args.name))
           s.stop('Anchor built.')
         } catch (e) {

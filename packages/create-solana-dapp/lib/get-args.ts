@@ -45,6 +45,8 @@ export async function getArgs(argv: string[], pm: PackageManager = 'npm'): Promi
     .option('--anchor-name <anchor-name>', help(`Anchor project name (default: anchor)`))
     .option('--app-name <name>', help(`Name of the frontend project (default: web)`))
     .option('-pm, --package-manager <package-manager>', help(`Package manager to use (default: npm)`))
+    .option('--yarn', help(`Use yarn as the package manager (default: false)`), false)
+    .option('--pnpm', help(`Use pnpm as the package manager (default: false)`), false)
     .option('-d, --dry-run', 'Dry run (default: false)')
     .addHelpText(
       'after',
@@ -73,8 +75,22 @@ Examples:
     name: name ?? '',
     package: '',
     packageManager: (result.packageManager ?? pm) as CreateWorkspaceOptions['packageManager'],
+    pnpm: result.pnpm,
     preset: result.preset,
     ui: result.ui,
+    yarn: result.yarn,
+  }
+
+  // The 'yarn' and 'pnpm' options are mutually exclusive, and will override the 'packageManager' option
+  if (result.pnpm && result.yarn) {
+    log.error(`Both pnpm and yarn were specified. Please specify only one.`)
+    throw new Error(`Both pnpm and yarn were specified. Please specify only one.`)
+  }
+  if (result.pnpm) {
+    options.packageManager = 'pnpm'
+  }
+  if (result.yarn) {
+    options.packageManager = 'yarn'
   }
 
   // Get the prompts for any missing options

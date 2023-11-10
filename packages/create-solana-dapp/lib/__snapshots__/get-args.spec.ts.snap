@@ -10,8 +10,10 @@ exports[`get-args expected args should get args with minimal parameters 1`] = `
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
   "packageManager": "npm",
+  "pnpm": false,
   "preset": "next",
   "ui": "tailwind",
+  "yarn": false,
 }
 `;
 
@@ -25,8 +27,10 @@ exports[`get-args expected args should get args with minimal parameters and pack
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
   "packageManager": "npm",
+  "pnpm": false,
   "preset": "next",
   "ui": "tailwind",
+  "yarn": false,
 }
 `;
 
@@ -40,8 +44,10 @@ exports[`get-args expected args should get args with minimal parameters and pack
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
   "packageManager": "pnpm",
+  "pnpm": false,
   "preset": "next",
   "ui": "tailwind",
+  "yarn": false,
 }
 `;
 
@@ -55,8 +61,10 @@ exports[`get-args expected args should get args with minimal parameters and pack
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
   "packageManager": "yarn",
+  "pnpm": false,
   "preset": "next",
   "ui": "tailwind",
+  "yarn": false,
 }
 `;
 
@@ -70,8 +78,10 @@ exports[`get-args expected args should get args with preset: --preset next --ui 
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
   "packageManager": "npm",
+  "pnpm": false,
   "preset": "next",
   "ui": "tailwind",
+  "yarn": false,
 }
 `;
 
@@ -85,8 +95,44 @@ exports[`get-args expected args should get args with preset: --preset react --an
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
   "packageManager": "npm",
+  "pnpm": false,
   "preset": "react",
   "ui": "tailwind",
+  "yarn": false,
+}
+`;
+
+exports[`get-args expected args should get args with preset: --preset react --anchor none --ui none --pnpm 1`] = `
+{
+  "anchor": "none",
+  "anchorBuild": false,
+  "anchorName": "program",
+  "appName": "web",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "pnpm",
+  "pnpm": true,
+  "preset": "react",
+  "ui": "none",
+  "yarn": false,
+}
+`;
+
+exports[`get-args expected args should get args with preset: --preset react --anchor none --ui none --yarn 1`] = `
+{
+  "anchor": "none",
+  "anchorBuild": false,
+  "anchorName": "program",
+  "appName": "web",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "yarn",
+  "pnpm": false,
+  "preset": "react",
+  "ui": "none",
+  "yarn": true,
 }
 `;
 
@@ -100,8 +146,10 @@ exports[`get-args expected args should get args with preset: --preset react --an
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
   "packageManager": "npm",
+  "pnpm": false,
   "preset": "react",
   "ui": "none",
+  "yarn": false,
 }
 `;
 
@@ -115,8 +163,10 @@ exports[`get-args expected args should get args with preset: --preset react --ui
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
   "packageManager": "npm",
+  "pnpm": false,
   "preset": "react",
   "ui": "tailwind",
+  "yarn": false,
 }
 `;
 
@@ -130,8 +180,10 @@ exports[`get-args expected args should get args with preset: --preset=react --an
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
   "packageManager": "npm",
+  "pnpm": false,
   "preset": "react",
   "ui": "tailwind",
+  "yarn": false,
 }
 `;
 
@@ -145,7 +197,9 @@ exports[`get-args expected args should get args with preset: --preset=react --an
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
   "packageManager": "npm",
+  "pnpm": false,
   "preset": "react",
   "ui": "tailwind",
+  "yarn": false,
 }
 `;
