@@ -14,6 +14,48 @@ exports[`get-args expected args should get args with minimal parameters 1`] = `
 }
 `;
 
+exports[`get-args expected args should get args with minimal parameters and package manager npm 1`] = `
+{
+  "anchor": "counter",
+  "anchorName": "anchor",
+  "appName": "web",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-next@0.0.1",
+  "packageManager": "npm",
+  "preset": "next",
+  "ui": "tailwind",
+}
+`;
+
+exports[`get-args expected args should get args with minimal parameters and package manager pnpm 1`] = `
+{
+  "anchor": "counter",
+  "anchorName": "anchor",
+  "appName": "web",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-next@0.0.1",
+  "packageManager": "pnpm",
+  "preset": "next",
+  "ui": "tailwind",
+}
+`;
+
+exports[`get-args expected args should get args with minimal parameters and package manager yarn 1`] = `
+{
+  "anchor": "counter",
+  "anchorName": "anchor",
+  "appName": "web",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-next@0.0.1",
+  "packageManager": "yarn",
+  "preset": "next",
+  "ui": "tailwind",
+}
+`;
+
 exports[`get-args expected args should get args with preset: --preset next --ui tailwind --anchor counter 1`] = `
 {
   "anchor": "counter",

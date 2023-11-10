@@ -1,14 +1,14 @@
 import { log } from '@clack/prompts'
 import { program } from 'commander'
-
 import { CreateWorkspaceOptions } from 'create-nx-workspace'
+import { PackageManager } from 'nx/src/utils/package-manager'
 import { anchorTemplates } from './anchor-templates'
 import { getAppInfo } from './get-app-info'
 import { GetArgsResult } from './get-args-result'
 import { getPresets } from './get-presets'
 import { getPrompts, getUiLibraries } from './get-prompts'
 
-export async function getArgs(argv: string[]): Promise<GetArgsResult> {
+export async function getArgs(argv: string[], pm: PackageManager = 'npm'): Promise<GetArgsResult> {
   // Get app info from package.json
   const app = getAppInfo()
 
@@ -70,7 +70,7 @@ Examples:
     dryRun: result.dryRun ?? false,
     name: name ?? '',
     package: '',
-    packageManager: (result.packageManager ?? 'npm') as CreateWorkspaceOptions['packageManager'],
+    packageManager: (result.packageManager ?? pm) as CreateWorkspaceOptions['packageManager'],
     preset: result.preset,
     ui: result.ui,
   }
