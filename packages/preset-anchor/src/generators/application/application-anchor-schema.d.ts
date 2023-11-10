@@ -18,5 +18,4 @@ export interface ApplicationAnchorSchema {
    * The template to use
    */
   template?: "counter" | "hello-world";
-  [k: string]: unknown;
 }

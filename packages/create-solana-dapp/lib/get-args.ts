@@ -1,103 +1,148 @@
-import { input } from '@inquirer/prompts'
+import { log } from '@clack/prompts'
 import { program } from 'commander'
-import { select, text } from '@clack/prompts'
-
-import { CreateWorkspaceOptions } from 'create-nx-workspace'
+import { PackageManager } from 'nx/src/utils/package-manager'
+import { anchorTemplates } from './anchor-templates'
+import { getAppInfo } from './get-app-info'
+import { GetArgsResult } from './get-args-result'
 import { getPresets } from './get-presets'
+import { getPrompts, getUiLibraries } from './get-prompts'
 
-import { validateProjectName } from './validate-project-name'
+export async function getArgs(argv: string[], pm: PackageManager = 'npm'): Promise<GetArgsResult> {
+  // Get app info from package.json
+  const app = getAppInfo()
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const packageJson = require('../package.json')
+  // Get info about the presets
+  const { presets, presetValues } = getPresets(app.version)
 
-const anchorTemplateChoices = ['counter', 'hello-world']
-
-export const app = {
-  name: packageJson.name,
-  version: packageJson.version,
-}
-
-function comment(text: string) {
-  return `
-
- ${text}
-`
-}
-
-export async function getArgs(): Promise<any> {
-  const { presets, presetChoices } = getPresets(packageJson.version)
-
-  const result = program
-    .name(packageJson.name)
-    .version(packageJson.version)
-    .option('-n, --name <name>', comment(`Name of the workspace`))
-    .option('--app-name <name>', comment(`Name of the frontend project (default: web)`))
-    .option('-p, --preset <preset>', comment(`Preset to use (options: ${presetChoices.join(', ')})`))
-    .option('-d, --dry-run', comment(`Dry run (default: false)`))
-    .option('-a, --anchor', comment(`Include anchor in the project (default: true)`))
-    .option('--anchor-name <anchor-name>', comment(`Anchor project name (default: anchor)`))
-    .option('--anchor-template <anchor-template>', comment(`Anchor template (default: counter)`))
-    .option('-pm, --package-manager <package-manager>', comment(`Package manager to use (default: npm)`))
+  // Get the result from the command line
+  const input = program
+    .name(app.name)
+    .version(app.version, '-V, --version', help('Output the version number\n'))
+    .argument('[name]', 'Name of the project (default: <prompt>)')
+    .option(
+      '-p, --preset <preset>',
+      help(`Preset to use (default: <prompt>, options: ${presetValues.join(', ')})\n`),
+      (value: string) => {
+        if (!presetValues.includes(value)) {
+          throw new Error(`Invalid preset: ${value}`)
+        }
+        return value
+      },
+    )
+    .option('--ui <ui-library>', help(`UI library to use (default: <prompt>)\n`))
+    .option(
+      '-a, --anchor <template>',
+      help(`Name of the Anchor template to use (default: <prompt>, set to "none" to prevent adding Anchor)\n`),
+      (value: string) => {
+        if (!anchorTemplates.includes(value)) {
+          throw new Error(`Invalid anchor template: ${value}`)
+        }
+        return value
+      },
+    )
+    .option('--anchor-build', help(`Build the anchor project`), false)
+    .option('--anchor-name <name>', help(`Anchor project name (default: anchor)\n`))
+    .option('--web-name <name>', help(`Web project name (default: web)\n`))
+    .option('-pm, --package-manager <package-manager>', help(`Package manager to use (default: npm)\n`))
+    .option('--yarn', help(`Use yarn as the package manager`), false)
+    .option('--pnpm', help(`Use pnpm as the package manager`), false)
+    .option('-d, --dry-run', help('Dry run (default: false)\n'))
+    .helpOption('-h, --help', help('Display help for command\n'))
     .addHelpText(
       'after',
       `
 Examples:
-  $ ${packageJson.name} --name my-app --preset react
-  $ ${packageJson.name} --name my-app --preset react --package-manager yarn
-  $ ${packageJson.name} --name my-app --preset react --anchor-template hello-world
+  $ ${app.name} my-app --preset react
+  $ ${app.name} my-app --preset react --package-manager yarn
+  $ ${app.name} my-app --preset react --anchor hello-world
       `,
     )
-    .parse(process.argv)
-    .opts()
+    .parse(argv)
 
-  const options: ArgsOptions = {
-    anchor: result.anchor ?? true,
+  // Get the optional name argument (positional)
+  const name = input.args[0]
+
+  // Get the options from the command line
+  const result = input.opts()
+
+  let packageManager = result.packageManager ?? pm
+
+  // The 'yarn' and 'pnpm' options are mutually exclusive, and will override the 'packageManager' option
+  if (result.pnpm && result.yarn) {
+    log.error(`Both pnpm and yarn were specified. Please specify only one.`)
+    throw new Error(`Both pnpm and yarn were specified. Please specify only one.`)
+  }
+  if (result.pnpm) {
+    packageManager = 'pnpm'
+  }
+  if (result.yarn) {
+    packageManager = 'yarn'
+  }
+
+  // Take the result from the command line and use it to populate the options
+  const options: GetArgsResult = {
+    anchor: result.anchor,
+    anchorBuild: result.anchorBuild,
     anchorName: result.anchorName ?? 'anchor',
-    anchorTemplate: result.anchorTemplate ?? 'counter',
-    appName: result.appName ?? 'web',
+    webName: result.webName ?? 'web',
     dryRun: result.dryRun ?? false,
-    name: result.name,
+    name: name ?? '',
     package: '',
-    packageManager: (result.packageManager ?? 'npm') as CreateWorkspaceOptions['packageManager'],
+    packageManager,
+    pnpm: result.pnpm ? result.pnpm : false,
     preset: result.preset,
+    ui: result.ui,
+    yarn: result.yarn ? result.yarn : false,
   }
 
-  if (!options.name?.length) {
-    options.name = await text({
-      message: 'Enter project name',
-      validate: validateProjectName,
-    }).then((res) => res.toString())
+  // Get the prompts for any missing options
+  const prompts = await getPrompts({ options, presets })
+
+  // Populate the options with the prompts
+  if (prompts.name) {
+    options.name = prompts.name
+  }
+  if (prompts.preset) {
+    options.preset = prompts.preset
+  }
+  if (prompts.ui) {
+    options.ui = prompts.ui as string
+  }
+  if (prompts.anchor) {
+    options.anchor = prompts.anchor
   }
 
-  if (!options.preset?.length) {
-    options.preset = await select({
-      message: 'Select a preset',
-      options: presets,
-    }).then((res) => res.toString())
+  // Validate the options
+  if (options.preset && !presetValues.includes(options.preset)) {
+    log.error(`Invalid preset: ${options.preset}`)
+    throw new Error(`Invalid preset: ${options.preset}`)
   }
 
+  if (!anchorTemplates.includes(options.anchor ?? '')) {
+    log.error(`Invalid anchor template: ${options.anchor}`)
+    throw new Error(`Invalid anchor template: ${options.anchor}`)
+  }
+
+  const libs = getUiLibraries(options.preset as 'next' | 'react')
+  if (options.ui && !libs.map((l) => l.value).includes(options.ui)) {
+    log.error(`Invalid ui library for preset ${options.preset}: ${options.ui}`)
+    throw new Error(`Invalid ui library for preset ${options.preset}: ${options.ui}`)
+  }
+
+  // Create the package string
+  // TODO: In the future, we should allow the user to specify the package and version using the preset option
   if (options.package === '') {
     const packageName = presets.find((preset) => preset.value === options.preset)?.package
     const packageVersion = presets.find((preset) => preset.value === options.preset)?.version
     options.package = `${packageName}@${packageVersion}`
   }
 
-  if (!options.anchor) {
-    options.anchorName = undefined
-    options.anchorTemplate = undefined
-  }
-
   return options
 }
 
-export interface ArgsOptions {
-  anchor: boolean
-  anchorName: string | undefined
-  anchorTemplate: string | undefined
-  appName: string
-  dryRun: boolean
-  name: string | undefined
-  package: string
-  packageManager: CreateWorkspaceOptions['packageManager']
-  preset: string | undefined
+// Helper function to add a newline before the text
+function help(text: string) {
+  return `
+
+  ${text}`
 }

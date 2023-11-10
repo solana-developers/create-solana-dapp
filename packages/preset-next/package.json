@@ -3,12 +3,14 @@
   "version": "0.0.1",
   "dependencies": {
     "@nx/devkit": "17.0.1",
+    "@nx/jest": "17.0.1",
     "@nx/js": "17.0.1",
     "@nx/linter": "17.0.1",
     "@nx/next": "^17.0.1",
     "@solana-developers/preset-anchor": "*",
     "@solana-developers/preset-common": "*",
     "@solana-developers/preset-react": "*",
+    "prettier": "^2.6.2",
     "tslib": "^2.3.0"
   },
   "type": "commonjs",

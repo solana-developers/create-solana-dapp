@@ -195,7 +195,7 @@ For example, this one-liner will create a new app with the latest version of the
 React preset and yarn as the package manager:
 
 ```shell
- npx --yes create-solana-dapp@local --name app-"$(date +%s)" --preset react --package-manager yarn
+ npx --yes create-solana-dapp@local app-"$(date +%s)" --preset react --package-manager yarn
 ```
 
 To check all the options, run:
