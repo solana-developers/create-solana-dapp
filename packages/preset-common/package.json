@@ -2,7 +2,7 @@
   "name": "@solana-developers/preset-common",
   "version": "0.0.1",
   "dependencies": {
-    "@nx/devkit": "17.0.1",
+    "@nx/devkit": "17.1.1",
     "tslib": "^2.3.0"
   },
   "type": "commonjs",
