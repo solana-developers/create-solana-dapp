@@ -6,8 +6,10 @@
     "@nx/js": "17.0.1",
     "@nx/linter": "17.0.1",
     "@nx/react": "^17.0.1",
+    "@nx/webpack": "^17.0.1",
     "@solana-developers/preset-anchor": "*",
     "@solana-developers/preset-common": "*",
+    "prettier": "^2.6.2",
     "tslib": "^2.3.0"
   },
   "type": "commonjs",
