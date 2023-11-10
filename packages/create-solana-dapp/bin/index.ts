@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 import { intro, note, outro } from '@clack/prompts'
 import { createWorkspace } from 'create-nx-workspace'
-import { app, getArgs } from '../lib/get-args'
+import { getAppInfo } from '../lib/get-app-info'
+import { getArgs } from '../lib/get-args'
 
 async function main() {
+  const app = getAppInfo()
   intro(`${app.name} ${app.version}`)
   const args = await getArgs(process.argv)
 
@@ -17,17 +19,15 @@ async function main() {
         email: 'no-reply@solana.org',
         message: 'chore: initial commit',
       },
-      withAnchor: args.anchor,
+      anchor: args.anchor,
       anchorName: args.anchorName,
-      anchorTemplate: args.anchorTemplate,
       appName: args.appName,
     })
 
     note(`Successfully created the workspace: ${directory}.`)
     outro(`Run \`cd ${directory}\` to get started.`)
   } else {
-    note('Dry run, no changes were made.')
-    note(JSON.stringify(args, null, 2))
+    note(JSON.stringify(args, null, 2), 'Dry run, no changes were made.')
     outro(`Would have created the workspace: ${args.name} with preset: ${args.preset}.`)
   }
 }

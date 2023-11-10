@@ -1,4 +1,14 @@
-export function getPresets(version: string) {
+export interface Preset {
+  label: string
+  value: string
+  package: string
+  version: string
+}
+
+export function getPresets(version: string): {
+  presets: Preset[]
+  presetValues: string[]
+} {
   const presets = [
     {
       label: 'Next.js',
@@ -16,6 +26,6 @@ export function getPresets(version: string) {
 
   return {
     presets,
-    presetChoices: presets.map((preset) => preset.value),
+    presetValues: presets.map((preset) => preset.value),
   }
 }

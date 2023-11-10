@@ -1,27 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`create-solana-dapp should print the help command 1`] = `
-"┌ create-solana-dapp 1.0.0
+"┌ create-solana-dapp 2.0.0
 Usage: create-solana-dapp [options] [name]
 Arguments:
-name Name of the project
+name Name of the project (default: prompt)
 Options:
 -V, --version output the version number
+-p, --preset <preset>
+Preset to use (default: prompt, options: next, react)
+--ui <ui-library>
+UI library to use (default: prompt)
+-a, --anchor <template>
+Name of the Anchor template to use (default: prompt, set to false to disable)
 --app-name <name>
 Name of the frontend project (default: web)
--p, --preset <preset>
-Preset to use (options: next, react)
--d, --dry-run
-Dry run (default: false)
--a, --anchor
-Include anchor in the project
-(default: true)
 --anchor-name <anchor-name>
 Anchor project name (default: anchor)
---anchor-template <anchor-template>
-Anchor template (default: counter)
 -pm, --package-manager <package-manager>
 Package manager to use (default: npm)
+-d, --dry-run Dry run (default: false)
 -h, --help display help for command
 Examples:
 $ create-solana-dapp my-app --preset react
