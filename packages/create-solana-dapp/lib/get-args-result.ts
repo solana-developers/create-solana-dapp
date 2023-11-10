@@ -2,6 +2,7 @@ import { CreateWorkspaceOptions } from 'create-nx-workspace'
 
 export interface GetArgsResult {
   anchor: string | undefined
+  anchorBuild: boolean
   anchorName: string | undefined
   appName: string
   dryRun: boolean

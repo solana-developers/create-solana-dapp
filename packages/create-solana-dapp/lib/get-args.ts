@@ -41,8 +41,9 @@ export async function getArgs(argv: string[], pm: PackageManager = 'npm'): Promi
         return value
       },
     )
-    .option('--app-name <name>', help(`Name of the frontend project (default: web)`))
+    .option('--anchor-build', help(`Build the anchor project (default: false)`), false)
     .option('--anchor-name <anchor-name>', help(`Anchor project name (default: anchor)`))
+    .option('--app-name <name>', help(`Name of the frontend project (default: web)`))
     .option('-pm, --package-manager <package-manager>', help(`Package manager to use (default: npm)`))
     .option('-d, --dry-run', 'Dry run (default: false)')
     .addHelpText(
@@ -65,6 +66,7 @@ Examples:
   // Take the result from the command line and use it to populate the options
   const options: GetArgsResult = {
     anchor: result.anchor,
+    anchorBuild: result.anchorBuild,
     anchorName: result.anchorName ?? 'anchor',
     appName: result.appName ?? 'web',
     dryRun: result.dryRun ?? false,
