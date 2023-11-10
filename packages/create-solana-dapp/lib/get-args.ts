@@ -1,6 +1,5 @@
 import { log } from '@clack/prompts'
 import { program } from 'commander'
-import { CreateWorkspaceOptions } from 'create-nx-workspace'
 import { PackageManager } from 'nx/src/utils/package-manager'
 import { anchorTemplates } from './anchor-templates'
 import { getAppInfo } from './get-app-info'
@@ -18,11 +17,11 @@ export async function getArgs(argv: string[], pm: PackageManager = 'npm'): Promi
   // Get the result from the command line
   const input = program
     .name(app.name)
-    .version(app.version)
+    .version(app.version, '-V, --version', help('Output the version number\n'))
     .argument('[name]', 'Name of the project (default: <prompt>)')
     .option(
       '-p, --preset <preset>',
-      help(`Preset to use (default: <prompt>, options: ${presetValues.join(', ')})`),
+      help(`Preset to use (default: <prompt>, options: ${presetValues.join(', ')})\n`),
       (value: string) => {
         if (!presetValues.includes(value)) {
           throw new Error(`Invalid preset: ${value}`)
@@ -30,10 +29,10 @@ export async function getArgs(argv: string[], pm: PackageManager = 'npm'): Promi
         return value
       },
     )
-    .option('--ui <ui-library>', help(`UI library to use (default: <prompt>)`))
+    .option('--ui <ui-library>', help(`UI library to use (default: <prompt>)\n`))
     .option(
       '-a, --anchor <template>',
-      help(`Name of the Anchor template to use (default: <prompt>, set to "none" to prevent adding Anchor)`),
+      help(`Name of the Anchor template to use (default: <prompt>, set to "none" to prevent adding Anchor)\n`),
       (value: string) => {
         if (!anchorTemplates.includes(value)) {
           throw new Error(`Invalid anchor template: ${value}`)
@@ -41,13 +40,14 @@ export async function getArgs(argv: string[], pm: PackageManager = 'npm'): Promi
         return value
       },
     )
-    .option('--anchor-build', help(`Build the anchor project (default: false)`), false)
-    .option('--anchor-name <anchor-name>', help(`Anchor project name (default: anchor)`))
-    .option('--app-name <name>', help(`Name of the frontend project (default: web)`))
-    .option('-pm, --package-manager <package-manager>', help(`Package manager to use (default: npm)`))
+    .option('--anchor-build', help(`Build the anchor project`), false)
+    .option('--anchor-name <name>', help(`Anchor project name (default: anchor)\n`))
+    .option('--web-name <name>', help(`Web project name (default: web)\n`))
+    .option('-pm, --package-manager <package-manager>', help(`Package manager to use (default: npm)\n`))
     .option('--yarn', help(`Use yarn as the package manager`), false)
     .option('--pnpm', help(`Use pnpm as the package manager`), false)
-    .option('-d, --dry-run', 'Dry run (default: false)')
+    .option('-d, --dry-run', help('Dry run (default: false)\n'))
+    .helpOption('-h, --help', help('Display help for command\n'))
     .addHelpText(
       'after',
       `
@@ -84,7 +84,7 @@ Examples:
     anchor: result.anchor,
     anchorBuild: result.anchorBuild,
     anchorName: result.anchorName ?? 'anchor',
-    appName: result.appName ?? 'web',
+    webName: result.webName ?? 'web',
     dryRun: result.dryRun ?? false,
     name: name ?? '',
     package: '',
@@ -144,6 +144,5 @@ Examples:
 function help(text: string) {
   return `
 
-  ${text}
-`
+  ${text}`
 }

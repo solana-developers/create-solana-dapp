@@ -40,7 +40,7 @@ export async function applicationNextGenerator(tree: Tree, rawOptions: Applicati
   applicationCleanup(tree, join(project.sourceRoot, 'app'), cleanup)
 
   const substitutions = applicationSubstitutions({
-    name: options.appName,
+    name: options.webName,
     npmScope,
   })
 
@@ -60,7 +60,7 @@ export async function applicationNextGenerator(tree: Tree, rawOptions: Applicati
 
   if (options.ui === 'tailwind') {
     // Add the tailwind config.
-    await applicationTailwindConfig(tree, options.appName)
+    await applicationTailwindConfig(tree, options.webName)
   }
 
   if (options.anchor !== 'none' && !getProjects(tree).has(options.anchorName)) {

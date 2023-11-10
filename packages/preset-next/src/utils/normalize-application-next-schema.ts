@@ -8,9 +8,9 @@ export function normalizeApplicationNextSchema(options: ApplicationNextSchema): 
     ...options,
     anchor: options.anchor,
     anchorName: options.anchorName ?? 'anchor',
-    appName: options.appName ?? options.name,
     port: options.port ?? 3000,
     skipFormat: options.skipFormat ?? false,
     ui: options.ui ?? 'tailwind',
+    webName: options.webName ?? options.name,
   }
 }

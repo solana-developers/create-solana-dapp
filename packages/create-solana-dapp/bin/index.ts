@@ -21,7 +21,6 @@ async function main() {
       {
         anchor: args.anchor,
         anchorName: args.anchorName,
-        appName: args.appName,
         commit: {
           name: 'Solana Developers',
           email: 'no-reply@solana.org',
@@ -32,6 +31,7 @@ async function main() {
         nxCloud: false,
         packageManager: args.packageManager,
         ui: args.ui,
+        webName: args.webName,
       },
       async () => {
         s.stop('Workspace created.')

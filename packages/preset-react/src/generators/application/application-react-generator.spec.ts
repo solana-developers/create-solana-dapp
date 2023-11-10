@@ -19,7 +19,7 @@ describe('application react generator', () => {
     it.each([['none'], ['tailwind']])('should generate default app with "%s" ui', async (ui) => {
       await applicationReactGenerator(tree, { ...rawOptions, ui: ui as ApplicationReactUi })
 
-      const appConfig = readProjectConfiguration(tree, options.appName)
+      const appConfig = readProjectConfiguration(tree, options.webName)
       const anchorConfig = readProjectConfiguration(tree, options.anchorName)
       expect(appConfig).toBeDefined()
       expect(anchorConfig).toBeDefined()
@@ -36,7 +36,7 @@ describe('application react generator', () => {
       await applicationReactGenerator(tree, { ...rawOptions, name: 'app-2', ui: 'none' })
       await applicationReactGenerator(tree, { ...rawOptions, name: 'app-3', anchorName: 'anchor-1', ui: 'none' })
 
-      const app0 = readProjectConfiguration(tree, options.appName)
+      const app0 = readProjectConfiguration(tree, options.webName)
       const app1 = readProjectConfiguration(tree, 'app-1')
       const app2 = readProjectConfiguration(tree, 'app-2')
       const app3 = readProjectConfiguration(tree, 'app-3')
@@ -56,7 +56,7 @@ describe('application react generator', () => {
     it('should generate app without anchor', async () => {
       await applicationReactGenerator(tree, { ...rawOptions, ui: 'none', anchor: 'none' })
       const projects = getProjects(tree)
-      const appProject = projects.has(options.appName)
+      const appProject = projects.has(options.webName)
       const anchorProject = projects.has(options.anchorName)
 
       expect(projects.size).toEqual(1)
@@ -64,8 +64,8 @@ describe('application react generator', () => {
       expect(anchorProject).toBeFalsy()
     })
 
-    it('should generate app using the appName property', async () => {
-      await applicationReactGenerator(tree, { ...rawOptions, appName: 'web-app', ui: 'none', anchor: 'none' })
+    it('should generate app using the webName property', async () => {
+      await applicationReactGenerator(tree, { ...rawOptions, webName: 'web-app', ui: 'none', anchor: 'none' })
       const projects = getProjects(tree)
       const appProject = projects.has('web-app')
       const anchorProject = projects.has(options.anchorName)

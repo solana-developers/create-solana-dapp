@@ -5,7 +5,7 @@ import { NormalizedApplicationReactSchema } from './normalize-application-react-
 
 export async function generateReactApplication(tree: Tree, options: NormalizedApplicationReactSchema) {
   await reactApplicationGenerator(tree, {
-    name: options.appName,
+    name: options.webName,
     style: 'css',
     skipFormat: options.skipFormat,
     projectNameAndRootFormat: 'as-provided',
@@ -20,5 +20,5 @@ export async function generateReactApplication(tree: Tree, options: NormalizedAp
     bundler: 'webpack',
   })
 
-  return getProjects(tree).get(options.appName)
+  return getProjects(tree).get(options.webName)
 }

@@ -9,8 +9,8 @@ export function normalizeApplicationReactSchema(options: ApplicationReactSchema)
     ...options,
     anchor: options.anchor,
     anchorName: options.anchorName ?? 'anchor',
-    appName: options.appName ?? options.name,
     skipFormat: options.skipFormat ?? false,
     ui: options.ui ?? 'tailwind',
+    webName: options.webName ?? options.name,
   }
 }

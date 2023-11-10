@@ -6,7 +6,7 @@ import { NormalizedApplicationNextSchema } from './normalize-application-next-sc
 
 export async function generateNextApplication(tree: Tree, options: NormalizedApplicationNextSchema) {
   await reactApplicationGenerator(tree, {
-    name: options.appName,
+    name: options.webName,
     style: 'css',
     skipFormat: true,
     projectNameAndRootFormat: 'as-provided',
@@ -16,7 +16,7 @@ export async function generateNextApplication(tree: Tree, options: NormalizedApp
     rootProject: false,
   })
 
-  const project = getProjects(tree).get(options.appName)
+  const project = getProjects(tree).get(options.webName)
 
   updateJson(tree, join(project.root, 'project.json'), (json) => {
     json.targets.serve.options.port = options.port
