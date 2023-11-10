@@ -9,6 +9,8 @@ export interface GetArgsResult {
   name: string | undefined
   package: string
   packageManager: CreateWorkspaceOptions['packageManager']
+  pnpm: boolean
   preset: string | undefined
   ui: string | undefined
+  yarn: boolean
 }
