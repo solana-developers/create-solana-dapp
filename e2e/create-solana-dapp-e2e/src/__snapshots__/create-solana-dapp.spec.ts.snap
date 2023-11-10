@@ -6,7 +6,8 @@ Usage: create-solana-dapp [options] [name]
 Arguments:
 name Name of the project (default: <prompt>)
 Options:
--V, --version output the version number
+-V, --version
+Output the version number
 -p, --preset <preset>
 Preset to use (default: <prompt>, options: next, react)
 --ui <ui-library>
@@ -15,21 +16,20 @@ UI library to use (default: <prompt>)
 Name of the Anchor template to use (default: <prompt>, set to "none" to prevent adding Anchor)
 --anchor-build
 Build the anchor project (default: false)
-(default: false)
---anchor-name <anchor-name>
+--anchor-name <name>
 Anchor project name (default: anchor)
---app-name <name>
-Name of the frontend project (default: web)
+--web-name <name>
+Web project name (default: web)
 -pm, --package-manager <package-manager>
 Package manager to use (default: npm)
 --yarn
-Use yarn as the package manager
-(default: false)
+Use yarn as the package manager (default: false)
 --pnpm
-Use pnpm as the package manager
-(default: false)
--d, --dry-run Dry run (default: false)
--h, --help display help for command
+Use pnpm as the package manager (default: false)
+-d, --dry-run
+Dry run (default: false)
+-h, --help
+Display help for command
 Examples:
 $ create-solana-dapp my-app --preset react
 $ create-solana-dapp my-app --preset react --package-manager yarn

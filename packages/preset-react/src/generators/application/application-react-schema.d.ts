@@ -11,9 +11,9 @@ export interface ApplicationReactSchema {
    */
   name: string;
   /**
-   * Name of the application (overrides name)
+   * Name of the web application (overrides name)
    */
-  appName?: string;
+  webName?: string;
   /**
    * Skip formatting files
    */

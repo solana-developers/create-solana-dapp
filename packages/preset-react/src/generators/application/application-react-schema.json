@@ -13,9 +13,9 @@
       },
       "x-prompt": "What name would you like to use?"
     },
-    "appName": {
+    "webName": {
       "type": "string",
-      "description": "Name of the application (overrides name)"
+      "description": "Name of the web application (overrides name)"
     },
     "skipFormat": {
       "description": "Skip formatting files",
