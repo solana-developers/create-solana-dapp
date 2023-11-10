@@ -33,9 +33,9 @@ export async function getArgs(argv: string[]): Promise<GetArgsResult> {
     .option('--ui <ui-library>', help(`UI library to use (default: prompt)`))
     .option(
       '-a, --anchor <template>',
-      help(`Name of the Anchor template to use (default: prompt, set to false to disable)`),
+      help(`Name of the Anchor template to use (default: prompt, set to none to disable)`),
       (value: string) => {
-        if (!['false', ...anchorTemplates].includes(value)) {
+        if (!anchorTemplates.includes(value)) {
           throw new Error(`Invalid anchor template: ${value}`)
         }
         return value
@@ -98,7 +98,7 @@ Examples:
     throw new Error(`Invalid preset: ${options.preset}`)
   }
 
-  if (!['false', ...anchorTemplates].includes(options.anchor ?? '')) {
+  if (!anchorTemplates.includes(options.anchor ?? '')) {
     log.error(`Invalid anchor template: ${options.anchor}`)
     throw new Error(`Invalid anchor template: ${options.anchor}`)
   }

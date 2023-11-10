@@ -12,7 +12,7 @@ Preset to use (default: prompt, options: next, react)
 --ui <ui-library>
 UI library to use (default: prompt)
 -a, --anchor <template>
-Name of the Anchor template to use (default: prompt, set to false to disable)
+Name of the Anchor template to use (default: prompt, set to none to disable)
 --app-name <name>
 Name of the frontend project (default: web)
 --anchor-name <anchor-name>

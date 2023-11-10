@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { intro, note, outro } from '@clack/prompts'
+import { intro, log, note, outro } from '@clack/prompts'
 import { createWorkspace } from 'create-nx-workspace'
 import { getAppInfo } from '../lib/get-app-info'
 import { getArgs } from '../lib/get-args'
@@ -10,21 +10,24 @@ async function main() {
   const args = await getArgs(process.argv)
 
   if (!args.dryRun) {
+    log.message(`Creating workspace...\n`)
     const { directory } = await createWorkspace(`${args.package}`, {
-      name: args.name,
-      nxCloud: false,
-      packageManager: args.packageManager,
+      anchor: args.anchor,
+      anchorName: args.anchorName,
+      appName: args.appName,
       commit: {
         name: 'Solana Developers',
         email: 'no-reply@solana.org',
         message: 'chore: initial commit',
       },
-      anchor: args.anchor,
-      anchorName: args.anchorName,
-      appName: args.appName,
+      dryRun: args.dryRun,
+      name: args.name,
+      nxCloud: false,
+      packageManager: args.packageManager,
+      ui: args.ui,
     })
 
-    note(`Successfully created the workspace: ${directory}.`)
+    log.success('Workspace created.')
     outro(`Run \`cd ${directory}\` to get started.`)
   } else {
     note(JSON.stringify(args, null, 2), 'Dry run, no changes were made.')

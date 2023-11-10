@@ -1,1 +1,1 @@
-export const anchorTemplates = ['counter', 'hello-world']
+export const anchorTemplates = ['counter', 'hello-world', 'none']

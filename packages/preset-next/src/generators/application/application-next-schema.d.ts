@@ -25,18 +25,13 @@ export interface ApplicationNextSchema {
   /**
    * The UI library to use
    */
-  uiLibrary?: "none" | "tailwind";
+  ui?: "none" | "tailwind";
   /**
-   * Create an anchor program
+   * Anchor template to use
    */
-  withAnchor?: boolean;
+  anchor?: "none" | "counter" | "hello-world";
   /**
    * Anchor project name
    */
   anchorName?: string;
-  /**
-   * The template to use
-   */
-  anchorTemplate?: "counter" | "hello-world";
-  [k: string]: unknown;
 }

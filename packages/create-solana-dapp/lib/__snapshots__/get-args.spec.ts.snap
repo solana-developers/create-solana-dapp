@@ -42,9 +42,9 @@ exports[`get-args expected args should get args with preset: --preset react --an
 }
 `;
 
-exports[`get-args expected args should get args with preset: --preset react --anchor false --ui none 1`] = `
+exports[`get-args expected args should get args with preset: --preset react --anchor none --ui none 1`] = `
 {
-  "anchor": "false",
+  "anchor": "none",
   "anchorName": "anchor",
   "appName": "web",
   "dryRun": false,
