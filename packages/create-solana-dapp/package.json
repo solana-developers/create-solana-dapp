@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "dependencies": {
     "@clack/prompts": "^0.7.0",
-    "@nx/devkit": "17.0.1",
+    "@nx/devkit": "17.1.1",
     "commander": "^11.1.0",
     "create-nx-workspace": "17.0.1",
-    "nx": "17.0.1",
+    "nx": "17.1.1",
     "tmp": "0.2.1",
     "tslib": "^2.3.0"
   },
