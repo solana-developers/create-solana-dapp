@@ -3,6 +3,7 @@
 exports[`get-args expected args should get args with minimal parameters 1`] = `
 {
   "anchor": "counter",
+  "anchorBuild": false,
   "anchorName": "anchor",
   "appName": "web",
   "dryRun": false,
@@ -17,6 +18,7 @@ exports[`get-args expected args should get args with minimal parameters 1`] = `
 exports[`get-args expected args should get args with minimal parameters and package manager npm 1`] = `
 {
   "anchor": "counter",
+  "anchorBuild": false,
   "anchorName": "anchor",
   "appName": "web",
   "dryRun": false,
@@ -31,6 +33,7 @@ exports[`get-args expected args should get args with minimal parameters and pack
 exports[`get-args expected args should get args with minimal parameters and package manager pnpm 1`] = `
 {
   "anchor": "counter",
+  "anchorBuild": false,
   "anchorName": "anchor",
   "appName": "web",
   "dryRun": false,
@@ -45,6 +48,7 @@ exports[`get-args expected args should get args with minimal parameters and pack
 exports[`get-args expected args should get args with minimal parameters and package manager yarn 1`] = `
 {
   "anchor": "counter",
+  "anchorBuild": false,
   "anchorName": "anchor",
   "appName": "web",
   "dryRun": false,
@@ -59,6 +63,7 @@ exports[`get-args expected args should get args with minimal parameters and pack
 exports[`get-args expected args should get args with preset: --preset next --ui tailwind --anchor counter 1`] = `
 {
   "anchor": "counter",
+  "anchorBuild": false,
   "anchorName": "anchor",
   "appName": "web",
   "dryRun": false,
@@ -73,6 +78,7 @@ exports[`get-args expected args should get args with preset: --preset next --ui 
 exports[`get-args expected args should get args with preset: --preset react --anchor counter --anchor-name program --ui tailwind 1`] = `
 {
   "anchor": "counter",
+  "anchorBuild": false,
   "anchorName": "program",
   "appName": "web",
   "dryRun": false,
@@ -87,6 +93,7 @@ exports[`get-args expected args should get args with preset: --preset react --an
 exports[`get-args expected args should get args with preset: --preset react --anchor none --ui none 1`] = `
 {
   "anchor": "none",
+  "anchorBuild": false,
   "anchorName": "anchor",
   "appName": "web",
   "dryRun": false,
@@ -101,7 +108,23 @@ exports[`get-args expected args should get args with preset: --preset react --an
 exports[`get-args expected args should get args with preset: --preset react --ui tailwind --anchor counter 1`] = `
 {
   "anchor": "counter",
+  "anchorBuild": false,
   "anchorName": "anchor",
+  "appName": "web",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "npm",
+  "preset": "react",
+  "ui": "tailwind",
+}
+`;
+
+exports[`get-args expected args should get args with preset: --preset=react --anchor=counter --anchor-name=program --anchor-build --ui=tailwind 1`] = `
+{
+  "anchor": "counter",
+  "anchorBuild": true,
+  "anchorName": "program",
   "appName": "web",
   "dryRun": false,
   "name": "my-app",
@@ -115,6 +138,7 @@ exports[`get-args expected args should get args with preset: --preset react --ui
 exports[`get-args expected args should get args with preset: --preset=react --anchor=counter --anchor-name=program --ui=tailwind 1`] = `
 {
   "anchor": "counter",
+  "anchorBuild": false,
   "anchorName": "program",
   "appName": "web",
   "dryRun": false,
