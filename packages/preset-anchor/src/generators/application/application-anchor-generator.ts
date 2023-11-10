@@ -47,7 +47,7 @@ export async function applicationAnchorGenerator(tree: Tree, rawOptions: Applica
     fileNameUnderscore: substitutions.fileName.replace(/-/g, '_'),
   })
   applicationAnchorDependencies(tree)
-  addAnchorIgnoreFields(tree)
+  addAnchorIgnoreFields(tree, project.sourceRoot.replace('/src', ''))
 
   if (!options.skipFormat) {
     await formatFiles(tree)
