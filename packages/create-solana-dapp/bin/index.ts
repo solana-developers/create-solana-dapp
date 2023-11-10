@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 import { intro, log, note, outro } from '@clack/prompts'
 import { createWorkspace } from 'create-nx-workspace'
+import { detectInvokedPackageManager } from 'create-nx-workspace/src/utils/package-manager'
 import { getAppInfo } from '../lib/get-app-info'
 import { getArgs } from '../lib/get-args'
 
 async function main() {
   const app = getAppInfo()
   intro(`${app.name} ${app.version}`)
-  const args = await getArgs(process.argv)
+  const pm = detectInvokedPackageManager()
+  const args = await getArgs(process.argv, pm)
 
   if (!args.dryRun) {
     log.message(`Creating workspace...\n`)

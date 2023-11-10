@@ -1,11 +1,24 @@
+import { PackageManager } from 'nx/src/utils/package-manager'
 import { getArgs } from './get-args'
 
 describe('get-args', () => {
   describe('expected args', () => {
     it('should get args with minimal parameters', async () => {
       const result = await getArgs(['', '', 'my-app', '--preset', 'next', '--ui', 'tailwind', '--anchor', 'counter'])
+      expect(result.packageManager).toBe('npm')
       expect(result).toMatchSnapshot()
     })
+
+    it.each(['npm', 'yarn', 'pnpm'])(
+      `should get args with minimal parameters and package manager %s`,
+      async (pm: PackageManager) => {
+        const result = await getArgs(
+          ['', '', 'my-app', '--preset', 'next', '--ui', 'tailwind', '--anchor', 'counter'],
+          pm,
+        )
+        expect(result).toMatchSnapshot()
+      },
+    )
 
     it.each([
       '--preset next --ui tailwind --anchor counter',
