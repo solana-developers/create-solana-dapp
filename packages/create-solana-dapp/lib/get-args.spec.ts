@@ -10,7 +10,7 @@ describe('get-args', () => {
     it.each([
       '--preset next --ui tailwind --anchor counter',
       '--preset react --ui tailwind --anchor counter',
-      '--preset react --anchor false --ui none',
+      '--preset react --anchor none --ui none',
       '--preset react --anchor counter --anchor-name program --ui tailwind',
       '--preset=react --anchor=counter --anchor-name=program --ui=tailwind',
     ])('should get args with preset: %s', async (preset: string) => {

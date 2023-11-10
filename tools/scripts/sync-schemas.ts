@@ -50,7 +50,9 @@ async function main() {
       const schemaPathDts = schemaPath.replace('schema.json', 'schema.d.ts')
       const schemaPathDtsBefore = fs.readFileSync(schemaPathDts).toString()
 
-      await compileFromFile(schemaPath).then((schema) => {
+      await compileFromFile(schemaPath, {
+        additionalProperties: false,
+      }).then((schema) => {
         if (JSON.stringify(schemaPathDtsBefore) !== JSON.stringify(schema)) {
           changes.push({ file: schemaPathDts, schema })
         }

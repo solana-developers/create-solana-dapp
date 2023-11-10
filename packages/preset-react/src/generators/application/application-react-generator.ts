@@ -24,7 +24,7 @@ export async function applicationReactGenerator(tree: Tree, rawOptions: Applicat
   // Generate the files from the templates.
   generateFiles(
     tree,
-    join(__dirname, 'files', options.uiLibrary),
+    join(__dirname, 'files', options.ui),
     project.root,
     applicationSubstitutions({
       name: options.appName,
@@ -37,17 +37,17 @@ export async function applicationReactGenerator(tree: Tree, rawOptions: Applicat
   // Add the dependencies for the wallet adapter.
   walletAdapterDependencies(tree)
 
-  if (options.uiLibrary === 'tailwind') {
+  if (options.ui === 'tailwind') {
     // Add the tailwind config.
     await applicationTailwindConfig(tree, options.appName)
   }
 
-  if (options.withAnchor && !getProjects(tree).has(options.anchorName)) {
+  if (options.anchor !== 'none' && !getProjects(tree).has(options.anchorName)) {
     // Add the anchor application.
     await applicationAnchorGenerator(tree, {
       name: options.anchorName,
       skipFormat: true,
-      template: options.anchorTemplate,
+      template: options.anchor,
     })
   }
 

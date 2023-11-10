@@ -28,27 +28,24 @@
       "default": false,
       "x-priority": "internal"
     },
-    "uiLibrary": {
+    "ui": {
       "description": "The UI library to use",
       "type": "string",
       "enum": ["none", "tailwind"],
-      "default": "tailwind"
+      "default": "tailwind",
+      "x-prompt": "Which UI library would you like to use?"
     },
-    "withAnchor": {
-      "description": "Create an anchor program",
-      "type": "boolean",
-      "default": true
+    "anchor": {
+      "type": "string",
+      "description": "Anchor template to use",
+      "enum": ["none", "counter", "hello-world"],
+      "default": "counter",
+      "x-prompt": "Which Anchor template would you like to use?"
     },
     "anchorName": {
       "type": "string",
       "description": "Anchor project name",
-      "default": "program"
-    },
-    "anchorTemplate": {
-      "type": "string",
-      "enum": ["counter", "hello-world"],
-      "description": "The template to use",
-      "default": "counter"
+      "default": "anchor"
     }
   },
   "required": ["name"]

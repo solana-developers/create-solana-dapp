@@ -1,4 +1,4 @@
-import { cancel, group, note, select, text } from '@clack/prompts'
+import { cancel, group, log, select, text } from '@clack/prompts'
 import { anchorTemplates } from './anchor-templates'
 import { GetArgsResult } from './get-args-result'
 import { Preset } from './get-presets'
@@ -9,7 +9,7 @@ export function getPrompts({ options, presets }: { options: GetArgsResult; prese
     {
       name: () => {
         if (options.name) {
-          note(options.name, 'Project name')
+          log.success(`Project name: ${options.name}`)
           return Promise.resolve(options.name)
         }
         return text({
@@ -19,7 +19,7 @@ export function getPrompts({ options, presets }: { options: GetArgsResult; prese
       },
       preset: () => {
         if (options.preset) {
-          note(presets.find((p) => p.value === options.preset)?.label, 'Preset')
+          log.success(`Preset: ${presets.find((p) => p.value === options.preset)?.label}`)
           return Promise.resolve(options.preset)
         }
         return select({
@@ -32,7 +32,7 @@ export function getPrompts({ options, presets }: { options: GetArgsResult; prese
         const libs = getUiLibraries(preset as 'next' | 'react')
 
         if (options.ui) {
-          note(libs.find((l) => l.value === options.ui)?.label, 'UI library')
+          log.success(`UI library: ${libs.find((l) => l.value === options.ui)?.label}`)
           return Promise.resolve(options.ui)
         }
         return select({
@@ -43,7 +43,7 @@ export function getPrompts({ options, presets }: { options: GetArgsResult; prese
       },
       anchor: () => {
         if (options.anchor) {
-          note(options.anchor === 'false' ? 'Disabled' : options.anchor, 'Anchor template')
+          log.success(`Anchor template: ${options.anchor}`)
           return Promise.resolve(options.anchor)
         }
         return select({
