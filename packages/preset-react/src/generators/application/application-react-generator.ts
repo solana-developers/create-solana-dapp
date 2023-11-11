@@ -27,6 +27,7 @@ export async function applicationReactGenerator(tree: Tree, rawOptions: Applicat
     join(__dirname, 'files', options.ui),
     project.root,
     applicationSubstitutions({
+      anchor: options.anchor,
       anchorName: options.anchorName,
       name: options.webName,
       npmScope,
