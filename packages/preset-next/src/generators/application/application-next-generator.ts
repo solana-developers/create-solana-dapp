@@ -40,6 +40,7 @@ export async function applicationNextGenerator(tree: Tree, rawOptions: Applicati
   applicationCleanup(tree, join(project.sourceRoot, 'app'), cleanup)
 
   const substitutions = applicationSubstitutions({
+    anchor: options.anchor,
     anchorName: options.anchorName,
     name: options.webName,
     npmScope,

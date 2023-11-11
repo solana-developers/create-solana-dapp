@@ -1,4 +1,6 @@
-import { IDL } from '@<%= npmScope %>/anchor';
+<% if (anchor.fileName !== 'none') { %>
+import { <%= anchor.className %>IDL } from '@<%= npmScope %>/<%= anchorName.fileName %>';
+<% } %>
 import { useRoutes } from 'react-router-dom';
 import { Airdrop } from './pages/airdrop';
 import { Page1 } from './pages/page-1';
@@ -9,7 +11,11 @@ export function AppRoutes() {
     {
       index: true,
       path: '/',
-      element: <pre>{JSON.stringify(IDL, null, 2)}</pre>,
+<% if (anchor.fileName !== 'none') { %>
+      element: <pre>{JSON.stringify(<%= anchor.className %>IDL, null, 2)}</pre>,
+<% } else { %>
+      element: <div>Index</div>,
+<% } %>
     },
     { path: '/airdrop', element: <Airdrop /> },
     { path: '/page-1', element: <Page1 /> },
