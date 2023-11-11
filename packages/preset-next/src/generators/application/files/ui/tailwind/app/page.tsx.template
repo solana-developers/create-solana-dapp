@@ -1,9 +1,15 @@
-import { IDL } from '@<%= npmScope %>/anchor';
+<% if (anchor.fileName !== 'none') { %>
+import { <%= anchor.className %>IDL } from '@<%= npmScope %>/<%= anchorName.fileName %>';
+<% } %>
 
 export default async function Index() {
   return (
     <div>
-       <pre>{JSON.stringify(IDL, null, 2)}</pre>
+<% if (anchor.fileName !== 'none') { %>
+      <pre>{JSON.stringify(<%= anchor.className %>IDL, null, 2)}</pre>
+<% } else { %>
+      <div>Index</div>
+<% } %>
     </div>
   )
 }
