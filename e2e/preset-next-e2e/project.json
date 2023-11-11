@@ -9,14 +9,7 @@
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "e2e/preset-next-e2e/jest.config.ts",
-        "passWithNoTests": true,
         "runInBand": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
       },
       "dependsOn": ["^build"]
     },
