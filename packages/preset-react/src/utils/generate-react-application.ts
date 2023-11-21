@@ -1,9 +1,9 @@
 import { getProjects, Tree } from '@nx/devkit'
 import { Linter } from '@nx/linter'
 import { applicationGenerator as reactApplicationGenerator } from '@nx/react/src/generators/application/application'
-import { NormalizedApplicationReactSchema } from './normalize-application-react-schema'
+import { NormalizedReactApplicationSchema } from './normalize-react-application-schema'
 
-export async function generateReactApplication(tree: Tree, options: NormalizedApplicationReactSchema) {
+export async function generateReactApplication(tree: Tree, options: NormalizedReactApplicationSchema) {
   await reactApplicationGenerator(tree, {
     name: options.webName,
     style: 'css',
