@@ -5,27 +5,25 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface ApplicationReactSchema {
-  /**
-   * Name of the application
-   */
+export interface ReactTemplateSchema {
   name: string;
   /**
    * Name of the web application (overrides name)
    */
-  webName?: string;
+  webName: string;
+  directory: string;
   /**
-   * Skip formatting files
+   * The template to use
    */
-  skipFormat?: boolean;
+  template: "base" | "none" | "tailwind";
   /**
-   * The UI library to use
+   * The npm scope to use
    */
-  ui?: "none" | "tailwind";
+  npmScope: string;
   /**
    * Anchor template to use
    */
-  anchor: "none" | "counter" | "hello-world";
+  anchor?: "none" | "counter" | "hello-world";
   /**
    * Anchor project name
    */

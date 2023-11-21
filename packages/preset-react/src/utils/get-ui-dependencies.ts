@@ -1,7 +1,7 @@
 import { packageVersion } from '@solana-developers/preset-common'
-import { ApplicationReactUi } from './normalize-application-react-schema'
+import { ReactApplicationUi } from './normalize-react-application-schema'
 
-export function getUiDependencies(type: ApplicationReactUi): {
+export function getUiDependencies(type: ReactApplicationUi): {
   dependencies?: Record<string, string>
   devDependencies?: Record<string, string>
 } {

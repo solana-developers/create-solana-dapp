@@ -1,40 +1,51 @@
-import { formatFiles, generateFiles, getProjects, installPackagesTask, Tree } from '@nx/devkit'
+import { formatFiles, getProjects, installPackagesTask, Tree } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
 import { applicationCleanup } from '@solana-developers/preset-common'
 import { join } from 'path'
 import {
-  applicationReactDependencies,
-  applicationSubstitutions,
   applicationTailwindConfig,
   generateReactApplication,
-  normalizeApplicationReactSchema,
-  NormalizedApplicationReactSchema,
+  NormalizedReactApplicationSchema,
+  normalizeReactApplicationSchema,
+  reactApplicationDependencies,
   walletAdapterDependencies,
 } from '../../utils'
-import { ApplicationReactSchema } from './application-react-schema'
+import reactTemplateGenerator from '../react-template/react-template-generator'
+import { ReactApplicationSchema } from './react-application-schema'
 
-export async function applicationReactGenerator(tree: Tree, rawOptions: ApplicationReactSchema) {
-  const options: NormalizedApplicationReactSchema = normalizeApplicationReactSchema(rawOptions)
+export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApplicationSchema) {
+  const options: NormalizedReactApplicationSchema = normalizeReactApplicationSchema(rawOptions)
   const npmScope = getNpmScope(tree)
   // Set up the base project.
   const project = await generateReactApplication(tree, options)
   // Clean up the default project files.
   applicationCleanup(tree, join(project.sourceRoot, 'app'))
-  // Generate the files from the templates.
-  generateFiles(
-    tree,
-    join(__dirname, 'files', options.ui),
-    project.root,
-    applicationSubstitutions({
-      anchor: options.anchor,
-      anchorName: options.anchorName,
-      name: options.webName,
-      npmScope,
-    }),
-  )
+
+  // Generate the base files from the templates.
+  await reactTemplateGenerator(tree, {
+    name: options.webName,
+    npmScope,
+    template: 'base',
+    anchor: options.anchor,
+    anchorName: options.anchorName,
+    webName: options.webName,
+    directory: project.sourceRoot,
+  })
+
+  // Generate the ui files from the templates.
+  await reactTemplateGenerator(tree, {
+    name: options.webName,
+    npmScope,
+    template: options.ui,
+    anchor: options.anchor,
+    anchorName: options.anchorName,
+    webName: options.webName,
+    directory: project.sourceRoot,
+  })
+
   // Add the dependencies for the base application.
-  applicationReactDependencies(tree, options)
+  reactApplicationDependencies(tree, options)
 
   // Add the dependencies for the wallet adapter.
   walletAdapterDependencies(tree)
@@ -64,4 +75,4 @@ export async function applicationReactGenerator(tree: Tree, rawOptions: Applicat
   }
 }
 
-export default applicationReactGenerator
+export default reactApplicationGenerator

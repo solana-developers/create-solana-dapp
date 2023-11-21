@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "ReactTemplateSchema",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use?"
+    },
+    "webName": {
+      "type": "string",
+      "description": "Name of the web application (overrides name)"
+    },
+    "directory": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      },
+      "x-prompt": "What is the directory directory?"
+    },
+    "template": {
+      "type": "string",
+      "enum": ["base", "none", "tailwind"],
+      "description": "The template to use",
+      "x-prompt": "Which template would you like to use?"
+    },
+    "npmScope": {
+      "type": "string",
+      "description": "The npm scope to use"
+    },
+    "anchor": {
+      "type": "string",
+      "description": "Anchor template to use",
+      "enum": ["none", "counter", "hello-world"],
+      "default": "none"
+    },
+    "anchorName": {
+      "type": "string",
+      "description": "Anchor project name",
+      "default": "anchor"
+    }
+  },
+  "required": ["name", "directory", "template", "npmScope", "webName"]
+}

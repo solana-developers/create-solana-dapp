@@ -4,11 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 
 export function AppLayout({ children }: { children: ReactNode }) {
   const { pathname } = useLocation();
-  const pages = [
-    { label: 'Airdrop', path: '/airdrop' },
-    { label: 'Page 1', path: '/page-1' },
-    { label: 'Page 2', path: '/page-2' },
-  ]
 
   return (
     <div>
@@ -17,15 +12,6 @@ export function AppLayout({ children }: { children: ReactNode }) {
           <Link to="/">
             <%= packageName %>
           </Link>
-          <ul>
-            {pages.map(({ label, path }) => (
-              <li key={path}>
-                <Link to={path}>
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
         <div>
           <WalletMultiButton />
@@ -34,7 +20,12 @@ export function AppLayout({ children }: { children: ReactNode }) {
       <div>{children}</div>
       <footer>
         <aside>
-          <p>Generated with <%= packageName %>@<%= packageVersion %></p>
+          <p>
+           Powered by{' '}
+           <a href='https://github.com/solana-developers/create-solana-dapp' target='_blank' rel='noopener noreferrer'>
+             create-solana-dapp
+           </a>
+          </p>
         </aside>
       </footer>
     </div>

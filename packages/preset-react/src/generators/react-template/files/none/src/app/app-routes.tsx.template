@@ -2,9 +2,6 @@
 import { <%= anchor.className %>IDL } from '@<%= npmScope %>/<%= anchorName.fileName %>';
 <% } %>
 import { useRoutes } from 'react-router-dom';
-import { Airdrop } from './pages/airdrop';
-import { Page1 } from './pages/page-1';
-import { Page2 } from './pages/page-2';
 
 export function AppRoutes() {
   return useRoutes([
@@ -17,8 +14,5 @@ export function AppRoutes() {
       element: <div>Index</div>,
 <% } %>
     },
-    { path: '/airdrop', element: <Airdrop /> },
-    { path: '/page-1', element: <Page1 /> },
-    { path: '/page-2', element: <Page2 /> },
   ]);
 }

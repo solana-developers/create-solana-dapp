@@ -10,8 +10,8 @@ import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
 import { applicationCleanup, packageVersion } from '@solana-developers/preset-common'
 import {
-  applicationReactDependencies,
   applicationTailwindConfig,
+  reactApplicationDependencies,
   walletAdapterDependencies,
 } from '@solana-developers/preset-react'
 import { join } from 'path'
@@ -53,7 +53,7 @@ export async function applicationNextGenerator(tree: Tree, rawOptions: Applicati
   generateFiles(tree, join(__dirname, 'files/ui', options.ui), project.root, substitutions)
 
   // Add the dependencies for the base application.
-  applicationReactDependencies(tree, options)
+  reactApplicationDependencies(tree, options)
 
   addDependenciesToPackageJson(tree, { encoding: packageVersion.encoding }, {})
 
