@@ -44,7 +44,16 @@ async function main() {
     for (const schema of schemas) {
       const schemaPath = join(packagesRoot, generator.pkg, schema.schemaPath)
       if (!fs.existsSync(schemaPath)) {
-        console.log({ pkg: generator.pkg, schemaPath })
+        console.log(
+          `Schema not found for ${generator.pkg} (${schemaPath.replace(
+            process.cwd(),
+            '',
+          )}). Check the reference in ${join(
+            packagesRoot.replace(process.cwd(), ''),
+            generator.pkg,
+            'generators.json',
+          )}`,
+        )
         continue
       }
       const schemaPathDts = schemaPath.replace('schema.json', 'schema.d.ts')

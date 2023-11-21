@@ -7,7 +7,7 @@ import {
   Tree,
 } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
-import { applicationAnchorGenerator } from '@solana-developers/preset-anchor'
+import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
 import { applicationCleanup, packageVersion } from '@solana-developers/preset-common'
 import {
   applicationReactDependencies,
@@ -67,7 +67,7 @@ export async function applicationNextGenerator(tree: Tree, rawOptions: Applicati
 
   if (options.anchor !== 'none' && !getProjects(tree).has(options.anchorName)) {
     // Add the anchor application.
-    await applicationAnchorGenerator(tree, {
+    await anchorApplicationGenerator(tree, {
       name: options.anchorName,
       skipFormat: true,
     })

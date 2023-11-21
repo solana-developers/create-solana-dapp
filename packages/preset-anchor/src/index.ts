@@ -1,2 +1,2 @@
-export * from './generators/application/application-anchor-generator'
-export * from './generators/application/application-anchor-schema'
+export * from './generators/anchor-application/anchor-application-generator'
+export * from './generators/anchor-application/anchor-application-schema'
