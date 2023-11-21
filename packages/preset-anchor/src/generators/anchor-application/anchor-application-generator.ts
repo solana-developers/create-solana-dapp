@@ -1,18 +1,18 @@
-import { formatFiles, generateFiles, getProjects, names, Tree, updateJson } from '@nx/devkit'
+import { formatFiles, getProjects, Tree, updateJson } from '@nx/devkit'
 import { libraryGenerator } from '@nx/js'
 import { applicationCleanup, runCommand } from '@solana-developers/preset-common'
-import * as path from 'path'
 import { join } from 'path'
 import {
-  addAnchorIgnoreFields,
-  applicationAnchorDependencies,
-  normalizeApplicationAnchorSchema,
-  NormalizedApplicationAnchorSchema,
+  anchorApplicationIgnoreFiles,
+  anchorApplicationDependencies,
+  anchorApplicationNormalizeSchema,
+  AnchorApplicationNormalizedSchema,
 } from '../../utils'
-import { ApplicationAnchorSchema } from './application-anchor-schema'
+import anchorTemplateGenerator from '../anchor-template/anchor-template-generator'
+import { AnchorApplicationSchema } from './anchor-application-schema'
 
-export async function applicationAnchorGenerator(tree: Tree, rawOptions: ApplicationAnchorSchema) {
-  const options: NormalizedApplicationAnchorSchema = normalizeApplicationAnchorSchema(rawOptions)
+export async function anchorApplicationGenerator(tree: Tree, rawOptions: AnchorApplicationSchema) {
+  const options: AnchorApplicationNormalizedSchema = anchorApplicationNormalizeSchema(rawOptions)
   await libraryGenerator(tree, {
     name: options.name,
     bundler: 'rollup',
@@ -37,21 +37,22 @@ export async function applicationAnchorGenerator(tree: Tree, rawOptions: Applica
     return json
   })
 
-  const substitutions = {
-    projectName: options.name,
-    ...names(options.template),
-  }
-  generateFiles(tree, path.join(__dirname, 'files', options.template), options.name, {
-    ...options,
-    ...substitutions,
-    fileNameUnderscore: substitutions.fileName.replace(/-/g, '_'),
+  await anchorTemplateGenerator(tree, {
+    name: options.name,
+    template: 'base',
+    directory: options.name,
   })
-  applicationAnchorDependencies(tree)
-  addAnchorIgnoreFields(tree, project.sourceRoot.replace('/src', ''))
+  await anchorTemplateGenerator(tree, {
+    name: options.name,
+    template: options.template,
+    directory: options.name,
+  })
+  anchorApplicationDependencies(tree)
+  anchorApplicationIgnoreFiles(tree, project.sourceRoot.replace('/src', ''))
 
   if (!options.skipFormat) {
     await formatFiles(tree)
   }
 }
 
-export default applicationAnchorGenerator
+export default anchorApplicationGenerator

@@ -1,7 +1,7 @@
 import { addDependenciesToPackageJson, Tree } from '@nx/devkit'
 import { packageVersion } from '@solana-developers/preset-common'
 
-export function applicationAnchorDependencies(tree: Tree) {
+export function anchorApplicationDependencies(tree: Tree) {
   return addDependenciesToPackageJson(
     tree,
     {

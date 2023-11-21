@@ -5,17 +5,11 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface ApplicationAnchorSchema {
-  /**
-   * Name of the application
-   */
+export interface AnchorTemplateSchema {
   name: string;
-  /**
-   * Skip formatting files
-   */
-  skipFormat?: boolean;
+  directory: string;
   /**
    * The template to use
    */
-  template?: "counter" | "hello-world";
+  template: "base" | "counter" | "hello-world";
 }

@@ -1,7 +1,7 @@
 import { Tree } from '@nx/devkit'
 import { updateIgnoreEntries } from '@solana-developers/preset-common'
 
-export function addAnchorIgnoreFields(tree: Tree, projectRoot: string) {
+export function anchorApplicationIgnoreFiles(tree: Tree, projectRoot: string) {
   const ignoreFiles = {
     git: [
       '.anchor',

@@ -2,30 +2,30 @@ import { readProjectConfiguration, Tree } from '@nx/devkit'
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
 import { getRecursiveFileContents } from '@solana-developers/preset-common'
 import {
-  ApplicationAnchorTemplate,
-  normalizeApplicationAnchorSchema,
-  NormalizedApplicationAnchorSchema,
+  AnchorApplicationTemplate,
+  anchorApplicationNormalizeSchema,
+  AnchorApplicationNormalizedSchema,
 } from '../../utils'
-import { applicationAnchorGenerator } from './application-anchor-generator'
-import { ApplicationAnchorSchema } from './application-anchor-schema'
+import { anchorApplicationGenerator } from './anchor-application-generator'
+import { AnchorApplicationSchema } from './anchor-application-schema'
 
-describe('application generator', () => {
+describe('anchor-application generator', () => {
   let tree: Tree
-  const rawOptions: ApplicationAnchorSchema = { name: 'anchor-app' }
-  const options: NormalizedApplicationAnchorSchema = normalizeApplicationAnchorSchema(rawOptions)
+  const rawOptions: AnchorApplicationSchema = { name: 'anchor-app' }
+  const options: AnchorApplicationNormalizedSchema = anchorApplicationNormalizeSchema(rawOptions)
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace()
   })
 
   it('should run successfully', async () => {
-    await applicationAnchorGenerator(tree, options)
+    await anchorApplicationGenerator(tree, options)
     const config = readProjectConfiguration(tree, options.name)
     expect(config).toBeDefined()
   })
 
   it.each([['counter'], ['hello-world']])('should generate app with "%s" template', async (template) => {
-    await applicationAnchorGenerator(tree, { ...options, template: template as ApplicationAnchorTemplate })
+    await anchorApplicationGenerator(tree, { ...options, template: template as AnchorApplicationTemplate })
 
     const config = readProjectConfiguration(tree, options.name)
     const contents = getRecursiveFileContents(tree, config.root)
