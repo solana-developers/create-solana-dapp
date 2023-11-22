@@ -1,14 +1,14 @@
 import { getProjects, readProjectConfiguration, Tree } from '@nx/devkit'
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
 import { getRecursiveFileContents } from '@solana-developers/preset-common'
-import { ApplicationNextUi, normalizeApplicationNextSchema, NormalizedApplicationNextSchema } from '../../utils'
-import { applicationNextGenerator } from './application-next-generator'
-import { ApplicationNextSchema } from './application-next-schema'
+import { NextApplicationUi, normalizeNextApplicationSchema, NormalizedNextApplicationSchema } from '../../utils'
+import { nextApplicationGenerator } from './next-application-generator'
+import { NextApplicationSchema } from './next-application-schema'
 
 describe('application generator', () => {
   let tree: Tree
-  const rawOptions: ApplicationNextSchema = { name: 'test-app', anchor: 'counter' }
-  const options: NormalizedApplicationNextSchema = normalizeApplicationNextSchema(rawOptions)
+  const rawOptions: NextApplicationSchema = { name: 'test-app', anchor: 'counter' }
+  const options: NormalizedNextApplicationSchema = normalizeNextApplicationSchema(rawOptions)
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace()
@@ -16,7 +16,7 @@ describe('application generator', () => {
 
   describe('default apps', () => {
     it.each([['none'], ['tailwind']])('should generate default app with "%s" ui', async (ui) => {
-      await applicationNextGenerator(tree, { ...rawOptions, ui: ui as ApplicationNextUi })
+      await nextApplicationGenerator(tree, { ...rawOptions, ui: ui as NextApplicationUi })
 
       const appConfig = readProjectConfiguration(tree, options.webName)
       const anchorConfig = readProjectConfiguration(tree, options.anchorName)
@@ -30,10 +30,10 @@ describe('application generator', () => {
 
   describe('custom apps', () => {
     it('should generate 4 Next apps and 2 Anchor apps', async () => {
-      await applicationNextGenerator(tree, { ...rawOptions, ui: 'none' })
-      await applicationNextGenerator(tree, { ...rawOptions, name: 'app-1', ui: 'none' })
-      await applicationNextGenerator(tree, { ...rawOptions, name: 'app-2', ui: 'none' })
-      await applicationNextGenerator(tree, { ...rawOptions, name: 'app-3', anchorName: 'anchor-1', ui: 'none' })
+      await nextApplicationGenerator(tree, { ...rawOptions, ui: 'none' })
+      await nextApplicationGenerator(tree, { ...rawOptions, name: 'app-1', ui: 'none' })
+      await nextApplicationGenerator(tree, { ...rawOptions, name: 'app-2', ui: 'none' })
+      await nextApplicationGenerator(tree, { ...rawOptions, name: 'app-3', anchorName: 'anchor-1', ui: 'none' })
 
       const app0 = readProjectConfiguration(tree, options.webName)
       const app1 = readProjectConfiguration(tree, 'app-1')
@@ -53,7 +53,7 @@ describe('application generator', () => {
     })
 
     it('should generate app without anchor', async () => {
-      await applicationNextGenerator(tree, { ...rawOptions, ui: 'none', anchor: 'none' })
+      await nextApplicationGenerator(tree, { ...rawOptions, ui: 'none', anchor: 'none' })
       const projects = getProjects(tree)
       const appProject = projects.has(options.webName)
       const anchorProject = projects.has(options.anchorName)
@@ -68,10 +68,10 @@ describe('application generator', () => {
     })
 
     it.each([['none'], ['tailwind']])('should generate app with custom name and "%s" ui', async (ui) => {
-      await applicationNextGenerator(tree, {
+      await nextApplicationGenerator(tree, {
         ...rawOptions,
         anchor: 'none',
-        ui: ui as ApplicationNextUi,
+        ui: ui as NextApplicationUi,
         webName: 'web-app',
       })
       const projects = getProjects(tree)

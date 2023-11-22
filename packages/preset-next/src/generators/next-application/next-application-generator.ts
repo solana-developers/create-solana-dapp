@@ -1,11 +1,4 @@
-import {
-  addDependenciesToPackageJson,
-  formatFiles,
-  generateFiles,
-  getProjects,
-  installPackagesTask,
-  Tree,
-} from '@nx/devkit'
+import { addDependenciesToPackageJson, formatFiles, getProjects, installPackagesTask, Tree } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
 import { applicationCleanup, packageVersion } from '@solana-developers/preset-common'
@@ -15,16 +8,12 @@ import {
   walletAdapterDependencies,
 } from '@solana-developers/preset-react'
 import { join } from 'path'
-import {
-  applicationSubstitutions,
-  generateNextApplication,
-  normalizeApplicationNextSchema,
-  NormalizedApplicationNextSchema,
-} from '../../utils'
-import { ApplicationNextSchema } from './application-next-schema'
+import { generateNextApplication, NormalizedNextApplicationSchema, normalizeNextApplicationSchema } from '../../utils'
+import nextTemplateGenerator from '../next-template/next-template-generator'
+import { NextApplicationSchema } from './next-application-schema'
 
-export async function applicationNextGenerator(tree: Tree, rawOptions: ApplicationNextSchema) {
-  const options: NormalizedApplicationNextSchema = normalizeApplicationNextSchema(rawOptions)
+export async function nextApplicationGenerator(tree: Tree, rawOptions: NextApplicationSchema) {
+  const options: NormalizedNextApplicationSchema = normalizeNextApplicationSchema(rawOptions)
   const project = await generateNextApplication(tree, options)
   const npmScope = getNpmScope(tree)
 
@@ -39,18 +28,27 @@ export async function applicationNextGenerator(tree: Tree, rawOptions: Applicati
   ]
   applicationCleanup(tree, join(project.sourceRoot, 'app'), cleanup)
 
-  const substitutions = applicationSubstitutions({
-    anchor: options.anchor,
-    anchorName: options.anchorName,
+  // Generate the base files from the templates.
+  await nextTemplateGenerator(tree, {
     name: options.webName,
     npmScope,
+    template: 'base',
+    anchor: options.anchor,
+    anchorName: options.anchorName,
+    webName: options.webName,
+    directory: project.sourceRoot,
   })
 
-  // Generate the common files.
-  generateFiles(tree, join(__dirname, 'files/common'), project.root, substitutions)
-
-  // Generate the files from the templates.
-  generateFiles(tree, join(__dirname, 'files/ui', options.ui), project.root, substitutions)
+  // Generate the ui files from the templates.
+  await nextTemplateGenerator(tree, {
+    name: options.webName,
+    npmScope,
+    template: options.ui,
+    anchor: options.anchor,
+    anchorName: options.anchorName,
+    webName: options.webName,
+    directory: project.sourceRoot,
+  })
 
   // Add the dependencies for the base application.
   reactApplicationDependencies(tree, options)
@@ -84,4 +82,4 @@ export async function applicationNextGenerator(tree: Tree, rawOptions: Applicati
   }
 }
 
-export default applicationNextGenerator
+export default nextApplicationGenerator

@@ -1,10 +1,10 @@
 import { generateFiles, Tree } from '@nx/devkit'
 import * as path from 'path'
-import { reactApplicationSubstitutions } from '../../utils'
-import { ReactTemplateSchema } from './react-template-schema'
+import { nextApplicationSubstitutions } from '../../utils'
+import { NextTemplateSchema } from './next-template-schema'
 
-export async function reactTemplateGenerator(tree: Tree, options: ReactTemplateSchema) {
-  const substitutions = reactApplicationSubstitutions({
+export async function nextTemplateGenerator(tree: Tree, options: NextTemplateSchema) {
+  const substitutions = nextApplicationSubstitutions({
     anchor: options.anchor,
     anchorName: options.anchorName,
     name: options.webName,
@@ -17,4 +17,4 @@ export async function reactTemplateGenerator(tree: Tree, options: ReactTemplateS
   })
 }
 
-export default reactTemplateGenerator
+export default nextTemplateGenerator

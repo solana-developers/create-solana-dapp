@@ -1,5 +1,5 @@
 export * from './react-application-dependencies'
-export * from './application-substitutions'
+export * from './react-application-substitutions'
 export * from './application-tailwind-config'
 export * from './generate-react-application'
 export * from './normalize-react-application-schema'

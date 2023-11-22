@@ -5,7 +5,7 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface ApplicationNextSchema {
+export interface NextApplicationSchema {
   /**
    * Name of the application
    */
