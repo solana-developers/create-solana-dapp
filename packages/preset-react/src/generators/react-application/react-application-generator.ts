@@ -2,7 +2,6 @@ import { formatFiles, getProjects, installPackagesTask, Tree } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
 import { applicationCleanup } from '@solana-developers/preset-common'
-import { getProjectRoots } from 'nx/src/utils/command-line-utils'
 import { join } from 'path'
 import {
   applicationTailwindConfig,
