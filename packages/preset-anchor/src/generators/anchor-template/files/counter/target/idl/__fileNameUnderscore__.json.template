@@ -1,9 +1,9 @@
-export type <%= className %> = {
+{
   "version": "0.1.0",
   "name": "<%= fileNameUnderscore %>",
   "instructions": [
     {
-      "name": "initializeCounter",
+      "name": "close<%= className %>",
       "accounts": [
         {
           "name": "payer",
@@ -11,7 +11,45 @@ export type <%= className %> = {
           "isSigner": true
         },
         {
-          "name": "counter",
+          "name": "<%= fileNameUnderscore %>",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "decrement",
+      "accounts": [
+        {
+          "name": "<%= fileNameUnderscore %>",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "increment",
+      "accounts": [
+        {
+          "name": "<%= propertyName %>",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initialize<%= className %>",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "<%= propertyName %>",
           "isMut": true,
           "isSigner": true
         },
@@ -24,82 +62,37 @@ export type <%= className %> = {
       "args": []
     },
     {
-      "name": "increment",
+      "name": "set",
       "accounts": [
         {
-          "name": "counter",
+          "name": "<%= propertyName %>",
           "isMut": true,
           "isSigner": false
         }
       ],
-      "args": []
+      "args": [
+        {
+          "name": "value",
+          "type": "u8"
+        }
+      ]
     }
   ],
   "accounts": [
     {
-      "name": "counter",
+      "name": "<%= className %>",
       "type": {
         "kind": "struct",
         "fields": [
           {
             "name": "count",
-            "type": "u64"
+            "type": "u8"
           }
         ]
       }
-    }
-  ]
-};
-
-export const IDL: <%= className %> = {
-  "version": "0.1.0",
-  "name": "<%= fileNameUnderscore %>",
-  "instructions": [
-    {
-      "name": "initializeCounter",
-      "accounts": [
-        {
-          "name": "payer",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "counter",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "increment",
-      "accounts": [
-        {
-          "name": "counter",
-          "isMut": true,
-          "isSigner": false
-        }
-      ],
-      "args": []
     }
   ],
-  "accounts": [
-    {
-      "name": "counter",
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "count",
-            "type": "u64"
-          }
-        ]
-      }
-    }
-  ]
-};
+  "metadata": {
+    "address": "CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg"
+  }
+}

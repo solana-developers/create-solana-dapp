@@ -1,59 +1,76 @@
-import * as anchor from "@coral-xyz/anchor";
-import { Program } from "@coral-xyz/anchor";
-import { Keypair } from '@solana/web3.js';
-import { <%= className %> } from "../target/types/<%= fileNameUnderscore %>";
+import * as anchor from '@coral-xyz/anchor'
+import { Program } from '@coral-xyz/anchor'
+import { Keypair } from '@solana/web3.js'
+import { <%= className %> } from '../target/types/<%= fileName %>'
 
 describe("<%= fileName %>", () => {
   // Configure the client to use the local cluster.
-  const provider = anchor.AnchorProvider.env();
-  anchor.setProvider(provider);
-  const payer = provider.wallet as anchor.Wallet;
+  const provider = anchor.AnchorProvider.env()
+  anchor.setProvider(provider)
+  const payer = provider.wallet as anchor.Wallet
 
   const program = anchor.workspace.<%= className %> as Program<<%= className %>>;
 
-  // Generate a new keypair for the counter account
-  const counterKeypair = new Keypair();
+  const <%= propertyName %>Keypair = Keypair.generate()
 
-  it('Initialize Counter', async () => {
+  it('Initialize <%= className %>', async () => {
     await program.methods
-    .initializeCounter()
-    .accounts({
-      counter: counterKeypair.publicKey,
-      payer: payer.publicKey,
-    })
-    .signers([counterKeypair])
-    .rpc();
+      .initialize<%= className %>()
+      .accounts({
+        <%= propertyName %>: <%= propertyName %>Keypair.publicKey,
+        payer: payer.publicKey,
+      })
+      .signers([<%= propertyName %>Keypair])
+      .rpc()
 
-    const currentCount = await program.account.counter.fetch(
-      counterKeypair.publicKey
-    );
+    const currentCount = await program.account.<%= propertyName %>.fetch(<%= propertyName %>Keypair.publicKey)
 
-    expect(currentCount.count.toNumber()).toEqual(0);
-  });
+    expect(currentCount.count).toEqual(0)
+  })
 
-  it('Increment Counter', async () => {
+  it('Increment <%= className %>', async () => {
+    await program.methods.increment().accounts({ <%= propertyName %>: <%= propertyName %>Keypair.publicKey }).rpc()
+
+    const currentCount = await program.account.<%= propertyName %>.fetch(<%= propertyName %>Keypair.publicKey)
+
+    expect(currentCount.count).toEqual(1)
+  })
+
+  it('Increment <%= className %> Again', async () => {
+    await program.methods.increment().accounts({ <%= propertyName %>: <%= propertyName %>Keypair.publicKey }).rpc()
+
+    const currentCount = await program.account.<%= propertyName %>.fetch(<%= propertyName %>Keypair.publicKey)
+
+    expect(currentCount.count).toEqual(2)
+  })
+
+  it('Decrement <%= className %>', async () => {
+    await program.methods.decrement().accounts({ <%= propertyName %>: <%= propertyName %>Keypair.publicKey }).rpc()
+
+    const currentCount = await program.account.<%= propertyName %>.fetch(<%= propertyName %>Keypair.publicKey)
+
+    expect(currentCount.count).toEqual(1)
+  })
+
+  it('Set <%= propertyName %> value', async () => {
+    await program.methods.set(42).accounts({ <%= propertyName %>: <%= propertyName %>Keypair.publicKey }).rpc()
+
+    const currentCount = await program.account.<%= propertyName %>.fetch(<%= propertyName %>Keypair.publicKey)
+
+    expect(currentCount.count).toEqual(42)
+  })
+
+  it('Set close the <%= propertyName %> account', async () => {
     await program.methods
-    .increment()
-    .accounts({ counter: counterKeypair.publicKey })
-    .rpc();
+      .close<%= className %>()
+      .accounts({
+        payer: payer.publicKey,
+        <%= propertyName %>: <%= propertyName %>Keypair.publicKey,
+      })
+      .rpc()
 
-    const currentCount = await program.account.counter.fetch(
-      counterKeypair.publicKey
-    );
-
-    expect(currentCount.count.toNumber()).toEqual(1);
-  });
-
-  it('Increment Counter Again', async () => {
-    await program.methods
-    .increment()
-    .accounts({ counter: counterKeypair.publicKey })
-    .rpc();
-
-    const currentCount = await program.account.counter.fetch(
-      counterKeypair.publicKey
-    );
-
-    expect(currentCount.count.toNumber()).toEqual(2);
-  });
-});
+    // The account should no longer exist, returning null.
+    const userAccount = await program.account.<%= propertyName %>.fetchNullable(<%= propertyName %>Keypair.publicKey)
+    expect(userAccount).toBeNull()
+  })
+})
