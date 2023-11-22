@@ -11,7 +11,11 @@
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "What name would you like to use?"
+      "x-prompt": "What name would you like to use for the program?"
+    },
+    "projectName": {
+      "type": "string",
+      "description": "Name of the project"
     },
     "directory": {
       "type": "string",
@@ -27,7 +31,12 @@
       "enum": ["base", "counter", "hello-world"],
       "description": "The template to use",
       "x-prompt": "Which template would you like to use?"
+    },
+    "skipUpdateIndexTs": {
+      "type": "boolean",
+      "description": "Skip updating index.ts",
+      "default": false
     }
   },
-  "required": ["name", "directory", "template"]
+  "required": ["name", "directory", "projectName", "template"]
 }

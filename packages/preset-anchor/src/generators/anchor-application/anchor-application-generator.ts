@@ -26,11 +26,8 @@ export async function anchorApplicationGenerator(tree: Tree, rawOptions: AnchorA
   updateJson(tree, join(project.root, 'project.json'), (json) => {
     json.targets = {
       ...json.targets,
-      build: runCommand(project.root, 'anchor build'),
-      clean: runCommand(project.root, 'anchor clean'),
-      deploy: runCommand(project.root, 'anchor deploy'),
+      anchor: runCommand(project.root, 'anchor'),
       localnet: runCommand(project.root, 'anchor localnet'),
-      publish: runCommand(project.root, 'anchor publish'),
       jest: json.targets.test,
       test: runCommand(project.root, 'anchor test'),
     }
@@ -38,14 +35,17 @@ export async function anchorApplicationGenerator(tree: Tree, rawOptions: AnchorA
   })
 
   await anchorTemplateGenerator(tree, {
-    name: options.name,
+    projectName: options.name,
+    name: 'base',
     template: 'base',
-    directory: options.name,
+    directory: project.root,
+    skipUpdateIndexTs: true,
   })
   await anchorTemplateGenerator(tree, {
-    name: options.name,
+    projectName: options.name,
+    name: options.template,
     template: options.template,
-    directory: options.name,
+    directory: project.root,
   })
   anchorApplicationDependencies(tree)
   anchorApplicationIgnoreFiles(tree, project.sourceRoot.replace('/src', ''))

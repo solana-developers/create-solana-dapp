@@ -7,9 +7,17 @@
 
 export interface AnchorTemplateSchema {
   name: string;
+  /**
+   * Name of the project
+   */
+  projectName: string;
   directory: string;
   /**
    * The template to use
    */
   template: "base" | "counter" | "hello-world";
+  /**
+   * Skip updating index.ts
+   */
+  skipUpdateIndexTs?: boolean;
 }
