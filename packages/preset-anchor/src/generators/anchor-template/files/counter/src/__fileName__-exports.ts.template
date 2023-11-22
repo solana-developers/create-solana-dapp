@@ -1,5 +1,19 @@
 import { Program } from '@coral-xyz/anchor';
+import { Cluster, PublicKey } from '@solana/web3.js';
 import { IDL as <%= className %>IDL } from '../target/types/<%= fileNameUnderscore %>';
 import type { <%= className %> } from '../target/types/<%= fileNameUnderscore %>';
+
 export { <%= className %>, <%= className %>IDL };
 export type <%= className %>Program = Program<<%= className %>>;
+export const COUNTER_PROGRAM_ID = new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg')
+
+export function getCounterProgramId(cluster: Cluster) {
+  switch (cluster) {
+    case 'devnet':
+    case 'testnet':
+    case 'mainnet-beta':
+      return new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg')
+    default:
+      return COUNTER_PROGRAM_ID
+  }
+}
