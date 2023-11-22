@@ -62,6 +62,19 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
       skipFormat: true,
       template: options.anchor,
     })
+
+    if (options.anchor === 'counter') {
+      // Generate the counter files
+      await reactTemplateGenerator(tree, {
+        name: options.webName,
+        npmScope,
+        template: 'anchor-counter',
+        anchor: options.anchor,
+        anchorName: options.anchorName,
+        webName: options.webName,
+        directory: join(project.root, 'src', 'app', 'counter'),
+      })
+    }
   }
 
   // Format the files.

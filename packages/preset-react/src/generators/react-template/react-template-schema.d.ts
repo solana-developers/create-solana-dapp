@@ -15,7 +15,7 @@ export interface ReactTemplateSchema {
   /**
    * The template to use
    */
-  template: "base" | "none" | "tailwind";
+  template: "anchor-counter" | "base" | "none" | "tailwind";
   /**
    * The npm scope to use
    */

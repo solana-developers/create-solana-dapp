@@ -1,0 +1,157 @@
+import { useConnection, useWallet } from '@solana/wallet-adapter-react'
+import { TOKEN_2022_PROGRAM_ID, TOKEN_PROGRAM_ID } from '@solana/spl-token'
+import {
+  Connection,
+  LAMPORTS_PER_SOL,
+  PublicKey,
+  SystemProgram,
+  TransactionMessage,
+  TransactionSignature,
+  VersionedTransaction,
+} from '@solana/web3.js'
+import { useMutation, useQuery } from '@tanstack/react-query'
+import toast from 'react-hot-toast'
+import { useCluster } from '../cluster/cluster-data-access'
+import { useTransactionToast } from '../ui/ui-layout'
+
+export function useAccount({ publicKey }: { publicKey: PublicKey }) {
+  const { cluster } = useCluster()
+  const { connection } = useConnection()
+  const transactionToast = useTransactionToast()
+  const wallet = useWallet()
+
+  const getBalance = useQuery({
+    queryKey: ['balance', { cluster, publicKey }],
+    queryFn: () => connection.getBalance(publicKey),
+  })
+
+  const getSignatures = useQuery({
+    queryKey: ['signatures', { cluster, publicKey }],
+    queryFn: () => connection.getConfirmedSignaturesForAddress2(publicKey),
+  })
+
+  const getTokenAccounts = useQuery({
+    queryKey: ['token-accounts', { endpoint: connection.rpcEndpoint, publicKey: publicKey.toString() }],
+    queryFn: async () => {
+      const [tokenAccounts, token2022Accounts] = await Promise.all([
+        connection.getParsedTokenAccountsByOwner(publicKey, {
+          programId: TOKEN_PROGRAM_ID,
+        }),
+        connection.getParsedTokenAccountsByOwner(publicKey, {
+          programId: TOKEN_2022_PROGRAM_ID,
+        }),
+      ])
+      return [...tokenAccounts.value, ...token2022Accounts.value]
+    },
+  })
+
+  const getTokenBalance = useQuery({
+    queryKey: ['getTokenAccountBalance', { endpoint: connection.rpcEndpoint, account: publicKey.toString() }],
+    queryFn: () => connection.getTokenAccountBalance(publicKey),
+  })
+
+  const requestAirdrop = useMutation({
+    mutationKey: ['airdrop', { cluster, publicKey }],
+    mutationFn: async (amount: number = 1) => {
+      const [latestBlockhash, signature] = await Promise.all([
+        connection.getLatestBlockhash(),
+        connection.requestAirdrop(publicKey, amount * LAMPORTS_PER_SOL),
+      ])
+
+      await connection.confirmTransaction({ signature, ...latestBlockhash }, 'confirmed')
+      return signature
+    },
+    onSuccess: (signature) => {
+      transactionToast(signature)
+      return Promise.all([getBalance.refetch(), getSignatures.refetch()])
+    },
+  })
+
+  const transferSol = useMutation({
+    mutationKey: ['transfer-sol', { cluster, publicKey }],
+    mutationFn: async (input: { destination: PublicKey; amount: number }) => {
+      let signature: TransactionSignature = ''
+      try {
+        const { transaction, latestBlockhash } = await createTransaction({
+          publicKey,
+          destination: input.destination,
+          amount: input.amount,
+          connection,
+        })
+
+        // Send transaction and await for signature
+        signature = await wallet.sendTransaction(transaction, connection)
+
+        // Send transaction and await for signature
+        await connection.confirmTransaction({ signature, ...latestBlockhash }, 'confirmed')
+
+        console.log(signature)
+        return signature
+      } catch (error: unknown) {
+        console.log('error', `Transaction failed! ${error}`, signature)
+
+        return
+      }
+    },
+    onSuccess: (signature) => {
+      if (signature) {
+        transactionToast(signature)
+      }
+      return Promise.all([getBalance.refetch(), getSignatures.refetch()])
+    },
+    onError: (error) => {
+      toast.error(`Transaction failed! ${error}`)
+    },
+  })
+
+  return {
+    getBalance,
+    getSignatures,
+    getTokenAccounts,
+    getTokenBalance,
+    requestAirdrop,
+    transferSol,
+  }
+}
+
+async function createTransaction({
+  publicKey,
+  destination,
+  amount,
+  connection,
+}: {
+  publicKey: PublicKey
+  destination: PublicKey
+  amount: number
+  connection: Connection
+}): Promise<{
+  transaction: VersionedTransaction
+  latestBlockhash: { blockhash: string; lastValidBlockHeight: number }
+}> {
+  // Get the lates block hash to use on our transaction and confirmation
+  const latestBlockhash = await connection.getLatestBlockhash()
+
+  // Create instructions to send, in this case a simple transfer
+  const instructions = [
+    SystemProgram.transfer({
+      fromPubkey: publicKey,
+      toPubkey: destination,
+      lamports: amount * LAMPORTS_PER_SOL,
+    }),
+  ]
+
+  // Create a new TransactionMessage with version and compile it to legacy
+  const messageLegacy = new TransactionMessage({
+    payerKey: publicKey,
+    recentBlockhash: latestBlockhash.blockhash,
+    instructions,
+  }).compileToLegacyMessage()
+
+  // Create a new VersionedTransaction which supports legacy and v0
+  const transaction = new VersionedTransaction(messageLegacy)
+
+  return {
+    transaction,
+    latestBlockhash,
+  }
+}

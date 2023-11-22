@@ -9,8 +9,12 @@ export function getUiDependencies(type: ReactApplicationUi): {
     case 'tailwind':
       return {
         dependencies: {
-          daisyui: packageVersion.daisyui,
           '@tailwindcss/typography': packageVersion['@tailwindcss'].typography,
+          '@tabler/icons-react': packageVersion['@tabler']['icons-react'],
+          '@tanstack/react-query': packageVersion['@tanstack']['react-query'],
+          'react-hot-toast': packageVersion['react-hot-toast'],
+          daisyui: packageVersion.daisyui,
+          jotai: packageVersion.jotai,
         },
       }
     default:

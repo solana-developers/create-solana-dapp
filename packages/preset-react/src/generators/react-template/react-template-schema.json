@@ -28,7 +28,7 @@
     },
     "template": {
       "type": "string",
-      "enum": ["base", "none", "tailwind"],
+      "enum": ["anchor-counter", "base", "none", "tailwind"],
       "description": "The template to use",
       "x-prompt": "Which template would you like to use?"
     },
