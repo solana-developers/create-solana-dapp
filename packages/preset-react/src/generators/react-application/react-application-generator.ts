@@ -2,6 +2,7 @@ import { formatFiles, getProjects, installPackagesTask, Tree } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
 import { applicationCleanup } from '@solana-developers/preset-common'
+import { getProjectRoots } from 'nx/src/utils/command-line-utils'
 import { join } from 'path'
 import {
   applicationTailwindConfig,
@@ -30,7 +31,7 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
     anchor: options.anchor,
     anchorName: options.anchorName,
     webName: options.webName,
-    directory: project.sourceRoot,
+    directory: project.root,
   })
 
   // Generate the ui files from the templates.
@@ -41,7 +42,7 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
     anchor: options.anchor,
     anchorName: options.anchorName,
     webName: options.webName,
-    directory: project.sourceRoot,
+    directory: project.root,
   })
 
   // Add the dependencies for the base application.
