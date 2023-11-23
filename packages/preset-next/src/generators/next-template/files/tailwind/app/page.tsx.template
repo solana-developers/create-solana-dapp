@@ -1,15 +1,5 @@
-<% if (anchor.fileName !== 'none') { %>
-import { <%= anchor.className %>IDL } from '@<%= npmScope %>/<%= anchorName.fileName %>';
-<% } %>
+import Dashboard from '../components/dashboard/dashboard-feature';
 
-export default async function Index() {
-  return (
-    <div>
-<% if (anchor.fileName !== 'none') { %>
-      <pre>{JSON.stringify(<%= anchor.className %>IDL, null, 2)}</pre>
-<% } else { %>
-      <div>Index</div>
-<% } %>
-    </div>
-  )
+export default function Page() {
+  return <Dashboard />;
 }

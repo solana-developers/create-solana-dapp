@@ -1,3 +1,7 @@
+<% if (preset === 'next') { %>
+    'use client';
+
+<% } %>
 import { CounterIDL, getCounterProgramId } from '@<%= npmScope %>/anchor'
 import { Program } from '@coral-xyz/anchor';
 import { useConnection } from '@solana/wallet-adapter-react';

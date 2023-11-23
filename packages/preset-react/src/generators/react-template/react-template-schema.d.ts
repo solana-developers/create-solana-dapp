@@ -11,6 +11,10 @@ export interface ReactTemplateSchema {
    * Name of the web application (overrides name)
    */
   webName: string;
+  /**
+   * The preset to use
+   */
+  preset?: "next" | "react";
   directory: string;
   /**
    * The template to use
