@@ -64,7 +64,6 @@ describe('application generator', () => {
 
       const contents = getRecursiveFileContents(tree, '.')
       expect(contents).toMatchSnapshot()
-      expect(JSON.stringify(contents)).not.toContain('anchor')
     })
 
     it.each([['none'], ['tailwind']])('should generate app with custom name and "%s" ui', async (ui) => {

@@ -1,4 +1,4 @@
-import { formatFiles, getProjects, installPackagesTask, Tree } from '@nx/devkit'
+import { formatFiles, getProjects, installPackagesTask, Tree, updateJson } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
 import { applicationCleanup } from '@solana-developers/preset-common'
@@ -9,6 +9,7 @@ import {
   NormalizedReactApplicationSchema,
   normalizeReactApplicationSchema,
   reactApplicationDependencies,
+  reactApplicationRunScripts,
   walletAdapterDependencies,
 } from '../../utils'
 import reactTemplateGenerator from '../react-template/react-template-generator'
@@ -76,6 +77,14 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
       })
     }
   }
+
+  updateJson(tree, 'package.json', (json) => {
+    json.scripts = {
+      ...json.scripts,
+      ...reactApplicationRunScripts({ anchorName: options.anchorName, webName: options.webName }),
+    }
+    return json
+  })
 
   // Format the files.
   if (!options.skipFormat) {
