@@ -1,10 +1,18 @@
-import { addDependenciesToPackageJson, formatFiles, getProjects, installPackagesTask, Tree } from '@nx/devkit'
+import {
+  addDependenciesToPackageJson,
+  formatFiles,
+  getProjects,
+  installPackagesTask,
+  Tree,
+  updateJson,
+} from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
 import { applicationCleanup, packageVersion } from '@solana-developers/preset-common'
 import {
   applicationTailwindConfig,
   reactApplicationDependencies,
+  reactApplicationRunScripts,
   reactTemplateGenerator,
   walletAdapterDependencies,
 } from '@solana-developers/preset-react'
@@ -129,6 +137,14 @@ export default function Page() {
     return config;
   },`
   tree.write(nextConfigPath, nextConfig.replace(needle, `${needle}\n${snippet}`))
+
+  updateJson(tree, 'package.json', (json) => {
+    json.scripts = {
+      ...json.scripts,
+      ...reactApplicationRunScripts({ anchorName: options.anchorName, webName: options.webName }),
+    }
+    return json
+  })
 
   // Format the files.
   if (!options.skipFormat) {

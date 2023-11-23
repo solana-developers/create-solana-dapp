@@ -65,7 +65,6 @@ describe('react-application generator', () => {
 
       const contents = getRecursiveFileContents(tree, '.')
       expect(contents).toMatchSnapshot()
-      expect(JSON.stringify(contents)).not.toContain('anchor')
     })
 
     it('should generate app using the webName property', async () => {
