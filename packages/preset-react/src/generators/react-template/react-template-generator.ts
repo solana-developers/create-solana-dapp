@@ -3,14 +3,15 @@ import * as path from 'path'
 import { reactApplicationSubstitutions } from '../../utils'
 import { ReactTemplateSchema } from './react-template-schema'
 
-export async function reactTemplateGenerator(tree: Tree, options: ReactTemplateSchema) {
+export async function reactTemplateGenerator(tree: Tree, options: ReactTemplateSchema, templatePath: string = '') {
   const substitutions = reactApplicationSubstitutions({
     anchor: options.anchor,
     anchorName: options.anchorName,
     name: options.webName,
     npmScope: options.npmScope,
+    preset: options.preset,
   })
-  generateFiles(tree, path.join(__dirname, 'files', options.template), options.directory, {
+  generateFiles(tree, path.join(__dirname, 'files', options.template, templatePath), options.directory, {
     ...options,
     ...substitutions,
     fileNameUnderscore: substitutions.fileName.replace(/-/g, '_'),

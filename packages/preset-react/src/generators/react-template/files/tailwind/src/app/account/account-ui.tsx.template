@@ -1,3 +1,7 @@
+<% if (preset === 'next') { %>
+    'use client';
+
+<% } %>
 import { useWallet } from '@solana/wallet-adapter-react'
 import { LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js'
 import { IconRefresh } from '@tabler/icons-react'

@@ -11,7 +11,6 @@ export const packageVersion = {
     'wallet-adapter-react': '^0.15.35',
     'wallet-adapter-react-ui': '^0.9.34',
     'wallet-adapter-solflare': '^0.6.28',
-    'wallet-adapter-unsafe-burner': '^0.1.7',
     'web3.js': '1.87.2',
   },
   '@swc-node': {
@@ -23,6 +22,7 @@ export const packageVersion = {
   },
   '@tanstack': {
     'react-query': '5.8.4',
+    'react-query-next-experimental': '5.8.4',
   },
   'react-hot-toast': '2.4.1',
   bs58: '5.0.0',

@@ -5,6 +5,7 @@ import { applicationCleanup, packageVersion } from '@solana-developers/preset-co
 import {
   applicationTailwindConfig,
   reactApplicationDependencies,
+  reactTemplateGenerator,
   walletAdapterDependencies,
 } from '@solana-developers/preset-react'
 import { join } from 'path'
@@ -39,6 +40,26 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
     directory: project.sourceRoot,
   })
 
+  // Generate the component files from the React template.
+  const components = join(project.sourceRoot, 'components')
+  await reactTemplateGenerator(
+    tree,
+    {
+      name: options.webName,
+      npmScope,
+      template: options.ui,
+      anchor: options.anchor,
+      anchorName: options.anchorName,
+      webName: options.webName,
+      directory: components,
+      preset: 'next',
+    },
+    'src/app/',
+  )
+  // Delete react app and routes.
+  tree.delete(`${components}/app.tsx`)
+  tree.delete(`${components}/app-routes.tsx`)
+
   // Generate the ui files from the templates.
   await nextTemplateGenerator(tree, {
     name: options.webName,
@@ -53,7 +74,14 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
   // Add the dependencies for the base application.
   reactApplicationDependencies(tree, options)
 
-  addDependenciesToPackageJson(tree, { encoding: packageVersion.encoding }, {})
+  addDependenciesToPackageJson(
+    tree,
+    {
+      '@tanstack/react-query-next-experimental': packageVersion['@tanstack']['react-query-next-experimental'],
+      encoding: packageVersion.encoding,
+    },
+    {},
+  )
 
   // Add the dependencies for the wallet adapter.
   walletAdapterDependencies(tree)
@@ -69,7 +97,38 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
       name: options.anchorName,
       skipFormat: true,
     })
+    if (options.anchor === 'counter') {
+      tree.write(
+        join(project.sourceRoot, 'app/counter/page.tsx'),
+        `import Counter from '../../components/counter/counter-feature';
+
+export default function Page() {
+  return <Counter />;
+}
+`,
+      )
+      // Generate the counter files
+      await reactTemplateGenerator(tree, {
+        name: options.webName,
+        npmScope,
+        template: 'anchor-counter',
+        anchor: options.anchor,
+        anchorName: options.anchorName,
+        webName: options.webName,
+        directory: join(components, 'counter'),
+        preset: 'next',
+      })
+    }
   }
+  // Patch node-gyp-build error
+  const nextConfigPath = join(project.root, 'next.config.js')
+  const nextConfig = tree.read(nextConfigPath, 'utf-8')
+  const needle = 'const nextConfig = {'
+  const snippet = `webpack: (config) => {
+    config.externals = [ ...(config.externals || []), 'bigint', 'node-gyp-build'];
+    return config;
+  },`
+  tree.write(nextConfigPath, nextConfig.replace(needle, `${needle}\n${snippet}`))
 
   // Format the files.
   if (!options.skipFormat) {

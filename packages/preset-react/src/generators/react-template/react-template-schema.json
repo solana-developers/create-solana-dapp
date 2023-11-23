@@ -17,6 +17,11 @@
       "type": "string",
       "description": "Name of the web application (overrides name)"
     },
+    "preset": {
+      "type": "string",
+      "description": "The preset to use",
+      "enum": ["next", "react"]
+    },
     "directory": {
       "type": "string",
       "description": "",
