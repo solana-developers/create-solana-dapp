@@ -1,0 +1,19 @@
+import { useWallet } from '@solana/wallet-adapter-react'
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
+import { Navigate } from 'react-router-dom'
+
+export default function AccountListFeature() {
+  const { publicKey } = useWallet()
+
+  if (publicKey) {
+    return <Navigate to={publicKey.toString()} replace />
+  }
+
+  return (
+    <div className="hero py-[64px]">
+      <div className="hero-content text-center">
+        <WalletMultiButton />
+      </div>
+    </div>
+  )
+}
