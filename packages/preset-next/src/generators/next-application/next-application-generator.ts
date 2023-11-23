@@ -146,6 +146,17 @@ export default function Page() {
     return json
   })
 
+  // Generate the readme files
+  await reactTemplateGenerator(tree, {
+    name: options.webName,
+    npmScope,
+    template: 'readme',
+    anchor: options.anchor,
+    anchorName: options.anchorName,
+    webName: options.webName,
+    directory: '.',
+  })
+
   // Format the files.
   if (!options.skipFormat) {
     await formatFiles(tree)
