@@ -17,6 +17,7 @@ describe('react-template generator', () => {
     webName: 'test',
   }
   const templates: ReactTemplateSchema['template'][] = ['base', 'none', 'tailwind']
+  process.env['USER'] = 'test'
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace()

@@ -33,9 +33,13 @@
     },
     "template": {
       "type": "string",
-      "enum": ["anchor-counter", "base", "none", "readme", "tailwind"],
+      "enum": ["anchor-counter", "base", "license", "none", "readme", "tailwind"],
       "description": "The template to use",
       "x-prompt": "Which template would you like to use?"
+    },
+    "licenseAuthor": {
+      "type": "string",
+      "description": "The author to use in the license"
     },
     "npmScope": {
       "type": "string",
