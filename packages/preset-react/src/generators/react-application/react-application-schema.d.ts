@@ -15,6 +15,10 @@ export interface ReactApplicationSchema {
    */
   webName?: string;
   /**
+   * Port to run the application on
+   */
+  port?: number;
+  /**
    * Skip formatting files
    */
   skipFormat?: boolean;
@@ -25,7 +29,7 @@ export interface ReactApplicationSchema {
   /**
    * Anchor template to use
    */
-  anchor: "none" | "counter" | "hello-world";
+  anchor?: "none" | "counter" | "hello-world";
   /**
    * Anchor project name
    */

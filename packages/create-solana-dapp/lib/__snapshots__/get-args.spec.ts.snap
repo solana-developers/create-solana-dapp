@@ -13,6 +13,7 @@ exports[`get-args expected args should get args with minimal parameters 1`] = `
   "preset": "next",
   "ui": "tailwind",
   "webName": "web",
+  "webPort": 3000,
   "yarn": false,
 }
 `;
@@ -30,6 +31,7 @@ exports[`get-args expected args should get args with minimal parameters and pack
   "preset": "next",
   "ui": "tailwind",
   "webName": "web",
+  "webPort": 3000,
   "yarn": false,
 }
 `;
@@ -47,6 +49,7 @@ exports[`get-args expected args should get args with minimal parameters and pack
   "preset": "next",
   "ui": "tailwind",
   "webName": "web",
+  "webPort": 3000,
   "yarn": false,
 }
 `;
@@ -64,6 +67,7 @@ exports[`get-args expected args should get args with minimal parameters and pack
   "preset": "next",
   "ui": "tailwind",
   "webName": "web",
+  "webPort": 3000,
   "yarn": false,
 }
 `;
@@ -81,6 +85,7 @@ exports[`get-args expected args should get args with preset: --preset next --ui 
   "preset": "next",
   "ui": "tailwind",
   "webName": "web",
+  "webPort": 3000,
   "yarn": false,
 }
 `;
@@ -98,6 +103,7 @@ exports[`get-args expected args should get args with preset: --preset react --an
   "preset": "react",
   "ui": "tailwind",
   "webName": "web",
+  "webPort": 3000,
   "yarn": false,
 }
 `;
@@ -115,6 +121,25 @@ exports[`get-args expected args should get args with preset: --preset react --an
   "preset": "react",
   "ui": "none",
   "webName": "web",
+  "webPort": 3000,
+  "yarn": false,
+}
+`;
+
+exports[`get-args expected args should get args with preset: --preset react --anchor none --ui none --web-port=4200 1`] = `
+{
+  "anchor": "none",
+  "anchorBuild": false,
+  "anchorName": "program",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "npm",
+  "pnpm": false,
+  "preset": "react",
+  "ui": "none",
+  "webName": "web",
+  "webPort": "4200",
   "yarn": false,
 }
 `;
@@ -132,6 +157,7 @@ exports[`get-args expected args should get args with preset: --preset react --an
   "preset": "react",
   "ui": "none",
   "webName": "web",
+  "webPort": 3000,
   "yarn": true,
 }
 `;
@@ -149,6 +175,7 @@ exports[`get-args expected args should get args with preset: --preset react --an
   "preset": "react",
   "ui": "none",
   "webName": "web",
+  "webPort": 3000,
   "yarn": false,
 }
 `;
@@ -166,6 +193,7 @@ exports[`get-args expected args should get args with preset: --preset react --ui
   "preset": "react",
   "ui": "tailwind",
   "webName": "web",
+  "webPort": 3000,
   "yarn": false,
 }
 `;
@@ -183,6 +211,7 @@ exports[`get-args expected args should get args with preset: --preset=react --an
   "preset": "react",
   "ui": "tailwind",
   "webName": "web",
+  "webPort": 3000,
   "yarn": false,
 }
 `;
@@ -200,6 +229,7 @@ exports[`get-args expected args should get args with preset: --preset=react --an
   "preset": "react",
   "ui": "tailwind",
   "webName": "web",
+  "webPort": 3000,
   "yarn": false,
 }
 `;

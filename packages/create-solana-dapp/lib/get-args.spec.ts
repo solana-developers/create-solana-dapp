@@ -29,6 +29,7 @@ describe('get-args', () => {
       '--preset=react --anchor=counter --anchor-name=program --anchor-build --ui=tailwind',
       '--preset react --anchor none --ui none --pnpm',
       '--preset react --anchor none --ui none --yarn',
+      '--preset react --anchor none --ui none --web-port=4200',
     ])('should get args with preset: %s', async (preset: string) => {
       const result = await getArgs(['', '', 'my-app', ...preset.split(' ')])
 

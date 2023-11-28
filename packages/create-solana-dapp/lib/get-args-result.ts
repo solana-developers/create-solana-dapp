@@ -13,4 +13,5 @@ export interface GetArgsResult {
   ui: string | undefined
   yarn: boolean
   webName: string
+  webPort: number
 }
