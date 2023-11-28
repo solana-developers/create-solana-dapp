@@ -9,6 +9,7 @@ describe('application generator', () => {
   let tree: Tree
   const rawOptions: NextApplicationSchema = { name: 'test-app', anchor: 'counter' }
   const options: NormalizedNextApplicationSchema = normalizeNextApplicationSchema(rawOptions)
+  process.env['USER'] = 'test'
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace()

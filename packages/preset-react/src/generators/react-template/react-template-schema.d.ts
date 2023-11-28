@@ -19,7 +19,11 @@ export interface ReactTemplateSchema {
   /**
    * The template to use
    */
-  template: "anchor-counter" | "base" | "none" | "readme" | "tailwind";
+  template: "anchor-counter" | "base" | "license" | "none" | "readme" | "tailwind";
+  /**
+   * The author to use in the license
+   */
+  licenseAuthor?: string;
   /**
    * The npm scope to use
    */
