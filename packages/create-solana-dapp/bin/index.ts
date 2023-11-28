@@ -20,8 +20,8 @@ async function main() {
         anchor: args.anchor,
         anchorName: args.anchorName,
         commit: {
-          name: 'Solana Developers',
-          email: 'no-reply@solana.org',
+          name: '',
+          email: '',
           message: 'chore: initial commit',
         },
         dryRun: args.dryRun,
