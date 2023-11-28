@@ -5774,7 +5774,7 @@ exports[`application generator default apps should generate default app with "ta
                   "<div className="hero-content text-center">",
                   "<div className="max-w-2xl">",
                   "{typeof title === 'string' ? (",
-                  "<h1 className="text-5xl font-bold cursor-pointer">{title}</h1>",
+                  "<h1 className="text-5xl font-bold">{title}</h1>",
                   ") : (",
                   "title",
                   ")}",
