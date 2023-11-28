@@ -1,3 +1,4 @@
+import { spinner } from '@clack/prompts'
 import { CreateWorkspaceOptions } from 'create-nx-workspace'
 import { createPreset } from 'create-nx-workspace/src/create-preset'
 import { mapErrorToBodyLines } from 'create-nx-workspace/src/utils/error-utils'
@@ -13,14 +14,22 @@ export async function customCreateWorkspace<T extends CreateWorkspaceOptions>(
 ) {
   const { packageManager, name, skipGit = false, defaultBase = 'main', commit } = options
 
+  const spin1 = spinner()
+  spin1.start(`Creating sandbox with ${packageManager}...`)
   const tmpDir = await customCreateSandbox(packageManager)
+  spin1.stop(`Successfully created sandbox with ${packageManager} in ${tmpDir}.`)
 
+  const spin2 = spinner()
+  spin2.start(`Creating new workspace with ${packageManager}...`)
   // nx new requires preset currently. We should probably make it optional.
   const directory = await customCreateEmptyWorkspace<T>(tmpDir, name, packageManager, { ...options, preset })
+  spin2.stop(`Successfully created workspace with ${packageManager}.`)
 
   // If the preset is a third-party preset, we need to call createPreset to install it
   // For first-party presets, it will created by createEmptyWorkspace instead.
   // In createEmptyWorkspace, it will call `nx new` -> `@nx/workspace newGenerator` -> `@nx/workspace generatePreset`.
+  const spin3 = spinner()
+  spin3.start(`Installing preset ${preset}...`)
 
   const thirdPartyPreset = await getThirdPartyPreset(preset)
   if (thirdPartyPreset) {
@@ -32,6 +41,7 @@ export async function customCreateWorkspace<T extends CreateWorkspaceOptions>(
   if (!skipGit && commit) {
     try {
       await initializeGitRepo(directory, { defaultBase, commit })
+      spin3.stop(`Successfully installed preset ${preset} .`)
     } catch (e) {
       if (e instanceof Error) {
         console.error({
@@ -41,6 +51,7 @@ export async function customCreateWorkspace<T extends CreateWorkspaceOptions>(
       } else {
         console.error(e)
       }
+      spin3.stop(`Failed to install preset ${preset} .`)
     }
   }
 

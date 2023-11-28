@@ -14,8 +14,6 @@ async function main() {
   const args = await getArgs(process.argv, pm)
 
   if (!args.dryRun) {
-    const s = spinner()
-    s.start(`Creating workspace...`)
     const { directory } = await customCreateWorkspace(
       `${args.package}`,
       {
@@ -34,11 +32,10 @@ async function main() {
         webName: args.webName,
       },
       async () => {
-        s.stop('Workspace created.')
         if (args.anchor === 'none' || !args.anchorBuild) {
-          s.message('No anchor template to build.')
           return
         }
+        const s = spinner()
         s.start('Building anchor...')
         try {
           await execAndWait(`anchor keys sync`, join(args.name, args.anchorName))
