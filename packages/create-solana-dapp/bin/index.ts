@@ -30,6 +30,7 @@ async function main() {
         packageManager: args.packageManager,
         ui: args.ui,
         webName: args.webName,
+        webPort: args.webPort,
       },
       async () => {
         if (args.anchor === 'none' || !args.anchorBuild) {
