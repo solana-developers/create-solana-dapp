@@ -1,6 +1,7 @@
 import './global.css'
-import { AppLayout } from './app-layout'
-import { SolanaProvider } from './solana-provider'
+import { AppLayout } from '@/components/ui/app-layout'
+import { ClusterProvider } from '@/components/cluster/cluster-data-access'
+import { SolanaProvider } from '@/components/solana/solana-provider'
 
 export const metadata = {
   title: '<%= npmScope %>',
@@ -11,11 +12,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <SolanaProvider>
-          <AppLayout>
-            {children}
-          </AppLayout>
-        </SolanaProvider>
+        <ClusterProvider>
+          <SolanaProvider>
+            <AppLayout>
+              {children}
+            </AppLayout>
+          </SolanaProvider>
+        </ClusterProvider>
       </body>
     </html>
   )
