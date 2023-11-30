@@ -1,6 +1,7 @@
 {
   "name": "@solana-developers/preset-anchor",
   "version": "0.0.1",
+  "description": "This library is a preset for create-solana-dapp that adds anchor support to your project.",
   "dependencies": {
     "@nx/devkit": "17.1.3",
     "@nx/js": "17.1.3",
@@ -11,5 +12,43 @@
   "type": "commonjs",
   "main": "./src/index.js",
   "typings": "./src/index.d.ts",
-  "generators": "./generators.json"
+  "generators": "./generators.json",
+  "keywords": [
+    "solana",
+    "next",
+    "react",
+    "vue",
+    "web3",
+    "yarn",
+    "blockchain",
+    "nft"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/solana-developers/create-solana-dapp#readme",
+  "bugs": {
+    "url": "https://github.com/solana-developers/create-solana-dapp/issues"
+  },
+  "repository": {
+    "name": "solana-developers/create-solana-dapp",
+    "type": "git",
+    "url": "https://github.com/solana-developers/create-solana-dapp"
+  },
+  "contributors": [
+    {
+      "name": "Joe Caulfield",
+      "url": "https://github.com/jpcaulfi"
+    },
+    {
+      "name": "Jacob Creech",
+      "url": "https://github.com/jacobcreech"
+    },
+    {
+      "name": "Nick Frostbutter",
+      "url": "https://github.com/nickfrosty"
+    },
+    {
+      "name": "Bram Borggreve",
+      "url": "https://github.com/beeman"
+    }
+  ]
 }
