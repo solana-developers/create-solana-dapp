@@ -79,6 +79,18 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
     directory: project.sourceRoot,
   })
 
+  // Generate the solana-provider from the templates.
+  await reactTemplateGenerator(tree, {
+    name: options.webName,
+    npmScope,
+    template: 'solana-provider',
+    anchor: options.anchor,
+    anchorName: options.anchorName,
+    webName: options.webName,
+    directory: join(components, 'solana'),
+    preset: 'next',
+  })
+
   // Add the dependencies for the base application.
   reactApplicationDependencies(tree, options)
 
@@ -105,7 +117,7 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
       name: options.anchorName,
       skipFormat: true,
     })
-    if (options.anchor === 'counter') {
+    if (options.anchor === 'counter' && options.ui !== 'none') {
       tree.write(
         join(project.sourceRoot, 'app/counter/page.tsx'),
         `import CounterFeature from '@/components/counter/counter-feature';

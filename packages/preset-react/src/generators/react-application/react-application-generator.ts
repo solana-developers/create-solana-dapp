@@ -45,6 +45,17 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
     directory: project.root,
   })
 
+  // Generate the solana-provider from the templates.
+  await reactTemplateGenerator(tree, {
+    name: options.webName,
+    npmScope,
+    template: 'solana-provider',
+    anchor: options.anchor,
+    anchorName: options.anchorName,
+    webName: options.webName,
+    directory: join(project.root, 'src', 'app', 'solana'),
+  })
+
   // Add the dependencies for the base application.
   reactApplicationDependencies(tree, options)
 
@@ -64,7 +75,7 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
       template: options.anchor,
     })
 
-    if (options.anchor === 'counter') {
+    if (options.anchor === 'counter' && options.ui !== 'none') {
       // Generate the counter files
       await reactTemplateGenerator(tree, {
         name: options.webName,

@@ -19,7 +19,7 @@ export interface ReactTemplateSchema {
   /**
    * The template to use
    */
-  template: "anchor-counter" | "base" | "license" | "none" | "readme" | "tailwind";
+  template: "anchor-counter" | "base" | "license" | "none" | "readme" | "solana-provider" | "tailwind";
   /**
    * The author to use in the license
    */

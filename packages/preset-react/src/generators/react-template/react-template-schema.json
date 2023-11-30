@@ -33,7 +33,7 @@
     },
     "template": {
       "type": "string",
-      "enum": ["anchor-counter", "base", "license", "none", "readme", "tailwind"],
+      "enum": ["anchor-counter", "base", "license", "none", "readme", "solana-provider", "tailwind"],
       "description": "The template to use",
       "x-prompt": "Which template would you like to use?"
     },
