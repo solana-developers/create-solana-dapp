@@ -203,9 +203,9 @@ exports[`next-template generator should generate files for tailwind template 1`]
             "children": {
               "page.tsx": {
                 "content": [
-                  "import AccountDetail from '../../../components/account/account-detail-feature';",
+                  "import AccountDetailFeature from '@/components/account/account-detail-feature';",
                   "export default function Page() {",
-                  "return <AccountDetail />;",
+                  "return <AccountDetailFeature />;",
                   "}",
                 ],
                 "isBinary": false,
@@ -216,9 +216,9 @@ exports[`next-template generator should generate files for tailwind template 1`]
           },
           "page.tsx": {
             "content": [
-              "import AccountList from '../../components/account/account-list-feature';",
+              "import AccountListFeature from '@/components/account/account-list-feature';",
               "export default function Page() {",
-              "return <AccountList />;",
+              "return <AccountListFeature />;",
               "}",
             ],
             "isBinary": false,
@@ -231,9 +231,9 @@ exports[`next-template generator should generate files for tailwind template 1`]
         "children": {
           "page.tsx": {
             "content": [
-              "import Cluster from '../../components/cluster/cluster-feature';",
+              "import ClusterFeature from '@/components/cluster/cluster-feature'",
               "export default function Page() {",
-              "return <Cluster />;",
+              "return <ClusterFeature />;",
               "}",
             ],
             "isBinary": false,
@@ -265,9 +265,9 @@ exports[`next-template generator should generate files for tailwind template 1`]
       "layout.tsx": {
         "content": [
           "import './global.css'",
-          "import { UiLayout } from '../components/ui/ui-layout';",
-          "import { ClusterProvider } from '../components/cluster/cluster-data-access';",
-          "import { SolanaProvider } from '../components/solana/solana-provider';",
+          "import { UiLayout } from '@/components/ui/ui-layout';",
+          "import { ClusterProvider } from '@/components/cluster/cluster-data-access';",
+          "import { SolanaProvider } from '@/components/solana/solana-provider';",
           "import { Provider } from './provider';",
           "export const metadata = {",
           "title: 'test',",
@@ -296,9 +296,9 @@ exports[`next-template generator should generate files for tailwind template 1`]
       },
       "page.tsx": {
         "content": [
-          "import Dashboard from '../components/dashboard/dashboard-feature';",
+          "import DashboardFeature from '@/components/dashboard/dashboard-feature'",
           "export default function Page() {",
-          "return <Dashboard />;",
+          "return <DashboardFeature />;",
           "}",
         ],
         "isBinary": false,

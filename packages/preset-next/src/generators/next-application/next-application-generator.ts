@@ -108,10 +108,10 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
     if (options.anchor === 'counter') {
       tree.write(
         join(project.sourceRoot, 'app/counter/page.tsx'),
-        `import Counter from '../../components/counter/counter-feature';
+        `import CounterFeature from '@/components/counter/counter-feature';
 
 export default function Page() {
-  return <Counter />;
+  return <CounterFeature />;
 }
 `,
       )
