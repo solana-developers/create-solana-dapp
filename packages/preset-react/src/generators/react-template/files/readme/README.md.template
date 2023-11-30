@@ -56,19 +56,19 @@ You will manually need to update the constant in `<%= anchorName.fileName %>/lib
 #### Build the program:
 
 ```shell
-<%= runCmd %> anchor build
+<%= runCmd %> anchor-build
 ```
 
 #### Start the test validator with the program deployed:
 
 ```shell
-<%= runCmd %> anchor localnet
+<%= runCmd %> anchor-localnet
 ```
 
 #### Run the tests
 
 ```shell
-<%= runCmd %> anchor test
+<%= runCmd %> anchor-test
 ```
 
 #### Deploy to Devnet
