@@ -1,11 +1,11 @@
 # create-solana-dapp
 
-This library was generated with [Nx](https://nx.dev).
+:zap: Get up and running fast with Solana dApps :zap:
 
-## Building
+Just run `npx create-solana-dapp@latest` to generate a new project!
 
-Run `nx build create-solana-dapp` to build the library.
+## More information
 
-## Running unit tests
-
-Run `nx test create-solana-dapp` to execute the unit tests via [Jest](https://jestjs.io).
+- [GitHub repository](https://github.com/solana-developers/create-solana-dapp)
+- [npm package](https://npm.im/create-solana-dapp)
+- [StackOverflow](https://solana.stackexchange.com/questions/tagged/create-solana-dapp)

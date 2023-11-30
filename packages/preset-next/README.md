@@ -1,11 +1,10 @@
 # preset-next
 
-This library was generated with [Nx](https://nx.dev).
+This library is a preset for [create-solana-dapp](https://npm.im/create-solana-dapp) that adds
+[next.js](https://nextjs.org/) support to your project.
 
-## Building
+## More information
 
-Run `nx build preset-next` to build the library.
-
-## Running unit tests
-
-Run `nx test preset-next` to execute the unit tests via [Jest](https://jestjs.io).
+- [GitHub repository](https://github.com/solana-developers/create-solana-dapp)
+- [npm package](https://npm.im/create-solana-dapp)
+- [StackOverflow](https://solana.stackexchange.com/questions/tagged/create-solana-dapp)

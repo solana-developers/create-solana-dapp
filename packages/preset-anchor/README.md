@@ -1,11 +1,10 @@
 # preset-anchor
 
-This library was generated with [Nx](https://nx.dev).
+This library is a preset for [create-solana-dapp](https://npm.im/create-solana-dapp) that adds
+[anchor](https://www.anchor-lang.com/) support to your project.
 
-## Building
+## More information
 
-Run `nx build preset-anchor` to build the library.
-
-## Running unit tests
-
-Run `nx test preset-anchor` to execute the unit tests via [Jest](https://jestjs.io).
+- [GitHub repository](https://github.com/solana-developers/create-solana-dapp)
+- [npm package](https://npm.im/create-solana-dapp)
+- [StackOverflow](https://solana.stackexchange.com/questions/tagged/create-solana-dapp)

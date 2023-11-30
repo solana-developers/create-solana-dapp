@@ -1,11 +1,10 @@
 # preset-react
 
-This library was generated with [Nx](https://nx.dev).
+This library is a preset for [create-solana-dapp](https://npm.im/create-solana-dapp) that adds
+[React](https://react.dev) support to your project.
 
-## Building
+## More information
 
-Run `nx build preset-react` to build the library.
-
-## Running unit tests
-
-Run `nx test preset-react` to execute the unit tests via [Jest](https://jestjs.io).
+- [GitHub repository](https://github.com/solana-developers/create-solana-dapp)
+- [npm package](https://npm.im/create-solana-dapp)
+- [StackOverflow](https://solana.stackexchange.com/questions/tagged/create-solana-dapp)
