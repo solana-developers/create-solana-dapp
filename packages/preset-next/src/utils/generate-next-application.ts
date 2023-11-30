@@ -23,5 +23,30 @@ export async function generateNextApplication(tree: Tree, options: NormalizedNex
     return json
   })
 
+  const packageName = '@/'
+  updateJson(tree, 'tsconfig.base.json', (json) => {
+    json.compilerOptions.paths[`${packageName}*`] = [`./${options.webName}/*`]
+    return json
+  })
+
+  updateJson(tree, join(project.root, '.eslintrc.json'), (json) => {
+    json.overrides = [
+      ...json.overrides,
+      {
+        files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
+        rules: {
+          '@nx/enforce-module-boundaries': [
+            'error',
+            {
+              allow: [packageName],
+            },
+          ],
+        },
+      },
+    ]
+
+    return json
+  })
+
   return project
 }
