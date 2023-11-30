@@ -6,6 +6,7 @@ export function anchorApplicationIgnoreFiles(tree: Tree, projectRoot: string) {
     git: [
       '.anchor',
       `${projectRoot}/target/deploy`,
+      `${projectRoot}/target/debug`,
       `${projectRoot}/target/release`,
       `${projectRoot}/target/sbf-solana-solana`,
       `${projectRoot}/target/.rustc_info.json`,
