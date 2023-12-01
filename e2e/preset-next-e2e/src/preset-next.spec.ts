@@ -43,7 +43,7 @@ describe('preset-next', () => {
   })
 
   it('should be run the preset generator with only a name ', () => {
-    execSync(`nx g ${packageName}:preset --name my-app`, {
+    execSync(`nx g ${packageName}:preset --name my-app --ui tailwind --anchor counter`, {
       cwd: projectDirectory,
       stdio: 'inherit',
     })
