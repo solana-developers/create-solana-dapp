@@ -15,10 +15,9 @@ export async function customCreateWorkspace<T extends CreateWorkspaceOptions>(
   const { packageManager, name, skipGit = false, defaultBase = 'main', commit } = options
 
   const spin1 = spinner()
-  spin1.start(`Creating sandbox with ${packageManager}`)
+  spin1.start(`Creating new workspace with ${packageManager}`)
   const tmpDir = await customCreateSandbox(packageManager)
 
-  spin1.message(`Creating new workspace with ${packageManager}`)
   // nx new requires preset currently. We should probably make it optional.
   const directory = await customCreateEmptyWorkspace<T>(tmpDir, name, packageManager, { ...options, preset })
   spin1.stop(`Successfully created workspace with ${packageManager}.`)
