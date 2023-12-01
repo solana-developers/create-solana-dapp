@@ -177,7 +177,7 @@ yarn local-registry
 In another terminal, run the following command to publish the packages to the local registry:
 
 ```shell
-npx nx run-many --targets publish --ver <your-version> --tag local
+yarn local-publish <your-version>
 ```
 
 Note: This will publish all the packages to the local registry with the `local` tag. Therefore, to utilize any of these
