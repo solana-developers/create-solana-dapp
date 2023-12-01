@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`preset-react should print the help command 1`] = `
+"> NX generate @solana-developers/preset-react:react-application [name] [options,...]
+From: @solana-developers/preset-react (v0.0.1)
+Name: react-application (aliases: application, preset)
+undefined
+Options:
+--name Name of the application [string]
+--anchor Anchor template to use [string] [choices: "none",
+"counter", "hello-world"]
+[default: "counter"]
+--anchorName Anchor project name [string] [default: "anchor"]
+--port Port to run the application on [number] [default: 3000]
+--ui The UI library to use [string] [choices: "none",
+"tailwind"] [default:
+"tailwind"]
+--webName Name of the web application [string]
+(overrides name)
+--skipFormat Skip formatting files [boolean]"
+`;
