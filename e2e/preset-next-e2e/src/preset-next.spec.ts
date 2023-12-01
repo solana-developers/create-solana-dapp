@@ -1,4 +1,4 @@
-import { createTestProject, logger } from '@solana-developers/e2e-utils'
+import { createTestProject, execCapture, formatOutput, logger } from '@solana-developers/e2e-utils'
 import { execSync } from 'child_process'
 import { rmSync } from 'fs'
 
@@ -35,11 +35,23 @@ describe('preset-next', () => {
   })
 
   it('should be installed', () => {
-    // npm ls will fail if the package is not installed properly
-    execSync(`npm ls ${packageName}`, {
-      cwd: projectDirectory,
-      stdio: 'inherit',
-    })
+    expect.assertions(1)
+    try {
+      // pnpm list will fail if the package is not installed properly
+      const output = execCapture(`pnpm list ${packageName}`, {
+        cwd: projectDirectory,
+      })
+      expect(output).toContain(packageName)
+    } catch (error) {
+      expect(error).toBeUndefined()
+    }
+  })
+
+  it('should print the help command', async () => {
+    const output = execCapture(`nx g ${packageName}:preset --help`)
+    // Trim all whitespace from the output to make the snapshot more readable
+    const trimmed = formatOutput(output)
+    expect(trimmed).toMatchSnapshot()
   })
 
   it('should be run the preset generator with only a name ', () => {
