@@ -22,6 +22,11 @@ exports[`anchor-template generator should be able to generate two templates side
     "isBinary": false,
     "path": "target/Anchor.toml",
   },
+  "Cargo.lock": {
+    "content": null,
+    "isBinary": true,
+    "path": "target/Cargo.lock",
+  },
   "programs": {
     "children": {
       "counter-one": {
@@ -1061,11 +1066,6 @@ exports[`anchor-template generator should generate files for base template 1`] =
     "isBinary": false,
     "path": "target/Anchor.toml",
   },
-  "Cargo.lock": {
-    "content": null,
-    "isBinary": true,
-    "path": "target/Cargo.lock",
-  },
   "Cargo.toml": {
     "content": [
       "[workspace]",
@@ -1141,6 +1141,11 @@ exports[`anchor-template generator should generate files for counter template 1`
     ],
     "isBinary": false,
     "path": "target/Anchor.toml",
+  },
+  "Cargo.lock": {
+    "content": null,
+    "isBinary": true,
+    "path": "target/Cargo.lock",
   },
   "programs": {
     "children": {
@@ -1691,6 +1696,11 @@ exports[`anchor-template generator should generate files for hello-world templat
     ],
     "isBinary": false,
     "path": "target/Anchor.toml",
+  },
+  "Cargo.lock": {
+    "content": null,
+    "isBinary": true,
+    "path": "target/Cargo.lock",
   },
   "programs": {
     "children": {
