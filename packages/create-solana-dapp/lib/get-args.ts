@@ -1,4 +1,4 @@
-import { log } from '@clack/prompts'
+import { intro, log } from '@clack/prompts'
 import { program } from 'commander'
 import { PackageManager } from 'nx/src/utils/package-manager'
 import { anchorTemplates } from './anchor-templates'
@@ -96,6 +96,9 @@ Examples:
     webName: result.webName ?? 'web',
     webPort: result.webPort ?? 3000,
   }
+
+  // Display the intro
+  intro(`${app.name} ${app.version}`)
 
   // Get the prompts for any missing options
   const prompts = await getPrompts({ options, presets })

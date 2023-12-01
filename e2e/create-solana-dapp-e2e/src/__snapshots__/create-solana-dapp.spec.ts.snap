@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`create-solana-dapp should print the help command 1`] = `
-"┌ create-solana-dapp 2.0.0
-Usage: create-solana-dapp [options] [name]
+"Usage: create-solana-dapp [options] [name]
 Arguments:
 name Name of the project (default: <prompt>)
 Options:
@@ -20,6 +19,8 @@ Build the anchor project (default: false)
 Anchor project name (default: anchor)
 --web-name <name>
 Web project name (default: web)
+--web-port <port>
+Web project port (default: 3000)
 -pm, --package-manager <package-manager>
 Package manager to use (default: npm)
 --yarn

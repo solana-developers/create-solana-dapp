@@ -1,15 +1,12 @@
 #!/usr/bin/env node
-import { intro, log, note, outro, spinner } from '@clack/prompts'
+import { log, note, outro, spinner } from '@clack/prompts'
 import { execAndWait } from 'create-nx-workspace/src/utils/child-process-utils'
 import { detectInvokedPackageManager } from 'create-nx-workspace/src/utils/package-manager'
-import { getAppInfo } from '../lib/get-app-info'
-import { getArgs } from '../lib/get-args'
-import { customCreateWorkspace } from '../lib/custom-create-workspace'
 import { join } from 'node:path'
+import { customCreateWorkspace } from '../lib/custom-create-workspace'
+import { getArgs } from '../lib/get-args'
 
 async function main() {
-  const app = getAppInfo()
-  intro(`${app.name} ${app.version}`)
   const pm = detectInvokedPackageManager()
   const args = await getArgs(process.argv, pm)
 
