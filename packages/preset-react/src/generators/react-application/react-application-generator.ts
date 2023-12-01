@@ -92,7 +92,11 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
   updateJson(tree, 'package.json', (json) => {
     json.scripts = {
       ...json.scripts,
-      ...reactApplicationRunScripts({ anchorName: options.anchorName, webName: options.webName }),
+      ...reactApplicationRunScripts({
+        anchor: options.anchor,
+        anchorName: options.anchorName,
+        webName: options.webName,
+      }),
     }
     return json
   })
