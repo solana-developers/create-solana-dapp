@@ -14,7 +14,7 @@ describe('preset-react', () => {
 
     // The plugin has been built and published to a local registry in the jest globalSetup
     // Install the plugin built with the latest source code into the test repo
-    execSync(`npm install ${packageName}@e2e`, {
+    execSync(`pnpm add ${packageName}@e2e`, {
       cwd: projectDirectory,
       stdio: 'inherit',
       env: process.env,

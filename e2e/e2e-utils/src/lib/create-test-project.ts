@@ -20,11 +20,14 @@ export function createTestProject(projectName: string) {
     recursive: true,
   })
 
-  execSync(`npx --yes create-nx-workspace@latest ${projectName} --preset apps --no-nxCloud --no-interactive`, {
-    cwd: dirname(projectDirectory),
-    stdio: 'inherit',
-    env: process.env,
-  })
+  execSync(
+    `npx --yes create-nx-workspace@latest ${projectName} --preset apps --no-nxCloud --no-interactive --package-manager pnpm`,
+    {
+      cwd: dirname(projectDirectory),
+      stdio: 'inherit',
+      env: process.env,
+    },
+  )
 
   const relativeProjectDirectory = relative(process.cwd(), projectDirectory)
 
