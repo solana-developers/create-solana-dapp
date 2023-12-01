@@ -116,6 +116,7 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
     await anchorApplicationGenerator(tree, {
       name: options.anchorName,
       skipFormat: true,
+      template: options.anchor,
     })
     if (options.anchor === 'counter' && options.ui !== 'none') {
       tree.write(
