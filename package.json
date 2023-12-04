@@ -10,6 +10,7 @@
     "prelocal-publish": "ts-node tools/scripts/ensure-local-registry.ts",
     "local-publish": "nx run-many --targets publish --tag local --ver ",
     "test": "yarn nx run-many --target=test --all",
+    "sync-readmes": "ts-node ./tools/scripts/sync-readmes.ts",
     "sync-schemas": "ts-node ./tools/scripts/sync-schemas.ts",
     "verify-package-versions": "ts-node tools/scripts/verify-package-versions.ts",
     "verify-yarn-lock": "ts-node tools/scripts/verify-yarn-lock.ts"

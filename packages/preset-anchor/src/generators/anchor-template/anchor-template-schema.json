@@ -1,7 +1,8 @@
 {
   "$schema": "http://json-schema.org/schema",
   "$id": "AnchorTemplateSchema",
-  "title": "",
+  "title": "anchor-template",
+  "description": "Generate an Anchor template",
   "type": "object",
   "properties": {
     "name": {

@@ -1,7 +1,8 @@
 {
   "$schema": "http://json-schema.org/schema",
   "$id": "ReactApplicationSchema",
-  "title": "",
+  "title": "react-application",
+  "description": "Generates a React application.",
   "type": "object",
   "properties": {
     "name": {

@@ -5,7 +5,10 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface NextApplicationSchema {
+/**
+ * Generate a Next.js application
+ */
+export interface NextApplication {
   /**
    * Name of the application
    */

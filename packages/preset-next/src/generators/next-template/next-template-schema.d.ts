@@ -5,7 +5,10 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface NextTemplateSchema {
+/**
+ * Generate a Next.js template
+ */
+export interface NextTemplate {
   name: string;
   /**
    * Name of the web application (overrides name)

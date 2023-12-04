@@ -5,7 +5,10 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface ReactTemplateSchema {
+/**
+ * Generate React templates
+ */
+export interface ReactTemplate {
   name: string;
   /**
    * Name of the web application (overrides name)
