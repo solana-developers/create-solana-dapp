@@ -1,7 +1,8 @@
 {
   "$schema": "http://json-schema.org/schema",
   "$id": "NextApplicationSchema",
-  "title": "",
+  "title": "next-application",
+  "description": "Generate a Next.js application",
   "type": "object",
   "properties": {
     "name": {

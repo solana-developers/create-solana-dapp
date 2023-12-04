@@ -1,7 +1,8 @@
 {
   "$schema": "http://json-schema.org/schema",
   "$id": "ReactTemplateSchema",
-  "title": "",
+  "title": "react-template",
+  "description": "Generate React templates",
   "type": "object",
   "properties": {
     "name": {

@@ -5,7 +5,10 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface ReactApplicationSchema {
+/**
+ * Generates a React application.
+ */
+export interface ReactApplication {
   /**
    * Name of the application
    */

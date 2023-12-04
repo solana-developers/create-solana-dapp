@@ -5,7 +5,10 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface AnchorApplicationSchema {
+/**
+ * Generate an Anchor application
+ */
+export interface AnchorApplication {
   /**
    * Name of the application
    */

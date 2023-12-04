@@ -1,7 +1,8 @@
 {
   "$schema": "http://json-schema.org/schema",
   "$id": "NextTemplateSchema",
-  "title": "",
+  "title": "next-template",
+  "description": "Generate a Next.js template",
   "type": "object",
   "properties": {
     "name": {

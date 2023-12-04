@@ -5,7 +5,10 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface AnchorTemplateSchema {
+/**
+ * Generate an Anchor template
+ */
+export interface AnchorTemplate {
   name: string;
   /**
    * Name of the project
