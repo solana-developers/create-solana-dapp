@@ -159,7 +159,7 @@ export function AccountTokens({ address }: { address: PublicKey }) {
                     </td>
                     <td className="text-right">
                       <span className="font-mono">
-                        <AccountTokenBalance address={address} />
+                        <AccountTokenBalance address={pubkey} />
                       </span>
                     </td>
                   </tr>

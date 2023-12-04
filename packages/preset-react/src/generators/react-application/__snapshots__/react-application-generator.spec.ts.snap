@@ -4265,7 +4265,7 @@ exports[`react-application generator default apps should generate default app wi
                       "</td>",
                       "<td className="text-right">",
                       "<span className="font-mono">",
-                      "<AccountTokenBalance address={address} />",
+                      "<AccountTokenBalance address={pubkey} />",
                       "</span>",
                       "</td>",
                       "</tr>",

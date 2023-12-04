@@ -649,7 +649,7 @@ exports[`react-template generator should generate files for tailwind template 1`
                   "</td>",
                   "<td className="text-right">",
                   "<span className="font-mono">",
-                  "<AccountTokenBalance address={address} />",
+                  "<AccountTokenBalance address={pubkey} />",
                   "</span>",
                   "</td>",
                   "</tr>",
