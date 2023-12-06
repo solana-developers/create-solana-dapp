@@ -1,7 +1,6 @@
-import { readJson } from '@nx/plugin/testing'
 import { program } from 'commander'
 import * as fs from 'fs'
-import { compileFromFile } from 'json-schema-to-typescript'
+import * as prettier from 'prettier'
 
 import { readJsonFile } from 'nx/src/utils/fileutils'
 import { join } from 'path'
@@ -80,14 +79,25 @@ ${help.trim()}
   })
   .join('\n')}
 ${defaultFooter()}`
+    const formatted = prettier.format(constructedReadme, {
+      parser: 'markdown',
+      singleQuote: true,
+      printWidth: 120,
+      semi: false,
+      trailingComma: 'all',
+      arrowParens: 'always',
+      endOfLine: 'auto',
+      proseWrap: 'always',
+    })
 
     // If the README is up-to-date, skip
-    if (packageReadme === constructedReadme) {
+    if (packageReadme === formatted) {
       continue
     }
 
     // If the README is not up-to-date, add it to the list of changes
-    changes.push({ file: packageReadmePath, schema: constructedReadme })
+
+    changes.push({ file: packageReadmePath, schema: formatted })
   }
 
   if (result.check && changes.length > 0) {
