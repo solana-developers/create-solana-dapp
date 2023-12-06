@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema",
   "$id": "AnchorApplicationSchema",
-  "title": "anchor-application",
+  "title": "anchor-application-schema",
   "description": "Generate an Anchor application",
   "type": "object",
   "properties": {

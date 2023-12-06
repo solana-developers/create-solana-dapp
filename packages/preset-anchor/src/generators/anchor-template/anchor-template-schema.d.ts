@@ -8,7 +8,7 @@
 /**
  * Generate an Anchor template
  */
-export interface AnchorTemplate {
+export interface AnchorTemplateSchema {
   name: string;
   /**
    * Name of the project

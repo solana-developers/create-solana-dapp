@@ -8,7 +8,7 @@
 /**
  * Generate React templates
  */
-export interface ReactTemplate {
+export interface ReactTemplateSchema {
   name: string;
   /**
    * Name of the web application (overrides name)

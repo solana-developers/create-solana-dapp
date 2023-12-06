@@ -8,7 +8,7 @@
 /**
  * Generate an Anchor application
  */
-export interface AnchorApplication {
+export interface AnchorApplicationSchema {
   /**
    * Name of the application
    */

@@ -8,7 +8,7 @@
 /**
  * Generates a React application.
  */
-export interface ReactApplication {
+export interface ReactApplicationSchema {
   /**
    * Name of the application
    */
