@@ -8,7 +8,7 @@
 /**
  * Generate a Next.js application
  */
-export interface NextApplication {
+export interface NextApplicationSchema {
   /**
    * Name of the application
    */

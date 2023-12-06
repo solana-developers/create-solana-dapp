@@ -8,7 +8,7 @@
 /**
  * Generate a Next.js template
  */
-export interface NextTemplate {
+export interface NextTemplateSchema {
   name: string;
   /**
    * Name of the web application (overrides name)
