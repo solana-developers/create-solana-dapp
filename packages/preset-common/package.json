@@ -9,6 +9,7 @@
   "type": "commonjs",
   "main": "./src/index.js",
   "typings": "./src/index.d.ts",
+  "generators": "./generators.json",
   "keywords": [
     "solana",
     "next",

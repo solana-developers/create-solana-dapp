@@ -46,8 +46,7 @@ Options:
     --npmScope         The npm scope to use                            [string]
     --template         The template to use                   [string] [choices:
                                                       "anchor-counter", "base",
-                                                   "license", "none", "readme",
-                                                             "solana-provider",
+                                                     "none", "solana-provider",
                                                                     "tailwind"]
     --webName          Name of the web application                     [string]
                        (overrides name)

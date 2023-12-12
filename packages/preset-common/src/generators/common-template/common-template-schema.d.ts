@@ -6,9 +6,9 @@
  */
 
 /**
- * Generate React templates
+ * Generate Common templates
  */
-export interface ReactTemplateSchema {
+export interface CommonTemplateSchema {
   name: string;
   /**
    * Name of the web application (overrides name)
@@ -22,7 +22,7 @@ export interface ReactTemplateSchema {
   /**
    * The template to use
    */
-  template: "anchor-counter" | "base" | "none" | "solana-provider" | "tailwind";
+  template: "license" | "readme";
   /**
    * The author to use in the license
    */
