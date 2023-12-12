@@ -781,6 +781,16 @@ exports[`application generator custom apps should generate app without anchor 1`
     "isBinary": false,
     "path": "./tsconfig.base.json",
   },
+  "vercel.json": {
+    "content": [
+      "{",
+      ""buildCommand": "npm run build",",
+      ""outputDirectory": "dist/web/.next"",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./vercel.json",
+  },
 }
 `;
 
@@ -2529,6 +2539,16 @@ exports[`application generator default apps should generate default app with "no
     ],
     "isBinary": false,
     "path": "./tsconfig.base.json",
+  },
+  "vercel.json": {
+    "content": [
+      "{",
+      ""buildCommand": "npm run build",",
+      ""outputDirectory": "dist/web/.next"",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./vercel.json",
   },
 }
 `;
@@ -5804,6 +5824,16 @@ exports[`application generator default apps should generate default app with "ta
     ],
     "isBinary": false,
     "path": "./tsconfig.base.json",
+  },
+  "vercel.json": {
+    "content": [
+      "{",
+      ""buildCommand": "npm run build",",
+      ""outputDirectory": "dist/web/.next"",
+      "}",
+    ],
+    "isBinary": false,
+    "path": "./vercel.json",
   },
 }
 `;
