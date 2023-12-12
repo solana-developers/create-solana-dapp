@@ -8,7 +8,7 @@ import {
 } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
-import { applicationCleanup, packageVersion } from '@solana-developers/preset-common'
+import { applicationCleanup, commonTemplateGenerator, packageVersion } from '@solana-developers/preset-common'
 import {
   applicationTailwindConfig,
   reactApplicationDependencies,
@@ -164,7 +164,7 @@ export default function Page() {
   })
 
   // Generate the readme files
-  await reactTemplateGenerator(tree, {
+  await commonTemplateGenerator(tree, {
     name: options.webName,
     npmScope,
     template: 'readme',
@@ -175,7 +175,7 @@ export default function Page() {
   })
 
   // Generate the license files
-  await reactTemplateGenerator(tree, {
+  await commonTemplateGenerator(tree, {
     name: options.webName,
     npmScope,
     template: 'license',

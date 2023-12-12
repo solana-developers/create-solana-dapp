@@ -127,13 +127,15 @@ ${defaultFooter()}`
 
 main()
 
-export function defaultDescription(pkg: 'preset-anchor' | 'preset-next' | 'preset-react') {
-  const template = (library: string) =>
-    `This library is a preset for [create-solana-dapp](https://npm.im/create-solana-dapp) that adds ${library} support to your project.`
+export function defaultDescription(pkg: 'preset-anchor' | 'preset-common' | 'preset-next' | 'preset-react') {
+  const base = 'This library is a preset for [create-solana-dapp](https://npm.im/create-solana-dapp)'
+  const template = (library: string) => `${base} that adds ${library} support to your project.`
 
   switch (pkg) {
     case 'preset-anchor':
       return template('[Anchor](https://www.anchor-lang.com/)')
+    case 'preset-common':
+      return `${base} with shared code for the other presets.`
     case 'preset-next':
       return template('[Next.js](https://nextjs.org/)')
     case 'preset-react':
