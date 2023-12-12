@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "$id": "ReactTemplateSchema",
-  "title": "react-template-schema",
-  "description": "Generate React templates",
+  "$id": "CommonTemplateSchema",
+  "title": "common-template-schema",
+  "description": "Generate Common templates",
   "type": "object",
   "properties": {
     "name": {
@@ -34,7 +34,7 @@
     },
     "template": {
       "type": "string",
-      "enum": ["anchor-counter", "base", "none", "solana-provider", "tailwind"],
+      "enum": ["license", "readme"],
       "description": "The template to use",
       "x-prompt": "Which template would you like to use?"
     },

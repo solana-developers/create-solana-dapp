@@ -1,3 +1,5 @@
+export * from './generators/common-template/common-template-generator'
+export * from './generators/common-template/common-template-schema'
 export * from './utils/generic-substitutions'
 export * from './utils/application-cleanup'
 export * from './utils/get-recursive-file-contents'
