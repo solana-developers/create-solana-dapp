@@ -1,7 +1,6 @@
 import {
   addDependenciesToPackageJson,
   formatFiles,
-  generateFiles,
   getProjects,
   installPackagesTask,
   Tree,
@@ -37,11 +36,6 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
     '/public/.gitkeep',
   ]
   applicationCleanup(tree, join(project.sourceRoot, 'app'), cleanup)
-
-  // generate the root workspace files
-  generateFiles(tree, join(__dirname, '../next-template/files', 'workspace-root'), '.', {
-    ...options,
-  })
 
   // Generate the base files from the templates.
   await nextTemplateGenerator(tree, {
