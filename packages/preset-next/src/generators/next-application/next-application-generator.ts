@@ -39,7 +39,7 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
   applicationCleanup(tree, join(project.sourceRoot, 'app'), cleanup)
 
   // generate the root workspace files
-  generateFiles(tree, join(__dirname, 'files', 'workspace-root'), '.', {
+  generateFiles(tree, join(__dirname, '../next-template/files', 'workspace-root'), '.', {
     ...options,
   })
 
