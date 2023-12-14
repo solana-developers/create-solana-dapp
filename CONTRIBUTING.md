@@ -118,6 +118,25 @@ You can run the tests in watch mode by appending the `--watch` flag for faster f
 yarn nx test preset-react --watch
 ```
 
+### Snapshots
+
+To support better testing and tracking of changes to the generated applications, each template preset has snapshots
+generated (which are committed). As part of the each preset's `test`, its respective snapshot is checked to verify
+generated output is as expected.
+
+When making adjustments to a generator that affected the outputted scaffold, the respective preset's snapshot will need
+to be updated.
+
+To update all snapshots, run the `test` for each preset via NX with the update flag (i.e. `-u`):
+
+```shell
+# full command
+yarn nx run-many --target test --skip-nx-cache -u
+
+# or the shorthand script
+yarn test -u
+```
+
 ### Linting Your Code
 
 It's important to maintain the coding standards of the project. Lint your code by executing:
