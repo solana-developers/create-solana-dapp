@@ -10,10 +10,17 @@ import { useMemo, useState } from 'react'
 import { AppModal, ellipsify } from '../ui/ui-layout'
 import { useCluster } from '../cluster/cluster-data-access'
 import { ExplorerLink } from '../cluster/cluster-ui'
-import { useAccount } from './account-data-access'
+import {
+  useGetBalance,
+  useGetSignatures,
+  useGetTokenAccountBalance,
+  useGetTokenAccounts,
+  useRequestAirdrop,
+  useTransferSol,
+} from './account-data-access'
 
 export function AccountBalance({ address }: { address: PublicKey }) {
-  const { getBalance: query } = useAccount({ address })
+  const query = useGetBalance({ address })
 
   return (
     <div>
@@ -32,7 +39,8 @@ export function AccountChecker() {
 }
 export function AccountBalanceCheck({ address }: { address: PublicKey }) {
   const { cluster } = useCluster()
-  const { getBalance: query, requestAirdrop } = useAccount({ address })
+  const mutation = useRequestAirdrop({ address })
+  const query = useGetBalance({ address })
 
   if (query.isLoading) {
     return null
@@ -45,7 +53,7 @@ export function AccountBalanceCheck({ address }: { address: PublicKey }) {
         </span>
         <button
           className="btn btn-xs btn-neutral"
-          onClick={() => requestAirdrop.mutateAsync(1).catch((err) => console.log(err))}
+          onClick={() => mutation.mutateAsync(1).catch((err) => console.log(err))}
         >
           Request Airdrop
         </button>
@@ -92,7 +100,7 @@ export function AccountButtons({ address }: { address: PublicKey }) {
 
 export function AccountTokens({ address }: { address: PublicKey }) {
   const [showAll, setShowAll] = useState(false)
-  const { getTokenAccounts: query } = useAccount({ address })
+  const query = useGetTokenAccounts({ address })
   const client = useQueryClient()
   const items = useMemo(() => {
     if (showAll) return query.data
@@ -106,7 +114,7 @@ export function AccountTokens({ address }: { address: PublicKey }) {
           <h2 className="text-2xl font-bold">Token Accounts</h2>
           <div className="space-x-2">
             {query.isLoading ? (
-              <span className="loading loading-spinner loading"></span>
+              <span className="loading loading-spinner"></span>
             ) : (
               <button
                 className="btn btn-sm btn-outline"
@@ -184,18 +192,18 @@ export function AccountTokens({ address }: { address: PublicKey }) {
 }
 
 export function AccountTokenBalance({ address }: { address: PublicKey }) {
-  const { getTokenBalance } = useAccount({ address })
-  return getTokenBalance.isLoading ? (
+  const query = useGetTokenAccountBalance({ address })
+  return query.isLoading ? (
     <span className="loading loading-spinner"></span>
-  ) : getTokenBalance.data ? (
-    <div>{getTokenBalance.data?.value.uiAmount}</div>
+  ) : query.data ? (
+    <div>{query.data?.value.uiAmount}</div>
   ) : (
     <div>Error</div>
   )
 }
 
 export function AccountTransactions({ address }: { address: PublicKey }) {
-  const { getSignatures: query } = useAccount({ address })
+  const query = useGetSignatures({ address })
   const [showAll, setShowAll] = useState(false)
 
   const items = useMemo(() => {
@@ -209,7 +217,7 @@ export function AccountTransactions({ address }: { address: PublicKey }) {
         <h2 className="text-2xl font-bold">Transaction History</h2>
         <div className="space-x-2">
           {query.isLoading ? (
-            <span className="loading loading-spinner loading"></span>
+            <span className="loading loading-spinner"></span>
           ) : (
             <button className="btn btn-sm btn-outline" onClick={() => query.refetch()}>
               <IconRefresh size={16} />
@@ -285,7 +293,7 @@ function ModalReceive({ hide, show, address }: { hide: () => void; show: boolean
 }
 
 function ModalAirdrop({ hide, show, address }: { hide: () => void; show: boolean; address: PublicKey }) {
-  const { requestAirdrop: mutation } = useAccount({ address })
+  const mutation = useRequestAirdrop({ address })
   const [amount, setAmount] = useState(2)
 
   return (
@@ -311,7 +319,7 @@ function ModalAirdrop({ hide, show, address }: { hide: () => void; show: boolean
 
 function ModalSend({ hide, show, address }: { hide: () => void; show: boolean; address: PublicKey }) {
   const wallet = useWallet()
-  const { transferSol: mutation } = useAccount({ address })
+  const mutation = useTransferSol({ address })
   const [destination, setDestination] = useState('')
   const [amount, setAmount] = useState(1)
 
