@@ -4,7 +4,7 @@ exports[`preset-next should print the help command 1`] = `
 "> NX generate @solana-developers/preset-next:next-application [name] [options,...]
 From: @solana-developers/preset-next (v0.0.1)
 Name: next-application (aliases: application, preset)
-undefined
+Generate a Next.js application
 Options:
 --name Name of the application [string]
 --anchor Anchor template to use [string] [choices: "none",

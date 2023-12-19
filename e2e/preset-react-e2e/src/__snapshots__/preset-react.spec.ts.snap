@@ -4,7 +4,7 @@ exports[`preset-react should print the help command 1`] = `
 "> NX generate @solana-developers/preset-react:react-application [name] [options,...]
 From: @solana-developers/preset-react (v0.0.1)
 Name: react-application (aliases: application, preset)
-undefined
+Generates a React application.
 Options:
 --name Name of the application [string]
 --anchor Anchor template to use [string] [choices: "none",
