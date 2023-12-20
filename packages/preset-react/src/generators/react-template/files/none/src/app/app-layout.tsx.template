@@ -1,6 +1,11 @@
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { ReactNode } from 'react';
+<% if (preset === 'react') { %>
 import { Link } from 'react-router-dom';
+<% } %>
+<% if (preset === 'next') { %>
+import Link from 'next/link';
+<% } %>
 
 export function AppLayout({ children }: { children: ReactNode }) {
   return (
@@ -14,7 +19,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
         }}
       >
         <div>
-          <Link to="/">
+          <Link <% if (preset === 'react') { %>to="/"<% } else if (preset === 'next') { %>href="/"<% } %>>
             <img src="/assets/solana-logo.png" height={24} alt="Solana Logo" />
           </Link>
         </div>
