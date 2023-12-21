@@ -2,9 +2,36 @@
 
 :zap: Get up and running fast with Solana dApps :zap:
 
-Just run `npx create-solana-dapp@latest` to generate a new project!
+Just run one simple command to generate a new project!
+
+```shell
+npx create-solana-dapp@latest
+```
+
+## Supported UI frameworks
+
+The following UI frameworks are supported within `create-solana-dapp`:
+
+- ReactJS
+- NextJS
+
+### Planned frameworks to support
+
+The following UI frameworks are planned and expected to be supported in the future:
+
+- VueJS
+- Svelte
+- React Native
+
+## Supported onchain program frameworks
+
+The following onchain programs (aka smart contract) frameworks are supported within `create-solana-dapp`:
+
+- Anchor
 
 ## Packages
+
+This projects operates as an NX monorepo that requires each of the child packages deployed to the NPM package registry:
 
 - [create-solana-dapp](./packages/create-solana-dapp): The CLI tool that generates a new project.
 - [preset-anchor](./packages/preset-anchor): A preset for [create-solana-dapp](./packages/create-solana-dapp) that adds
