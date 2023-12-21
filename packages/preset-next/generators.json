@@ -1,0 +1,16 @@
+{
+  "generators": {
+    "next-application": {
+      "factory": "./src/generators/next-application/next-application-generator",
+      "schema": "./src/generators/next-application/next-application-schema.json",
+      "description": "application generator",
+      "aliases": ["application", "preset"]
+    },
+    "next-template": {
+      "factory": "./src/generators/next-template/next-template-generator",
+      "schema": "./src/generators/next-template/next-template-schema.json",
+      "description": "next-template generator",
+      "aliases": ["template"]
+    }
+  }
+}

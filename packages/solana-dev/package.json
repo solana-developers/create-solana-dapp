@@ -1,0 +1,17 @@
+{
+  "name": "solana-dev",
+  "version": "0.0.1",
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "commander": "^11.1.0",
+    "picocolors": "1.0.0",
+    "semver": "7.5.4",
+    "tslib": "^2.3.0"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "typings": "./src/index.d.ts",
+  "bin": {
+    "solana-dev": "./bin/index.js"
+  }
+}

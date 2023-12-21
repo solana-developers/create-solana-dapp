@@ -1,0 +1,98 @@
+{
+  "version": "0.1.0",
+  "name": "<%= fileNameUnderscore %>",
+  "instructions": [
+    {
+      "name": "close<%= className %>",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "<%= fileNameUnderscore %>",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "decrement",
+      "accounts": [
+        {
+          "name": "<%= fileNameUnderscore %>",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "increment",
+      "accounts": [
+        {
+          "name": "<%= propertyName %>",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initialize<%= className %>",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "<%= propertyName %>",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "set",
+      "accounts": [
+        {
+          "name": "<%= propertyName %>",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "value",
+          "type": "u8"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "<%= className %>",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "count",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "address": "CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg"
+  }
+}

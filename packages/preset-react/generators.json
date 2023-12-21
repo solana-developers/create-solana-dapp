@@ -1,0 +1,16 @@
+{
+  "generators": {
+    "react-application": {
+      "factory": "./src/generators/react-application/react-application-generator",
+      "schema": "./src/generators/react-application/react-application-schema.json",
+      "description": "application generator",
+      "aliases": ["application", "preset"]
+    },
+    "react-template": {
+      "factory": "./src/generators/react-template/react-template-generator",
+      "schema": "./src/generators/react-template/react-template-schema.json",
+      "description": "react-template generator",
+      "aliases": ["template"]
+    }
+  }
+}

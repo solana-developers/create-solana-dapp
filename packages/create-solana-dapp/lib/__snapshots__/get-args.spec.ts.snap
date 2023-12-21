@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`get-args expected args should get args with minimal parameters 1`] = `
+{
+  "anchor": "counter",
+  "anchorBuild": false,
+  "anchorName": "anchor",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-next@0.0.1",
+  "packageManager": "npm",
+  "pnpm": false,
+  "preset": "next",
+  "ui": "tailwind",
+  "webName": "web",
+  "webPort": 3000,
+  "yarn": false,
+}
+`;
+
+exports[`get-args expected args should get args with minimal parameters and package manager npm 1`] = `
+{
+  "anchor": "counter",
+  "anchorBuild": false,
+  "anchorName": "anchor",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-next@0.0.1",
+  "packageManager": "npm",
+  "pnpm": false,
+  "preset": "next",
+  "ui": "tailwind",
+  "webName": "web",
+  "webPort": 3000,
+  "yarn": false,
+}
+`;
+
+exports[`get-args expected args should get args with minimal parameters and package manager pnpm 1`] = `
+{
+  "anchor": "counter",
+  "anchorBuild": false,
+  "anchorName": "anchor",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-next@0.0.1",
+  "packageManager": "pnpm",
+  "pnpm": false,
+  "preset": "next",
+  "ui": "tailwind",
+  "webName": "web",
+  "webPort": 3000,
+  "yarn": false,
+}
+`;
+
+exports[`get-args expected args should get args with minimal parameters and package manager yarn 1`] = `
+{
+  "anchor": "counter",
+  "anchorBuild": false,
+  "anchorName": "anchor",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-next@0.0.1",
+  "packageManager": "yarn",
+  "pnpm": false,
+  "preset": "next",
+  "ui": "tailwind",
+  "webName": "web",
+  "webPort": 3000,
+  "yarn": false,
+}
+`;
+
+exports[`get-args expected args should get args with preset: --preset next --ui tailwind --anchor counter 1`] = `
+{
+  "anchor": "counter",
+  "anchorBuild": false,
+  "anchorName": "anchor",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-next@0.0.1",
+  "packageManager": "npm",
+  "pnpm": false,
+  "preset": "next",
+  "ui": "tailwind",
+  "webName": "web",
+  "webPort": 3000,
+  "yarn": false,
+}
+`;
+
+exports[`get-args expected args should get args with preset: --preset react --anchor counter --anchor-name program --ui tailwind 1`] = `
+{
+  "anchor": "counter",
+  "anchorBuild": false,
+  "anchorName": "program",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "npm",
+  "pnpm": false,
+  "preset": "react",
+  "ui": "tailwind",
+  "webName": "web",
+  "webPort": 3000,
+  "yarn": false,
+}
+`;
+
+exports[`get-args expected args should get args with preset: --preset react --anchor none --ui none --pnpm 1`] = `
+{
+  "anchor": "none",
+  "anchorBuild": false,
+  "anchorName": "program",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "pnpm",
+  "pnpm": true,
+  "preset": "react",
+  "ui": "none",
+  "webName": "web",
+  "webPort": 3000,
+  "yarn": false,
+}
+`;
+
+exports[`get-args expected args should get args with preset: --preset react --anchor none --ui none --web-port=4200 1`] = `
+{
+  "anchor": "none",
+  "anchorBuild": false,
+  "anchorName": "program",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "npm",
+  "pnpm": false,
+  "preset": "react",
+  "ui": "none",
+  "webName": "web",
+  "webPort": "4200",
+  "yarn": false,
+}
+`;
+
+exports[`get-args expected args should get args with preset: --preset react --anchor none --ui none --yarn 1`] = `
+{
+  "anchor": "none",
+  "anchorBuild": false,
+  "anchorName": "program",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "yarn",
+  "pnpm": false,
+  "preset": "react",
+  "ui": "none",
+  "webName": "web",
+  "webPort": 3000,
+  "yarn": true,
+}
+`;
+
+exports[`get-args expected args should get args with preset: --preset react --anchor none --ui none 1`] = `
+{
+  "anchor": "none",
+  "anchorBuild": false,
+  "anchorName": "anchor",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "npm",
+  "pnpm": false,
+  "preset": "react",
+  "ui": "none",
+  "webName": "web",
+  "webPort": 3000,
+  "yarn": false,
+}
+`;
+
+exports[`get-args expected args should get args with preset: --preset react --ui tailwind --anchor counter 1`] = `
+{
+  "anchor": "counter",
+  "anchorBuild": false,
+  "anchorName": "anchor",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "npm",
+  "pnpm": false,
+  "preset": "react",
+  "ui": "tailwind",
+  "webName": "web",
+  "webPort": 3000,
+  "yarn": false,
+}
+`;
+
+exports[`get-args expected args should get args with preset: --preset=react --anchor=counter --anchor-name=program --anchor-build --ui=tailwind 1`] = `
+{
+  "anchor": "counter",
+  "anchorBuild": true,
+  "anchorName": "program",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "npm",
+  "pnpm": false,
+  "preset": "react",
+  "ui": "tailwind",
+  "webName": "web",
+  "webPort": 3000,
+  "yarn": false,
+}
+`;
+
+exports[`get-args expected args should get args with preset: --preset=react --anchor=counter --anchor-name=program --ui=tailwind 1`] = `
+{
+  "anchor": "counter",
+  "anchorBuild": false,
+  "anchorName": "program",
+  "dryRun": false,
+  "name": "my-app",
+  "package": "@solana-developers/preset-react@0.0.1",
+  "packageManager": "npm",
+  "pnpm": false,
+  "preset": "react",
+  "ui": "tailwind",
+  "webName": "web",
+  "webPort": 3000,
+  "yarn": false,
+}
+`;

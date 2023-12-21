@@ -1,0 +1,5 @@
+import { Program } from '@coral-xyz/anchor';
+import { IDL as <%= className %>IDL } from '../target/types/<%= fileNameUnderscore %>';
+import type { <%= className %> } from '../target/types/<%= fileNameUnderscore %>';
+export { <%= className %>, <%= className %>IDL };
+export type <%= className %>Program = Program<<%= className %>>;

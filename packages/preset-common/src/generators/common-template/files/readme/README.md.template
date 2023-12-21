@@ -1,0 +1,97 @@
+# <%= npmScope %>
+
+This project is generated with the [create-solana-dapp](https://github.com/solana-developers/create-solana-dapp) generator.
+
+## Getting Started
+
+### Prerequisites
+
+- Node v18.18.0 or higher
+<% if (anchor.fileName !== 'none') { %>
+- Rust v1.70.0 or higher
+- Anchor CLI 0.29.0 or higher
+- Solana CLI 1.17.0 or higher
+<% } %>
+
+### Installation
+
+#### Clone the repo
+
+```shell
+git clone <repo-url>
+cd <repo-name>
+```
+
+#### Install Dependencies
+
+```shell
+<%= runCmd %> install
+```
+
+#### Start the web app
+```
+<%= runCmd %> dev
+```
+
+## Apps
+<% if (anchor.fileName !== 'none') { %>
+### anchor
+
+This is a Solana program written in Rust using the Anchor framework.
+
+#### Commands
+
+You can use any normal anchor commands. Either move to the `<%= anchorName.fileName %>` directory and run the `anchor` command or prefix the command with `<%= runCmd %>`, eg: `<%= runCmd %> anchor`.
+
+#### Sync the program id:
+
+Running this command will create a new keypair in the `<%= anchorName.fileName %>/target/deploy` directory and save the address to the Anchor config file and update the `declare_id!` macro in the `./src/lib.rs` file of the program.
+
+You will manually need to update the constant in `<%= anchorName.fileName %>/lib/<%= anchor.fileName %>-exports.ts` to match the new program id.
+
+```shell
+<%= runCmd %> anchor keys sync
+```
+
+#### Build the program:
+
+```shell
+<%= runCmd %> anchor-build
+```
+
+#### Start the test validator with the program deployed:
+
+```shell
+<%= runCmd %> anchor-localnet
+```
+
+#### Run the tests
+
+```shell
+<%= runCmd %> anchor-test
+```
+
+#### Deploy to Devnet
+
+```shell
+<%= runCmd %> anchor deploy --provider.cluster devnet
+```
+<% } %>
+
+### web
+
+This is a <% if (preset === 'react') { %>React<% } else if (preset === 'next') { %>Next.js<% } %> app<% if (anchor.fileName !== 'none') { %> that uses the Anchor generated client to interact with the Solana program<% } %>.
+
+#### Commands
+
+Start the web app
+
+```shell
+<%= runCmd %> dev
+```
+
+Build the web app
+
+```shell
+<%= runCmd %> build
+```

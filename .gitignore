@@ -1,16 +1,41 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-sample-dapp
-test-dapp-null
-test-dapp-next-anchor
-test-dapp-next-native
-test-dapp-vue-anchor
-test-dapp-vue-native
-test-dapp-svelte-anchor
-test-dapp-svelte-native
-
-node_modules
+# compiled output
 dist
+tmp
+/out-tsc
 
-package-lock.json
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
 yarn-error.log
-yarn.lock
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+.nx/cache

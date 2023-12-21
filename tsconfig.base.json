@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@solana-developers/e2e-utils": ["e2e/e2e-utils/src/index.ts"],
+      "@solana-developers/preset-anchor": ["packages/preset-anchor/src/index.ts"],
+      "@solana-developers/preset-common": ["packages/preset-common/src/index.ts"],
+      "@solana-developers/preset-next": ["packages/preset-next/src/index.ts"],
+      "@solana-developers/preset-react": ["packages/preset-react/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
