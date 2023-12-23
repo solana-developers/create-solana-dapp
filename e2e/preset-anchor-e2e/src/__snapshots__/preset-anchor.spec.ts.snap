@@ -4,7 +4,7 @@ exports[`preset-anchor should print the help command 1`] = `
 "> NX generate @solana-developers/preset-anchor:anchor-application [name] [options,...]
 From: @solana-developers/preset-anchor (v0.0.1)
 Name: anchor-application (aliases: application, preset)
-undefined
+Generate an Anchor application
 Options:
 --name Name of the application [string]
 --template The template to use [string] [choices: "counter",
