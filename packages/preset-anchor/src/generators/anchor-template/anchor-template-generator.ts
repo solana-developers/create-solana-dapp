@@ -3,9 +3,11 @@ import * as path from 'path'
 import { AnchorTemplateSchema } from './anchor-template-schema'
 
 export async function anchorTemplateGenerator(tree: Tree, options: AnchorTemplateSchema) {
+  const variants = names(options.name)
   const substitutions = {
     projectName: options.projectName,
-    ...names(options.name),
+    ...variants,
+    upperCaseName: variants.fileName.toUpperCase().replace(/-/g, '_'),
   }
   generateFiles(tree, path.join(__dirname, 'files', options.template), options.directory, {
     ...options,

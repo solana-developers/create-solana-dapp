@@ -1,5 +1,7 @@
-import { Program } from '@coral-xyz/anchor';
-import { IDL as <%= className %>IDL } from '../target/types/<%= fileNameUnderscore %>';
+// Here we export some useful types and functions for interacting with the Anchor program.
 import type { <%= className %> } from '../target/types/<%= fileNameUnderscore %>';
+import { IDL as <%= className %>IDL } from '../target/types/<%= fileNameUnderscore %>';
+
+// Re-export the generated IDL and type
 export { <%= className %>, <%= className %>IDL };
 export type <%= className %>Program = Program<<%= className %>>;

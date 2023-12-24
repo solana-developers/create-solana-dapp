@@ -1,19 +1,24 @@
-import { Program } from '@coral-xyz/anchor';
+// Here we export some useful types and functions for interacting with the Anchor program.
 import { Cluster, PublicKey } from '@solana/web3.js';
-import { IDL as <%= className %>IDL } from '../target/types/<%= fileNameUnderscore %>';
 import type { <%= className %> } from '../target/types/<%= fileNameUnderscore %>';
+import { IDL as <%= className %>IDL } from '../target/types/<%= fileNameUnderscore %>';
 
+// Re-export the generated IDL and type
 export { <%= className %>, <%= className %>IDL };
 export type <%= className %>Program = Program<<%= className %>>;
-export const COUNTER_PROGRAM_ID = new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg')
 
-export function getCounterProgramId(cluster: Cluster) {
+// After updating your program ID (e.g. after running `anchor keys sync`) update the value below.
+export const <%= upperCaseName %>_PROGRAM_ID = new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg')
+
+// This is a helper function to get the program ID for the <%= className %> program depending on the cluster.
+export function get<%= className %>ProgramId(cluster: Cluster) {
   switch (cluster) {
     case 'devnet':
     case 'testnet':
     case 'mainnet-beta':
+      // You only need to update this if you deploy your program on one of these clusters.
       return new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg')
     default:
-      return COUNTER_PROGRAM_ID
+      return <%= upperCaseName %>_PROGRAM_ID
   }
 }
