@@ -3,10 +3,11 @@
 
 <% } %>
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base'
-import { clusterApiUrl } from '@solana/web3.js'
+import { clusterApiUrl, Connection } from '@solana/web3.js'
 import { atom, useAtomValue, useSetAtom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 import { createContext, ReactNode, useContext } from 'react'
+import toast from 'react-hot-toast';
 
 export interface Cluster {
   name: string
@@ -87,7 +88,12 @@ export function ClusterProvider({ children }: { children: ReactNode }) {
     cluster,
     clusters: clusters.sort((a, b) => (a.name > b.name ? 1 : -1)),
     addCluster: (cluster: Cluster) => {
-      setClusters([...clusters, cluster])
+      try {
+        new Connection(cluster.endpoint);
+        setClusters([...clusters, cluster]);
+      } catch (err) {
+        toast.error(`${err}`);
+      }
     },
     deleteCluster: (cluster: Cluster) => {
       setClusters(clusters.filter((item) => item.name !== cluster.name))
