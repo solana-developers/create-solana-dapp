@@ -10,25 +10,24 @@ import { Link, useLocation } from 'react-router-dom'
 <% } %>
 <% if (preset === 'next') { %>
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 <% } %>
 import { AccountChecker } from '../account/account-ui'
 import { ClusterChecker, ClusterUiSelect, ExplorerLink } from '../cluster/cluster-ui'
 import toast, { Toaster } from 'react-hot-toast'
 
-export function UiLayout({ children }: { children: ReactNode }) {
+const pages: { label: string, path: string }[] = [
+  { label: 'Account', path: '/account' },
+  { label: 'Clusters', path: '/clusters' },
+<% if (anchor.fileName === 'counter') { %>{ label: 'Counter', path: '/counter' },<% } %>
+]
 
+export function UiLayout({ children }: { children: ReactNode }) {
 <% if (preset === 'react') { %>
   const { pathname } = useLocation()
 <% } else if (preset === 'next') { %>
-  const pathname = 'TODO: implement me'
+  const pathname = usePathname();
 <% } %>
-  const pages = [
-    { label: 'Account', path: '/account' },
-<% if (anchor.fileName === 'counter') { %>
-    { label: 'Counter', path: '/counter' },
-<% } %>
-    { label: 'Clusters', path: '/clusters' },
-  ]
 
   return (
     <div className="h-full flex flex-col">
