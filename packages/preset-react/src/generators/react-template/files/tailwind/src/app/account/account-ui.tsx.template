@@ -294,7 +294,7 @@ function ModalReceive({ hide, show, address }: { hide: () => void; show: boolean
 
 function ModalAirdrop({ hide, show, address }: { hide: () => void; show: boolean; address: PublicKey }) {
   const mutation = useRequestAirdrop({ address })
-  const [amount, setAmount] = useState(2)
+  const [amount, setAmount] = useState('2')
 
   return (
     <AppModal
@@ -302,16 +302,18 @@ function ModalAirdrop({ hide, show, address }: { hide: () => void; show: boolean
       show={show}
       title="Airdrop"
       submitDisabled={!amount || mutation.isPending}
-      submitLabel="Requqest Airdrop"
-      submit={() => mutation.mutateAsync(amount).then(() => hide())}
+      submitLabel="Request Airdrop"
+      submit={() => mutation.mutateAsync(parseFloat(amount)).then(() => hide())}
     >
       <input
         disabled={mutation.isPending}
         type="number"
+        step="any"
+        min="1"
         placeholder="Amount"
         className="input input-bordered w-full"
         value={amount}
-        onChange={(e) => setAmount(Number(e.target.value))}
+        onChange={(e) => setAmount(e.target.value)}
       />
     </AppModal>
   )
@@ -321,7 +323,7 @@ function ModalSend({ hide, show, address }: { hide: () => void; show: boolean; a
   const wallet = useWallet()
   const mutation = useTransferSol({ address })
   const [destination, setDestination] = useState('')
-  const [amount, setAmount] = useState(1)
+  const [amount, setAmount] = useState('1')
 
   if (!address || !wallet.sendTransaction) {
     return <div>Wallet not connected</div>
@@ -338,7 +340,7 @@ function ModalSend({ hide, show, address }: { hide: () => void; show: boolean; a
         mutation
           .mutateAsync({
             destination: new PublicKey(destination),
-            amount,
+            amount: parseFloat(amount),
           })
           .then(() => hide())
       }}
@@ -354,10 +356,12 @@ function ModalSend({ hide, show, address }: { hide: () => void; show: boolean; a
       <input
         disabled={mutation.isPending}
         type="number"
+        step="any"
+        min="1"
         placeholder="Amount"
         className="input input-bordered w-full"
         value={amount}
-        onChange={(e) => setAmount(Number(e.target.value))}
+        onChange={(e) => setAmount(e.target.value)}
       />
     </AppModal>
   )
