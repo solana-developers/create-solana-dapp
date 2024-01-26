@@ -18,8 +18,8 @@ Name:  anchor-application (aliases: application, preset)
 Options:
     --name          Name of the application                             [string]
     --template      The template to use            [string] [choices: "counter",
-                                                        "hello-world"] [default:
-                                                                      "counter"]
+                                                          "hello-world", "none"]
+                                                               [default: "none"]
     --skipFormat    Skip formatting files                              [boolean]
 ```
 

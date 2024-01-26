@@ -60,6 +60,32 @@ Options:
                                                                        "react"]
 ```
 
+### react-feature
+
+```bash
+>  NX   generate @solana-developers/preset-react:react-feature [name] [options,...]
+
+From:  @solana-developers/preset-react (v0.0.1)
+Name:  react-feature (aliases: feature)
+
+  undefined
+
+Options:
+    --name                                                              [string]
+    --anchorName    Anchor project name             [string] [default: "anchor"]
+    --feature       The feature to generate                   [string] [choices:
+                                                               "anchor-counter"]
+    --npmScope      The npm scope to use                                [string]
+    --preset        The preset to use                 [string] [choices: "next",
+                                                                        "react"]
+    --ui            The UI library to use             [string] [choices: "none",
+                                                           "tailwind"] [default:
+                                                                     "tailwind"]
+    --webName       Name of the web application        [string] [default: "web"]
+                    (overrides name)
+    --skipFormat    Skip formatting files                              [boolean]
+```
+
 ## More information
 
 - [GitHub repository](https://github.com/solana-developers/create-solana-dapp)

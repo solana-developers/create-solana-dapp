@@ -70,7 +70,7 @@ exports[`application generator custom apps should generate app without anchor 1`
   "LICENSE": {
     "content": [
       "MIT License",
-      "Copyright (c) 2023 test",
+      "Copyright (c) 2024 test",
       "Permission is hereby granted, free of charge, to any person obtaining a copy",
       "of this software and associated documentation files (the "Software"), to deal",
       "in the Software without restriction, including without limitation the rights",
@@ -859,7 +859,7 @@ exports[`application generator default apps should generate default app with "no
   "LICENSE": {
     "content": [
       "MIT License",
-      "Copyright (c) 2023 test",
+      "Copyright (c) 2024 test",
       "Permission is hereby granted, free of charge, to any person obtaining a copy",
       "of this software and associated documentation files (the "Software"), to deal",
       "in the Software without restriction, including without limitation the rights",
@@ -2607,7 +2607,7 @@ exports[`application generator default apps should generate default app with "ta
   "LICENSE": {
     "content": [
       "MIT License",
-      "Copyright (c) 2023 test",
+      "Copyright (c) 2024 test",
       "Permission is hereby granted, free of charge, to any person obtaining a copy",
       "of this software and associated documentation files (the "Software"), to deal",
       "in the Software without restriction, including without limitation the rights",

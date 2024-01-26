@@ -12,7 +12,8 @@ import {
   reactApplicationRunScripts,
   walletAdapterDependencies,
 } from '../../utils'
-import reactTemplateGenerator from '../react-template/react-template-generator'
+import { reactTemplateGenerator } from '../react-template/react-template-generator'
+import { features, ReactFeature, reactFeatureGenerator } from '../react-feature'
 import { ReactApplicationSchema } from './react-application-schema'
 
 export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApplicationSchema) {
@@ -68,25 +69,24 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
   }
 
   if (options.anchor !== 'none' && !getProjects(tree).has(options.anchorName)) {
-    // Add the anchor application.
+    const feature: ReactFeature = features.find((feature) => feature.toString() === `anchor-${options.anchor}`)
+
+    if (!feature) {
+      throw new Error(`Invalid anchor feature: ${options.anchor}`)
+    }
+
     await anchorApplicationGenerator(tree, {
       name: options.anchorName,
       skipFormat: true,
-      template: options.anchor,
     })
 
-    if (options.anchor === 'counter' && options.ui !== 'none') {
-      // Generate the counter files
-      await reactTemplateGenerator(tree, {
-        name: options.webName,
-        npmScope,
-        template: 'anchor-counter',
-        anchor: options.anchor,
-        anchorName: options.anchorName,
-        webName: options.webName,
-        directory: join(project.root, 'src', 'app', 'counter'),
-      })
-    }
+    await reactFeatureGenerator(tree, {
+      name: feature.replace('anchor-', '').toString(),
+      anchorName: options.anchorName,
+      webName: options.webName,
+      skipFormat: true,
+      feature,
+    })
   }
 
   updateJson(tree, 'package.json', (json) => {

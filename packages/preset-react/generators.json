@@ -11,6 +11,12 @@
       "schema": "./src/generators/react-template/react-template-schema.json",
       "description": "react-template generator",
       "aliases": ["template"]
+    },
+    "react-feature": {
+      "factory": "./src/generators/react-feature/react-feature-generator",
+      "schema": "./src/generators/react-feature/react-feature-schema.json",
+      "description": "react-feature generator",
+      "aliases": ["feature"]
     }
   }
 }

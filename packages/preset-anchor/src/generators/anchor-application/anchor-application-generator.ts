@@ -41,12 +41,14 @@ export async function anchorApplicationGenerator(tree: Tree, rawOptions: AnchorA
     directory: project.root,
     skipUpdateIndexTs: true,
   })
-  await anchorTemplateGenerator(tree, {
-    projectName: options.name,
-    name: options.template,
-    template: options.template,
-    directory: project.root,
-  })
+  if (options.template !== 'none') {
+    await anchorTemplateGenerator(tree, {
+      projectName: options.name,
+      name: options.template,
+      template: options.template,
+      directory: project.root,
+    })
+  }
   anchorApplicationDependencies(tree)
   anchorApplicationIgnoreFiles(tree, project.sourceRoot.replace('/src', ''))
 
