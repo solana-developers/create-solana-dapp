@@ -11,8 +11,11 @@ import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
 import { applicationCleanup, commonTemplateGenerator, packageVersion } from '@solana-developers/preset-common'
 import {
   applicationTailwindConfig,
+  features,
   reactApplicationDependencies,
   reactApplicationRunScripts,
+  ReactFeature,
+  reactFeatureGenerator,
   reactTemplateGenerator,
   walletAdapterDependencies,
 } from '@solana-developers/preset-react'
@@ -112,12 +115,25 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
   }
 
   if (options.anchor !== 'none' && !getProjects(tree).has(options.anchorName)) {
-    // Add the anchor application.
+    const feature: ReactFeature = features.find((feature) => feature.toString() === `anchor-${options.anchor}`)
+
+    if (!feature) {
+      throw new Error(`Invalid anchor feature: ${options.anchor}`)
+    }
+
     await anchorApplicationGenerator(tree, {
       name: options.anchorName,
       skipFormat: true,
-      template: options.anchor,
     })
+
+    await reactFeatureGenerator(tree, {
+      name: feature.replace('anchor-', '').toString(),
+      anchorName: options.anchorName,
+      webName: options.webName,
+      skipFormat: true,
+      feature,
+    })
+
     if (options.anchor === 'counter' && options.ui !== 'none') {
       tree.write(
         join(project.sourceRoot, 'app/counter/page.tsx'),
@@ -128,17 +144,6 @@ export default function Page() {
 }
 `,
       )
-      // Generate the counter files
-      await reactTemplateGenerator(tree, {
-        name: options.webName,
-        npmScope,
-        template: 'anchor-counter',
-        anchor: options.anchor,
-        anchorName: options.anchorName,
-        webName: options.webName,
-        directory: join(components, 'counter'),
-        preset: 'next',
-      })
     }
   }
   // Patch node-gyp-build error

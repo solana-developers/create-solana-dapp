@@ -22,7 +22,7 @@ export interface ReactTemplateSchema {
   /**
    * The template to use
    */
-  template: "anchor-counter" | "base" | "none" | "solana-provider" | "tailwind";
+  template: "base" | "none" | "solana-provider" | "tailwind";
   /**
    * The author to use in the license
    */
