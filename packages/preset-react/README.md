@@ -44,8 +44,7 @@ Options:
     --directory                                                        [string]
     --name                                                             [string]
     --npmScope         The npm scope to use                            [string]
-    --template         The template to use                   [string] [choices:
-                                                      "anchor-counter", "base",
+    --template         The template to use           [string] [choices: "base",
                                                      "none", "solana-provider",
                                                                     "tailwind"]
     --webName          Name of the web application                     [string]

@@ -41,12 +41,4 @@ describe('react-feature generator', () => {
     const contents = getRecursiveFileContents(tree, '.')
     expect(contents).toMatchSnapshot()
   })
-
-  // it('should run successfully', async () => {
-  //   const x = tree
-  //   console.log({
-  //     options,
-  //   })
-  //   expect(true).toBeTruthy()
-  // })
 })

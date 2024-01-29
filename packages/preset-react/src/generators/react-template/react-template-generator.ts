@@ -3,7 +3,7 @@ import * as path from 'path'
 import { reactApplicationSubstitutions } from '../../utils'
 import { ReactTemplateSchema } from './react-template-schema'
 
-export async function reactTemplateGenerator(tree: Tree, options: ReactTemplateSchema, templatePath: string = '') {
+export async function reactTemplateGenerator(tree: Tree, options: ReactTemplateSchema, templatePath = '') {
   const substitutions = reactApplicationSubstitutions({
     anchor: options.anchor,
     anchorName: options.anchorName,

@@ -4,4 +4,3 @@ import { IDL as <%= className %>IDL } from '../target/types/<%= fileNameUndersco
 
 // Re-export the generated IDL and type
 export { <%= className %>, <%= className %>IDL };
-export type <%= className %>Program = Program<<%= className %>>;

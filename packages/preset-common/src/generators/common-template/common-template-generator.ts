@@ -3,7 +3,7 @@ import * as path from 'path'
 import { genericSubstitutions } from '../../utils/generic-substitutions'
 import { CommonTemplateSchema } from './common-template-schema'
 
-export async function commonTemplateGenerator(tree: Tree, options: CommonTemplateSchema, templatePath: string = '') {
+export async function commonTemplateGenerator(tree: Tree, options: CommonTemplateSchema, templatePath = '') {
   const substitutions = genericSubstitutions({
     anchor: options.anchor,
     anchorName: options.anchorName,
