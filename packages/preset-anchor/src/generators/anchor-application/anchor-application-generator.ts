@@ -14,6 +14,8 @@ import { AnchorApplicationSchema } from './anchor-application-schema'
 export async function anchorApplicationGenerator(tree: Tree, rawOptions: AnchorApplicationSchema) {
   const options: AnchorApplicationNormalizedSchema = anchorApplicationNormalizeSchema(rawOptions)
   await libraryGenerator(tree, {
+    directory: options.name,
+    projectNameAndRootFormat: 'as-provided',
     name: options.name,
     bundler: 'rollup',
     unitTestRunner: 'jest',

@@ -7,6 +7,7 @@ import { NormalizedReactApplicationSchema } from './normalize-react-application-
 export async function generateReactApplication(tree: Tree, options: NormalizedReactApplicationSchema) {
   await reactApplicationGenerator(tree, {
     name: options.webName,
+    directory: options.directory,
     style: 'css',
     skipFormat: options.skipFormat,
     projectNameAndRootFormat: 'as-provided',
