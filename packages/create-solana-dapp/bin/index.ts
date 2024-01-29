@@ -45,8 +45,15 @@ async function main() {
         }
       },
     )
-
-    outro(`Run \`cd ${directory.replace(process.cwd(), '.')}\` to get started.`)
+    const target = directory.replace(process.cwd(), '.')
+    note(
+      `That's it!\n
+Change to your new directory and start developing:\n
+  cd ${target}\n
+  ${pm} run dev`,
+      'Installation successful!',
+    )
+    outro('Good luck with your project!')
   } else {
     note(JSON.stringify(args, null, 2), 'Dry run, no changes were made.')
     outro(`Would have created the workspace: ${args.name} with preset: ${args.preset}.`)
