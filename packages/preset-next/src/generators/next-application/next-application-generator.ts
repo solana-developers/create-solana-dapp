@@ -1,19 +1,12 @@
-import {
-  addDependenciesToPackageJson,
-  formatFiles,
-  getProjects,
-  installPackagesTask,
-  Tree,
-  updateJson,
-} from '@nx/devkit'
+import { addDependenciesToPackageJson, getProjects, installPackagesTask, Tree } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
-import { applicationCleanup, commonTemplateGenerator, packageVersion } from '@solana-developers/preset-common'
+import { applicationCleanup, packageVersion } from '@solana-developers/preset-common'
 import {
   applicationTailwindConfig,
   features,
+  generateReactCommonFiles,
   reactApplicationDependencies,
-  reactApplicationRunScripts,
   ReactFeature,
   reactFeatureGenerator,
   reactTemplateGenerator,
@@ -156,44 +149,7 @@ export default function Page() {
   },`
   tree.write(nextConfigPath, nextConfig.replace(needle, `${needle}\n${snippet}`))
 
-  updateJson(tree, 'package.json', (json) => {
-    json.scripts = {
-      ...json.scripts,
-      ...reactApplicationRunScripts({
-        anchor: options.anchor,
-        anchorName: options.anchorName,
-        webName: options.webName,
-      }),
-    }
-    return json
-  })
-
-  // Generate the readme files
-  await commonTemplateGenerator(tree, {
-    name: options.webName,
-    npmScope,
-    template: 'readme',
-    anchor: options.anchor,
-    anchorName: options.anchorName,
-    webName: options.webName,
-    directory: '.',
-  })
-
-  // Generate the license files
-  await commonTemplateGenerator(tree, {
-    name: options.webName,
-    npmScope,
-    template: 'license',
-    anchor: options.anchor,
-    anchorName: options.anchorName,
-    webName: options.webName,
-    directory: '.',
-  })
-
-  // Format the files.
-  if (!options.skipFormat) {
-    await formatFiles(tree)
-  }
+  await generateReactCommonFiles(tree, options, npmScope)
 
   // Install the packages on exit.
   return () => {

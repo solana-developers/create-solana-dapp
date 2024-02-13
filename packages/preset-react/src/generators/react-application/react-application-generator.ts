@@ -1,19 +1,19 @@
-import { formatFiles, getProjects, installPackagesTask, Tree, updateJson } from '@nx/devkit'
+import { getProjects, installPackagesTask, Tree } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
-import { applicationCleanup, commonTemplateGenerator } from '@solana-developers/preset-common'
+import { applicationCleanup } from '@solana-developers/preset-common'
 import { join } from 'path'
 import {
   applicationTailwindConfig,
   generateReactApplication,
+  generateReactCommonFiles,
   NormalizedReactApplicationSchema,
   normalizeReactApplicationSchema,
   reactApplicationDependencies,
-  reactApplicationRunScripts,
   walletAdapterDependencies,
 } from '../../utils'
-import { reactTemplateGenerator } from '../react-template/react-template-generator'
 import { features, ReactFeature, reactFeatureGenerator } from '../react-feature'
+import { reactTemplateGenerator } from '../react-template/react-template-generator'
 import { ReactApplicationSchema } from './react-application-schema'
 
 export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApplicationSchema) {
@@ -88,45 +88,7 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
       feature,
     })
   }
-
-  updateJson(tree, 'package.json', (json) => {
-    json.scripts = {
-      ...json.scripts,
-      ...reactApplicationRunScripts({
-        anchor: options.anchor,
-        anchorName: options.anchorName,
-        webName: options.webName,
-      }),
-    }
-    return json
-  })
-
-  // Generate the readme files
-  await commonTemplateGenerator(tree, {
-    name: options.webName,
-    npmScope,
-    template: 'readme',
-    anchor: options.anchor,
-    anchorName: options.anchorName,
-    webName: options.webName,
-    directory: '.',
-  })
-
-  // Generate the license files
-  await commonTemplateGenerator(tree, {
-    name: options.webName,
-    npmScope,
-    template: 'license',
-    anchor: options.anchor,
-    anchorName: options.anchorName,
-    webName: options.webName,
-    directory: '.',
-  })
-
-  // Format the files.
-  if (!options.skipFormat) {
-    await formatFiles(tree)
-  }
+  await generateReactCommonFiles(tree, options, npmScope)
 
   // Install the packages on exit.
   return () => {
