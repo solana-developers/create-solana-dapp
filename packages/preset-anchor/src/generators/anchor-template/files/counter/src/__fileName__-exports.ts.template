@@ -5,7 +5,6 @@ import { IDL as <%= className %>IDL } from '../target/types/<%= fileNameUndersco
 
 // Re-export the generated IDL and type
 export { <%= className %>, <%= className %>IDL };
-export type <%= className %>Program = Program<<%= className %>>;
 
 // After updating your program ID (e.g. after running `anchor keys sync`) update the value below.
 export const <%= upperCaseName %>_PROGRAM_ID = new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg')

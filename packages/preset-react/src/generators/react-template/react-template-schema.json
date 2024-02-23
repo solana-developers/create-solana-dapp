@@ -34,7 +34,7 @@
     },
     "template": {
       "type": "string",
-      "enum": ["anchor-counter", "base", "none", "solana-provider", "tailwind"],
+      "enum": ["base", "none", "solana-provider", "tailwind"],
       "description": "The template to use",
       "x-prompt": "Which template would you like to use?"
     },

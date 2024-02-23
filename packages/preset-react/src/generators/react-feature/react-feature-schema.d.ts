@@ -5,38 +5,34 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-/**
- * Generate React templates
- */
-export interface ReactTemplateSchema {
+export interface ReactFeatureSchema {
   name: string;
-  /**
-   * Name of the web application (overrides name)
-   */
-  webName: string;
-  /**
-   * The preset to use
-   */
-  preset?: "next" | "react";
-  directory: string;
-  /**
-   * The template to use
-   */
-  template: "base" | "none" | "solana-provider" | "tailwind";
-  /**
-   * The author to use in the license
-   */
-  licenseAuthor?: string;
-  /**
-   * The npm scope to use
-   */
-  npmScope: string;
-  /**
-   * Anchor template to use
-   */
-  anchor?: "none" | "counter" | "hello-world";
   /**
    * Anchor project name
    */
   anchorName?: string;
+  /**
+   * Name of the web application (overrides name)
+   */
+  webName?: string;
+  /**
+   * The preset to use
+   */
+  preset?: "next" | "react";
+  /**
+   * The feature to generate
+   */
+  feature?: "anchor-counter";
+  /**
+   * The UI library to use
+   */
+  ui?: "none" | "tailwind";
+  /**
+   * The npm scope to use
+   */
+  npmScope?: string;
+  /**
+   * Skip formatting files
+   */
+  skipFormat?: boolean;
 }

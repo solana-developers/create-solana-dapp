@@ -22,9 +22,9 @@
     },
     "template": {
       "type": "string",
-      "enum": ["counter", "hello-world"],
+      "enum": ["counter", "hello-world", "none"],
       "description": "The template to use",
-      "default": "counter"
+      "default": "none"
     }
   },
   "required": ["name"]
