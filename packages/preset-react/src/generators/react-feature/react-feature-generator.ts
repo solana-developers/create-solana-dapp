@@ -5,7 +5,7 @@ import { genericSubstitutions } from '@solana-developers/preset-common'
 import { join } from 'path'
 import { ReactFeatureSchema } from './react-feature-schema'
 
-export async function reactFeatureGenerator(tree: Tree, options: ReactFeatureSchema) {
+export async function reactFeatureGenerator(tree: Tree, options: Omit<ReactFeatureSchema, 'npmScope'>) {
   const npmScope = getNpmScope(tree)
   const projects = getProjects(tree)
 
@@ -33,8 +33,6 @@ export async function reactFeatureGenerator(tree: Tree, options: ReactFeatureSch
     npmScope,
   })
 
-  // const { fileName: featureFileName } = names(options.name)
-
   await anchorTemplateGenerator(tree, {
     projectName: options.anchorName,
     name: substitutions.fileName,
@@ -42,15 +40,16 @@ export async function reactFeatureGenerator(tree: Tree, options: ReactFeatureSch
     directory: anchorProject.root,
   })
 
-  generateFiles(
-    tree,
-    join(__dirname, 'files', options.feature), // Source
-    join(webProject.root, 'src', 'app', substitutions.fileName), // Destination
-    {
-      ...options,
-      ...substitutions,
-    },
-  )
+  const source = join(__dirname, 'files', options.feature)
+  const target =
+    options.preset === 'react'
+      ? join(webProject.root, 'src', 'app', substitutions.fileName)
+      : join(webProject.root, 'components', substitutions.fileName)
+
+  generateFiles(tree, source, target, {
+    ...options,
+    ...substitutions,
+  })
 }
 
 export default reactFeatureGenerator
