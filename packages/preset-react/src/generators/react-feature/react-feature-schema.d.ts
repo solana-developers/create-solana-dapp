@@ -22,7 +22,7 @@ export interface ReactFeatureSchema {
   /**
    * The feature to generate
    */
-  feature?: "anchor-counter";
+  feature?: "anchor-counter" | "anchor-hello-world" | "none";
   /**
    * The UI library to use
    */

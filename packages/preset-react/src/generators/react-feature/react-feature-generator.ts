@@ -59,6 +59,8 @@ function getTemplateName(feature: ReactFeatureSchema['feature']): AnchorApplicat
   switch (feature) {
     case 'anchor-counter':
       return 'counter'
+    case 'anchor-hello-world':
+      return 'hello-world'
     default:
       throw new Error(`Unknown feature: ${feature}`)
   }

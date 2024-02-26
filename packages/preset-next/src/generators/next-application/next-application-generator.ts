@@ -1,15 +1,12 @@
-import { addDependenciesToPackageJson, getProjects, installPackagesTask, Tree } from '@nx/devkit'
+import { addDependenciesToPackageJson, installPackagesTask, Tree } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
-import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
 import { applicationCleanup, packageVersion } from '@solana-developers/preset-common'
 import {
-  applicationTailwindConfig,
-  features,
   generateReactCommonFiles,
   reactApplicationDependencies,
-  ReactFeature,
-  reactFeatureGenerator,
+  reactApplicationUiConfig,
   reactTemplateGenerator,
+  setupAnchorReactFeature,
   walletAdapterDependencies,
 } from '@solana-developers/preset-react'
 import { join } from 'path'
@@ -102,43 +99,12 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
   // Add the dependencies for the wallet adapter.
   walletAdapterDependencies(tree)
 
-  if (options.ui === 'tailwind') {
-    // Add the tailwind config.
-    await applicationTailwindConfig(tree, options.webName)
-  }
+  // Add the ui config.
+  await reactApplicationUiConfig(tree, options)
 
-  if (options.anchor !== 'none' && !getProjects(tree).has(options.anchorName)) {
-    const feature: ReactFeature = features.find((feature) => feature.toString() === `anchor-${options.anchor}`)
+  // Set up the anchor feature.
+  await setupAnchorReactFeature(tree, options, project, 'next')
 
-    if (!feature) {
-      throw new Error(`Invalid anchor feature: ${options.anchor}`)
-    }
-
-    await anchorApplicationGenerator(tree, {
-      name: options.anchorName,
-      skipFormat: true,
-    })
-
-    await reactFeatureGenerator(tree, {
-      name: feature.replace('anchor-', '').toString(),
-      anchorName: options.anchorName,
-      webName: options.webName,
-      skipFormat: true,
-      feature,
-    })
-
-    if (options.anchor === 'counter' && options.ui !== 'none') {
-      tree.write(
-        join(project.sourceRoot, 'app/counter/page.tsx'),
-        `import CounterFeature from '@/components/counter/counter-feature';
-
-export default function Page() {
-  return <CounterFeature />;
-}
-`,
-      )
-    }
-  }
   // Patch node-gyp-build error
   const nextConfigPath = join(project.root, 'next.config.js')
   const nextConfig = tree.read(nextConfigPath, 'utf-8')
@@ -149,6 +115,7 @@ export default function Page() {
   },`
   tree.write(nextConfigPath, nextConfig.replace(needle, `${needle}\n${snippet}`))
 
+  // Generate the common files.
   await generateReactCommonFiles(tree, options, npmScope)
 
   // Install the packages on exit.

@@ -30,7 +30,7 @@
     },
     "feature": {
       "type": "string",
-      "enum": ["anchor-counter"],
+      "enum": ["anchor-counter", "anchor-hello-world", "none"],
       "description": "The feature to generate",
       "x-prompt": "Which feature would you like to generate?"
     },

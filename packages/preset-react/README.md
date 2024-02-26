@@ -73,7 +73,8 @@ Options:
     --name                                                              [string]
     --anchorName    Anchor project name             [string] [default: "anchor"]
     --feature       The feature to generate                   [string] [choices:
-                                                               "anchor-counter"]
+                                                               "anchor-counter",
+                                                   "anchor-hello-world", "none"]
     --npmScope      The npm scope to use                                [string]
     --preset        The preset to use                 [string] [choices: "next",
                                                                         "react"]

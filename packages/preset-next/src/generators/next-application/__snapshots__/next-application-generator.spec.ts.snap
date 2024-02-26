@@ -4099,6 +4099,21 @@ exports[`application generator default apps should generate default app with "ta
             },
             "path": "./test-app/app/account",
           },
+          "anchor": {
+            "children": {
+              "page.tsx": {
+                "content": [
+                  "import AnchorFeature from '@/components/anchor/anchor-feature';",
+                  "export default function Page() {",
+                  "return <AnchorFeature />;",
+                  "}",
+                ],
+                "isBinary": false,
+                "path": "./test-app/app/anchor/page.tsx",
+              },
+            },
+            "path": "./test-app/app/anchor",
+          },
           "api": {
             "children": {
               "hello": {
@@ -4132,21 +4147,6 @@ exports[`application generator default apps should generate default app with "ta
               },
             },
             "path": "./test-app/app/clusters",
-          },
-          "counter": {
-            "children": {
-              "page.tsx": {
-                "content": [
-                  "import CounterFeature from '@/components/counter/counter-feature';",
-                  "export default function Page() {",
-                  "return <CounterFeature />;",
-                  "}",
-                ],
-                "isBinary": false,
-                "path": "./test-app/app/counter/page.tsx",
-              },
-            },
-            "path": "./test-app/app/counter",
           },
           "global.css": {
             "content": [
