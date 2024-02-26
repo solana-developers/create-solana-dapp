@@ -37,7 +37,7 @@ export async function setupAnchorReactFeature(
   })
 
   // For Next.js, create a page route for the counter feature
-  if (preset === 'next' && options.ui !== 'none' && featureName === 'counter') {
+  if (preset === 'next' && options.ui !== 'none') {
     createNextPageRouteAnchorCounter(tree, join(sourceRoot, `app/${featureName}/page.tsx`), featureName)
   }
 }

@@ -3,36 +3,33 @@
 
 <% } %>
 import { useWallet } from '@solana/wallet-adapter-react';
+import { ExplorerLink } from '../cluster/cluster-ui';
 import { WalletButton } from '../solana/solana-provider';
 import { AppHero, ellipsify } from '../ui/ui-layout';
-import { ExplorerLink } from '../cluster/cluster-ui';
-import { useCounterProgram } from './counter-data-access';
-import { CounterCreate, CounterList } from './counter-ui';
+import { use<%= className %>Program } from './<%= fileName %>-data-access';
+import { <%= className %>Create, <%= className %>Program } from './<%= fileName %>-ui';
 
-export default function CounterFeature() {
-  const { publicKey } = useWallet()
-  const { programId } = useCounterProgram();
+export default function <%= className %>Feature() {
+  const { publicKey } = useWallet();
+  const { programId } = use<%= className %>Program();
 
   return publicKey ? (
     <div>
-      <AppHero
-        title="Counter"
-        subtitle={
-          'You can create a new counter by clicking the "Create" button. The state of a counter is stored on-chain and can be manipulated by calling the program\'s methods (increment, decrement, set, and close).'
-        }
-      >
+      <AppHero title="<%= className %>" subtitle={'You can create a new account by clicking the "Create" button.'}>
         <p className="mb-6">
           <ExplorerLink path={`account/${programId}`} label={ellipsify(programId.toString())} />
         </p>
-        <CounterCreate />
+        <<%= className %>Create />
       </AppHero>
-      <CounterList />
+      <<%= className %>Program />
     </div>
   ) : (
     <div className="max-w-4xl mx-auto">
       <div className="hero py-[64px]">
-        <div className="hero-content text-center"><WalletButton /></div>
+        <div className="hero-content text-center">
+          <WalletButton className="btn btn-primary" />
+        </div>
       </div>
     </div>
-  )
+  );
 }

@@ -3,7 +3,7 @@ export type <%= className %> = {
 	"name": "<%= fileNameUnderscore %>",
 	"instructions": [
 		{
-			"name": "initialize",
+			"name": "greet",
 			"accounts": [],
 			"args": []
 		}
@@ -15,7 +15,7 @@ export const IDL: <%= className %> = {
 	"name": "<%= fileNameUnderscore %>",
 	"instructions": [
 		{
-			"name": "initialize",
+			"name": "greet",
 			"accounts": [],
 			"args": []
 		}

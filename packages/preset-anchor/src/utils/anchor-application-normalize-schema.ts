@@ -4,7 +4,7 @@ export function anchorApplicationNormalizeSchema(options: AnchorApplicationSchem
   return {
     ...options,
     skipFormat: options.skipFormat ?? false,
-    template: options.template ?? 'counter',
+    template: options.template ?? 'none',
   }
 }
 

@@ -8,9 +8,9 @@ describe("<%= fileName %>", () => {
 
   const program = anchor.workspace.<%= className %> as Program<<%= className %>>;
 
-  it("Is initialized!", async () => {
+  it("should run the program", async () => {
     // Add your test here.
-    const tx = await program.methods.initialize().rpc();
+    const tx = await program.methods.greet().rpc();
     console.log("Your transaction signature", tx);
   });
 });
