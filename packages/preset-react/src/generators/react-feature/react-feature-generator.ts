@@ -2,10 +2,15 @@ import { generateFiles, getProjects, Tree } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { AnchorApplicationSchema, anchorTemplateGenerator } from '@solana-developers/preset-anchor'
 import { genericSubstitutions } from '@solana-developers/preset-common'
+import { Keypair } from '@solana/web3.js'
 import { join } from 'path'
 import { ReactFeatureSchema } from './react-feature-schema'
 
-export async function reactFeatureGenerator(tree: Tree, options: Omit<ReactFeatureSchema, 'npmScope'>) {
+export async function reactFeatureGenerator(
+  tree: Tree,
+  options: Omit<ReactFeatureSchema, 'npmScope'>,
+  keypair?: Keypair,
+) {
   const npmScope = getNpmScope(tree)
   const projects = getProjects(tree)
 
@@ -33,12 +38,16 @@ export async function reactFeatureGenerator(tree: Tree, options: Omit<ReactFeatu
     npmScope,
   })
 
-  await anchorTemplateGenerator(tree, {
-    projectName: options.anchorName,
-    name: substitutions.fileName,
-    template: anchorTemplate,
-    directory: anchorProject.root,
-  })
+  await anchorTemplateGenerator(
+    tree,
+    {
+      projectName: options.anchorName,
+      name: substitutions.fileName,
+      template: anchorTemplate,
+      directory: anchorProject.root,
+    },
+    keypair,
+  )
 
   const source = join(__dirname, 'files', options.feature)
   const target =

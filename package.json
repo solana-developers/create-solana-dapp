@@ -20,6 +20,7 @@
     "@clack/prompts": "^0.7.0",
     "@inquirer/prompts": "^3.2.0",
     "@nx/devkit": "17.2.7",
+    "@solana/web3.js": "^1.90.0",
     "@swc/helpers": "~0.5.2",
     "commander": "^11.1.0",
     "create-nx-workspace": "17.0.1",

@@ -80,7 +80,7 @@ exports[`anchor-application generator should generate app with "counter" templat
       "seeds = false",
       "skip-lint = false",
       "[programs.localnet]",
-      "counter = "EuJfgknXicf6iZASeagt5U6XDDPpLTQrvWPW31vgAwo8"",
+      "counter = "GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA"",
       "[registry]",
       "url = "https://api.apr.dev"",
       "[provider]",
@@ -88,8 +88,14 @@ exports[`anchor-application generator should generate app with "counter" templat
       "wallet = "~/.config/solana/id.json"",
       "[scripts]",
       "test = "../node_modules/.bin/nx run anchor-app:jest"",
+      "[test]",
+      "startup_wait = 5000",
+      "shutdown_wait = 2000",
+      "upgradeable = false",
       "[test.validator]",
       "bind_address = "127.0.0.1"",
+      "ledger = ".anchor/test-ledger"",
+      "rpc_port = 8899",
     ],
     "isBinary": false,
     "path": "anchor-app/Anchor.toml",
@@ -236,7 +242,7 @@ exports[`anchor-application generator should generate app with "counter" templat
                 "content": [
                   "#![allow(clippy::result_large_err)]",
                   "use anchor_lang::prelude::*;",
-                  "declare_id!("CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg");",
+                  "declare_id!("GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA");",
                   "#[program]",
                   "pub mod counter {",
                   "use super::*;",
@@ -379,7 +385,7 @@ exports[`anchor-application generator should generate app with "counter" templat
           "export { Counter, CounterIDL };",
           "// After updating your program ID (e.g. after running \`anchor keys sync\`) update the value below.",
           "export const COUNTER_PROGRAM_ID = new PublicKey(",
-          "'CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg'",
+          "'GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA'",
           ");",
           "// This is a helper function to get the program ID for the Counter program depending on the cluster.",
           "export function getCounterProgramId(cluster: Cluster) {",
@@ -409,6 +415,23 @@ exports[`anchor-application generator should generate app with "counter" templat
   },
   "target": {
     "children": {
+      "deploy": {
+        "children": {
+          "counter-keypair.json": {
+            "content": [
+              "[",
+              "102, 57, 177, 113, 190, 89, 227, 160, 193, 179, 207, 89, 103, 112, 83, 251,",
+              "142, 20, 242, 30, 81, 26, 82, 85, 207, 97, 28, 129, 190, 28, 128, 71, 228, 27,",
+              "114, 255, 63, 136, 164, 140, 185, 151, 50, 58, 148, 32, 197, 184, 85, 144, 79,",
+              "78, 24, 248, 25, 138, 254, 31, 96, 78, 56, 230, 148, 1",
+              "]",
+            ],
+            "isBinary": false,
+            "path": "anchor-app/target/deploy/counter-keypair.json",
+          },
+        },
+        "path": "anchor-app/target/deploy",
+      },
       "idl": {
         "children": {
           "counter.json": {
@@ -508,7 +531,7 @@ exports[`anchor-application generator should generate app with "counter" templat
               "}",
               "],",
               ""metadata": {",
-              ""address": "CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg"",
+              ""address": "GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA"",
               "}",
               "}",
             ],
@@ -965,7 +988,7 @@ exports[`anchor-application generator should generate app with "hello-world" tem
       "seeds = false",
       "skip-lint = false",
       "[programs.localnet]",
-      "hello_world = "EuJfgknXicf6iZASeagt5U6XDDPpLTQrvWPW31vgAwo8"",
+      "hello_world = "GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA"",
       "[registry]",
       "url = "https://api.apr.dev"",
       "[provider]",
@@ -973,8 +996,14 @@ exports[`anchor-application generator should generate app with "hello-world" tem
       "wallet = "~/.config/solana/id.json"",
       "[scripts]",
       "test = "../node_modules/.bin/nx run anchor-app:jest"",
+      "[test]",
+      "startup_wait = 5000",
+      "shutdown_wait = 2000",
+      "upgradeable = false",
       "[test.validator]",
       "bind_address = "127.0.0.1"",
+      "ledger = ".anchor/test-ledger"",
+      "rpc_port = 8899",
     ],
     "isBinary": false,
     "path": "anchor-app/Anchor.toml",
@@ -1120,7 +1149,7 @@ exports[`anchor-application generator should generate app with "hello-world" tem
               "lib.rs": {
                 "content": [
                   "use anchor_lang::prelude::*;",
-                  "declare_id!("EuJfgknXicf6iZASeagt5U6XDDPpLTQrvWPW31vgAwo8");",
+                  "declare_id!("GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA");",
                   "#[program]",
                   "pub mod hello_world {",
                   "use super::*;",
@@ -1219,7 +1248,7 @@ exports[`anchor-application generator should generate app with "hello-world" tem
           "export { HelloWorld, HelloWorldIDL };",
           "// After updating your program ID (e.g. after running \`anchor keys sync\`) update the value below.",
           "export const HELLO_WORLD_PROGRAM_ID = new PublicKey(",
-          "'CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg'",
+          "'GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA'",
           ");",
           "// This is a helper function to get the program ID for the HelloWorld program depending on the cluster.",
           "export function getHelloWorldProgramId(cluster: Cluster) {",
@@ -1249,6 +1278,23 @@ exports[`anchor-application generator should generate app with "hello-world" tem
   },
   "target": {
     "children": {
+      "deploy": {
+        "children": {
+          "hello_world-keypair.json": {
+            "content": [
+              "[",
+              "102, 57, 177, 113, 190, 89, 227, 160, 193, 179, 207, 89, 103, 112, 83, 251,",
+              "142, 20, 242, 30, 81, 26, 82, 85, 207, 97, 28, 129, 190, 28, 128, 71, 228, 27,",
+              "114, 255, 63, 136, 164, 140, 185, 151, 50, 58, 148, 32, 197, 184, 85, 144, 79,",
+              "78, 24, 248, 25, 138, 254, 31, 96, 78, 56, 230, 148, 1",
+              "]",
+            ],
+            "isBinary": false,
+            "path": "anchor-app/target/deploy/hello_world-keypair.json",
+          },
+        },
+        "path": "anchor-app/target/deploy",
+      },
       "idl": {
         "children": {
           "hello_world.json": {

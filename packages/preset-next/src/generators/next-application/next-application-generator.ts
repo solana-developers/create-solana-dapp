@@ -9,12 +9,13 @@ import {
   setupAnchorReactFeature,
   walletAdapterDependencies,
 } from '@solana-developers/preset-react'
+import { Keypair } from '@solana/web3.js'
 import { join } from 'path'
 import { generateNextApplication, NormalizedNextApplicationSchema, normalizeNextApplicationSchema } from '../../utils'
 import nextTemplateGenerator from '../next-template/next-template-generator'
 import { NextApplicationSchema } from './next-application-schema'
 
-export async function nextApplicationGenerator(tree: Tree, rawOptions: NextApplicationSchema) {
+export async function nextApplicationGenerator(tree: Tree, rawOptions: NextApplicationSchema, keypair?: Keypair) {
   const options: NormalizedNextApplicationSchema = normalizeNextApplicationSchema(rawOptions)
   const project = await generateNextApplication(tree, options)
   const npmScope = getNpmScope(tree)
@@ -103,7 +104,7 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
   await reactApplicationUiConfig(tree, options)
 
   // Set up the anchor feature.
-  await setupAnchorReactFeature(tree, options, project.sourceRoot, 'next')
+  await setupAnchorReactFeature(tree, options, project.sourceRoot, 'next', keypair)
 
   // Patch node-gyp-build error
   const nextConfigPath = join(project.root, 'next.config.js')

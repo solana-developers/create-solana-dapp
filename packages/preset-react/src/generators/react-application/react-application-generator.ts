@@ -1,6 +1,7 @@
 import { installPackagesTask, Tree } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { applicationCleanup } from '@solana-developers/preset-common'
+import { Keypair } from '@solana/web3.js'
 import { join } from 'path'
 import {
   generateReactApplication,
@@ -15,7 +16,7 @@ import {
 import { reactTemplateGenerator } from '../react-template/react-template-generator'
 import { ReactApplicationSchema } from './react-application-schema'
 
-export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApplicationSchema) {
+export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApplicationSchema, keypair?: Keypair) {
   const options: NormalizedReactApplicationSchema = normalizeReactApplicationSchema(rawOptions)
   const npmScope = getNpmScope(tree)
   // Set up the base project.
@@ -66,7 +67,7 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
   await reactApplicationUiConfig(tree, options)
 
   // Set up the anchor feature.
-  await setupAnchorReactFeature(tree, options, project.sourceRoot, 'react')
+  await setupAnchorReactFeature(tree, options, project.sourceRoot, 'react', keypair)
 
   // Generate the common files.
   await generateReactCommonFiles(tree, options, npmScope)

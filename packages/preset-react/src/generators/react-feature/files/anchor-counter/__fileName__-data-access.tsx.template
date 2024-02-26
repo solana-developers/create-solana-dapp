@@ -59,12 +59,12 @@ export function use<%= className %>ProgramAccount({ account }: { account: Public
   const transactionToast = useTransactionToast()
   const { program, accounts } = use<%= className %>Program()
 
-  const account = useQuery({
+  const accountQuery = useQuery({
     queryKey: ['<%= fileName %>', 'fetch', { cluster, account }],
     queryFn: () => program.account.<%= propertyName %>.fetch(account),
   })
 
-  const close = useMutation({
+  const closeMutation = useMutation({
     mutationKey: ['<%= fileName %>', 'close', { cluster, account }],
     mutationFn: () => program.methods.close<%= className %>().accounts({ <%= propertyName %>: account }).rpc(),
     onSuccess: (tx) => {
@@ -73,38 +73,38 @@ export function use<%= className %>ProgramAccount({ account }: { account: Public
     },
   })
 
-  const decrement = useMutation({
+  const decrementMutation = useMutation({
     mutationKey: ['<%= fileName %>', 'decrement', { cluster, account }],
     mutationFn: () => program.methods.decrement().accounts({ <%= propertyName %>: account }).rpc(),
     onSuccess: (tx) => {
       transactionToast(tx)
-      return account.refetch()
+      return accountQuery.refetch()
     },
   })
 
-  const increment = useMutation({
+  const incrementMutation = useMutation({
     mutationKey: ['<%= fileName %>', 'increment', { cluster, account }],
     mutationFn: () => program.methods.increment().accounts({ <%= propertyName %>: account }).rpc(),
     onSuccess: (tx) => {
       transactionToast(tx)
-      return account.refetch()
+      return accountQuery.refetch()
     },
   })
 
-  const set = useMutation({
+  const setMutation = useMutation({
     mutationKey: ['<%= fileName %>', 'set', { cluster, account }],
     mutationFn: (value: number) => program.methods.set(value).accounts({ <%= propertyName %>: account }).rpc(),
     onSuccess: (tx) => {
       transactionToast(tx)
-      return account.refetch()
+      return accountQuery.refetch()
     },
   })
 
   return {
-    account,
-    close,
-    decrement,
-    increment,
-    set,
+    accountQuery,
+    closeMutation,
+    decrementMutation,
+    incrementMutation,
+    setMutation,
   }
 }

@@ -56,26 +56,30 @@ export function <%= className %>List() {
 }
 
 function <%= className %>Card({ account }: { account: PublicKey }) {
-  const { account, increment, set, decrement, close } = use<%= className %>ProgramAccount({
-    account,
-  })
+  const {
+      accountQuery,
+      incrementMutation,
+      setMutation,
+      decrementMutation,
+      closeMutation,
+  } = use<%= className %>ProgramAccount({ account })
 
-  const count = useMemo(() => account.data?.count ?? 0, [account.data?.count])
+  const count = useMemo(() => accountQuery.data?.count ?? 0, [accountQuery.data?.count])
 
-  return account.isLoading ? (
+  return accountQuery.isLoading ? (
     <span className="loading loading-spinner loading-lg"></span>
   ) : (
     <div className="card card-bordered border-base-300 border-4 text-neutral-content">
       <div className="card-body items-center text-center">
         <div className="space-y-6">
-          <h2 className="card-title justify-center text-3xl cursor-pointer" onClick={() => account.refetch()}>
+          <h2 className="card-title justify-center text-3xl cursor-pointer" onClick={() => accountQuery.refetch()}>
             {count}
           </h2>
           <div className="card-actions justify-around">
             <button
               className="btn btn-xs lg:btn-md btn-outline"
-              onClick={() => increment.mutateAsync()}
-              disabled={increment.isPending}
+              onClick={() => incrementMutation.mutateAsync()}
+              disabled={incrementMutation.isPending}
             >
               Increment
             </button>
@@ -86,16 +90,16 @@ function <%= className %>Card({ account }: { account: PublicKey }) {
                 if (!value || parseInt(value) === count || isNaN(parseInt(value))) {
                   return
                 }
-                return set.mutateAsync(parseInt(value))
+                return setMutation.mutateAsync(parseInt(value))
               }}
-              disabled={set.isPending}
+              disabled={setMutation.isPending}
             >
               Set
             </button>
             <button
               className="btn btn-xs lg:btn-md btn-outline"
-              onClick={() => decrement.mutateAsync()}
-              disabled={decrement.isPending}
+              onClick={() => decrementMutation.mutateAsync()}
+              disabled={decrementMutation.isPending}
             >
               Decrement
             </button>
@@ -110,9 +114,9 @@ function <%= className %>Card({ account }: { account: PublicKey }) {
                 if (!window.confirm('Are you sure you want to close this account?')) {
                   return
                 }
-                return close.mutateAsync()
+                return closeMutation.mutateAsync()
               }}
-              disabled={close.isPending}
+              disabled={closeMutation.isPending}
             >
               Close
             </button>

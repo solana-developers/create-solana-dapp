@@ -1,6 +1,7 @@
 import { readProjectConfiguration, Tree } from '@nx/devkit'
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
 import { getRecursiveFileContents } from '@solana-developers/preset-common'
+import { anchorApplicationGeneratorFixtures } from './anchor-application-generator.fixtures'
 import {
   AnchorApplicationTemplate,
   anchorApplicationNormalizeSchema,
@@ -19,13 +20,17 @@ describe('anchor-application generator', () => {
   })
 
   it('should run successfully', async () => {
-    await anchorApplicationGenerator(tree, options)
+    await anchorApplicationGenerator(tree, options, anchorApplicationGeneratorFixtures)
     const config = readProjectConfiguration(tree, options.name)
     expect(config).toBeDefined()
   })
 
   it.each([['counter'], ['hello-world']])('should generate app with "%s" template', async (template) => {
-    await anchorApplicationGenerator(tree, { ...options, template: template as AnchorApplicationTemplate })
+    await anchorApplicationGenerator(
+      tree,
+      { ...options, template: template as AnchorApplicationTemplate },
+      anchorApplicationGeneratorFixtures,
+    )
 
     const config = readProjectConfiguration(tree, options.name)
     const contents = getRecursiveFileContents(tree, config.root)

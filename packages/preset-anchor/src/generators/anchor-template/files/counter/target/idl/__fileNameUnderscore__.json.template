@@ -93,6 +93,6 @@
     }
   ],
   "metadata": {
-    "address": "CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg"
+    "address": "<%= publicKey %>"
   }
 }
