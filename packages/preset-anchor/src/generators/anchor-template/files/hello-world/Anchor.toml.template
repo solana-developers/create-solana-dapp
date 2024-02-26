@@ -1,6 +1,9 @@
+[toolchain]
+
 [features]
 seeds = false
 skip-lint = false
+
 [programs.localnet]
 <%= fileNameUnderscore %> = "EuJfgknXicf6iZASeagt5U6XDDPpLTQrvWPW31vgAwo8"
 

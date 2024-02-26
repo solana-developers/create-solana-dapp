@@ -75,6 +75,7 @@ exports[`anchor-application generator should generate app with "counter" templat
   },
   "Anchor.toml": {
     "content": [
+      "[toolchain]",
       "[features]",
       "seeds = false",
       "skip-lint = false",
@@ -216,7 +217,7 @@ exports[`anchor-application generator should generate app with "counter" templat
               "cpi = ["no-entrypoint"]",
               "default = []",
               "[dependencies]",
-              "anchor-lang = "0.28.0"",
+              "anchor-lang = "0.29.0"",
             ],
             "isBinary": false,
             "path": "anchor-app/programs/counter/Cargo.toml",
@@ -959,6 +960,7 @@ exports[`anchor-application generator should generate app with "hello-world" tem
   },
   "Anchor.toml": {
     "content": [
+      "[toolchain]",
       "[features]",
       "seeds = false",
       "skip-lint = false",
@@ -1100,7 +1102,7 @@ exports[`anchor-application generator should generate app with "hello-world" tem
               "cpi = ["no-entrypoint"]",
               "default = []",
               "[dependencies]",
-              "anchor-lang = "0.28.0"",
+              "anchor-lang = "0.29.0"",
             ],
             "isBinary": false,
             "path": "anchor-app/programs/hello-world/Cargo.toml",

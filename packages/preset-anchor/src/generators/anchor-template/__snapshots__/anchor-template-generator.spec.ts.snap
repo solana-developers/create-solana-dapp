@@ -4,6 +4,7 @@ exports[`anchor-template generator should be able to generate two templates side
 {
   "Anchor.toml": {
     "content": [
+      "[toolchain]",
       "[features]",
       "seeds = false",
       "skip-lint = false",
@@ -48,7 +49,7 @@ exports[`anchor-template generator should be able to generate two templates side
               "cpi = ["no-entrypoint"]",
               "default = []",
               "[dependencies]",
-              "anchor-lang = "0.28.0"",
+              "anchor-lang = "0.29.0"",
             ],
             "isBinary": false,
             "path": "target/programs/counter-one/Cargo.toml",
@@ -151,7 +152,7 @@ exports[`anchor-template generator should be able to generate two templates side
               "cpi = ["no-entrypoint"]",
               "default = []",
               "[dependencies]",
-              "anchor-lang = "0.28.0"",
+              "anchor-lang = "0.29.0"",
             ],
             "isBinary": false,
             "path": "target/programs/counter-two/Cargo.toml",
@@ -1054,6 +1055,7 @@ exports[`anchor-template generator should generate files for base template 1`] =
 {
   "Anchor.toml": {
     "content": [
+      "[toolchain]",
       "[features]",
       "seeds = false",
       "skip-lint = false",
@@ -1130,6 +1132,7 @@ exports[`anchor-template generator should generate files for counter template 1`
 {
   "Anchor.toml": {
     "content": [
+      "[toolchain]",
       "[features]",
       "seeds = false",
       "skip-lint = false",
@@ -1174,7 +1177,7 @@ exports[`anchor-template generator should generate files for counter template 1`
               "cpi = ["no-entrypoint"]",
               "default = []",
               "[dependencies]",
-              "anchor-lang = "0.28.0"",
+              "anchor-lang = "0.29.0"",
             ],
             "isBinary": false,
             "path": "target/programs/counter/Cargo.toml",
@@ -1688,6 +1691,7 @@ exports[`anchor-template generator should generate files for hello-world templat
 {
   "Anchor.toml": {
     "content": [
+      "[toolchain]",
       "[features]",
       "seeds = false",
       "skip-lint = false",
@@ -1732,7 +1736,7 @@ exports[`anchor-template generator should generate files for hello-world templat
               "cpi = ["no-entrypoint"]",
               "default = []",
               "[dependencies]",
-              "anchor-lang = "0.28.0"",
+              "anchor-lang = "0.29.0"",
             ],
             "isBinary": false,
             "path": "target/programs/hello-world/Cargo.toml",
