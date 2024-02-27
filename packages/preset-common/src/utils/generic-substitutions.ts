@@ -1,4 +1,4 @@
-import { detectPackageManager, names } from '@nx/devkit'
+import { detectPackageManager, names, PackageManager } from '@nx/devkit'
 
 export interface GenericSubstitutions {
   anchor: string
@@ -8,15 +8,10 @@ export interface GenericSubstitutions {
   npmScope: string
   preset?: 'next' | 'react'
 }
-export function genericSubstitutions({
-  licenseAuthor = process.env['USER'] ?? '',
-  anchor,
-  anchorName,
-  name,
-  npmScope,
-  preset,
-}: GenericSubstitutions) {
-  const pm = detectPackageManager()
+export function genericSubstitutions(
+  { licenseAuthor = process.env['USER'] ?? '', anchor, anchorName, name, npmScope, preset }: GenericSubstitutions,
+  pm: PackageManager = detectPackageManager(),
+) {
   const runCmd = pm === 'npm' ? 'npm run' : pm.toString()
 
   return {
@@ -28,5 +23,6 @@ export function genericSubstitutions({
     currentFullYear: new Date().getFullYear(),
     preset: preset ?? 'react',
     runCmd,
+    pm,
   }
 }
