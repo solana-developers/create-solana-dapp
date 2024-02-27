@@ -18,8 +18,8 @@ Name:  react-application (aliases: application, preset)
 Options:
     --name          Name of the application                             [string]
     --anchor        Anchor template to use            [string] [choices: "none",
-                                                       "counter", "hello-world"]
-                                                            [default: "counter"]
+                                                   "counter", "empty"] [default:
+                                                                      "counter"]
     --anchorName    Anchor project name             [string] [default: "anchor"]
     --port          Port to run the application on      [number] [default: 3000]
     --ui            The UI library to use             [string] [choices: "none",
@@ -50,7 +50,7 @@ Options:
     --webName          Name of the web application                     [string]
                        (overrides name)
     --anchor           Anchor template to use        [string] [choices: "none",
-                                                      "counter", "hello-world"]
+                                                            "counter", "empty"]
                                                               [default: "none"]
     --anchorName       Anchor project name         [string] [default: "anchor"]
     --licenseAuthor    The author to use in the                        [string]
@@ -74,7 +74,7 @@ Options:
     --anchorName    Anchor project name             [string] [default: "anchor"]
     --feature       The feature to generate                   [string] [choices:
                                                                "anchor-counter",
-                                                   "anchor-hello-world", "none"]
+                                                         "anchor-empty", "none"]
     --npmScope      The npm scope to use                                [string]
     --preset        The preset to use                 [string] [choices: "next",
                                                                         "react"]

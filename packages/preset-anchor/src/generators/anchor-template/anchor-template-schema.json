@@ -29,7 +29,7 @@
     },
     "template": {
       "type": "string",
-      "enum": ["base", "counter", "hello-world"],
+      "enum": ["base", "counter", "empty"],
       "description": "The template to use",
       "x-prompt": "Which template would you like to use?"
     },

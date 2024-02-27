@@ -27,7 +27,7 @@ describe('react-feature generator', () => {
     expect(features).toMatchInlineSnapshot(`
       [
         "anchor-counter",
-        "anchor-hello-world",
+        "anchor-empty",
       ]
     `)
   })

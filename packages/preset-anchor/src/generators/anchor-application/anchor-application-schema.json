@@ -22,7 +22,7 @@
     },
     "template": {
       "type": "string",
-      "enum": ["counter", "hello-world", "none"],
+      "enum": ["counter", "empty", "none"],
       "description": "The template to use",
       "default": "none"
     }

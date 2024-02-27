@@ -909,7 +909,7 @@ exports[`anchor-application generator should generate app with "counter" templat
 "
 `;
 
-exports[`anchor-application generator should generate app with "hello-world" template 1`] = `
+exports[`anchor-application generator should generate app with "empty" template 1`] = `
 {
   ".eslintrc.json": {
     "content": [
@@ -989,7 +989,7 @@ exports[`anchor-application generator should generate app with "hello-world" tem
       "seeds = false",
       "skip-lint = false",
       "[programs.localnet]",
-      "hello_world = "GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA"",
+      "empty = "GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA"",
       "[registry]",
       "url = "https://api.apr.dev"",
       "[provider]",
@@ -1113,18 +1113,18 @@ exports[`anchor-application generator should generate app with "hello-world" tem
   },
   "programs": {
     "children": {
-      "hello-world": {
+      "empty": {
         "children": {
           "Cargo.toml": {
             "content": [
               "[package]",
-              "name = "hello-world"",
+              "name = "empty"",
               "version = "0.1.0"",
               "description = "Created with Anchor"",
               "edition = "2021"",
               "[lib]",
               "crate-type = ["cdylib", "lib"]",
-              "name = "hello_world"",
+              "name = "empty"",
               "[features]",
               "no-entrypoint = []",
               "no-idl = []",
@@ -1135,7 +1135,7 @@ exports[`anchor-application generator should generate app with "hello-world" tem
               "anchor-lang = "0.29.0"",
             ],
             "isBinary": false,
-            "path": "anchor-app/programs/hello-world/Cargo.toml",
+            "path": "anchor-app/programs/empty/Cargo.toml",
           },
           "Xargo.toml": {
             "content": [
@@ -1143,7 +1143,7 @@ exports[`anchor-application generator should generate app with "hello-world" tem
               "features = []",
             ],
             "isBinary": false,
-            "path": "anchor-app/programs/hello-world/Xargo.toml",
+            "path": "anchor-app/programs/empty/Xargo.toml",
           },
           "src": {
             "children": {
@@ -1152,7 +1152,7 @@ exports[`anchor-application generator should generate app with "hello-world" tem
                   "use anchor_lang::prelude::*;",
                   "declare_id!("GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA");",
                   "#[program]",
-                  "pub mod hello_world {",
+                  "pub mod empty {",
                   "use super::*;",
                   "pub fn greet(_ctx: Context<Initialize>) -> Result<()> {",
                   "msg!("GM!");",
@@ -1163,13 +1163,13 @@ exports[`anchor-application generator should generate app with "hello-world" tem
                   "pub struct Initialize {}",
                 ],
                 "isBinary": false,
-                "path": "anchor-app/programs/hello-world/src/lib.rs",
+                "path": "anchor-app/programs/empty/src/lib.rs",
               },
             },
-            "path": "anchor-app/programs/hello-world/src",
+            "path": "anchor-app/programs/empty/src",
           },
         },
-        "path": "anchor-app/programs/hello-world",
+        "path": "anchor-app/programs/empty",
       },
     },
     "path": "anchor-app/programs",
@@ -1239,20 +1239,20 @@ exports[`anchor-application generator should generate app with "hello-world" tem
   },
   "src": {
     "children": {
-      "hello-world-exports.ts": {
+      "empty-exports.ts": {
         "content": [
           "// Here we export some useful types and functions for interacting with the Anchor program.",
           "import { Cluster, PublicKey } from '@solana/web3.js';",
-          "import type { HelloWorld } from '../target/types/hello_world';",
-          "import { IDL as HelloWorldIDL } from '../target/types/hello_world';",
+          "import type { Empty } from '../target/types/empty';",
+          "import { IDL as EmptyIDL } from '../target/types/empty';",
           "// Re-export the generated IDL and type",
-          "export { HelloWorld, HelloWorldIDL };",
+          "export { Empty, EmptyIDL };",
           "// After updating your program ID (e.g. after running \`anchor keys sync\`) update the value below.",
-          "export const HELLO_WORLD_PROGRAM_ID = new PublicKey(",
+          "export const EMPTY_PROGRAM_ID = new PublicKey(",
           "'GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA'",
           ");",
-          "// This is a helper function to get the program ID for the HelloWorld program depending on the cluster.",
-          "export function getHelloWorldProgramId(cluster: Cluster) {",
+          "// This is a helper function to get the program ID for the Empty program depending on the cluster.",
+          "export function getEmptyProgramId(cluster: Cluster) {",
           "switch (cluster) {",
           "case 'devnet':",
           "case 'testnet':",
@@ -1260,17 +1260,17 @@ exports[`anchor-application generator should generate app with "hello-world" tem
           "// You only need to update this if you deploy your program on one of these clusters.",
           "return new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg');",
           "default:",
-          "return HELLO_WORLD_PROGRAM_ID;",
+          "return EMPTY_PROGRAM_ID;",
           "}",
           "}",
         ],
         "isBinary": false,
-        "path": "anchor-app/src/hello-world-exports.ts",
+        "path": "anchor-app/src/empty-exports.ts",
       },
       "index.ts": {
         "content": [
           "// This file was generated by preset-anchor. Programs are exported from this file.",
-          "export * from './hello-world-exports';",
+          "export * from './empty-exports';",
         ],
         "isBinary": false,
         "path": "anchor-app/src/index.ts",
@@ -1282,7 +1282,7 @@ exports[`anchor-application generator should generate app with "hello-world" tem
     "children": {
       "deploy": {
         "children": {
-          "hello_world-keypair.json": {
+          "empty-keypair.json": {
             "content": [
               "[",
               "102, 57, 177, 113, 190, 89, 227, 160, 193, 179, 207, 89, 103, 112, 83, 251,",
@@ -1292,18 +1292,18 @@ exports[`anchor-application generator should generate app with "hello-world" tem
               "]",
             ],
             "isBinary": false,
-            "path": "anchor-app/target/deploy/hello_world-keypair.json",
+            "path": "anchor-app/target/deploy/empty-keypair.json",
           },
         },
         "path": "anchor-app/target/deploy",
       },
       "idl": {
         "children": {
-          "hello_world.json": {
+          "empty.json": {
             "content": [
               "{",
               ""version": "0.1.0",",
-              ""name": "hello_world",",
+              ""name": "empty",",
               ""instructions": [",
               "{",
               ""name": "greet",",
@@ -1314,18 +1314,18 @@ exports[`anchor-application generator should generate app with "hello-world" tem
               "}",
             ],
             "isBinary": false,
-            "path": "anchor-app/target/idl/hello_world.json",
+            "path": "anchor-app/target/idl/empty.json",
           },
         },
         "path": "anchor-app/target/idl",
       },
       "types": {
         "children": {
-          "hello_world.ts": {
+          "empty.ts": {
             "content": [
-              "export type HelloWorld = {",
+              "export type Empty = {",
               "version: '0.1.0';",
-              "name: 'hello_world';",
+              "name: 'empty';",
               "instructions: [",
               "{",
               "name: 'greet';",
@@ -1334,9 +1334,9 @@ exports[`anchor-application generator should generate app with "hello-world" tem
               "}",
               "];",
               "};",
-              "export const IDL: HelloWorld = {",
+              "export const IDL: Empty = {",
               "version: '0.1.0',",
-              "name: 'hello_world',",
+              "name: 'empty',",
               "instructions: [",
               "{",
               "name: 'greet',",
@@ -1347,7 +1347,7 @@ exports[`anchor-application generator should generate app with "hello-world" tem
               "};",
             ],
             "isBinary": false,
-            "path": "anchor-app/target/types/hello_world.ts",
+            "path": "anchor-app/target/types/empty.ts",
           },
         },
         "path": "anchor-app/target/types",
@@ -1357,15 +1357,15 @@ exports[`anchor-application generator should generate app with "hello-world" tem
   },
   "tests": {
     "children": {
-      "hello-world.spec.ts": {
+      "empty.spec.ts": {
         "content": [
           "import * as anchor from '@coral-xyz/anchor';",
           "import { Program } from '@coral-xyz/anchor';",
-          "import { HelloWorld } from '../target/types/hello_world';",
-          "describe('hello-world', () => {",
+          "import { Empty } from '../target/types/empty';",
+          "describe('empty', () => {",
           "// Configure the client to use the local cluster.",
           "anchor.setProvider(anchor.AnchorProvider.env());",
-          "const program = anchor.workspace.HelloWorld as Program<HelloWorld>;",
+          "const program = anchor.workspace.Empty as Program<Empty>;",
           "it('should run the program', async () => {",
           "// Add your test here.",
           "const tx = await program.methods.greet().rpc();",
@@ -1374,7 +1374,7 @@ exports[`anchor-application generator should generate app with "hello-world" tem
           "});",
         ],
         "isBinary": false,
-        "path": "anchor-app/tests/hello-world.spec.ts",
+        "path": "anchor-app/tests/empty.spec.ts",
       },
     },
     "path": "anchor-app/tests",
@@ -1440,7 +1440,7 @@ exports[`anchor-application generator should generate app with "hello-world" tem
 }
 `;
 
-exports[`anchor-application generator should generate app with "hello-world" template 2`] = `
+exports[`anchor-application generator should generate app with "empty" template 2`] = `
 "{
   "compilerOptions": {
     "paths": {

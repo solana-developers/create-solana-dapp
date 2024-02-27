@@ -1736,7 +1736,7 @@ exports[`anchor-template generator should generate files for counter template 1`
 }
 `;
 
-exports[`anchor-template generator should generate files for hello-world template 1`] = `
+exports[`anchor-template generator should generate files for empty template 1`] = `
 {
   "Anchor.toml": {
     "content": [
@@ -1745,7 +1745,7 @@ exports[`anchor-template generator should generate files for hello-world templat
       "seeds = false",
       "skip-lint = false",
       "[programs.localnet]",
-      "hello_world = "GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA"",
+      "empty = "GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA"",
       "[registry]",
       "url = "https://api.apr.dev"",
       "[provider]",
@@ -1772,18 +1772,18 @@ exports[`anchor-template generator should generate files for hello-world templat
   },
   "programs": {
     "children": {
-      "hello-world": {
+      "empty": {
         "children": {
           "Cargo.toml": {
             "content": [
               "[package]",
-              "name = "hello-world"",
+              "name = "empty"",
               "version = "0.1.0"",
               "description = "Created with Anchor"",
               "edition = "2021"",
               "[lib]",
               "crate-type = ["cdylib", "lib"]",
-              "name = "hello_world"",
+              "name = "empty"",
               "[features]",
               "no-entrypoint = []",
               "no-idl = []",
@@ -1794,7 +1794,7 @@ exports[`anchor-template generator should generate files for hello-world templat
               "anchor-lang = "0.29.0"",
             ],
             "isBinary": false,
-            "path": "target/programs/hello-world/Cargo.toml",
+            "path": "target/programs/empty/Cargo.toml",
           },
           "Xargo.toml": {
             "content": [
@@ -1802,7 +1802,7 @@ exports[`anchor-template generator should generate files for hello-world templat
               "features = []",
             ],
             "isBinary": false,
-            "path": "target/programs/hello-world/Xargo.toml",
+            "path": "target/programs/empty/Xargo.toml",
           },
           "src": {
             "children": {
@@ -1811,7 +1811,7 @@ exports[`anchor-template generator should generate files for hello-world templat
                   "use anchor_lang::prelude::*;",
                   "declare_id!("GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA");",
                   "#[program]",
-                  "pub mod hello_world {",
+                  "pub mod empty {",
                   "use super::*;",
                   "pub fn greet(_ctx: Context<Initialize>) -> Result<()> {",
                   "msg!("GM!");",
@@ -1822,31 +1822,31 @@ exports[`anchor-template generator should generate files for hello-world templat
                   "pub struct Initialize {}",
                 ],
                 "isBinary": false,
-                "path": "target/programs/hello-world/src/lib.rs",
+                "path": "target/programs/empty/src/lib.rs",
               },
             },
-            "path": "target/programs/hello-world/src",
+            "path": "target/programs/empty/src",
           },
         },
-        "path": "target/programs/hello-world",
+        "path": "target/programs/empty",
       },
     },
     "path": "target/programs",
   },
   "src": {
     "children": {
-      "hello-world-exports.ts": {
+      "empty-exports.ts": {
         "content": [
           "// Here we export some useful types and functions for interacting with the Anchor program.",
           "import { Cluster, PublicKey } from '@solana/web3.js';",
-          "import type { HelloWorld } from '../target/types/hello_world';",
-          "import { IDL as HelloWorldIDL } from '../target/types/hello_world';",
+          "import type { Empty } from '../target/types/empty';",
+          "import { IDL as EmptyIDL } from '../target/types/empty';",
           "// Re-export the generated IDL and type",
-          "export { HelloWorld, HelloWorldIDL };",
+          "export { Empty, EmptyIDL };",
           "// After updating your program ID (e.g. after running \`anchor keys sync\`) update the value below.",
-          "export const HELLO_WORLD_PROGRAM_ID = new PublicKey('GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA')",
-          "// This is a helper function to get the program ID for the HelloWorld program depending on the cluster.",
-          "export function getHelloWorldProgramId(cluster: Cluster) {",
+          "export const EMPTY_PROGRAM_ID = new PublicKey('GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA')",
+          "// This is a helper function to get the program ID for the Empty program depending on the cluster.",
+          "export function getEmptyProgramId(cluster: Cluster) {",
           "switch (cluster) {",
           "case 'devnet':",
           "case 'testnet':",
@@ -1854,16 +1854,16 @@ exports[`anchor-template generator should generate files for hello-world templat
           "// You only need to update this if you deploy your program on one of these clusters.",
           "return new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg')",
           "default:",
-          "return HELLO_WORLD_PROGRAM_ID",
+          "return EMPTY_PROGRAM_ID",
           "}",
           "}",
         ],
         "isBinary": false,
-        "path": "target/src/hello-world-exports.ts",
+        "path": "target/src/empty-exports.ts",
       },
       "index.ts": {
         "content": [
-          "export * from './hello-world-exports'",
+          "export * from './empty-exports'",
         ],
         "isBinary": false,
         "path": "target/src/index.ts",
@@ -1875,23 +1875,23 @@ exports[`anchor-template generator should generate files for hello-world templat
     "children": {
       "deploy": {
         "children": {
-          "hello_world-keypair.json": {
+          "empty-keypair.json": {
             "content": [
               "[102,57,177,113,190,89,227,160,193,179,207,89,103,112,83,251,142,20,242,30,81,26,82,85,207,97,28,129,190,28,128,71,228,27,114,255,63,136,164,140,185,151,50,58,148,32,197,184,85,144,79,78,24,248,25,138,254,31,96,78,56,230,148,1]",
             ],
             "isBinary": false,
-            "path": "target/target/deploy/hello_world-keypair.json",
+            "path": "target/target/deploy/empty-keypair.json",
           },
         },
         "path": "target/target/deploy",
       },
       "idl": {
         "children": {
-          "hello_world.json": {
+          "empty.json": {
             "content": [
               "{",
               ""version": "0.1.0",",
-              ""name": "hello_world",",
+              ""name": "empty",",
               ""instructions": [",
               "{",
               ""name": "greet",",
@@ -1902,18 +1902,18 @@ exports[`anchor-template generator should generate files for hello-world templat
               "}",
             ],
             "isBinary": false,
-            "path": "target/target/idl/hello_world.json",
+            "path": "target/target/idl/empty.json",
           },
         },
         "path": "target/target/idl",
       },
       "types": {
         "children": {
-          "hello_world.ts": {
+          "empty.ts": {
             "content": [
-              "export type HelloWorld = {",
+              "export type Empty = {",
               ""version": "0.1.0",",
-              ""name": "hello_world",",
+              ""name": "empty",",
               ""instructions": [",
               "{",
               ""name": "greet",",
@@ -1922,9 +1922,9 @@ exports[`anchor-template generator should generate files for hello-world templat
               "}",
               "]",
               "};",
-              "export const IDL: HelloWorld = {",
+              "export const IDL: Empty = {",
               ""version": "0.1.0",",
-              ""name": "hello_world",",
+              ""name": "empty",",
               ""instructions": [",
               "{",
               ""name": "greet",",
@@ -1935,7 +1935,7 @@ exports[`anchor-template generator should generate files for hello-world templat
               "};",
             ],
             "isBinary": false,
-            "path": "target/target/types/hello_world.ts",
+            "path": "target/target/types/empty.ts",
           },
         },
         "path": "target/target/types",
@@ -1945,15 +1945,15 @@ exports[`anchor-template generator should generate files for hello-world templat
   },
   "tests": {
     "children": {
-      "hello-world.spec.ts": {
+      "empty.spec.ts": {
         "content": [
           "import * as anchor from "@coral-xyz/anchor";",
           "import { Program } from "@coral-xyz/anchor";",
-          "import { HelloWorld } from "../target/types/hello_world";",
-          "describe("hello-world", () => {",
+          "import { Empty } from "../target/types/empty";",
+          "describe("empty", () => {",
           "// Configure the client to use the local cluster.",
           "anchor.setProvider(anchor.AnchorProvider.env());",
-          "const program = anchor.workspace.HelloWorld as Program<HelloWorld>;",
+          "const program = anchor.workspace.Empty as Program<Empty>;",
           "it("should run the program", async () => {",
           "// Add your test here.",
           "const tx = await program.methods.greet().rpc();",
@@ -1962,7 +1962,7 @@ exports[`anchor-template generator should generate files for hello-world templat
           "});",
         ],
         "isBinary": false,
-        "path": "target/tests/hello-world.spec.ts",
+        "path": "target/tests/empty.spec.ts",
       },
     },
     "path": "target/tests",

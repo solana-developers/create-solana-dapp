@@ -84,7 +84,7 @@ exports[`common-template generator should generate files: { template: 'license',
 }
 `;
 
-exports[`common-template generator should generate files: { template: 'license', anchor: 'hello-world', pm: 'npm' } 1`] = `
+exports[`common-template generator should generate files: { template: 'license', anchor: 'empty', pm: 'npm' } 1`] = `
 {
   "LICENSE": {
     "content": [
@@ -112,7 +112,7 @@ exports[`common-template generator should generate files: { template: 'license',
 }
 `;
 
-exports[`common-template generator should generate files: { template: 'license', anchor: 'hello-world', pm: 'pnpm' } 1`] = `
+exports[`common-template generator should generate files: { template: 'license', anchor: 'empty', pm: 'pnpm' } 1`] = `
 {
   "LICENSE": {
     "content": [
@@ -140,7 +140,7 @@ exports[`common-template generator should generate files: { template: 'license',
 }
 `;
 
-exports[`common-template generator should generate files: { template: 'license', anchor: 'hello-world', pm: 'yarn' } 1`] = `
+exports[`common-template generator should generate files: { template: 'license', anchor: 'empty', pm: 'yarn' } 1`] = `
 {
   "LICENSE": {
     "content": [
@@ -465,7 +465,7 @@ exports[`common-template generator should generate files: { template: 'readme', 
 }
 `;
 
-exports[`common-template generator should generate files: { template: 'readme', anchor: 'hello-world', pm: 'npm' } 1`] = `
+exports[`common-template generator should generate files: { template: 'readme', anchor: 'empty', pm: 'npm' } 1`] = `
 {
   "README.md": {
     "content": [
@@ -498,7 +498,7 @@ exports[`common-template generator should generate files: { template: 'readme', 
       "You can use any normal anchor commands. Either move to the \`anchor\` directory and run the \`anchor\` command or prefix the command with \`npm run\`, eg: \`npm run anchor\`.",
       "#### Sync the program id:",
       "Running this command will create a new keypair in the \`anchor/target/deploy\` directory and save the address to the Anchor config file and update the \`declare_id!\` macro in the \`./src/lib.rs\` file of the program.",
-      "You will manually need to update the constant in \`anchor/lib/hello-world-exports.ts\` to match the new program id.",
+      "You will manually need to update the constant in \`anchor/lib/empty-exports.ts\` to match the new program id.",
       "\`\`\`shell",
       "npm run anchor keys sync",
       "\`\`\`",
@@ -536,7 +536,7 @@ exports[`common-template generator should generate files: { template: 'readme', 
 }
 `;
 
-exports[`common-template generator should generate files: { template: 'readme', anchor: 'hello-world', pm: 'pnpm' } 1`] = `
+exports[`common-template generator should generate files: { template: 'readme', anchor: 'empty', pm: 'pnpm' } 1`] = `
 {
   "README.md": {
     "content": [
@@ -569,7 +569,7 @@ exports[`common-template generator should generate files: { template: 'readme', 
       "You can use any normal anchor commands. Either move to the \`anchor\` directory and run the \`anchor\` command or prefix the command with \`pnpm\`, eg: \`pnpm anchor\`.",
       "#### Sync the program id:",
       "Running this command will create a new keypair in the \`anchor/target/deploy\` directory and save the address to the Anchor config file and update the \`declare_id!\` macro in the \`./src/lib.rs\` file of the program.",
-      "You will manually need to update the constant in \`anchor/lib/hello-world-exports.ts\` to match the new program id.",
+      "You will manually need to update the constant in \`anchor/lib/empty-exports.ts\` to match the new program id.",
       "\`\`\`shell",
       "pnpm anchor keys sync",
       "\`\`\`",
@@ -607,7 +607,7 @@ exports[`common-template generator should generate files: { template: 'readme', 
 }
 `;
 
-exports[`common-template generator should generate files: { template: 'readme', anchor: 'hello-world', pm: 'yarn' } 1`] = `
+exports[`common-template generator should generate files: { template: 'readme', anchor: 'empty', pm: 'yarn' } 1`] = `
 {
   "README.md": {
     "content": [
@@ -640,7 +640,7 @@ exports[`common-template generator should generate files: { template: 'readme', 
       "You can use any normal anchor commands. Either move to the \`anchor\` directory and run the \`anchor\` command or prefix the command with \`yarn\`, eg: \`yarn anchor\`.",
       "#### Sync the program id:",
       "Running this command will create a new keypair in the \`anchor/target/deploy\` directory and save the address to the Anchor config file and update the \`declare_id!\` macro in the \`./src/lib.rs\` file of the program.",
-      "You will manually need to update the constant in \`anchor/lib/hello-world-exports.ts\` to match the new program id.",
+      "You will manually need to update the constant in \`anchor/lib/empty-exports.ts\` to match the new program id.",
       "\`\`\`shell",
       "yarn anchor keys sync",
       "\`\`\`",

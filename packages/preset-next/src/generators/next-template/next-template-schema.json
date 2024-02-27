@@ -40,7 +40,7 @@
     "anchor": {
       "type": "string",
       "description": "Anchor template to use",
-      "enum": ["none", "counter", "hello-world"],
+      "enum": ["none", "counter", "empty"],
       "default": "none"
     },
     "anchorName": {

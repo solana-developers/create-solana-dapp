@@ -1,7 +1,7 @@
 import { intro, log } from '@clack/prompts'
 import { program } from 'commander'
 import { PackageManager } from 'nx/src/utils/package-manager'
-import { anchorTemplates } from './anchor-templates'
+import { getAnchorTemplates } from './get-anchor-templates'
 import { getAppInfo } from './get-app-info'
 import { GetArgsResult } from './get-args-result'
 import { getPresets } from './get-presets'
@@ -13,7 +13,7 @@ export async function getArgs(argv: string[], pm: PackageManager = 'npm'): Promi
 
   // Get info about the presets
   const { presets, presetValues } = getPresets(app.version)
-
+  const { anchorTemplates, anchorTemplateValues } = getAnchorTemplates()
   // Get the result from the command line
   const input = program
     .name(app.name)
@@ -34,7 +34,7 @@ export async function getArgs(argv: string[], pm: PackageManager = 'npm'): Promi
       '-a, --anchor <template>',
       help(`Name of the Anchor template to use (default: <prompt>, set to "none" to prevent adding Anchor)\n`),
       (value: string) => {
-        if (!anchorTemplates.includes(value)) {
+        if (!anchorTemplateValues.includes(value)) {
           throw new Error(`Invalid anchor template: ${value}`)
         }
         return value
@@ -55,7 +55,7 @@ export async function getArgs(argv: string[], pm: PackageManager = 'npm'): Promi
 Examples:
   $ ${app.name} my-app --preset react
   $ ${app.name} my-app --preset react --package-manager yarn
-  $ ${app.name} my-app --preset react --anchor hello-world
+  $ ${app.name} my-app --preset react --anchor empty
       `,
     )
     .parse(argv)
@@ -101,7 +101,7 @@ Examples:
   intro(`${app.name} ${app.version}`)
 
   // Get the prompts for any missing options
-  const prompts = await getPrompts({ options, presets })
+  const prompts = await getPrompts({ anchorTemplates, options, presets })
 
   // Populate the options with the prompts
   if (prompts.name) {
@@ -123,7 +123,7 @@ Examples:
     throw new Error(`Invalid preset: ${options.preset}`)
   }
 
-  if (!anchorTemplates.includes(options.anchor ?? '')) {
+  if (!anchorTemplateValues.includes(options.anchor ?? '')) {
     log.error(`Invalid anchor template: ${options.anchor}`)
     throw new Error(`Invalid anchor template: ${options.anchor}`)
   }

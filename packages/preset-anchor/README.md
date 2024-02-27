@@ -18,8 +18,8 @@ Name:  anchor-application (aliases: application, preset)
 Options:
     --name          Name of the application                             [string]
     --template      The template to use            [string] [choices: "counter",
-                                                          "hello-world", "none"]
-                                                               [default: "none"]
+                                                      "empty", "none"] [default:
+                                                                         "none"]
     --skipFormat    Skip formatting files                              [boolean]
 ```
 
@@ -38,7 +38,7 @@ Options:
     --name                                                             [string]
     --projectName          Name of the project                         [string]
     --template             The template to use       [string] [choices: "base",
-                                                      "counter", "hello-world"]
+                                                            "counter", "empty"]
     --skipUpdateIndexTs    Skip updating index.ts                     [boolean]
 ```
 

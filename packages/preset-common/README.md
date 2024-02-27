@@ -24,7 +24,7 @@ Options:
     --webName          Name of the web application                     [string]
                        (overrides name)
     --anchor           Anchor template to use        [string] [choices: "none",
-                                                      "counter", "hello-world"]
+                                                            "counter", "empty"]
                                                               [default: "none"]
     --anchorName       Anchor project name         [string] [default: "anchor"]
     --licenseAuthor    The author to use in the                        [string]

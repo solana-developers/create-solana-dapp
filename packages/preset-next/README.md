@@ -18,8 +18,8 @@ Name:  next-application (aliases: application, preset)
 Options:
     --name          Name of the application                             [string]
     --anchor        Anchor template to use            [string] [choices: "none",
-                                                       "counter", "hello-world"]
-                                                            [default: "counter"]
+                                                   "counter", "empty"] [default:
+                                                                      "counter"]
     --anchorName    Anchor project name             [string] [default: "anchor"]
     --port          Port to run the application on      [number] [default: 3000]
     --ui            The UI library to use             [string] [choices: "none",
@@ -49,8 +49,8 @@ Options:
     --webName       Name of the web application                         [string]
                     (overrides name)
     --anchor        Anchor template to use            [string] [choices: "none",
-                                                       "counter", "hello-world"]
-                                                               [default: "none"]
+                                                   "counter", "empty"] [default:
+                                                                         "none"]
     --anchorName    Anchor project name             [string] [default: "anchor"]
 ```
 

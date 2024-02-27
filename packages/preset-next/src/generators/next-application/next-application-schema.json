@@ -39,7 +39,7 @@
     "anchor": {
       "type": "string",
       "description": "Anchor template to use",
-      "enum": ["none", "counter", "hello-world"],
+      "enum": ["none", "counter", "empty"],
       "default": "counter",
       "x-prompt": "Which Anchor template would you like to use?"
     },
