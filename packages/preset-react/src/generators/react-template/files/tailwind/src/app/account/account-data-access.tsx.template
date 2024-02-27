@@ -54,15 +54,6 @@ export function useGetTokenAccounts({ address }: { address: PublicKey }) {
   })
 }
 
-export function useGetTokenAccountBalance({ address }: { address: PublicKey }) {
-  const { connection } = useConnection()
-
-  return useQuery({
-    queryKey: ['get-token-account-balance', { endpoint: connection.rpcEndpoint, account: address.toString() }],
-    queryFn: () => connection.getTokenAccountBalance(address),
-  })
-}
-
 export function useTransferSol({ address }: { address: PublicKey }) {
   const { connection } = useConnection()
   const transactionToast = useTransactionToast()

@@ -13,7 +13,6 @@ import { ExplorerLink } from '../cluster/cluster-ui'
 import {
   useGetBalance,
   useGetSignatures,
-  useGetTokenAccountBalance,
   useGetTokenAccounts,
   useRequestAirdrop,
   useTransferSol,
@@ -167,7 +166,7 @@ export function AccountTokens({ address }: { address: PublicKey }) {
                     </td>
                     <td className="text-right">
                       <span className="font-mono">
-                        <AccountTokenBalance address={pubkey} />
+                        {account.data.parsed.info.tokenAmount.uiAmount}
                       </span>
                     </td>
                   </tr>
@@ -188,17 +187,6 @@ export function AccountTokens({ address }: { address: PublicKey }) {
         </div>
       )}
     </div>
-  )
-}
-
-export function AccountTokenBalance({ address }: { address: PublicKey }) {
-  const query = useGetTokenAccountBalance({ address })
-  return query.isLoading ? (
-    <span className="loading loading-spinner"></span>
-  ) : query.data ? (
-    <div>{query.data?.value.uiAmount}</div>
-  ) : (
-    <div>Error</div>
   )
 }
 
