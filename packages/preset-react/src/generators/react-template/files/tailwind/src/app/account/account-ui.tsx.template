@@ -274,7 +274,7 @@ function BalanceSol({ balance }: { balance: number }) {
 function ModalReceive({ hide, show, address }: { hide: () => void; show: boolean; address: PublicKey }) {
   return (
     <AppModal title="Receive" hide={hide} show={show}>
-      <p>You can receive assets by sending them to your public key:</p>
+      <p>Receive assets by sending them to your public key:</p>
       <code>{address.toString()}</code>
     </AppModal>
   )

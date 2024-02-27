@@ -70,7 +70,7 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
   await reactApplicationUiConfig(tree, options)
 
   // Set up the anchor feature.
-  await setupAnchorReactFeature(tree, options, project.sourceRoot, 'react', keypair)
+  await setupAnchorReactFeature(tree, options, keypair)
 
   // Generate the common files.
   await generateReactCommonFiles(tree, options, npmScope)

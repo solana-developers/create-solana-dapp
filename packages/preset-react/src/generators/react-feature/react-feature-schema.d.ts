@@ -8,7 +8,11 @@
 export interface ReactFeatureSchema {
   name: string;
   /**
-   * Anchor project name
+   * The feature to generate
+   */
+  feature?: "anchor-counter" | "anchor-basic" | "none";
+  /**
+   * Name of the Anchor project in the workspace
    */
   anchorName?: string;
   /**
@@ -19,14 +23,6 @@ export interface ReactFeatureSchema {
    * Name of the web application (overrides name)
    */
   webName?: string;
-  /**
-   * The preset to use
-   */
-  preset?: "next" | "react";
-  /**
-   * The feature to generate
-   */
-  feature?: "anchor-counter" | "anchor-basic" | "none";
   /**
    * The UI library to use
    */

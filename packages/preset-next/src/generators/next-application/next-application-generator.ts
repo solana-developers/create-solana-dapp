@@ -99,7 +99,7 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
   await reactApplicationUiConfig(tree, options)
 
   // Set up the anchor feature.
-  await setupAnchorReactFeature(tree, options, project.sourceRoot, 'next', keypair)
+  await setupAnchorReactFeature(tree, options, keypair)
 
   // Patch node-gyp-build error
   const nextConfigPath = join(project.root, 'next.config.js')

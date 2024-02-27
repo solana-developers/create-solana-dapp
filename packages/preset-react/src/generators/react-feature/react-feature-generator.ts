@@ -1,9 +1,10 @@
 import { generateFiles, getProjects, Tree } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { AnchorApplicationSchema, anchorTemplateGenerator } from '@solana-developers/preset-anchor'
-import { genericSubstitutions } from '@solana-developers/preset-common'
+import { addArrayItem, genericSubstitutions, getArrayItem, updateSourceFile } from '@solana-developers/preset-common'
 import { Keypair } from '@solana/web3.js'
 import { join } from 'path'
+import { getReactPreset, ReactPreset } from '../../utils'
 import { ReactFeatureSchema } from './react-feature-schema'
 
 export async function reactFeatureGenerator(
@@ -23,6 +24,8 @@ export async function reactFeatureGenerator(
   if (!webProject) {
     throw new Error(`Could not find web project: ${options.webName}`)
   }
+  const preset = getReactPreset(tree, webProject.sourceRoot)
+  console.log('Found preset:', preset)
 
   const anchorTemplate: AnchorApplicationSchema['template'] = getTemplateName(options.feature)
 
@@ -35,7 +38,7 @@ export async function reactFeatureGenerator(
     anchorName: options.anchorName,
     anchorProgramName: options.anchorProgramName,
     anchor: anchorTemplate,
-    preset: options.preset,
+    preset,
     npmScope,
   })
 
@@ -57,7 +60,7 @@ export async function reactFeatureGenerator(
 
   const source = join(__dirname, 'files', options.feature)
   const target =
-    options.preset === 'react'
+    preset === 'react'
       ? join(webProject.root, 'src', 'app', substitutions.fileName)
       : join(webProject.root, 'components', substitutions.fileName)
 
@@ -65,8 +68,62 @@ export async function reactFeatureGenerator(
     ...options,
     ...substitutions,
   })
+
+  const path = substitutions.anchorProgramName.fileName
+  const label = substitutions.anchorProgramName.className
+
+  const routesFile = join(webProject.sourceRoot, 'app', getRouteFile(preset))
+
+  if (!tree.exists(routesFile)) {
+    console.warn(`Could not find routes file: ${routesFile}`)
+    return
+  }
+
+  // Add the navigation link
+  updateSourceFile(tree, routesFile, (source) => {
+    addArrayItem(source, { name: 'links', content: `{ label: '${label}', path: '/${path}' },` })
+    return source
+  })
+
+  if (preset === 'next') {
+    const route = join(webProject.root, 'app', path, 'page.tsx')
+    // Add Next Route and Link
+    tree.write(
+      route,
+      `import ${label}Feature from '@/components/${path}/${path}-feature';
+
+export default function Page() {
+  return <${label}Feature />;
+}
+`,
+    )
+  }
+
+  // Add the lazy import
+  if (preset === 'react') {
+    const lazyImport = `const ${label}Feature = lazy(() => import('./${path}/${path}-feature'))`
+
+    updateSourceFile(tree, routesFile, (source) => {
+      // Add the lazy import before the links array
+      source.insertText(getArrayItem(source, 'links').getStartLinePos(), `${lazyImport}\n`)
+
+      // Add the route
+      addArrayItem(source, { name: 'routes', content: `{ path: '${path}/*', element: <${label}Feature /> },` })
+      return source
+    })
+  }
 }
 
+function getRouteFile(preset: ReactPreset) {
+  switch (preset) {
+    case 'react':
+      return 'app-routes.tsx'
+    case 'next':
+      return 'layout.tsx'
+    default:
+      throw new Error(`Unknown preset: ${preset}`)
+  }
+}
 export default reactFeatureGenerator
 
 function getTemplateName(feature: ReactFeatureSchema['feature']): AnchorApplicationSchema['template'] {

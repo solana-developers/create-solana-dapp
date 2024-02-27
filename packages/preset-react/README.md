@@ -78,15 +78,13 @@ Name:  react-feature (aliases: feature)
 
 Options:
     --name                                                             [string]
-    --anchorName           Anchor project name               [string] [default:
-                                                                      "anchor"]
+    --anchorName           Name of the Anchor project        [string] [default:
+                           in the workspace                           "anchor"]
     --anchorProgramName    Anchor program name                         [string]
     --feature              The feature to generate           [string] [choices:
                                                               "anchor-counter",
                                                         "anchor-basic", "none"]
     --npmScope             The npm scope to use                        [string]
-    --preset               The preset to use         [string] [choices: "next",
-                                                                       "react"]
     --ui                   The UI library to use     [string] [choices: "none",
                                                           "tailwind"] [default:
                                                                     "tailwind"]

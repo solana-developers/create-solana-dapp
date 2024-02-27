@@ -1,16 +1,12 @@
 import { getProjects, Tree } from '@nx/devkit'
 import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
 import { Keypair } from '@solana/web3.js'
-import { join } from 'path'
 import { features, ReactFeature, reactFeatureGenerator } from '../generators/react-feature'
-import { createNextPageRouteAnchorCounter } from './create-next-page-route-anchor-counter'
-import { NormalizedReactApplicationSchema, ReactPreset } from './normalize-react-application-schema'
+import { NormalizedReactApplicationSchema } from './normalize-react-application-schema'
 
 export async function setupAnchorReactFeature(
   tree: Tree,
   options: NormalizedReactApplicationSchema,
-  sourceRoot: string,
-  preset: ReactPreset,
   keypair?: Keypair,
 ) {
   if (options.anchor === 'none' || getProjects(tree).has(options.anchorName)) {
@@ -41,14 +37,8 @@ export async function setupAnchorReactFeature(
       webName: options.webName,
       skipFormat: true,
       feature,
-      preset,
       ui: options.ui,
     },
     keypair,
   )
-
-  // For Next.js, create a page route for the counter feature
-  if (preset === 'next' && options.ui !== 'none') {
-    createNextPageRouteAnchorCounter(tree, join(sourceRoot, `app/${featureName}/page.tsx`), featureName)
-  }
 }

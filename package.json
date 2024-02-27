@@ -25,6 +25,7 @@
     "commander": "^11.1.0",
     "create-nx-workspace": "17.0.1",
     "json-schema-to-typescript": "^13.1.1",
+    "ts-morph": "^21.0.1",
     "tslib": "^2.3.0",
     "yargs": "^17.7.2"
   },
