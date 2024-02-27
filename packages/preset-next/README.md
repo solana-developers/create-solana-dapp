@@ -16,18 +16,22 @@ Name:  next-application (aliases: application, preset)
   Generate a Next.js application
 
 Options:
-    --name          Name of the application                             [string]
-    --anchor        Anchor template to use            [string] [choices: "none",
-                                                   "counter", "empty"] [default:
-                                                                      "counter"]
-    --anchorName    Anchor project name             [string] [default: "anchor"]
-    --port          Port to run the application on      [number] [default: 3000]
-    --ui            The UI library to use             [string] [choices: "none",
-                                                           "tailwind"] [default:
-                                                                     "tailwind"]
-    --webName       Name of the web application                         [string]
-                    (overrides name)
-    --skipFormat    Skip formatting files                              [boolean]
+    --name                 Name of the application                     [string]
+    --anchor               Anchor template to use    [string] [choices: "none",
+                                                            "counter", "empty"]
+                                                           [default: "counter"]
+    --anchorName           Anchor project name               [string] [default:
+                                                                      "anchor"]
+    --anchorProgramName    Anchor program name                         [string]
+    --port                 Port to run the             [number] [default: 3000]
+                           application on
+    --ui                   The UI library to use     [string] [choices: "none",
+                                                          "tailwind"] [default:
+                                                                    "tailwind"]
+    --webName              Name of the web                             [string]
+                           application (overrides
+                           name)
+    --skipFormat           Skip formatting files                      [boolean]
 ```
 
 ### next-template
@@ -41,17 +45,20 @@ Name:  next-template (aliases: template)
   Generate a Next.js template
 
 Options:
-    --directory                                                         [string]
-    --name                                                              [string]
-    --npmScope      The npm scope to use                                [string]
-    --template      The template to use               [string] [choices: "base",
-                                                             "none", "tailwind"]
-    --webName       Name of the web application                         [string]
-                    (overrides name)
-    --anchor        Anchor template to use            [string] [choices: "none",
-                                                   "counter", "empty"] [default:
-                                                                         "none"]
-    --anchorName    Anchor project name             [string] [default: "anchor"]
+    --directory                                                        [string]
+    --name                                                             [string]
+    --npmScope             The npm scope to use                        [string]
+    --template             The template to use       [string] [choices: "base",
+                                                            "none", "tailwind"]
+    --webName              Name of the web                             [string]
+                           application (overrides
+                           name)
+    --anchor               Anchor template to use    [string] [choices: "none",
+                                                            "counter", "empty"]
+                                                              [default: "none"]
+    --anchorName           Anchor project name               [string] [default:
+                                                                      "anchor"]
+    --anchorProgramName    Anchor program name                         [string]
 ```
 
 ## More information

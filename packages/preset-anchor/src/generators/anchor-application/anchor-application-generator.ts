@@ -49,7 +49,7 @@ export async function anchorApplicationGenerator(tree: Tree, rawOptions: AnchorA
       tree,
       {
         projectName: options.name,
-        name: options.template,
+        name: options.programName ?? options.template,
         template: options.template,
         directory: project.root,
       },

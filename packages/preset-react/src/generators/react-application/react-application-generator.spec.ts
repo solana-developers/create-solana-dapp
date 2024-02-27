@@ -9,7 +9,7 @@ import { ReactApplicationSchema } from './react-application-schema'
 
 describe('react-application generator', () => {
   let tree: Tree
-  const rawOptions: ReactApplicationSchema = { name: 'test-app', anchor: 'counter' }
+  const rawOptions: ReactApplicationSchema = { name: 'test-app', anchor: 'counter', anchorProgramName: 'my-program' }
   const options: NormalizedReactApplicationSchema = normalizeReactApplicationSchema(rawOptions)
   process.env['USER'] = 'test'
   beforeEach(() => {

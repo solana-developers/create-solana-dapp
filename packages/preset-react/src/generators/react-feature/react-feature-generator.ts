@@ -33,6 +33,7 @@ export async function reactFeatureGenerator(
   const substitutions = genericSubstitutions({
     ...options,
     anchorName: options.anchorName,
+    anchorProgramName: options.anchorProgramName,
     anchor: anchorTemplate,
     preset: options.preset,
     npmScope,
@@ -42,7 +43,7 @@ export async function reactFeatureGenerator(
     tree,
     {
       projectName: options.anchorName,
-      name: substitutions.fileName,
+      name: substitutions.anchorProgramName.fileName,
       template: anchorTemplate,
       directory: anchorProject.root,
     },

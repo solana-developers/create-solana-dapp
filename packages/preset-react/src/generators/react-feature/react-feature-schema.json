@@ -18,6 +18,10 @@
       "description": "Anchor project name",
       "default": "anchor"
     },
+    "anchorProgramName": {
+      "type": "string",
+      "description": "Anchor program name"
+    },
     "webName": {
       "type": "string",
       "description": "Name of the web application (overrides name)",

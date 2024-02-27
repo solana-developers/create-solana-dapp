@@ -12,6 +12,10 @@ export interface ReactFeatureSchema {
    */
   anchorName?: string;
   /**
+   * Anchor program name
+   */
+  anchorProgramName?: string;
+  /**
    * Name of the web application (overrides name)
    */
   webName?: string;

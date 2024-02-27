@@ -12,6 +12,7 @@ export function normalizeReactApplicationSchema(options: ReactApplicationSchema)
     ...options,
     anchor: options.anchor,
     anchorName: options.anchorName ?? 'anchor',
+    anchorProgramName: options.anchorProgramName ?? options.anchor,
     directory: webName,
     port: options.port ?? 3000,
     skipFormat: options.skipFormat ?? false,

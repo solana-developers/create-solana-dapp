@@ -12,7 +12,7 @@ import { AnchorApplicationSchema } from './anchor-application-schema'
 
 describe('anchor-application generator', () => {
   let tree: Tree
-  const rawOptions: AnchorApplicationSchema = { name: 'anchor-app' }
+  const rawOptions: AnchorApplicationSchema = { name: 'anchor-app', programName: 'my-program' }
   const options: AnchorApplicationNormalizedSchema = anchorApplicationNormalizeSchema(rawOptions)
 
   beforeEach(() => {

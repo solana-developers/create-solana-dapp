@@ -16,6 +16,11 @@ export function reactApplicationDependencies(
   const devDependencies = {
     ...uiDevDependencies,
   }
+  if (preset === 'next') {
+    dependencies['@tanstack/react-query-next-experimental'] =
+      packageVersion['@tanstack']['react-query-next-experimental']
+    dependencies.encoding = packageVersion.encoding
+  }
   if (preset === 'react') {
     dependencies['crypto-browserify'] = packageVersion['crypto-browserify']
     dependencies['stream-browserify'] = packageVersion['stream-browserify']

@@ -39,4 +39,8 @@ export interface CommonTemplateSchema {
    * Anchor project name
    */
   anchorName?: string;
+  /**
+   * Anchor program name
+   */
+  anchorProgramName?: string;
 }

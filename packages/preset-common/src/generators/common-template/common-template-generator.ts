@@ -8,6 +8,7 @@ export async function commonTemplateGenerator(tree: Tree, options: CommonTemplat
     {
       anchor: options.anchor,
       anchorName: options.anchorName,
+      anchorProgramName: options.anchorProgramName,
       licenseAuthor: options.licenseAuthor,
       name: options.webName,
       npmScope: options.npmScope,

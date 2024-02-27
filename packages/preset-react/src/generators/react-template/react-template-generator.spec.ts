@@ -13,6 +13,7 @@ describe('react-template generator', () => {
     directory: 'test',
     anchor: 'none',
     anchorName: 'anchor',
+    anchorProgramName: 'my-program',
     npmScope: 'test',
     webName: 'test',
   }

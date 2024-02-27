@@ -1,6 +1,6 @@
-import { addDependenciesToPackageJson, installPackagesTask, Tree } from '@nx/devkit'
+import { installPackagesTask, Tree } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
-import { applicationCleanup, packageVersion } from '@solana-developers/preset-common'
+import { applicationCleanup } from '@solana-developers/preset-common'
 import {
   generateReactCommonFiles,
   reactApplicationDependencies,
@@ -38,6 +38,7 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
     template: 'base',
     anchor: options.anchor,
     anchorName: options.anchorName,
+    anchorProgramName: options.anchorProgramName,
     webName: options.webName,
     directory: project.sourceRoot,
   })
@@ -52,6 +53,7 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
       template: options.ui,
       anchor: options.anchor,
       anchorName: options.anchorName,
+      anchorProgramName: options.anchorProgramName,
       webName: options.webName,
       directory: components,
       preset: 'next',
@@ -69,6 +71,7 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
     template: options.ui,
     anchor: options.anchor,
     anchorName: options.anchorName,
+    anchorProgramName: options.anchorProgramName,
     webName: options.webName,
     directory: project.sourceRoot,
   })
@@ -80,6 +83,7 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
     template: 'solana-provider',
     anchor: options.anchor,
     anchorName: options.anchorName,
+    anchorProgramName: options.anchorProgramName,
     webName: options.webName,
     directory: join(components, 'solana'),
     preset: 'next',
@@ -87,15 +91,6 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
 
   // Add the dependencies for the base application.
   reactApplicationDependencies(tree, options, 'next')
-
-  addDependenciesToPackageJson(
-    tree,
-    {
-      '@tanstack/react-query-next-experimental': packageVersion['@tanstack']['react-query-next-experimental'],
-      encoding: packageVersion.encoding,
-    },
-    {},
-  )
 
   // Add the dependencies for the wallet adapter.
   walletAdapterDependencies(tree)

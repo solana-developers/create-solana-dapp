@@ -39,4 +39,8 @@ export interface ReactTemplateSchema {
    * Anchor project name
    */
   anchorName?: string;
+  /**
+   * Anchor program name
+   */
+  anchorProgramName?: string;
 }

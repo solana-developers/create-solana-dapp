@@ -16,18 +16,22 @@ Name:  react-application (aliases: application, preset)
   Generates a React application.
 
 Options:
-    --name          Name of the application                             [string]
-    --anchor        Anchor template to use            [string] [choices: "none",
-                                                   "counter", "empty"] [default:
-                                                                      "counter"]
-    --anchorName    Anchor project name             [string] [default: "anchor"]
-    --port          Port to run the application on      [number] [default: 3000]
-    --ui            The UI library to use             [string] [choices: "none",
-                                                           "tailwind"] [default:
-                                                                     "tailwind"]
-    --webName       Name of the web application                         [string]
-                    (overrides name)
-    --skipFormat    Skip formatting files                              [boolean]
+    --name                 Name of the application                     [string]
+    --anchor               Anchor template to use    [string] [choices: "none",
+                                                            "counter", "empty"]
+                                                           [default: "counter"]
+    --anchorName           Anchor project name               [string] [default:
+                                                                      "anchor"]
+    --anchorProgramName    Anchor program name                         [string]
+    --port                 Port to run the             [number] [default: 3000]
+                           application on
+    --ui                   The UI library to use     [string] [choices: "none",
+                                                          "tailwind"] [default:
+                                                                    "tailwind"]
+    --webName              Name of the web                             [string]
+                           application (overrides
+                           name)
+    --skipFormat           Skip formatting files                      [boolean]
 ```
 
 ### react-template
@@ -43,19 +47,22 @@ Name:  react-template (aliases: template)
 Options:
     --directory                                                        [string]
     --name                                                             [string]
-    --npmScope         The npm scope to use                            [string]
-    --template         The template to use           [string] [choices: "base",
+    --npmScope             The npm scope to use                        [string]
+    --template             The template to use       [string] [choices: "base",
                                                      "none", "solana-provider",
                                                                     "tailwind"]
-    --webName          Name of the web application                     [string]
-                       (overrides name)
-    --anchor           Anchor template to use        [string] [choices: "none",
+    --webName              Name of the web                             [string]
+                           application (overrides
+                           name)
+    --anchor               Anchor template to use    [string] [choices: "none",
                                                             "counter", "empty"]
                                                               [default: "none"]
-    --anchorName       Anchor project name         [string] [default: "anchor"]
-    --licenseAuthor    The author to use in the                        [string]
-                       license
-    --preset           The preset to use             [string] [choices: "next",
+    --anchorName           Anchor project name               [string] [default:
+                                                                      "anchor"]
+    --anchorProgramName    Anchor program name                         [string]
+    --licenseAuthor        The author to use in the                    [string]
+                           license
+    --preset               The preset to use         [string] [choices: "next",
                                                                        "react"]
 ```
 
@@ -70,20 +77,23 @@ Name:  react-feature (aliases: feature)
   undefined
 
 Options:
-    --name                                                              [string]
-    --anchorName    Anchor project name             [string] [default: "anchor"]
-    --feature       The feature to generate                   [string] [choices:
-                                                               "anchor-counter",
-                                                         "anchor-empty", "none"]
-    --npmScope      The npm scope to use                                [string]
-    --preset        The preset to use                 [string] [choices: "next",
-                                                                        "react"]
-    --ui            The UI library to use             [string] [choices: "none",
-                                                           "tailwind"] [default:
-                                                                     "tailwind"]
-    --webName       Name of the web application        [string] [default: "web"]
-                    (overrides name)
-    --skipFormat    Skip formatting files                              [boolean]
+    --name                                                             [string]
+    --anchorName           Anchor project name               [string] [default:
+                                                                      "anchor"]
+    --anchorProgramName    Anchor program name                         [string]
+    --feature              The feature to generate           [string] [choices:
+                                                              "anchor-counter",
+                                                        "anchor-empty", "none"]
+    --npmScope             The npm scope to use                        [string]
+    --preset               The preset to use         [string] [choices: "next",
+                                                                       "react"]
+    --ui                   The UI library to use     [string] [choices: "none",
+                                                          "tailwind"] [default:
+                                                                    "tailwind"]
+    --webName              Name of the web            [string] [default: "web"]
+                           application (overrides
+                           name)
+    --skipFormat           Skip formatting files                      [boolean]
 ```
 
 ## More information

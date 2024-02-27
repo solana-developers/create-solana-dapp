@@ -16,11 +16,12 @@ Name:  anchor-application (aliases: application, preset)
   Generate an Anchor application
 
 Options:
-    --name          Name of the application                             [string]
-    --template      The template to use            [string] [choices: "counter",
-                                                      "empty", "none"] [default:
-                                                                         "none"]
-    --skipFormat    Skip formatting files                              [boolean]
+    --name           Name of the project                               [string]
+    --programName    Name of the program                               [string]
+    --template       The template to use          [string] [choices: "counter",
+                                                     "empty", "none"] [default:
+                                                                        "none"]
+    --skipFormat     Skip formatting files                            [boolean]
 ```
 
 ### anchor-template

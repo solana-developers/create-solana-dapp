@@ -59,6 +59,17 @@ export function getPrompts({
           options: anchorTemplates.map(({ label, value }) => ({ label, value })) as [],
         })
       },
+      anchorProgramName: ({ results }) => {
+        if (options.anchorProgramName) {
+          log.success(`Anchor program name: ${options.anchorProgramName}`)
+          return Promise.resolve(options.anchorProgramName)
+        }
+        return text({
+          message: 'Enter the Anchor program name',
+          validate: validateProjectName,
+          initialValue: results?.anchor === 'empty' ? 'my-program' : results?.anchor,
+        })
+      },
     },
     {
       onCancel: () => {
