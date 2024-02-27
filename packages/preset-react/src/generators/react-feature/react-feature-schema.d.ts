@@ -26,7 +26,7 @@ export interface ReactFeatureSchema {
   /**
    * The feature to generate
    */
-  feature?: "anchor-counter" | "anchor-empty" | "none";
+  feature?: "anchor-counter" | "anchor-basic" | "none";
   /**
    * The UI library to use
    */

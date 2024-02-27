@@ -67,7 +67,7 @@ export function getPrompts({
         return text({
           message: 'Enter the Anchor program name',
           validate: validateProjectName,
-          initialValue: results?.anchor === 'empty' ? 'my-program' : results?.anchor,
+          initialValue: results?.anchor === 'basic' ? 'my-program' : results?.anchor,
         })
       },
     },

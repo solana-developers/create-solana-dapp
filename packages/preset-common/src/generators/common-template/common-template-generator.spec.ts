@@ -16,7 +16,7 @@ describe('common-template generator', () => {
     webName: 'test',
   }
   const templates: CommonTemplateSchema['template'][] = ['license', 'readme']
-  const anchor: CommonTemplateSchema['anchor'][] = ['none', 'counter', 'empty']
+  const anchor: CommonTemplateSchema['anchor'][] = ['none', 'counter', 'basic']
   const pms: PackageManager[] = ['npm', 'pnpm', 'yarn']
   const matrix = templates.flatMap((template) =>
     anchor.flatMap((anchor) => pms.map((pm) => ({ template, anchor, pm }))),

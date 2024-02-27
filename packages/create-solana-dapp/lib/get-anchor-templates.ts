@@ -13,8 +13,8 @@ export function getAnchorTemplates(): {
       value: 'counter',
     },
     {
-      label: 'Empty Anchor program with tests',
-      value: 'empty',
+      label: 'Basic Anchor program with tests',
+      value: 'basic',
     },
     {
       label: 'Do not include Anchor in the project',

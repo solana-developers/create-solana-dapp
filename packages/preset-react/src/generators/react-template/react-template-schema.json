@@ -49,7 +49,7 @@
     "anchor": {
       "type": "string",
       "description": "Anchor template to use",
-      "enum": ["none", "counter", "empty"],
+      "enum": ["none", "counter", "basic"],
       "default": "none"
     },
     "anchorName": {

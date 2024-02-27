@@ -18,7 +18,7 @@ Name:  next-application (aliases: application, preset)
 Options:
     --name                 Name of the application                     [string]
     --anchor               Anchor template to use    [string] [choices: "none",
-                                                            "counter", "empty"]
+                                                            "counter", "basic"]
                                                            [default: "counter"]
     --anchorName           Anchor project name               [string] [default:
                                                                       "anchor"]
@@ -54,7 +54,7 @@ Options:
                            application (overrides
                            name)
     --anchor               Anchor template to use    [string] [choices: "none",
-                                                            "counter", "empty"]
+                                                            "counter", "basic"]
                                                               [default: "none"]
     --anchorName           Anchor project name               [string] [default:
                                                                       "anchor"]

@@ -25,7 +25,7 @@ describe('anchor-application generator', () => {
     expect(config).toBeDefined()
   })
 
-  it.each([['counter'], ['empty']])('should generate app with "%s" template', async (template) => {
+  it.each([['counter'], ['basic']])('should generate app with "%s" template', async (template) => {
     await anchorApplicationGenerator(
       tree,
       { ...options, template: template as AnchorApplicationTemplate },

@@ -25,7 +25,7 @@ Options:
                            application (overrides
                            name)
     --anchor               Anchor template to use    [string] [choices: "none",
-                                                            "counter", "empty"]
+                                                            "counter", "basic"]
                                                               [default: "none"]
     --anchorName           Anchor project name               [string] [default:
                                                                       "anchor"]

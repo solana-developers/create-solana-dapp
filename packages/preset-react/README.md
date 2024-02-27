@@ -18,7 +18,7 @@ Name:  react-application (aliases: application, preset)
 Options:
     --name                 Name of the application                     [string]
     --anchor               Anchor template to use    [string] [choices: "none",
-                                                            "counter", "empty"]
+                                                            "counter", "basic"]
                                                            [default: "counter"]
     --anchorName           Anchor project name               [string] [default:
                                                                       "anchor"]
@@ -55,7 +55,7 @@ Options:
                            application (overrides
                            name)
     --anchor               Anchor template to use    [string] [choices: "none",
-                                                            "counter", "empty"]
+                                                            "counter", "basic"]
                                                               [default: "none"]
     --anchorName           Anchor project name               [string] [default:
                                                                       "anchor"]
@@ -83,7 +83,7 @@ Options:
     --anchorProgramName    Anchor program name                         [string]
     --feature              The feature to generate           [string] [choices:
                                                               "anchor-counter",
-                                                        "anchor-empty", "none"]
+                                                        "anchor-basic", "none"]
     --npmScope             The npm scope to use                        [string]
     --preset               The preset to use         [string] [choices: "next",
                                                                        "react"]

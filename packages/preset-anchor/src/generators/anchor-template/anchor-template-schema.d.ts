@@ -18,7 +18,7 @@ export interface AnchorTemplateSchema {
   /**
    * The template to use
    */
-  template: "base" | "counter" | "empty";
+  template: "base" | "counter" | "basic";
   /**
    * Skip updating index.ts
    */

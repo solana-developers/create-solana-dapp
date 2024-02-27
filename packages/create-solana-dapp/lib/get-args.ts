@@ -56,7 +56,7 @@ export async function getArgs(argv: string[], pm: PackageManager = 'npm'): Promi
 Examples:
   $ ${app.name} my-app --preset react
   $ ${app.name} my-app --preset react --package-manager yarn
-  $ ${app.name} my-app --preset react --anchor empty
+  $ ${app.name} my-app --preset react --anchor basic
       `,
     )
     .parse(argv)

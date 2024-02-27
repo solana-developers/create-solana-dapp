@@ -32,7 +32,7 @@ export interface NextApplicationSchema {
   /**
    * Anchor template to use
    */
-  anchor?: "none" | "counter" | "empty";
+  anchor?: "none" | "counter" | "basic";
   /**
    * Anchor project name
    */

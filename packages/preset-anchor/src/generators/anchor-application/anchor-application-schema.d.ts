@@ -24,5 +24,5 @@ export interface AnchorApplicationSchema {
   /**
    * The template to use
    */
-  template?: "counter" | "empty" | "none";
+  template?: "counter" | "basic" | "none";
 }

@@ -12,7 +12,7 @@ describe('anchor-template generator', () => {
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace()
   })
-  it.each(['base', 'counter', 'empty'])(
+  it.each(['base', 'counter', 'basic'])(
     'should generate files for %s template',
     async (template: AnchorTemplateSchema['template']) => {
       await anchorTemplateGenerator(

@@ -34,7 +34,7 @@
     },
     "feature": {
       "type": "string",
-      "enum": ["anchor-counter", "anchor-empty", "none"],
+      "enum": ["anchor-counter", "anchor-basic", "none"],
       "description": "The feature to generate",
       "x-prompt": "Which feature would you like to generate?"
     },
