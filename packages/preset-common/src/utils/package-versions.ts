@@ -10,7 +10,6 @@ export const packageVersion = {
     'wallet-adapter-base': '^0.9.23',
     'wallet-adapter-react': '^0.15.35',
     'wallet-adapter-react-ui': '^0.9.35',
-    'wallet-adapter-solflare': '^0.6.28',
     'web3.js': '1.90.0',
   },
   '@swc-node': {
