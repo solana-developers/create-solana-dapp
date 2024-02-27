@@ -1159,6 +1159,228 @@ exports[`anchor-template generator should generate files for base template 1`] =
 }
 `;
 
+exports[`anchor-template generator should generate files for basic template 1`] = `
+{
+  "Anchor.toml": {
+    "content": [
+      "[toolchain]",
+      "[features]",
+      "seeds = false",
+      "skip-lint = false",
+      "[programs.localnet]",
+      "basic = "GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA"",
+      "[registry]",
+      "url = "https://api.apr.dev"",
+      "[provider]",
+      "cluster = "Localnet"",
+      "wallet = "~/.config/solana/id.json"",
+      "[scripts]",
+      "test = "../node_modules/.bin/nx run test:jest"",
+      "[test]",
+      "startup_wait = 5000",
+      "shutdown_wait = 2000",
+      "upgradeable = false",
+      "[test.validator]",
+      "bind_address = "127.0.0.1"",
+      "ledger = ".anchor/test-ledger"",
+      "rpc_port = 8899",
+    ],
+    "isBinary": false,
+    "path": "target/Anchor.toml",
+  },
+  "Cargo.lock": {
+    "content": null,
+    "isBinary": true,
+    "path": "target/Cargo.lock",
+  },
+  "programs": {
+    "children": {
+      "basic": {
+        "children": {
+          "Cargo.toml": {
+            "content": [
+              "[package]",
+              "name = "basic"",
+              "version = "0.1.0"",
+              "description = "Created with Anchor"",
+              "edition = "2021"",
+              "[lib]",
+              "crate-type = ["cdylib", "lib"]",
+              "name = "basic"",
+              "[features]",
+              "no-entrypoint = []",
+              "no-idl = []",
+              "no-log-ix-name = []",
+              "cpi = ["no-entrypoint"]",
+              "default = []",
+              "[dependencies]",
+              "anchor-lang = "0.29.0"",
+            ],
+            "isBinary": false,
+            "path": "target/programs/basic/Cargo.toml",
+          },
+          "Xargo.toml": {
+            "content": [
+              "[target.bpfel-unknown-unknown.dependencies.std]",
+              "features = []",
+            ],
+            "isBinary": false,
+            "path": "target/programs/basic/Xargo.toml",
+          },
+          "src": {
+            "children": {
+              "lib.rs": {
+                "content": [
+                  "use anchor_lang::prelude::*;",
+                  "declare_id!("GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA");",
+                  "#[program]",
+                  "pub mod basic {",
+                  "use super::*;",
+                  "pub fn greet(_ctx: Context<Initialize>) -> Result<()> {",
+                  "msg!("GM!");",
+                  "Ok(())",
+                  "}",
+                  "}",
+                  "#[derive(Accounts)]",
+                  "pub struct Initialize {}",
+                ],
+                "isBinary": false,
+                "path": "target/programs/basic/src/lib.rs",
+              },
+            },
+            "path": "target/programs/basic/src",
+          },
+        },
+        "path": "target/programs/basic",
+      },
+    },
+    "path": "target/programs",
+  },
+  "src": {
+    "children": {
+      "basic-exports.ts": {
+        "content": [
+          "// Here we export some useful types and functions for interacting with the Anchor program.",
+          "import { Cluster, PublicKey } from '@solana/web3.js';",
+          "import type { Basic } from '../target/types/basic';",
+          "import { IDL as BasicIDL } from '../target/types/basic';",
+          "// Re-export the generated IDL and type",
+          "export { Basic, BasicIDL };",
+          "// After updating your program ID (e.g. after running \`anchor keys sync\`) update the value below.",
+          "export const BASIC_PROGRAM_ID = new PublicKey('GMSER7ttdzFvei8hUjFrCxv3PNKje2NrPwuNYS7m15dA')",
+        ],
+        "isBinary": false,
+        "path": "target/src/basic-exports.ts",
+      },
+      "index.ts": {
+        "content": [
+          "export * from './basic-exports'",
+        ],
+        "isBinary": false,
+        "path": "target/src/index.ts",
+      },
+    },
+    "path": "target/src",
+  },
+  "target": {
+    "children": {
+      "deploy": {
+        "children": {
+          "basic-keypair.json": {
+            "content": [
+              "[102,57,177,113,190,89,227,160,193,179,207,89,103,112,83,251,142,20,242,30,81,26,82,85,207,97,28,129,190,28,128,71,228,27,114,255,63,136,164,140,185,151,50,58,148,32,197,184,85,144,79,78,24,248,25,138,254,31,96,78,56,230,148,1]",
+            ],
+            "isBinary": false,
+            "path": "target/target/deploy/basic-keypair.json",
+          },
+        },
+        "path": "target/target/deploy",
+      },
+      "idl": {
+        "children": {
+          "basic.json": {
+            "content": [
+              "{",
+              ""version": "0.1.0",",
+              ""name": "basic",",
+              ""instructions": [",
+              "{",
+              ""name": "greet",",
+              ""accounts": [],",
+              ""args": []",
+              "}",
+              "]",
+              "}",
+            ],
+            "isBinary": false,
+            "path": "target/target/idl/basic.json",
+          },
+        },
+        "path": "target/target/idl",
+      },
+      "types": {
+        "children": {
+          "basic.ts": {
+            "content": [
+              "export type Basic = {",
+              ""version": "0.1.0",",
+              ""name": "basic",",
+              ""instructions": [",
+              "{",
+              ""name": "greet",",
+              ""accounts": [],",
+              ""args": []",
+              "}",
+              "]",
+              "};",
+              "export const IDL: Basic = {",
+              ""version": "0.1.0",",
+              ""name": "basic",",
+              ""instructions": [",
+              "{",
+              ""name": "greet",",
+              ""accounts": [],",
+              ""args": []",
+              "}",
+              "]",
+              "};",
+            ],
+            "isBinary": false,
+            "path": "target/target/types/basic.ts",
+          },
+        },
+        "path": "target/target/types",
+      },
+    },
+    "path": "target/target",
+  },
+  "tests": {
+    "children": {
+      "basic.spec.ts": {
+        "content": [
+          "import * as anchor from "@coral-xyz/anchor";",
+          "import { Program } from "@coral-xyz/anchor";",
+          "import { Basic } from "../target/types/basic";",
+          "describe("basic", () => {",
+          "// Configure the client to use the local cluster.",
+          "anchor.setProvider(anchor.AnchorProvider.env());",
+          "const program = anchor.workspace.Basic as Program<Basic>;",
+          "it("should run the program", async () => {",
+          "// Add your test here.",
+          "const tx = await program.methods.greet().rpc();",
+          "console.log("Your transaction signature", tx);",
+          "});",
+          "});",
+        ],
+        "isBinary": false,
+        "path": "target/tests/basic.spec.ts",
+      },
+    },
+    "path": "target/tests",
+  },
+}
+`;
+
 exports[`anchor-template generator should generate files for counter template 1`] = `
 {
   "Anchor.toml": {

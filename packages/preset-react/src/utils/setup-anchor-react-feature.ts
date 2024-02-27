@@ -35,7 +35,7 @@ export async function setupAnchorReactFeature(
   await reactFeatureGenerator(
     tree,
     {
-      name: featureName,
+      name: options.anchorProgramName,
       anchorName: options.anchorName,
       anchorProgramName: options.anchorProgramName,
       webName: options.webName,
