@@ -56,7 +56,7 @@ export async function anchorApplicationGenerator(tree: Tree, rawOptions: AnchorA
       keypair,
     )
   }
-  anchorApplicationDependencies(tree)
+  anchorApplicationDependencies(tree, project)
   anchorApplicationIgnoreFiles(tree, project.sourceRoot.replace('/src', ''))
 
   if (!options.skipFormat) {

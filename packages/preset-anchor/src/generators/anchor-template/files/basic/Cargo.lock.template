@@ -810,7 +810,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "init"
+name = "<%= fileName %>"
 version = "0.1.0"
 dependencies = [
  "anchor-lang",

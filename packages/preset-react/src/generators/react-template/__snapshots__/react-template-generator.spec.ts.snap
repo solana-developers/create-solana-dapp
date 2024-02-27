@@ -187,7 +187,6 @@ exports[`react-template generator should generate files for none template 1`] = 
               "cluster-data-access.tsx": {
                 "content": [
                   "'use client';",
-                  "import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';",
                   "import { clusterApiUrl } from '@solana/web3.js';",
                   "import { createContext, ReactNode, useContext } from 'react';",
                   "export interface Cluster {",
@@ -905,7 +904,6 @@ exports[`react-template generator should generate files for tailwind template 1`
             "children": {
               "cluster-data-access.tsx": {
                 "content": [
-                  "import { WalletAdapterNetwork } from '@solana/wallet-adapter-base'",
                   "import { clusterApiUrl, Connection } from '@solana/web3.js'",
                   "import { atom, useAtomValue, useSetAtom } from 'jotai'",
                   "import { atomWithStorage } from 'jotai/utils'",

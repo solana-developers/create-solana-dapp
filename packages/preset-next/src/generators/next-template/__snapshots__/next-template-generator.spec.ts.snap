@@ -93,7 +93,6 @@ exports[`next-template generator should generate files for none template 1`] = `
           "cluster-data-access.tsx": {
             "content": [
               "'use client';",
-              "import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';",
               "import { clusterApiUrl } from '@solana/web3.js';",
               "import { createContext, ReactNode, useContext } from 'react';",
               "export interface Cluster {",

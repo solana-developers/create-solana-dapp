@@ -5,10 +5,8 @@ import dynamic from 'next/dynamic';<% } %>
 <% if (anchor.fileName !== 'none') { %>import { AnchorProvider } from '@coral-xyz/anchor'<% } %>
 import { WalletError } from '@solana/wallet-adapter-base'
 import {
-  AnchorWallet,
+  <% if (anchor.fileName !== 'none') { %> AnchorWallet, useConnection, useWallet, <% } %>
   ConnectionProvider,
-  useConnection,
-  useWallet,
   WalletProvider,
 } from '@solana/wallet-adapter-react'
 import { WalletModalProvider<% if (preset === 'react') { %>, WalletMultiButton<% } %> } from '@solana/wallet-adapter-react-ui'
