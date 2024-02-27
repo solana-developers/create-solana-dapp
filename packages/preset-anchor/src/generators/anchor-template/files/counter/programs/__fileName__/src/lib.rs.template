@@ -8,7 +8,7 @@ declare_id!("<%= publicKey %>");
 pub mod <%= fileNameUnderscore %> {
     use super::*;
 
-  pub fn close_<%= fileNameUnderscore %>(_ctx: Context<Close<%= className %>>) -> Result<()> {
+  pub fn close(_ctx: Context<Close<%= className %>>) -> Result<()> {
     Ok(())
   }
 
@@ -22,7 +22,7 @@ pub mod <%= fileNameUnderscore %> {
     Ok(())
   }
 
-  pub fn initialize_<%= fileNameUnderscore %>(_ctx: Context<Initialize<%= className %>>) -> Result<()> {
+  pub fn initialize(_ctx: Context<Initialize<%= className %>>) -> Result<()> {
     Ok(())
   }
 

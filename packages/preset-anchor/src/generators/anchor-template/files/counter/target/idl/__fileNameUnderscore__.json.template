@@ -3,7 +3,7 @@
   "name": "<%= fileNameUnderscore %>",
   "instructions": [
     {
-      "name": "close<%= className %>",
+      "name": "close",
       "accounts": [
         {
           "name": "payer",
@@ -41,7 +41,7 @@
       "args": []
     },
     {
-      "name": "initialize<%= className %>",
+      "name": "initialize",
       "accounts": [
         {
           "name": "payer",

@@ -1,7 +1,8 @@
 import { addDependenciesToPackageJson, Tree } from '@nx/devkit'
 import { packageVersion } from '@solana-developers/preset-common'
 import { getUiDependencies } from './get-ui-dependencies'
-import { NormalizedReactApplicationSchema, ReactPreset } from './normalize-react-application-schema'
+import { NormalizedReactApplicationSchema } from './normalize-react-application-schema'
+import { ReactPreset } from './get-react-preset'
 
 export function reactApplicationDependencies(
   tree: Tree,

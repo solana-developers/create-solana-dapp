@@ -1,5 +1,6 @@
 export * from './generate-react-application'
 export * from './generate-react-common-files'
+export * from './get-react-preset'
 export * from './get-ui-dependencies'
 export * from './normalize-react-application-schema'
 export * from './react-application-dependencies'

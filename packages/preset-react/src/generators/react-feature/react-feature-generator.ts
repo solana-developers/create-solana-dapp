@@ -25,7 +25,6 @@ export async function reactFeatureGenerator(
     throw new Error(`Could not find web project: ${options.webName}`)
   }
   const preset = getReactPreset(tree, webProject.sourceRoot)
-  console.log('Found preset:', preset)
 
   const anchorTemplate: AnchorApplicationSchema['template'] = getTemplateName(options.feature)
 

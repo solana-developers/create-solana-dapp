@@ -37,7 +37,7 @@ export function use<%= className %>Program() {
   const initialize = useMutation({
     mutationKey: ['<%= fileName %>', 'initialize', { cluster }],
     mutationFn: (keypair: Keypair) =>
-      program.methods.initialize<%= className %>().accounts({ <%= propertyName %>: keypair.publicKey }).signers([keypair]).rpc(),
+      program.methods.initialize().accounts({ <%= propertyName %>: keypair.publicKey }).signers([keypair]).rpc(),
     onSuccess: (signature) => {
       transactionToast(signature)
       return accounts.refetch()
@@ -66,7 +66,7 @@ export function use<%= className %>ProgramAccount({ account }: { account: Public
 
   const closeMutation = useMutation({
     mutationKey: ['<%= fileName %>', 'close', { cluster, account }],
-    mutationFn: () => program.methods.close<%= className %>().accounts({ <%= propertyName %>: account }).rpc(),
+    mutationFn: () => program.methods.close().accounts({ <%= propertyName %>: account }).rpc(),
     onSuccess: (tx) => {
       transactionToast(tx)
       return accounts.refetch()
