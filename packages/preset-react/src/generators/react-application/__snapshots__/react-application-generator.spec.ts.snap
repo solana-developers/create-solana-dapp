@@ -4487,7 +4487,7 @@ exports[`react-application generator default apps should generate default app wi
                   "const links: { label: string; path: string }[] = [",
                   "{ label: 'Account', path: '/account' },",
                   "{ label: 'Clusters', path: '/clusters' },",
-                  "{ label: 'MyProgram', path: '/my-program' },",
+                  "{ label: 'MyProgram Program', path: '/my-program' },",
                   "];",
                   "const routes: RouteObject[] = [",
                   "{ path: '/account/', element: <AccountListFeature /> },",

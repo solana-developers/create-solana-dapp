@@ -3854,7 +3854,7 @@ exports[`application generator default apps should generate default app with "ta
               "const links: { label: string; path: string }[] = [",
               "{ label: 'Account', path: '/account' },",
               "{ label: 'Clusters', path: '/clusters' },",
-              "{ label: 'MyProgram', path: '/my-program' },",
+              "{ label: 'MyProgram Program', path: '/my-program' },",
               "];",
               "export default function RootLayout({",
               "children,",

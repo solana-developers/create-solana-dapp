@@ -80,7 +80,7 @@ export async function reactFeatureGenerator(
 
   // Add the navigation link
   updateSourceFile(tree, routesFile, (source) => {
-    addArrayItem(source, { name: 'links', content: `{ label: '${label}', path: '/${path}' },` })
+    addArrayItem(source, { name: 'links', content: `{ label: '${label} Program', path: '/${path}' },` })
     return source
   })
 
