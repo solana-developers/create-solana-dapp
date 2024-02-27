@@ -546,7 +546,7 @@ exports[`anchor-template generator should be able to generate two templates side
       },
       "types": {
         "children": {
-          "counter-one.ts": {
+          "counter_one.ts": {
             "content": [
               "export type CounterOne = {",
               ""version": "0.1.0",",
@@ -740,9 +740,9 @@ exports[`anchor-template generator should be able to generate two templates side
               "};",
             ],
             "isBinary": false,
-            "path": "target/target/types/counter-one.ts",
+            "path": "target/target/types/counter_one.ts",
           },
-          "counter-two.ts": {
+          "counter_two.ts": {
             "content": [
               "export type CounterTwo = {",
               ""version": "0.1.0",",
@@ -936,7 +936,7 @@ exports[`anchor-template generator should be able to generate two templates side
               "};",
             ],
             "isBinary": false,
-            "path": "target/target/types/counter-two.ts",
+            "path": "target/target/types/counter_two.ts",
           },
         },
         "path": "target/target/types",

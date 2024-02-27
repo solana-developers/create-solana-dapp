@@ -1427,7 +1427,7 @@ exports[`react-application generator default apps should generate default app wi
           },
           "types": {
             "children": {
-              "my-program.ts": {
+              "my_program.ts": {
                 "content": [
                   "export type MyProgram = {",
                   "version: '0.1.0';",
@@ -1621,7 +1621,7 @@ exports[`react-application generator default apps should generate default app wi
                   "};",
                 ],
                 "isBinary": false,
-                "path": "./anchor/target/types/my-program.ts",
+                "path": "./anchor/target/types/my_program.ts",
               },
             },
             "path": "./anchor/target/types",
@@ -3135,7 +3135,7 @@ exports[`react-application generator default apps should generate default app wi
           },
           "types": {
             "children": {
-              "my-program.ts": {
+              "my_program.ts": {
                 "content": [
                   "export type MyProgram = {",
                   "version: '0.1.0';",
@@ -3329,7 +3329,7 @@ exports[`react-application generator default apps should generate default app wi
                   "};",
                 ],
                 "isBinary": false,
-                "path": "./anchor/target/types/my-program.ts",
+                "path": "./anchor/target/types/my_program.ts",
               },
             },
             "path": "./anchor/target/types",

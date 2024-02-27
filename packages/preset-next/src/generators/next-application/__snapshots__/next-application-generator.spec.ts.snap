@@ -1462,7 +1462,7 @@ exports[`application generator default apps should generate default app with "no
           },
           "types": {
             "children": {
-              "my-program.ts": {
+              "my_program.ts": {
                 "content": [
                   "export type MyProgram = {",
                   "version: '0.1.0';",
@@ -1656,7 +1656,7 @@ exports[`application generator default apps should generate default app with "no
                   "};",
                 ],
                 "isBinary": false,
-                "path": "./anchor/target/types/my-program.ts",
+                "path": "./anchor/target/types/my_program.ts",
               },
             },
             "path": "./anchor/target/types",
@@ -3207,7 +3207,7 @@ exports[`application generator default apps should generate default app with "ta
           },
           "types": {
             "children": {
-              "my-program.ts": {
+              "my_program.ts": {
                 "content": [
                   "export type MyProgram = {",
                   "version: '0.1.0';",
@@ -3401,7 +3401,7 @@ exports[`application generator default apps should generate default app with "ta
                   "};",
                 ],
                 "isBinary": false,
-                "path": "./anchor/target/types/my-program.ts",
+                "path": "./anchor/target/types/my_program.ts",
               },
             },
             "path": "./anchor/target/types",

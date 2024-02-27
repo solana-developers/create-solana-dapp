@@ -86,7 +86,7 @@ Examples:
     anchor: result.anchor,
     anchorBuild: result.anchorBuild,
     anchorName: result.anchorName ?? 'anchor',
-    anchorProgramName: result.anchorProgramName ?? '',
+    anchorProgramName: result.anchorProgramName ?? name ?? '',
     dryRun: result.dryRun ?? false,
     name: name ?? '',
     package: '',

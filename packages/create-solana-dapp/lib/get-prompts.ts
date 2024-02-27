@@ -60,15 +60,10 @@ export function getPrompts({
         })
       },
       anchorProgramName: ({ results }) => {
-        if (options.anchorProgramName) {
-          log.success(`Anchor program name: ${options.anchorProgramName}`)
-          return Promise.resolve(options.anchorProgramName)
-        }
-        return text({
-          message: 'Enter the Anchor program name',
-          validate: validateProjectName,
-          initialValue: results?.anchor === 'basic' ? 'my-program' : results?.anchor,
-        })
+        const anchorProgramName = options.anchorProgramName.length
+          ? options.anchorProgramName
+          : results.name ?? 'my-program'
+        return Promise.resolve(anchorProgramName)
       },
     },
     {

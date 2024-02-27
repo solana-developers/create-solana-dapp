@@ -5,7 +5,7 @@ exports[`get-args expected args should get args with minimal parameters 1`] = `
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "anchor",
-  "anchorProgramName": "my-counter",
+  "anchorProgramName": "my-app",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
@@ -24,7 +24,7 @@ exports[`get-args expected args should get args with minimal parameters and pack
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "anchor",
-  "anchorProgramName": "my-counter",
+  "anchorProgramName": "my-app",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
@@ -43,7 +43,7 @@ exports[`get-args expected args should get args with minimal parameters and pack
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "anchor",
-  "anchorProgramName": "my-counter",
+  "anchorProgramName": "my-app",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
@@ -62,7 +62,7 @@ exports[`get-args expected args should get args with minimal parameters and pack
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "anchor",
-  "anchorProgramName": "my-counter",
+  "anchorProgramName": "my-app",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
@@ -76,12 +76,12 @@ exports[`get-args expected args should get args with minimal parameters and pack
 }
 `;
 
-exports[`get-args expected args should get args with preset: --preset next --ui tailwind --anchor counter --anchor-program-name my-counter 1`] = `
+exports[`get-args expected args should get args with preset: --preset next --ui tailwind --anchor counter 1`] = `
 {
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "anchor",
-  "anchorProgramName": "my-counter",
+  "anchorProgramName": "my-app",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
@@ -95,12 +95,12 @@ exports[`get-args expected args should get args with preset: --preset next --ui 
 }
 `;
 
-exports[`get-args expected args should get args with preset: --preset react --anchor counter --anchor-name program --ui tailwind --anchor-program-name my-counter 1`] = `
+exports[`get-args expected args should get args with preset: --preset react --anchor counter --anchor-name program --ui tailwind --anchor-program-name some-counter 1`] = `
 {
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "program",
-  "anchorProgramName": "my-counter",
+  "anchorProgramName": "some-counter",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
@@ -119,7 +119,7 @@ exports[`get-args expected args should get args with preset: --preset react --an
   "anchor": "none",
   "anchorBuild": false,
   "anchorName": "program",
-  "anchorProgramName": "my-counter",
+  "anchorProgramName": "my-third-counter",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
@@ -138,7 +138,7 @@ exports[`get-args expected args should get args with preset: --preset react --an
   "anchor": "none",
   "anchorBuild": false,
   "anchorName": "program",
-  "anchorProgramName": "my-counter",
+  "anchorProgramName": "my-third-counter",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
@@ -157,7 +157,7 @@ exports[`get-args expected args should get args with preset: --preset react --an
   "anchor": "none",
   "anchorBuild": false,
   "anchorName": "program",
-  "anchorProgramName": "my-counter",
+  "anchorProgramName": "my-third-counter",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
@@ -176,7 +176,7 @@ exports[`get-args expected args should get args with preset: --preset react --an
   "anchor": "none",
   "anchorBuild": false,
   "anchorName": "anchor",
-  "anchorProgramName": "my-counter",
+  "anchorProgramName": "my-app",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
@@ -190,12 +190,12 @@ exports[`get-args expected args should get args with preset: --preset react --an
 }
 `;
 
-exports[`get-args expected args should get args with preset: --preset react --ui tailwind --anchor counter --anchor-program-name my-counter 1`] = `
+exports[`get-args expected args should get args with preset: --preset react --ui tailwind --anchor counter 1`] = `
 {
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "anchor",
-  "anchorProgramName": "my-counter",
+  "anchorProgramName": "my-app",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
@@ -209,12 +209,12 @@ exports[`get-args expected args should get args with preset: --preset react --ui
 }
 `;
 
-exports[`get-args expected args should get args with preset: --preset=react --anchor=counter --anchor-name=program --anchor-build --ui=tailwind --anchor-program-name=my-counter 1`] = `
+exports[`get-args expected args should get args with preset: --preset=react --anchor=counter --anchor-name=program --anchor-build --ui=tailwind --anchor-program-name=my-third-counter 1`] = `
 {
   "anchor": "counter",
   "anchorBuild": true,
   "anchorName": "program",
-  "anchorProgramName": "my-counter",
+  "anchorProgramName": "my-third-counter",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
@@ -228,12 +228,12 @@ exports[`get-args expected args should get args with preset: --preset=react --an
 }
 `;
 
-exports[`get-args expected args should get args with preset: --preset=react --anchor=counter --anchor-name=program --ui=tailwind --anchor-program-name=my-counter 1`] = `
+exports[`get-args expected args should get args with preset: --preset=react --anchor=counter --anchor-name=program --ui=tailwind --anchor-program-name=another-counter 1`] = `
 {
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "program",
-  "anchorProgramName": "my-counter",
+  "anchorProgramName": "another-counter",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",

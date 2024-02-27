@@ -4,19 +4,7 @@ import { getArgs } from './get-args'
 describe('get-args', () => {
   describe('expected args', () => {
     it('should get args with minimal parameters', async () => {
-      const result = await getArgs([
-        '',
-        '',
-        'my-app',
-        '--preset',
-        'next',
-        '--ui',
-        'tailwind',
-        '--anchor',
-        'counter',
-        '--anchor-program-name',
-        'my-counter',
-      ])
+      const result = await getArgs(['', '', 'my-app', '--preset', 'next', '--ui', 'tailwind', '--anchor', 'counter'])
       expect(result.packageManager).toBe('npm')
       expect(result).toMatchSnapshot()
     })
@@ -25,19 +13,7 @@ describe('get-args', () => {
       `should get args with minimal parameters and package manager %s`,
       async (pm: PackageManager) => {
         const result = await getArgs(
-          [
-            '',
-            '',
-            'my-app',
-            '--preset',
-            'next',
-            '--ui',
-            'tailwind',
-            '--anchor',
-            'counter',
-            '--anchor-program-name',
-            'my-counter',
-          ],
+          ['', '', 'my-app', '--preset', 'next', '--ui', 'tailwind', '--anchor', 'counter'],
           pm,
         )
         expect(result).toMatchSnapshot()
@@ -45,12 +21,12 @@ describe('get-args', () => {
     )
 
     it.each([
-      '--preset next --ui tailwind --anchor counter --anchor-program-name my-counter',
-      '--preset react --ui tailwind --anchor counter --anchor-program-name my-counter',
+      '--preset next --ui tailwind --anchor counter',
+      '--preset react --ui tailwind --anchor counter',
       '--preset react --anchor none --ui none',
-      '--preset react --anchor counter --anchor-name program --ui tailwind --anchor-program-name my-counter',
-      '--preset=react --anchor=counter --anchor-name=program --ui=tailwind --anchor-program-name=my-counter',
-      '--preset=react --anchor=counter --anchor-name=program --anchor-build --ui=tailwind --anchor-program-name=my-counter',
+      '--preset react --anchor counter --anchor-name program --ui tailwind --anchor-program-name some-counter',
+      '--preset=react --anchor=counter --anchor-name=program --ui=tailwind --anchor-program-name=another-counter',
+      '--preset=react --anchor=counter --anchor-name=program --anchor-build --ui=tailwind --anchor-program-name=my-third-counter',
       '--preset react --anchor none --ui none --pnpm',
       '--preset react --anchor none --ui none --yarn',
       '--preset react --anchor none --ui none --web-port=4200',

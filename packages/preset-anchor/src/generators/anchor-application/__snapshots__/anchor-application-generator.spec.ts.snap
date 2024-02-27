@@ -1074,7 +1074,7 @@ exports[`anchor-application generator should generate app with "counter" templat
       },
       "types": {
         "children": {
-          "my-program.ts": {
+          "my_program.ts": {
             "content": [
               "export type MyProgram = {",
               "version: '0.1.0';",
@@ -1268,7 +1268,7 @@ exports[`anchor-application generator should generate app with "counter" templat
               "};",
             ],
             "isBinary": false,
-            "path": "anchor-app/target/types/my-program.ts",
+            "path": "anchor-app/target/types/my_program.ts",
           },
         },
         "path": "anchor-app/target/types",

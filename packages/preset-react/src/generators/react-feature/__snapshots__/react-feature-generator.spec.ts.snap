@@ -4324,7 +4324,7 @@ exports[`react-feature generator should generate files for anchor-counter featur
           },
           "types": {
             "children": {
-              "anchor-app.ts": {
+              "anchor_app.ts": {
                 "content": [
                   "export type AnchorApp = {",
                   ""version": "0.1.0",",
@@ -4518,7 +4518,7 @@ exports[`react-feature generator should generate files for anchor-counter featur
                   "};",
                 ],
                 "isBinary": false,
-                "path": "./anchor-app/target/types/anchor-app.ts",
+                "path": "./anchor-app/target/types/anchor_app.ts",
               },
               "counter.ts": {
                 "content": [
