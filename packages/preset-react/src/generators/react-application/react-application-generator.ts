@@ -58,7 +58,7 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
   })
 
   // Add the dependencies for the base application.
-  reactApplicationDependencies(tree, options)
+  reactApplicationDependencies(tree, options, 'react')
 
   // Add the dependencies for the wallet adapter.
   walletAdapterDependencies(tree)

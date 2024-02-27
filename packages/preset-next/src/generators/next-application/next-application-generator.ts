@@ -86,7 +86,7 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
   })
 
   // Add the dependencies for the base application.
-  reactApplicationDependencies(tree, options)
+  reactApplicationDependencies(tree, options, 'next')
 
   addDependenciesToPackageJson(
     tree,

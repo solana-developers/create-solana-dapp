@@ -49,6 +49,11 @@ export async function reactFeatureGenerator(
     keypair,
   )
 
+  // We don't need to create the React code if the UI is set to none
+  if (options.ui === 'none') {
+    return
+  }
+
   const source = join(__dirname, 'files', options.feature)
   const target =
     options.preset === 'react'

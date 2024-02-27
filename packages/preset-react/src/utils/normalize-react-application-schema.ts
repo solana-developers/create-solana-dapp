@@ -5,6 +5,7 @@ export type NormalizedReactApplicationSchema = Required<ReactApplicationSchema> 
 }
 
 export type ReactApplicationUi = ReactApplicationSchema['ui']
+export type ReactPreset = 'react' | 'next'
 export function normalizeReactApplicationSchema(options: ReactApplicationSchema): NormalizedReactApplicationSchema {
   const webName = options.webName ?? options.name
   return {

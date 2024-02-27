@@ -4,18 +4,15 @@ import { Keypair } from '@solana/web3.js'
 import { join } from 'path'
 import { features, ReactFeature, reactFeatureGenerator } from '../generators/react-feature'
 import { createNextPageRouteAnchorCounter } from './create-next-page-route-anchor-counter'
-import { NormalizedReactApplicationSchema } from './normalize-react-application-schema'
+import { NormalizedReactApplicationSchema, ReactPreset } from './normalize-react-application-schema'
 
 export async function setupAnchorReactFeature(
   tree: Tree,
   options: NormalizedReactApplicationSchema,
   sourceRoot: string,
-  preset: 'react' | 'next',
+  preset: ReactPreset,
   keypair?: Keypair,
 ) {
-  if (options.ui === 'none') {
-    return
-  }
   if (options.anchor === 'none' || getProjects(tree).has(options.anchorName)) {
     return
   }

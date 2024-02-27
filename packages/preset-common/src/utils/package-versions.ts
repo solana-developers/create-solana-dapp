@@ -25,6 +25,8 @@ export const packageVersion = {
     'react-query-next-experimental': '5.24.1',
   },
   'react-hot-toast': '2.4.1',
+  'crypto-browserify': '3.12.0',
+  'stream-browserify': '3.0.0',
   bs58: '5.0.0',
   buffer: '6.0.3',
   daisyui: '4.7.2',
