@@ -42,7 +42,7 @@ export async function getArgs(argv: string[], pm: PackageManager = 'npm'): Promi
     )
     .option('--anchor-build', help(`Build the anchor project`), false)
     .option('--anchor-name <name>', help(`Anchor project name (default: anchor)\n`))
-    .option('--anchor-program-name <name>', help(`Anchor program name\n`))
+    .option('--anchor-program <name>', help(`Anchor program name\n`))
     .option('--web-name <name>', help(`Web project name (default: web)\n`))
     .option('--web-port <port>', help(`Web project port (default: 3000)\n`))
     .option('-pm, --package-manager <package-manager>', help(`Package manager to use (default: npm)\n`))
