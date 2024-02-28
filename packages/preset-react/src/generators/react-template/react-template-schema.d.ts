@@ -42,5 +42,5 @@ export interface ReactTemplateSchema {
   /**
    * Anchor program name
    */
-  anchorProgramName?: string;
+  anchorProgram?: string;
 }

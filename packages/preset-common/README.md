@@ -18,21 +18,19 @@ Name:  common-template
 Options:
     --directory                                                        [string]
     --name                                                             [string]
-    --npmScope             The npm scope to use                        [string]
-    --template             The template to use               [string] [choices:
+    --npmScope         The npm scope to use                            [string]
+    --template         The template to use                   [string] [choices:
                                                            "license", "readme"]
-    --webName              Name of the web                             [string]
-                           application (overrides
-                           name)
-    --anchor               Anchor template to use    [string] [choices: "none",
+    --webName          Name of the web application                     [string]
+                       (overrides name)
+    --anchor           Anchor template to use        [string] [choices: "none",
                                                             "counter", "basic"]
                                                               [default: "none"]
-    --anchorName           Anchor project name               [string] [default:
-                                                                      "anchor"]
-    --anchorProgramName    Anchor program name                         [string]
-    --licenseAuthor        The author to use in the                    [string]
-                           license
-    --preset               The preset to use         [string] [choices: "next",
+    --anchorName       Anchor project name         [string] [default: "anchor"]
+    --anchorProgram    Anchor program name                             [string]
+    --licenseAuthor    The author to use in the                        [string]
+                       license
+    --preset           The preset to use             [string] [choices: "next",
                                                                        "react"]
 ```
 

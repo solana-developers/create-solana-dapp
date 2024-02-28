@@ -8,7 +8,7 @@ import { NextApplicationSchema } from './next-application-schema'
 
 describe('application generator', () => {
   let tree: Tree
-  const rawOptions: NextApplicationSchema = { name: 'test-app', anchor: 'counter', anchorProgramName: 'my-program' }
+  const rawOptions: NextApplicationSchema = { name: 'test-app', anchor: 'counter', anchorProgram: 'my-program' }
   const options: NormalizedNextApplicationSchema = normalizeNextApplicationSchema(rawOptions)
   process.env['USER'] = 'test'
 

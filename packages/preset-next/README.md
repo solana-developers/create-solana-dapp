@@ -16,22 +16,20 @@ Name:  next-application (aliases: application, preset)
   Generate a Next.js application
 
 Options:
-    --name                 Name of the application                     [string]
-    --anchor               Anchor template to use    [string] [choices: "none",
+    --name             Name of the application                         [string]
+    --anchor           Anchor template to use        [string] [choices: "none",
                                                             "counter", "basic"]
                                                            [default: "counter"]
-    --anchorName           Anchor project name               [string] [default:
-                                                                      "anchor"]
-    --anchorProgramName    Anchor program name                         [string]
-    --port                 Port to run the             [number] [default: 3000]
-                           application on
-    --ui                   The UI library to use     [string] [choices: "none",
+    --anchorName       Anchor project name         [string] [default: "anchor"]
+    --anchorProgram    Anchor program name                             [string]
+    --port             Port to run the application     [number] [default: 3000]
+                       on
+    --ui               The UI library to use         [string] [choices: "none",
                                                           "tailwind"] [default:
                                                                     "tailwind"]
-    --webName              Name of the web                             [string]
-                           application (overrides
-                           name)
-    --skipFormat           Skip formatting files                      [boolean]
+    --webName          Name of the web application                     [string]
+                       (overrides name)
+    --skipFormat       Skip formatting files                          [boolean]
 ```
 
 ### next-template
@@ -47,18 +45,16 @@ Name:  next-template (aliases: template)
 Options:
     --directory                                                        [string]
     --name                                                             [string]
-    --npmScope             The npm scope to use                        [string]
-    --template             The template to use       [string] [choices: "base",
+    --npmScope         The npm scope to use                            [string]
+    --template         The template to use           [string] [choices: "base",
                                                             "none", "tailwind"]
-    --webName              Name of the web                             [string]
-                           application (overrides
-                           name)
-    --anchor               Anchor template to use    [string] [choices: "none",
+    --webName          Name of the web application                     [string]
+                       (overrides name)
+    --anchor           Anchor template to use        [string] [choices: "none",
                                                             "counter", "basic"]
                                                               [default: "none"]
-    --anchorName           Anchor project name               [string] [default:
-                                                                      "anchor"]
-    --anchorProgramName    Anchor program name                         [string]
+    --anchorName       Anchor project name         [string] [default: "anchor"]
+    --anchorProgram    Anchor program name                             [string]
 ```
 
 ## More information

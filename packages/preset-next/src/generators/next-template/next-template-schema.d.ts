@@ -34,5 +34,5 @@ export interface NextTemplateSchema {
   /**
    * Anchor program name
    */
-  anchorProgramName?: string;
+  anchorProgram?: string;
 }

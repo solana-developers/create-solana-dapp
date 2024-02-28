@@ -4,7 +4,7 @@ export interface GetArgsResult {
   anchor: string | undefined
   anchorBuild: boolean
   anchorName: string | undefined
-  anchorProgramName: string | undefined
+  anchorProgram: string | undefined
   dryRun: boolean
   name: string | undefined
   package: string

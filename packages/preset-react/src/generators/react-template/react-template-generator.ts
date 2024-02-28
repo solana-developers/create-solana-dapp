@@ -7,7 +7,7 @@ export async function reactTemplateGenerator(tree: Tree, options: ReactTemplateS
   const substitutions = reactApplicationSubstitutions({
     anchor: options.anchor,
     anchorName: options.anchorName,
-    anchorProgramName: options.anchorProgramName,
+    anchorProgram: options.anchorProgram,
     licenseAuthor: options.licenseAuthor,
     name: options.webName,
     npmScope: options.npmScope,

@@ -16,7 +16,7 @@ async function main() {
       {
         anchor: args.anchor,
         anchorName: args.anchorName,
-        anchorProgramName: args.anchorProgramName,
+        anchorProgram: args.anchorProgram,
         commit: {
           name: '',
           email: '',

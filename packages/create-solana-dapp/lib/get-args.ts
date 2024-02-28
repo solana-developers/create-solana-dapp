@@ -86,7 +86,7 @@ Examples:
     anchor: result.anchor,
     anchorBuild: result.anchorBuild,
     anchorName: result.anchorName ?? 'anchor',
-    anchorProgramName: result.anchorProgramName ?? name ?? '',
+    anchorProgram: result.anchorProgram ?? name ?? '',
     dryRun: result.dryRun ?? false,
     name: name ?? '',
     package: '',
@@ -119,7 +119,7 @@ Examples:
     options.anchor = prompts.anchor
   }
   if (options.anchor !== 'none') {
-    options.anchorProgramName = prompts.anchorProgramName as string
+    options.anchorProgram = prompts.anchorProgram as string
   }
 
   // Validate the options

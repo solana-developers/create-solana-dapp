@@ -40,5 +40,5 @@ export interface NextApplicationSchema {
   /**
    * Anchor program name
    */
-  anchorProgramName?: string;
+  anchorProgram?: string;
 }

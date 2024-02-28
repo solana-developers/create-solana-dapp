@@ -3,7 +3,7 @@ import { detectPackageManager, names, PackageManager } from '@nx/devkit'
 export interface GenericSubstitutions {
   anchor: string
   anchorName: string
-  anchorProgramName: string
+  anchorProgram: string
   licenseAuthor?: string
   name: string
   npmScope: string
@@ -14,7 +14,7 @@ export function genericSubstitutions(
     licenseAuthor = process.env['USER'] ?? '',
     anchor,
     anchorName,
-    anchorProgramName,
+    anchorProgram,
     name,
     npmScope,
     preset,
@@ -22,13 +22,13 @@ export function genericSubstitutions(
   pm: PackageManager = detectPackageManager(),
 ) {
   const runCmd = pm === 'npm' ? 'npm run' : pm.toString()
-  anchorProgramName = anchorProgramName ?? anchorName
+  anchorProgram = anchorProgram ?? anchorName
   return {
     ...names(name),
     licenseAuthor,
     anchor: names(anchor),
     anchorName: names(anchorName),
-    anchorProgramName: names(anchorProgramName),
+    anchorProgram: names(anchorProgram),
     npmScope,
     currentFullYear: new Date().getFullYear(),
     preset: preset ?? 'react',

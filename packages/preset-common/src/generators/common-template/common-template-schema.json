@@ -57,7 +57,7 @@
       "description": "Anchor project name",
       "default": "anchor"
     },
-    "anchorProgramName": {
+    "anchorProgram": {
       "type": "string",
       "description": "Anchor program name"
     }

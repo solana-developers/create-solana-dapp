@@ -40,5 +40,5 @@ export interface ReactApplicationSchema {
   /**
    * Anchor program name
    */
-  anchorProgramName?: string;
+  anchorProgram?: string;
 }

@@ -59,11 +59,9 @@ export function getPrompts({
           options: anchorTemplates.map(({ label, value }) => ({ label, value })) as [],
         })
       },
-      anchorProgramName: ({ results }) => {
-        const anchorProgramName = options.anchorProgramName.length
-          ? options.anchorProgramName
-          : results.name ?? 'my-program'
-        return Promise.resolve(anchorProgramName)
+      anchorProgram: ({ results }) => {
+        const anchorProgram = options.anchorProgram.length ? options.anchorProgram : results.name ?? 'my-program'
+        return Promise.resolve(anchorProgram)
       },
     },
     {

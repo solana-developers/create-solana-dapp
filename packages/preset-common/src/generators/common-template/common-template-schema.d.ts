@@ -42,5 +42,5 @@ export interface CommonTemplateSchema {
   /**
    * Anchor program name
    */
-  anchorProgramName?: string;
+  anchorProgram?: string;
 }

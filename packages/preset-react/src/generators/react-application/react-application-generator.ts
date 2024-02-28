@@ -31,7 +31,7 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
     template: 'base',
     anchor: options.anchor,
     anchorName: options.anchorName,
-    anchorProgramName: options.anchorProgramName,
+    anchorProgram: options.anchorProgram,
     webName: options.webName,
     directory: project.root,
   })
@@ -43,7 +43,7 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
     template: options.ui,
     anchor: options.anchor,
     anchorName: options.anchorName,
-    anchorProgramName: options.anchorProgramName,
+    anchorProgram: options.anchorProgram,
     webName: options.webName,
     directory: project.root,
   })
@@ -55,7 +55,7 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
     template: 'solana-provider',
     anchor: options.anchor,
     anchorName: options.anchorName,
-    anchorProgramName: options.anchorProgramName,
+    anchorProgram: options.anchorProgram,
     webName: options.webName,
     directory: join(project.root, 'src', 'app', 'solana'),
   })

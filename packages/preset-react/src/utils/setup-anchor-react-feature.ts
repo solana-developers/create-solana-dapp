@@ -23,7 +23,7 @@ export async function setupAnchorReactFeature(
   // Create the Anchor application
   await anchorApplicationGenerator(
     tree,
-    { name: options.anchorName, programName: options.anchorProgramName, skipFormat: true },
+    { name: options.anchorName, programName: options.anchorProgram, skipFormat: true },
     keypair,
   )
 
@@ -31,9 +31,9 @@ export async function setupAnchorReactFeature(
   await reactFeatureGenerator(
     tree,
     {
-      name: options.anchorProgramName,
+      name: options.anchorProgram,
       anchorName: options.anchorName,
-      anchorProgramName: options.anchorProgramName,
+      anchorProgram: options.anchorProgram,
       webName: options.webName,
       skipFormat: true,
       feature,

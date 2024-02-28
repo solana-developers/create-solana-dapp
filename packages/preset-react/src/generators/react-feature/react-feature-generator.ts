@@ -35,7 +35,7 @@ export async function reactFeatureGenerator(
   const substitutions = genericSubstitutions({
     ...options,
     anchorName: options.anchorName,
-    anchorProgramName: options.anchorProgramName,
+    anchorProgram: options.anchorProgram,
     anchor: anchorTemplate,
     preset,
     npmScope,
@@ -45,7 +45,7 @@ export async function reactFeatureGenerator(
     tree,
     {
       projectName: options.anchorName,
-      name: substitutions.anchorProgramName.fileName,
+      name: substitutions.anchorProgram.fileName,
       template: anchorTemplate,
       directory: anchorProject.root,
     },
@@ -68,8 +68,8 @@ export async function reactFeatureGenerator(
     ...substitutions,
   })
 
-  const path = substitutions.anchorProgramName.fileName
-  const label = substitutions.anchorProgramName.className
+  const path = substitutions.anchorProgram.fileName
+  const label = substitutions.anchorProgram.className
 
   const routesFile = join(webProject.sourceRoot, 'app', getRouteFile(preset))
 
