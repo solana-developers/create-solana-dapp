@@ -14,9 +14,11 @@ export function get<%= className %>ProgramId(cluster: Cluster) {
   switch (cluster) {
     case 'devnet':
     case 'testnet':
-    case 'mainnet-beta':
-      // You only need to update this if you deploy your program on one of these clusters.
+<% if (fileName === 'counter') { %>
+      // This is the program ID for the Counter program on devnet and testnet.
       return new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg')
+<% } %>
+    case 'mainnet-beta':
     default:
       return <%= upperCaseName %>_PROGRAM_ID
   }

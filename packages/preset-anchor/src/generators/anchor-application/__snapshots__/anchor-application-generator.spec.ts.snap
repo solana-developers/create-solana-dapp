@@ -937,8 +937,6 @@ exports[`anchor-application generator should generate app with "counter" templat
           "case 'devnet':",
           "case 'testnet':",
           "case 'mainnet-beta':",
-          "// You only need to update this if you deploy your program on one of these clusters.",
-          "return new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg');",
           "default:",
           "return MY_PROGRAM_PROGRAM_ID;",
           "}",
