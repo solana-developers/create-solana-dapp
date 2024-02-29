@@ -13,11 +13,9 @@ export const <%= upperCaseName %>_PROGRAM_ID = new PublicKey('<%= publicKey %>')
 export function get<%= className %>ProgramId(cluster: Cluster) {
   switch (cluster) {
     case 'devnet':
-    case 'testnet':
-<% if (fileName === 'counter') { %>
+    case 'testnet':<% if (fileName === 'counter') { %>
       // This is the program ID for the Counter program on devnet and testnet.
-      return new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg')
-<% } %>
+      return new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg')<% } %>
     case 'mainnet-beta':
     default:
       return <%= upperCaseName %>_PROGRAM_ID
