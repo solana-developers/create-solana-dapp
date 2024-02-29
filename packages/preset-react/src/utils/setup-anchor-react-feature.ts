@@ -33,7 +33,6 @@ export async function setupAnchorReactFeature(
     {
       name: options.anchorProgram,
       anchorName: options.anchorName,
-      anchorProgram: options.anchorProgram,
       webName: options.webName,
       skipFormat: true,
       feature,

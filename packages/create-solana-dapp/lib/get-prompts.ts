@@ -51,7 +51,8 @@ export function getPrompts({
       },
       anchor: () => {
         if (options.anchor) {
-          log.success(`Anchor template: ${options.anchor}`)
+          const anchor = anchorTemplates.find((a) => a.value === options.anchor)
+          log.success(`Anchor template: ${anchor.label}`)
           return Promise.resolve(options.anchor)
         }
         return select({
@@ -61,6 +62,7 @@ export function getPrompts({
       },
       anchorProgram: ({ results }) => {
         const anchorProgram = options.anchorProgram.length ? options.anchorProgram : results.name ?? 'my-program'
+        log.success(`Anchor program name: ${anchorProgram}`)
         return Promise.resolve(anchorProgram)
       },
     },

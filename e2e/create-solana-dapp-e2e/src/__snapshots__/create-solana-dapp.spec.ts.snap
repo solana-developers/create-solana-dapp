@@ -17,6 +17,8 @@ Name of the Anchor template to use (default: <prompt>, set to "none" to prevent 
 Build the anchor project (default: false)
 --anchor-name <name>
 Anchor project name (default: anchor)
+--anchor-program <name>
+Anchor program name
 --web-name <name>
 Web project name (default: web)
 --web-port <port>
@@ -34,5 +36,5 @@ Display help for command
 Examples:
 $ create-solana-dapp my-app --preset react
 $ create-solana-dapp my-app --preset react --package-manager yarn
-$ create-solana-dapp my-app --preset react --anchor hello-world"
+$ create-solana-dapp my-app --preset react --anchor basic"
 `;

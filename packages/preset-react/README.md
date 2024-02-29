@@ -73,20 +73,19 @@ Name:  react-feature (aliases: feature)
   undefined
 
 Options:
-    --name                                                             [string]
-    --anchorName       Name of the Anchor project  [string] [default: "anchor"]
-                       in the workspace
-    --anchorProgram    Anchor program name                             [string]
-    --feature          The feature to generate               [string] [choices:
-                                                              "anchor-counter",
-                                                        "anchor-basic", "none"]
-    --npmScope         The npm scope to use                            [string]
-    --ui               The UI library to use         [string] [choices: "none",
-                                                          "tailwind"] [default:
-                                                                    "tailwind"]
-    --webName          Name of the web application    [string] [default: "web"]
-                       (overrides name)
-    --skipFormat       Skip formatting files                          [boolean]
+    --name                                                              [string]
+    --anchorName    Name of the Anchor project in   [string] [default: "anchor"]
+                    the workspace
+    --feature       The feature to generate                   [string] [choices:
+                                                               "anchor-counter",
+                                                         "anchor-basic", "none"]
+    --npmScope      The npm scope to use                                [string]
+    --ui            The UI library to use             [string] [choices: "none",
+                                                           "tailwind"] [default:
+                                                                     "tailwind"]
+    --webName       Name of the Web project in the     [string] [default: "web"]
+                    workspace
+    --skipFormat    Skip formatting files                              [boolean]
 ```
 
 ## More information

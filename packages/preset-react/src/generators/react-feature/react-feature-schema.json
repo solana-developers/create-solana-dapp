@@ -24,22 +24,16 @@
       "description": "Name of the Anchor project in the workspace",
       "default": "anchor"
     },
-    "anchorProgram": {
-      "type": "string",
-      "description": "Anchor program name",
-      "x-prompt": "What is the name of the anchor program?"
-    },
     "webName": {
       "type": "string",
-      "description": "Name of the web application (overrides name)",
+      "description": "Name of the Web project in the workspace",
       "default": "web"
     },
     "ui": {
       "description": "The UI library to use",
       "type": "string",
       "enum": ["none", "tailwind"],
-      "default": "tailwind",
-      "x-prompt": "Which UI library would you like to use?"
+      "default": "tailwind"
     },
     "npmScope": {
       "type": "string",

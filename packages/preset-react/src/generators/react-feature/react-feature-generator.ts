@@ -35,7 +35,7 @@ export async function reactFeatureGenerator(
   const substitutions = genericSubstitutions({
     ...options,
     anchorName: options.anchorName,
-    anchorProgram: options.anchorProgram,
+    anchorProgram: options.name,
     anchor: anchorTemplate,
     preset,
     npmScope,
