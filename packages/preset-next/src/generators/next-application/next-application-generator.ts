@@ -1,4 +1,4 @@
-import { installPackagesTask, Tree } from '@nx/devkit'
+import { installPackagesTask, Tree, updateJson } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
 import { applicationCleanup } from '@solana-developers/preset-common'
 import {
@@ -110,6 +110,20 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
     return config;
   },`
   tree.write(nextConfigPath, nextConfig.replace(needle, `${needle}\n${snippet}`))
+
+  // Make sure to add these types to the tsconfig.json include array
+  const nextTypes = '.next/types/**/*.ts'
+  updateJson(tree, join(project.root, 'tsconfig.json'), (json) => {
+    json.include = json.include || []
+    if (!json.include.includes(nextTypes)) {
+      json.include.push(nextTypes)
+    } else {
+      console.warn(
+        `"${nextTypes}" already exists in the tsconfig.json include array, this can be removed from the generator.`,
+      )
+    }
+    return json
+  })
 
   // Generate the common files.
   await generateReactCommonFiles(tree, options, npmScope)
