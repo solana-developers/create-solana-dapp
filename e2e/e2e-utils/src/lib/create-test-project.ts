@@ -21,7 +21,7 @@ export function createTestProject(projectName: string) {
   })
 
   execSync(
-    `npx --yes create-nx-workspace@latest ${projectName} --preset apps --no-nxCloud --no-interactive --package-manager pnpm`,
+    `npx --yes create-nx-workspace@latest ${projectName} --preset apps --nxCloud skip --no-interactive --package-manager pnpm`,
     {
       cwd: dirname(projectDirectory),
       stdio: 'inherit',
