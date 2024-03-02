@@ -4,6 +4,7 @@ import { execAndWait } from 'create-nx-workspace/src/utils/child-process-utils'
 import { detectInvokedPackageManager } from 'create-nx-workspace/src/utils/package-manager'
 import { join } from 'node:path'
 import { customCreateWorkspace } from '../lib/custom-create-workspace'
+import { finalNote } from '../lib/final-note'
 import { getArgs } from '../lib/get-args'
 
 async function main() {
@@ -47,18 +48,12 @@ async function main() {
       },
     )
     const target = directory.replace(process.cwd(), '.')
-    note(
-      `That's it!\n
-Change to your new directory and start developing:\n
-  cd ${target}\n
-  ${pm} run dev`,
-      'Installation successful!',
-    )
-    outro('Good luck with your project!')
+    note(finalNote({ ...args, target }), 'Installation successful!')
   } else {
     note(JSON.stringify(args, null, 2), 'Dry run, no changes were made.')
-    outro(`Would have created the workspace: ${args.name} with preset: ${args.preset}.`)
+    note(finalNote({ ...args, target: './dry-run' }), 'Installation successful!')
   }
+  outro('Good luck with your project!')
 }
 
 main()
