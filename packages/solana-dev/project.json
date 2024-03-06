@@ -18,6 +18,9 @@
       "command": "node tools/scripts/publish.mjs solana-dev {args.ver} {args.tag}",
       "dependsOn": ["build"]
     },
+    "dist-tag": {
+      "command": "npm dist-tag add solana-dev@{args.ver} {args.tag}"
+    },
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"]

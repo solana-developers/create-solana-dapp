@@ -40,6 +40,9 @@
       "command": "node tools/scripts/publish.mjs preset-common {args.ver} {args.tag}",
       "dependsOn": ["build"]
     },
+    "dist-tag": {
+      "command": "npm dist-tag add @solana-developers/preset-common@{args.ver} {args.tag}"
+    },
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"]
