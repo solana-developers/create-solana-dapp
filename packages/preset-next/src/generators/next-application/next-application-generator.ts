@@ -1,23 +1,21 @@
-import { addDependenciesToPackageJson, getProjects, installPackagesTask, Tree } from '@nx/devkit'
+import { installPackagesTask, Tree, updateJson } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
-import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
-import { applicationCleanup, packageVersion } from '@solana-developers/preset-common'
+import { applicationCleanup } from '@solana-developers/preset-common'
 import {
-  applicationTailwindConfig,
-  features,
   generateReactCommonFiles,
   reactApplicationDependencies,
-  ReactFeature,
-  reactFeatureGenerator,
+  reactApplicationUiConfig,
   reactTemplateGenerator,
+  setupAnchorReactFeature,
   walletAdapterDependencies,
 } from '@solana-developers/preset-react'
+import { Keypair } from '@solana/web3.js'
 import { join } from 'path'
 import { generateNextApplication, NormalizedNextApplicationSchema, normalizeNextApplicationSchema } from '../../utils'
 import nextTemplateGenerator from '../next-template/next-template-generator'
 import { NextApplicationSchema } from './next-application-schema'
 
-export async function nextApplicationGenerator(tree: Tree, rawOptions: NextApplicationSchema) {
+export async function nextApplicationGenerator(tree: Tree, rawOptions: NextApplicationSchema, keypair?: Keypair) {
   const options: NormalizedNextApplicationSchema = normalizeNextApplicationSchema(rawOptions)
   const project = await generateNextApplication(tree, options)
   const npmScope = getNpmScope(tree)
@@ -40,6 +38,7 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
     template: 'base',
     anchor: options.anchor,
     anchorName: options.anchorName,
+    anchorProgram: options.anchorProgram,
     webName: options.webName,
     directory: project.sourceRoot,
   })
@@ -54,6 +53,7 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
       template: options.ui,
       anchor: options.anchor,
       anchorName: options.anchorName,
+      anchorProgram: options.anchorProgram,
       webName: options.webName,
       directory: components,
       preset: 'next',
@@ -71,6 +71,7 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
     template: options.ui,
     anchor: options.anchor,
     anchorName: options.anchorName,
+    anchorProgram: options.anchorProgram,
     webName: options.webName,
     directory: project.sourceRoot,
   })
@@ -82,63 +83,24 @@ export async function nextApplicationGenerator(tree: Tree, rawOptions: NextAppli
     template: 'solana-provider',
     anchor: options.anchor,
     anchorName: options.anchorName,
+    anchorProgram: options.anchorProgram,
     webName: options.webName,
     directory: join(components, 'solana'),
     preset: 'next',
   })
 
   // Add the dependencies for the base application.
-  reactApplicationDependencies(tree, options)
-
-  addDependenciesToPackageJson(
-    tree,
-    {
-      '@tanstack/react-query-next-experimental': packageVersion['@tanstack']['react-query-next-experimental'],
-      encoding: packageVersion.encoding,
-    },
-    {},
-  )
+  reactApplicationDependencies(tree, options, 'next')
 
   // Add the dependencies for the wallet adapter.
   walletAdapterDependencies(tree)
 
-  if (options.ui === 'tailwind') {
-    // Add the tailwind config.
-    await applicationTailwindConfig(tree, options.webName)
-  }
+  // Add the ui config.
+  await reactApplicationUiConfig(tree, options)
 
-  if (options.anchor !== 'none' && !getProjects(tree).has(options.anchorName)) {
-    const feature: ReactFeature = features.find((feature) => feature.toString() === `anchor-${options.anchor}`)
+  // Set up the anchor feature.
+  await setupAnchorReactFeature(tree, options, keypair)
 
-    if (!feature) {
-      throw new Error(`Invalid anchor feature: ${options.anchor}`)
-    }
-
-    await anchorApplicationGenerator(tree, {
-      name: options.anchorName,
-      skipFormat: true,
-    })
-
-    await reactFeatureGenerator(tree, {
-      name: feature.replace('anchor-', '').toString(),
-      anchorName: options.anchorName,
-      webName: options.webName,
-      skipFormat: true,
-      feature,
-    })
-
-    if (options.anchor === 'counter' && options.ui !== 'none') {
-      tree.write(
-        join(project.sourceRoot, 'app/counter/page.tsx'),
-        `import CounterFeature from '@/components/counter/counter-feature';
-
-export default function Page() {
-  return <CounterFeature />;
-}
-`,
-      )
-    }
-  }
   // Patch node-gyp-build error
   const nextConfigPath = join(project.root, 'next.config.js')
   const nextConfig = tree.read(nextConfigPath, 'utf-8')
@@ -149,6 +111,21 @@ export default function Page() {
   },`
   tree.write(nextConfigPath, nextConfig.replace(needle, `${needle}\n${snippet}`))
 
+  // Make sure to add these types to the tsconfig.json include array
+  const nextTypes = '.next/types/**/*.ts'
+  updateJson(tree, join(project.root, 'tsconfig.json'), (json) => {
+    json.include = json.include || []
+    if (!json.include.includes(nextTypes)) {
+      json.include.push(nextTypes)
+    } else {
+      console.warn(
+        `"${nextTypes}" already exists in the tsconfig.json include array, this can be removed from the generator.`,
+      )
+    }
+    return json
+  })
+
+  // Generate the common files.
   await generateReactCommonFiles(tree, options, npmScope)
 
   // Install the packages on exit.

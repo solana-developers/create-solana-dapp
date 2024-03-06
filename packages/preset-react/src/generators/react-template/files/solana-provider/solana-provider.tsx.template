@@ -5,16 +5,13 @@ import dynamic from 'next/dynamic';<% } %>
 <% if (anchor.fileName !== 'none') { %>import { AnchorProvider } from '@coral-xyz/anchor'<% } %>
 import { WalletError } from '@solana/wallet-adapter-base'
 import {
-  AnchorWallet,
+  <% if (anchor.fileName !== 'none') { %> AnchorWallet, useConnection, useWallet, <% } %>
   ConnectionProvider,
-  useConnection,
-  useWallet,
   WalletProvider,
 } from '@solana/wallet-adapter-react'
 import { WalletModalProvider<% if (preset === 'react') { %>, WalletMultiButton<% } %> } from '@solana/wallet-adapter-react-ui'
-import { SolflareWalletAdapter } from '@solana/wallet-adapter-solflare'
 import { ReactNode, useCallback, useMemo } from 'react'
-import { toWalletAdapterNetwork, useCluster } from '../cluster/cluster-data-access'
+import { useCluster } from '../cluster/cluster-data-access'
 
 require('@solana/wallet-adapter-react-ui/styles.css')
 
@@ -31,20 +28,13 @@ export const WalletButton = dynamic(
 export function SolanaProvider({ children }: { children: ReactNode }) {
   const { cluster } = useCluster()
   const endpoint = useMemo(() => cluster.endpoint, [cluster])
-  const wallets = useMemo(
-    () => [
-      new SolflareWalletAdapter({ network: toWalletAdapterNetwork(cluster.network) }),
-    ],
-    [cluster],
-  )
-
   const onError = useCallback((error: WalletError) => {
     console.error(error)
   }, [])
 
   return (
     <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={wallets} onError={onError} autoConnect={true}>
+      <WalletProvider wallets={[]} onError={onError} autoConnect={true}>
         <WalletModalProvider>{children}</WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>

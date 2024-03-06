@@ -16,18 +16,20 @@ Name:  react-application (aliases: application, preset)
   Generates a React application.
 
 Options:
-    --name          Name of the application                             [string]
-    --anchor        Anchor template to use            [string] [choices: "none",
-                                                       "counter", "hello-world"]
-                                                            [default: "counter"]
-    --anchorName    Anchor project name             [string] [default: "anchor"]
-    --port          Port to run the application on      [number] [default: 3000]
-    --ui            The UI library to use             [string] [choices: "none",
-                                                           "tailwind"] [default:
-                                                                     "tailwind"]
-    --webName       Name of the web application                         [string]
-                    (overrides name)
-    --skipFormat    Skip formatting files                              [boolean]
+    --name             Name of the application                         [string]
+    --anchor           Anchor template to use        [string] [choices: "none",
+                                                            "counter", "basic"]
+                                                           [default: "counter"]
+    --anchorName       Anchor project name         [string] [default: "anchor"]
+    --anchorProgram    Anchor program name                             [string]
+    --port             Port to run the application     [number] [default: 3000]
+                       on
+    --ui               The UI library to use         [string] [choices: "none",
+                                                          "tailwind"] [default:
+                                                                    "tailwind"]
+    --webName          Name of the web application                     [string]
+                       (overrides name)
+    --skipFormat       Skip formatting files                          [boolean]
 ```
 
 ### react-template
@@ -50,9 +52,10 @@ Options:
     --webName          Name of the web application                     [string]
                        (overrides name)
     --anchor           Anchor template to use        [string] [choices: "none",
-                                                      "counter", "hello-world"]
+                                                            "counter", "basic"]
                                                               [default: "none"]
     --anchorName       Anchor project name         [string] [default: "anchor"]
+    --anchorProgram    Anchor program name                             [string]
     --licenseAuthor    The author to use in the                        [string]
                        license
     --preset           The preset to use             [string] [choices: "next",
@@ -71,17 +74,17 @@ Name:  react-feature (aliases: feature)
 
 Options:
     --name                                                              [string]
-    --anchorName    Anchor project name             [string] [default: "anchor"]
+    --anchorName    Name of the Anchor project in   [string] [default: "anchor"]
+                    the workspace
     --feature       The feature to generate                   [string] [choices:
-                                                               "anchor-counter"]
+                                                               "anchor-counter",
+                                                         "anchor-basic", "none"]
     --npmScope      The npm scope to use                                [string]
-    --preset        The preset to use                 [string] [choices: "next",
-                                                                        "react"]
     --ui            The UI library to use             [string] [choices: "none",
                                                            "tailwind"] [default:
                                                                      "tailwind"]
-    --webName       Name of the web application        [string] [default: "web"]
-                    (overrides name)
+    --webName       Name of the Web project in the     [string] [default: "web"]
+                    workspace
     --skipFormat    Skip formatting files                              [boolean]
 ```
 

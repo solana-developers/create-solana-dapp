@@ -5,6 +5,7 @@ exports[`get-args expected args should get args with minimal parameters 1`] = `
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "anchor",
+  "anchorProgram": "my-app",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
@@ -23,6 +24,7 @@ exports[`get-args expected args should get args with minimal parameters and pack
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "anchor",
+  "anchorProgram": "my-app",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
@@ -41,6 +43,7 @@ exports[`get-args expected args should get args with minimal parameters and pack
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "anchor",
+  "anchorProgram": "my-app",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
@@ -59,6 +62,7 @@ exports[`get-args expected args should get args with minimal parameters and pack
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "anchor",
+  "anchorProgram": "my-app",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
@@ -77,6 +81,7 @@ exports[`get-args expected args should get args with preset: --preset next --ui 
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "anchor",
+  "anchorProgram": "my-app",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-next@0.0.1",
@@ -90,11 +95,12 @@ exports[`get-args expected args should get args with preset: --preset next --ui 
 }
 `;
 
-exports[`get-args expected args should get args with preset: --preset react --anchor counter --anchor-name program --ui tailwind 1`] = `
+exports[`get-args expected args should get args with preset: --preset react --anchor counter --anchor-name program --ui tailwind --anchor-program some-counter 1`] = `
 {
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "program",
+  "anchorProgram": "some-counter",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
@@ -113,6 +119,7 @@ exports[`get-args expected args should get args with preset: --preset react --an
   "anchor": "none",
   "anchorBuild": false,
   "anchorName": "program",
+  "anchorProgram": "my-third-counter",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
@@ -131,6 +138,7 @@ exports[`get-args expected args should get args with preset: --preset react --an
   "anchor": "none",
   "anchorBuild": false,
   "anchorName": "program",
+  "anchorProgram": "my-third-counter",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
@@ -149,6 +157,7 @@ exports[`get-args expected args should get args with preset: --preset react --an
   "anchor": "none",
   "anchorBuild": false,
   "anchorName": "program",
+  "anchorProgram": "my-third-counter",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
@@ -167,6 +176,7 @@ exports[`get-args expected args should get args with preset: --preset react --an
   "anchor": "none",
   "anchorBuild": false,
   "anchorName": "anchor",
+  "anchorProgram": "my-app",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
@@ -185,6 +195,7 @@ exports[`get-args expected args should get args with preset: --preset react --ui
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "anchor",
+  "anchorProgram": "my-app",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
@@ -198,11 +209,12 @@ exports[`get-args expected args should get args with preset: --preset react --ui
 }
 `;
 
-exports[`get-args expected args should get args with preset: --preset=react --anchor=counter --anchor-name=program --anchor-build --ui=tailwind 1`] = `
+exports[`get-args expected args should get args with preset: --preset=react --anchor=counter --anchor-name=program --anchor-build --ui=tailwind --anchor-program=my-third-counter 1`] = `
 {
   "anchor": "counter",
   "anchorBuild": true,
   "anchorName": "program",
+  "anchorProgram": "my-third-counter",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",
@@ -216,11 +228,12 @@ exports[`get-args expected args should get args with preset: --preset=react --an
 }
 `;
 
-exports[`get-args expected args should get args with preset: --preset=react --anchor=counter --anchor-name=program --ui=tailwind 1`] = `
+exports[`get-args expected args should get args with preset: --preset=react --anchor=counter --anchor-name=program --ui=tailwind --anchor-program=another-counter 1`] = `
 {
   "anchor": "counter",
   "anchorBuild": false,
   "anchorName": "program",
+  "anchorProgram": "another-counter",
   "dryRun": false,
   "name": "my-app",
   "package": "@solana-developers/preset-react@0.0.1",

@@ -8,10 +8,12 @@ Generates a React application.
 Options:
 --name Name of the application [string]
 --anchor Anchor template to use [string] [choices: "none",
-"counter", "hello-world"]
+"counter", "basic"]
 [default: "counter"]
 --anchorName Anchor project name [string] [default: "anchor"]
---port Port to run the application on [number] [default: 3000]
+--anchorProgram Anchor program name [string]
+--port Port to run the application [number] [default: 3000]
+on
 --ui The UI library to use [string] [choices: "none",
 "tailwind"] [default:
 "tailwind"]

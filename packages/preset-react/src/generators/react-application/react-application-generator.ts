@@ -1,22 +1,22 @@
-import { getProjects, installPackagesTask, Tree } from '@nx/devkit'
+import { installPackagesTask, Tree } from '@nx/devkit'
 import { getNpmScope } from '@nx/js/src/utils/package-json/get-npm-scope'
-import { anchorApplicationGenerator } from '@solana-developers/preset-anchor'
 import { applicationCleanup } from '@solana-developers/preset-common'
+import { Keypair } from '@solana/web3.js'
 import { join } from 'path'
 import {
-  applicationTailwindConfig,
   generateReactApplication,
   generateReactCommonFiles,
   NormalizedReactApplicationSchema,
   normalizeReactApplicationSchema,
   reactApplicationDependencies,
+  reactApplicationUiConfig,
+  setupAnchorReactFeature,
   walletAdapterDependencies,
 } from '../../utils'
-import { features, ReactFeature, reactFeatureGenerator } from '../react-feature'
 import { reactTemplateGenerator } from '../react-template/react-template-generator'
 import { ReactApplicationSchema } from './react-application-schema'
 
-export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApplicationSchema) {
+export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApplicationSchema, keypair?: Keypair) {
   const options: NormalizedReactApplicationSchema = normalizeReactApplicationSchema(rawOptions)
   const npmScope = getNpmScope(tree)
   // Set up the base project.
@@ -31,6 +31,7 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
     template: 'base',
     anchor: options.anchor,
     anchorName: options.anchorName,
+    anchorProgram: options.anchorProgram,
     webName: options.webName,
     directory: project.root,
   })
@@ -42,6 +43,7 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
     template: options.ui,
     anchor: options.anchor,
     anchorName: options.anchorName,
+    anchorProgram: options.anchorProgram,
     webName: options.webName,
     directory: project.root,
   })
@@ -53,41 +55,24 @@ export async function reactApplicationGenerator(tree: Tree, rawOptions: ReactApp
     template: 'solana-provider',
     anchor: options.anchor,
     anchorName: options.anchorName,
+    anchorProgram: options.anchorProgram,
     webName: options.webName,
     directory: join(project.root, 'src', 'app', 'solana'),
   })
 
   // Add the dependencies for the base application.
-  reactApplicationDependencies(tree, options)
+  reactApplicationDependencies(tree, options, 'react')
 
   // Add the dependencies for the wallet adapter.
   walletAdapterDependencies(tree)
 
-  if (options.ui === 'tailwind') {
-    // Add the tailwind config.
-    await applicationTailwindConfig(tree, options.webName)
-  }
+  // Add the tailwind config.
+  await reactApplicationUiConfig(tree, options)
 
-  if (options.anchor !== 'none' && !getProjects(tree).has(options.anchorName)) {
-    const feature: ReactFeature = features.find((feature) => feature.toString() === `anchor-${options.anchor}`)
+  // Set up the anchor feature.
+  await setupAnchorReactFeature(tree, options, keypair)
 
-    if (!feature) {
-      throw new Error(`Invalid anchor feature: ${options.anchor}`)
-    }
-
-    await anchorApplicationGenerator(tree, {
-      name: options.anchorName,
-      skipFormat: true,
-    })
-
-    await reactFeatureGenerator(tree, {
-      name: feature.replace('anchor-', '').toString(),
-      anchorName: options.anchorName,
-      webName: options.webName,
-      skipFormat: true,
-      feature,
-    })
-  }
+  // Generate the common files.
   await generateReactCommonFiles(tree, options, npmScope)
 
   // Install the packages on exit.

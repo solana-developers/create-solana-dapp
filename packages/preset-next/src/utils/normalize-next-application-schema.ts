@@ -11,6 +11,7 @@ export function normalizeNextApplicationSchema(options: NextApplicationSchema): 
     ...options,
     anchor: options.anchor,
     anchorName: options.anchorName ?? 'anchor',
+    anchorProgram: options.anchorProgram ?? options.anchor,
     directory: webName,
     port: options.port ?? 3000,
     skipFormat: options.skipFormat ?? false,

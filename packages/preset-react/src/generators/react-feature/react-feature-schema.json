@@ -13,33 +13,27 @@
       },
       "x-prompt": "What name would you like to use for the feature?"
     },
+    "feature": {
+      "type": "string",
+      "enum": ["anchor-counter", "anchor-basic", "none"],
+      "description": "The feature to generate",
+      "x-prompt": "Which feature would you like to generate?"
+    },
     "anchorName": {
       "type": "string",
-      "description": "Anchor project name",
+      "description": "Name of the Anchor project in the workspace",
       "default": "anchor"
     },
     "webName": {
       "type": "string",
-      "description": "Name of the web application (overrides name)",
+      "description": "Name of the Web project in the workspace",
       "default": "web"
-    },
-    "preset": {
-      "type": "string",
-      "description": "The preset to use",
-      "enum": ["next", "react"]
-    },
-    "feature": {
-      "type": "string",
-      "enum": ["anchor-counter"],
-      "description": "The feature to generate",
-      "x-prompt": "Which feature would you like to generate?"
     },
     "ui": {
       "description": "The UI library to use",
       "type": "string",
       "enum": ["none", "tailwind"],
-      "default": "tailwind",
-      "x-prompt": "Which UI library would you like to use?"
+      "default": "tailwind"
     },
     "npmScope": {
       "type": "string",

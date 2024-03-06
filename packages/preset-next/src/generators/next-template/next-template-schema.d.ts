@@ -26,9 +26,13 @@ export interface NextTemplateSchema {
   /**
    * Anchor template to use
    */
-  anchor?: "none" | "counter" | "hello-world";
+  anchor?: "none" | "counter" | "basic";
   /**
    * Anchor project name
    */
   anchorName?: string;
+  /**
+   * Anchor program name
+   */
+  anchorProgram?: string;
 }

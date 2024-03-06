@@ -1,4 +1,4 @@
-import { Tree } from '@nx/devkit'
+import { PackageManager, Tree } from '@nx/devkit'
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
 import { getRecursiveFileContents } from '../../utils/get-recursive-file-contents'
 import { commonTemplateGenerator } from './common-template-generator'
@@ -16,17 +16,19 @@ describe('common-template generator', () => {
     webName: 'test',
   }
   const templates: CommonTemplateSchema['template'][] = ['license', 'readme']
-  const anchor: CommonTemplateSchema['anchor'][] = ['none', 'counter', 'hello-world']
-
-  const matrix = templates.map((template) => anchor.map((anchor) => ({ template, anchor }))).flat()
+  const anchor: CommonTemplateSchema['anchor'][] = ['none', 'counter', 'basic']
+  const pms: PackageManager[] = ['npm', 'pnpm', 'yarn']
+  const matrix = templates.flatMap((template) =>
+    anchor.flatMap((anchor) => pms.map((pm) => ({ template, anchor, pm }))),
+  )
   process.env['USER'] = 'test'
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace()
   })
 
-  it.each(matrix)('should generate files for %s template with %s anchor', async ({ template, anchor }) => {
-    await commonTemplateGenerator(tree, { ...options, template, anchor })
+  it.each(matrix)('should generate files: %s', async ({ template, anchor, pm }) => {
+    await commonTemplateGenerator(tree, { ...options, template, anchor }, pm)
 
     const contents = getRecursiveFileContents(tree, options.directory)
     expect(contents).toMatchSnapshot()

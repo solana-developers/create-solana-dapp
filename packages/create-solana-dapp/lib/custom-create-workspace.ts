@@ -1,6 +1,7 @@
 import { spinner } from '@clack/prompts'
 import { CreateWorkspaceOptions } from 'create-nx-workspace'
 import { createPreset } from 'create-nx-workspace/src/create-preset'
+import { execAndWait } from 'create-nx-workspace/src/utils/child-process-utils'
 import { mapErrorToBodyLines } from 'create-nx-workspace/src/utils/error-utils'
 import { initializeGitRepo } from 'create-nx-workspace/src/utils/git/git'
 import { getThirdPartyPreset } from 'create-nx-workspace/src/utils/preset/get-third-party-preset'
@@ -21,6 +22,9 @@ export async function customCreateWorkspace<T extends CreateWorkspaceOptions>(
   // nx new requires preset currently. We should probably make it optional.
   const directory = await customCreateEmptyWorkspace<T>(tmpDir, name, packageManager, { ...options, preset })
   spin1.stop(`Successfully created workspace with ${packageManager}.`)
+
+  // Delete the generated README.md
+  await execAndWait('rm README.md', directory)
 
   // If the preset is a third-party preset, we need to call createPreset to install it
   // For first-party presets, it will created by createEmptyWorkspace instead.

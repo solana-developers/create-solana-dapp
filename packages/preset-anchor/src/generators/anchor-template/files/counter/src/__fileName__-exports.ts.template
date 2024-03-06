@@ -7,16 +7,16 @@ import { IDL as <%= className %>IDL } from '../target/types/<%= fileNameUndersco
 export { <%= className %>, <%= className %>IDL };
 
 // After updating your program ID (e.g. after running `anchor keys sync`) update the value below.
-export const <%= upperCaseName %>_PROGRAM_ID = new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg')
+export const <%= upperCaseName %>_PROGRAM_ID = new PublicKey('<%= publicKey %>')
 
 // This is a helper function to get the program ID for the <%= className %> program depending on the cluster.
 export function get<%= className %>ProgramId(cluster: Cluster) {
   switch (cluster) {
     case 'devnet':
-    case 'testnet':
+    case 'testnet':<% if (fileName === 'counter') { %>
+      // This is the program ID for the Counter program on devnet and testnet.
+      return new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg')<% } %>
     case 'mainnet-beta':
-      // You only need to update this if you deploy your program on one of these clusters.
-      return new PublicKey('CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg')
     default:
       return <%= upperCaseName %>_PROGRAM_ID
   }

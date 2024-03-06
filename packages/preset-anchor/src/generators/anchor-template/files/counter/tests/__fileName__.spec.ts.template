@@ -1,7 +1,7 @@
 import * as anchor from '@coral-xyz/anchor'
 import { Program } from '@coral-xyz/anchor'
 import { Keypair } from '@solana/web3.js'
-import { <%= className %> } from '../target/types/<%= fileName %>'
+import { <%= className %> } from "../target/types/<%= fileNameUnderscore %>";
 
 describe("<%= fileName %>", () => {
   // Configure the client to use the local cluster.
@@ -15,7 +15,7 @@ describe("<%= fileName %>", () => {
 
   it('Initialize <%= className %>', async () => {
     await program.methods
-      .initialize<%= className %>()
+      .initialize()
       .accounts({
         <%= propertyName %>: <%= propertyName %>Keypair.publicKey,
         payer: payer.publicKey,
@@ -62,7 +62,7 @@ describe("<%= fileName %>", () => {
 
   it('Set close the <%= propertyName %> account', async () => {
     await program.methods
-      .close<%= className %>()
+      .close()
       .accounts({
         payer: payer.publicKey,
         <%= propertyName %>: <%= propertyName %>Keypair.publicKey,

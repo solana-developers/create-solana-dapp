@@ -40,13 +40,17 @@
     "anchor": {
       "type": "string",
       "description": "Anchor template to use",
-      "enum": ["none", "counter", "hello-world"],
+      "enum": ["none", "counter", "basic"],
       "default": "none"
     },
     "anchorName": {
       "type": "string",
       "description": "Anchor project name",
       "default": "anchor"
+    },
+    "anchorProgram": {
+      "type": "string",
+      "description": "Anchor program name"
     }
   },
   "required": ["name", "directory", "template", "npmScope", "webName"]

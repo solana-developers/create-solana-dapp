@@ -16,11 +16,12 @@ Name:  anchor-application (aliases: application, preset)
   Generate an Anchor application
 
 Options:
-    --name          Name of the application                             [string]
-    --template      The template to use            [string] [choices: "counter",
-                                                          "hello-world", "none"]
-                                                               [default: "none"]
-    --skipFormat    Skip formatting files                              [boolean]
+    --name           Name of the project                               [string]
+    --programName    Name of the program                               [string]
+    --template       The template to use          [string] [choices: "counter",
+                                                     "basic", "none"] [default:
+                                                                        "none"]
+    --skipFormat     Skip formatting files                            [boolean]
 ```
 
 ### anchor-template
@@ -38,7 +39,7 @@ Options:
     --name                                                             [string]
     --projectName          Name of the project                         [string]
     --template             The template to use       [string] [choices: "base",
-                                                      "counter", "hello-world"]
+                                                            "counter", "basic"]
     --skipUpdateIndexTs    Skip updating index.ts                     [boolean]
 ```
 

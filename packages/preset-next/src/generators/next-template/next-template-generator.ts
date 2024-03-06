@@ -7,6 +7,7 @@ export async function nextTemplateGenerator(tree: Tree, options: NextTemplateSch
   const substitutions = nextApplicationSubstitutions({
     anchor: options.anchor,
     anchorName: options.anchorName,
+    anchorProgram: options.anchorProgram,
     name: options.webName,
     npmScope: options.npmScope,
   })

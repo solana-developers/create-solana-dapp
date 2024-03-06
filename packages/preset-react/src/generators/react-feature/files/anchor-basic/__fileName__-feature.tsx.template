@@ -1,0 +1,35 @@
+<% if (preset === 'next') { %>
+    'use client';
+
+<% } %>
+import { useWallet } from '@solana/wallet-adapter-react';
+import { ExplorerLink } from '../cluster/cluster-ui';
+import { WalletButton } from '../solana/solana-provider';
+import { AppHero, ellipsify } from '../ui/ui-layout';
+import { use<%= className %>Program } from './<%= fileName %>-data-access';
+import { <%= className %>Create, <%= className %>Program } from './<%= fileName %>-ui';
+
+export default function <%= className %>Feature() {
+  const { publicKey } = useWallet();
+  const { programId } = use<%= className %>Program();
+
+  return publicKey ? (
+    <div>
+      <AppHero title="<%= className %>" subtitle={'Run the program by clicking the "Run program" button.'}>
+        <p className="mb-6">
+          <ExplorerLink path={`account/${programId}`} label={ellipsify(programId.toString())} />
+        </p>
+        <<%= className %>Create />
+      </AppHero>
+      <<%= className %>Program />
+    </div>
+  ) : (
+    <div className="max-w-4xl mx-auto">
+      <div className="hero py-[64px]">
+        <div className="hero-content text-center">
+          <WalletButton className="btn btn-primary" />
+        </div>
+      </div>
+    </div>
+  );
+}

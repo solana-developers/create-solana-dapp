@@ -7,6 +7,7 @@
     "@nx/js": "17.2.7",
     "@nx/jest": "17.2.7",
     "@solana-developers/preset-common": "*",
+    "@solana/web3.js": "^1.90.0",
     "tslib": "^2.3.0"
   },
   "type": "commonjs",

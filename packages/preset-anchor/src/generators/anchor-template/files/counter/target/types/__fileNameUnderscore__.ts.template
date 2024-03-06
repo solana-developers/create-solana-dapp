@@ -3,7 +3,7 @@ export type <%= className %> = {
   "name": "<%= fileNameUnderscore %>",
   "instructions": [
     {
-      "name": "close<%= className %>",
+      "name": "close",
       "accounts": [
         {
           "name": "payer",
@@ -41,7 +41,7 @@ export type <%= className %> = {
       "args": []
     },
     {
-      "name": "initialize<%= className %>",
+      "name": "initialize",
       "accounts": [
         {
           "name": "payer",
@@ -99,7 +99,7 @@ export const IDL: <%= className %> = {
   "name": "<%= fileNameUnderscore %>",
   "instructions": [
     {
-      "name": "close<%= className %>",
+      "name": "close",
       "accounts": [
         {
           "name": "payer",
@@ -137,7 +137,7 @@ export const IDL: <%= className %> = {
       "args": []
     },
     {
-      "name": "initialize<%= className %>",
+      "name": "initialize",
       "accounts": [
         {
           "name": "payer",

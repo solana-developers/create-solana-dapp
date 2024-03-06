@@ -16,13 +16,7 @@ import { AccountChecker } from '../account/account-ui'
 import { ClusterChecker, ClusterUiSelect, ExplorerLink } from '../cluster/cluster-ui'
 import toast, { Toaster } from 'react-hot-toast'
 
-const pages: { label: string, path: string }[] = [
-  { label: 'Account', path: '/account' },
-  { label: 'Clusters', path: '/clusters' },
-<% if (anchor.fileName === 'counter') { %>{ label: 'Counter', path: '/counter' },<% } %>
-]
-
-export function UiLayout({ children }: { children: ReactNode }) {
+export function UiLayout({ children, links }: { children: ReactNode, links: { label: string, path: string }[] }) {
 <% if (preset === 'react') { %>
   const { pathname } = useLocation()
 <% } else if (preset === 'next') { %>
@@ -50,7 +44,7 @@ export function UiLayout({ children }: { children: ReactNode }) {
             />
           </Link>
           <ul className="menu menu-horizontal px-1 space-x-2">
-            {pages.map(({ label, path }) => (
+            {links.map(({ label, path }) => (
               <li key={path}>
                 <Link className={pathname.startsWith(path) ? 'active' : ''}
                   <% if (preset === 'react') { %>

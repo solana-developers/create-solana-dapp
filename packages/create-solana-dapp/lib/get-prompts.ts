@@ -1,10 +1,18 @@
 import { cancel, group, log, select, text } from '@clack/prompts'
-import { anchorTemplates } from './anchor-templates'
+import { AnchorTemplate } from './get-anchor-templates'
 import { GetArgsResult } from './get-args-result'
 import { Preset } from './get-presets'
 import { validateProjectName } from './validate-project-name'
 
-export function getPrompts({ options, presets }: { options: GetArgsResult; presets: Preset[] }) {
+export function getPrompts({
+  anchorTemplates,
+  options,
+  presets,
+}: {
+  anchorTemplates: AnchorTemplate[]
+  options: GetArgsResult
+  presets: Preset[]
+}) {
   return group(
     {
       name: () => {
@@ -43,16 +51,19 @@ export function getPrompts({ options, presets }: { options: GetArgsResult; prese
       },
       anchor: () => {
         if (options.anchor) {
-          log.success(`Anchor template: ${options.anchor}`)
+          const anchor = anchorTemplates.find((a) => a.value === options.anchor)
+          log.success(`Anchor template: ${anchor.label}`)
           return Promise.resolve(options.anchor)
         }
         return select({
           message: 'Select an Anchor template',
-          options: anchorTemplates.map((choice) => ({
-            value: choice,
-            label: choice,
-          })) as [],
+          options: anchorTemplates.map(({ label, value }) => ({ label, value })) as [],
         })
+      },
+      anchorProgram: ({ results }) => {
+        const anchorProgram = options.anchorProgram.length ? options.anchorProgram : results.name ?? 'my-program'
+        log.success(`Anchor program name: ${anchorProgram}`)
+        return Promise.resolve(anchorProgram)
       },
     },
     {

@@ -1,6 +1,7 @@
 import { formatFiles, getProjects, Tree, updateJson } from '@nx/devkit'
 import { libraryGenerator } from '@nx/js'
 import { applicationCleanup, runCommand } from '@solana-developers/preset-common'
+import { Keypair } from '@solana/web3.js'
 import { join } from 'path'
 import {
   anchorApplicationIgnoreFiles,
@@ -11,7 +12,7 @@ import {
 import anchorTemplateGenerator from '../anchor-template/anchor-template-generator'
 import { AnchorApplicationSchema } from './anchor-application-schema'
 
-export async function anchorApplicationGenerator(tree: Tree, rawOptions: AnchorApplicationSchema) {
+export async function anchorApplicationGenerator(tree: Tree, rawOptions: AnchorApplicationSchema, keypair?: Keypair) {
   const options: AnchorApplicationNormalizedSchema = anchorApplicationNormalizeSchema(rawOptions)
   await libraryGenerator(tree, {
     directory: options.name,
@@ -44,14 +45,18 @@ export async function anchorApplicationGenerator(tree: Tree, rawOptions: AnchorA
     skipUpdateIndexTs: true,
   })
   if (options.template !== 'none') {
-    await anchorTemplateGenerator(tree, {
-      projectName: options.name,
-      name: options.template,
-      template: options.template,
-      directory: project.root,
-    })
+    await anchorTemplateGenerator(
+      tree,
+      {
+        projectName: options.name,
+        name: options.programName ?? options.template,
+        template: options.template,
+        directory: project.root,
+      },
+      keypair,
+    )
   }
-  anchorApplicationDependencies(tree)
+  anchorApplicationDependencies(tree, project)
   anchorApplicationIgnoreFiles(tree, project.sourceRoot.replace('/src', ''))
 
   if (!options.skipFormat) {

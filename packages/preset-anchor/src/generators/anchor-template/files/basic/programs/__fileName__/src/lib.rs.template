@@ -1,13 +1,13 @@
 use anchor_lang::prelude::*;
 
-declare_id!("EuJfgknXicf6iZASeagt5U6XDDPpLTQrvWPW31vgAwo8");
+declare_id!("<%= publicKey %>");
 
 #[program]
 pub mod <%= fileNameUnderscore %> {
     use super::*;
 
-    pub fn initialize(_ctx: Context<Initialize>) -> Result<()> {
-        msg!("Hello World!");
+    pub fn greet(_ctx: Context<Initialize>) -> Result<()> {
+        msg!("GM!");
         Ok(())
     }
 }

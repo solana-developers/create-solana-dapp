@@ -19,6 +19,7 @@ export function reactApplicationRunScripts({
       'anchor-build': `nx run ${anchorName}:anchor build`,
       'anchor-localnet': `nx run ${anchorName}:anchor localnet`,
       'anchor-test': `nx run ${anchorName}:anchor test`,
+      feature: `nx generate @solana-developers/preset-react:feature`,
       ...scripts,
     }
   }

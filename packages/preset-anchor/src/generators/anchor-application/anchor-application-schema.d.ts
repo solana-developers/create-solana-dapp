@@ -10,9 +10,13 @@
  */
 export interface AnchorApplicationSchema {
   /**
-   * Name of the application
+   * Name of the project
    */
   name: string;
+  /**
+   * Name of the program
+   */
+  programName?: string;
   /**
    * Skip formatting files
    */
@@ -20,5 +24,5 @@ export interface AnchorApplicationSchema {
   /**
    * The template to use
    */
-  template?: "counter" | "hello-world" | "none";
+  template?: "counter" | "basic" | "none";
 }

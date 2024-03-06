@@ -3,7 +3,7 @@
   "name": "<%= fileNameUnderscore %>",
   "instructions": [
     {
-      "name": "close<%= className %>",
+      "name": "close",
       "accounts": [
         {
           "name": "payer",
@@ -11,7 +11,7 @@
           "isSigner": true
         },
         {
-          "name": "<%= fileNameUnderscore %>",
+          "name": "<%= propertyName %>",
           "isMut": true,
           "isSigner": false
         }
@@ -22,7 +22,7 @@
       "name": "decrement",
       "accounts": [
         {
-          "name": "<%= fileNameUnderscore %>",
+          "name": "<%= propertyName %>",
           "isMut": true,
           "isSigner": false
         }
@@ -41,7 +41,7 @@
       "args": []
     },
     {
-      "name": "initialize<%= className %>",
+      "name": "initialize",
       "accounts": [
         {
           "name": "payer",
@@ -93,6 +93,6 @@
     }
   ],
   "metadata": {
-    "address": "CounNZdmsQmWh7uVngV9FXW2dZ6zAgbJyYsvBpqbykg"
+    "address": "<%= publicKey %>"
   }
 }

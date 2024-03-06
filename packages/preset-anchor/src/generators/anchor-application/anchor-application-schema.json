@@ -7,12 +7,16 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "Name of the application",
+      "description": "Name of the project",
       "$default": {
         "$source": "argv",
         "index": 0
       },
       "x-prompt": "What name would you like to use?"
+    },
+    "programName": {
+      "type": "string",
+      "description": "Name of the program"
     },
     "skipFormat": {
       "description": "Skip formatting files",
@@ -22,7 +26,7 @@
     },
     "template": {
       "type": "string",
-      "enum": ["counter", "hello-world", "none"],
+      "enum": ["counter", "basic", "none"],
       "description": "The template to use",
       "default": "none"
     }
