@@ -6,10 +6,10 @@ exports[`react-template generator should generate files for base template 1`] = 
     "children": {
       "assets": {
         "children": {
-          "solana-logo.png": {
+          "logo.png": {
             "content": null,
             "isBinary": true,
-            "path": "test/src/assets/solana-logo.png",
+            "path": "test/src/assets/logo.png",
           },
         },
         "path": "test/src/assets",
@@ -95,7 +95,7 @@ exports[`react-template generator should generate files for none template 1`] = 
               ">",
               "<div>",
               "<Link to="/">",
-              "<img src="/assets/solana-logo.png" height={24} alt="Solana Logo" />",
+              "<img src="/assets/logo.png" height={24} alt="Logo" />",
               "</Link>",
               "</div>",
               "<div>",
@@ -1269,8 +1269,8 @@ exports[`react-template generator should generate files for tailwind template 1`
                   "<Link className="btn btn-ghost normal-case text-xl"",
                   "to="/"",
                   ">",
-                  "<img className="h-4 md:h-6" alt="Solana Logo"",
-                  "src="/assets/solana-logo.png"",
+                  "<img className="h-4 md:h-6" alt="Logo"",
+                  "src="/assets/logo.png"",
                   "/>",
                   "</Link>",
                   "<ul className="menu menu-horizontal px-1 space-x-2">",

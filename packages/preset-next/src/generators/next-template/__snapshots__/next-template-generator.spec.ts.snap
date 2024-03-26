@@ -9,10 +9,10 @@ exports[`next-template generator should generate files for base template 1`] = `
         "isBinary": true,
         "path": "test/public/favicon.ico",
       },
-      "solana-logo.png": {
+      "logo.png": {
         "content": null,
         "isBinary": true,
-        "path": "test/public/solana-logo.png",
+        "path": "test/public/logo.png",
       },
     },
     "path": "test/public",
@@ -145,7 +145,7 @@ exports[`next-template generator should generate files for none template 1`] = `
               ">",
               "<div>",
               "<Link href="/">",
-              "<img src="/solana-logo.png" height={24} alt="Solana Logo" />",
+              "<img src="/logo.png" height={24} alt="Logo" />",
               "</Link>",
               "</div>",
               "<div>",
