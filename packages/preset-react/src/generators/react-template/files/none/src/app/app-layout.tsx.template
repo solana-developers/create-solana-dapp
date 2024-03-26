@@ -20,7 +20,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
       >
         <div>
           <Link <% if (preset === 'react') { %>to="/"<% } else if (preset === 'next') { %>href="/"<% } %>>
-            <img src="/assets/solana-logo.png" height={24} alt="Solana Logo" />
+            <img src="/assets/logo.png" height={24} alt="Logo" />
           </Link>
         </div>
         <div>
