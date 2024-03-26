@@ -61,9 +61,11 @@ export function getPrompts({
         })
       },
       anchorProgram: ({ results }) => {
-        const anchorProgram = options.anchorProgram.length ? options.anchorProgram : results.name ?? 'my-program'
-        log.success(`Anchor program name: ${anchorProgram}`)
-        return Promise.resolve(anchorProgram)
+        if (options.anchor) {
+          const anchorProgram = options.anchorProgram.length ? options.anchorProgram : results.name ?? 'my-program'
+          log.success(`Anchor program name: ${anchorProgram}`)
+          return Promise.resolve(anchorProgram)
+        }
       },
     },
     {
