@@ -8,7 +8,7 @@ This library is a preset for [create-solana-dapp](https://npm.im/create-solana-d
 ### next-application
 
 ```bash
->  NX   generate @solana-developers/preset-next:next-application [name] [options,...]
+NX   generate @solana-developers/preset-next:next-application [name] [options,...]
 
 From:  @solana-developers/preset-next (v0.0.1)
 Name:  next-application (aliases: application, preset)
@@ -35,7 +35,7 @@ Options:
 ### next-template
 
 ```bash
->  NX   generate @solana-developers/preset-next:next-template [name] [options,...]
+NX   generate @solana-developers/preset-next:next-template [name] [options,...]
 
 From:  @solana-developers/preset-next (v0.0.1)
 Name:  next-template (aliases: template)
