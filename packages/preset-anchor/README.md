@@ -8,7 +8,7 @@ This library is a preset for [create-solana-dapp](https://npm.im/create-solana-d
 ### anchor-application
 
 ```bash
->  NX   generate @solana-developers/preset-anchor:anchor-application [name] [options,...]
+NX   generate @solana-developers/preset-anchor:anchor-application [name] [options,...]
 
 From:  @solana-developers/preset-anchor (v0.0.1)
 Name:  anchor-application (aliases: application, preset)
@@ -27,7 +27,7 @@ Options:
 ### anchor-template
 
 ```bash
->  NX   generate @solana-developers/preset-anchor:anchor-template [name] [options,...]
+NX   generate @solana-developers/preset-anchor:anchor-template [name] [options,...]
 
 From:  @solana-developers/preset-anchor (v0.0.1)
 Name:  anchor-template (aliases: template)

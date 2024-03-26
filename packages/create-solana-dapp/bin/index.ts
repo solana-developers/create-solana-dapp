@@ -25,7 +25,7 @@ async function main() {
         },
         dryRun: args.dryRun,
         name: args.name,
-        nxCloud: false,
+        nxCloud: 'skip',
         packageManager: args.packageManager,
         ui: args.ui,
         webName: args.webName,
