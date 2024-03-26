@@ -35,11 +35,11 @@ export function UiLayout({ children, links }: { children: ReactNode, links: { la
             href="/"
             <% } %>
             >
-            <img className="h-4 md:h-6" alt="Solana Logo"
+            <img className="h-4 md:h-6" alt="Logo"
             <% if (preset === 'react') { %>
-              src="/assets/solana-logo.png"
+              src="/assets/logo.png"
             <% } else if (preset === 'next') { %>
-              src="/solana-logo.png"
+              src="/logo.png"
             <% } %>
             />
           </Link>
