@@ -2,7 +2,7 @@
     'use client';
 
 <% } %>
-import { <%= className %>IDL, get<%= className %>ProgramId } from '@<%= npmScope %>/anchor'
+import { get<%= className %>Program, get<%= className %>ProgramId } from '@<%= npmScope %>/anchor'
 import { Program } from '@coral-xyz/anchor';
 import { useConnection } from '@solana/wallet-adapter-react';
 import { Cluster, Keypair, PublicKey } from '@solana/web3.js';
@@ -22,7 +22,7 @@ export function use<%= className %>Program() {
     () => get<%= className %>ProgramId(cluster.network as Cluster),
     [cluster]
   );
-  const program = new Program(<%= className %>IDL, programId, provider)
+  const program = get<%= className %>Program(provider)
 
   const accounts = useQuery({
     queryKey: ['<%= fileName %>', 'all', { cluster }],

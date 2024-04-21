@@ -1,9 +1,24 @@
 {
-  "version": "0.1.0",
-  "name": "<%= fileNameUnderscore %>",
- "instructions": [
+  "address": "<%= publicKey %>",
+  "metadata": {
+    "name": "<%= fileNameUnderscore %>",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
     {
       "name": "greet",
+      "discriminator": [
+        203,
+        194,
+        3,
+        150,
+        228,
+        58,
+        181,
+        62
+      ],
       "accounts": [],
       "args": []
     }
