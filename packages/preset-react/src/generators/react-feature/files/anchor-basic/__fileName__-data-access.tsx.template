@@ -2,7 +2,7 @@
     'use client';
 
 <% } %>
-import { programId, <%= className %>IDL } from '@<%= npmScope %>/anchor';
+import { programId, get<%= className %>Program } from '@<%= npmScope %>/anchor';
 import { Program } from '@coral-xyz/anchor';
 import { useConnection } from '@solana/wallet-adapter-react';
 import { Keypair } from '@solana/web3.js';
@@ -17,7 +17,7 @@ export function use<%= className %>Program() {
   const { cluster } = useCluster();
   const transactionToast = useTransactionToast();
   const provider = useAnchorProvider();
-  const program = new Program(<%= className %>IDL, programId, provider);
+  const program = get<%= className %>Program(provider);
 
   const getProgramAccount = useQuery({
     queryKey: ['get-program-account', { cluster }],

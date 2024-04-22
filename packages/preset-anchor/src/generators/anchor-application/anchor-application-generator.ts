@@ -37,6 +37,15 @@ export async function anchorApplicationGenerator(tree: Tree, rawOptions: AnchorA
     return json
   })
 
+  updateJson(tree, join(project.root, 'tsconfig.lib.json'), (json) => {
+    json.compilerOptions = {
+      ...json.compilerOptions,
+      resolveJsonModule: true,
+      allowSyntheticDefaultImports: true,
+    }
+    return json
+  })
+
   await anchorTemplateGenerator(tree, {
     projectName: options.name,
     name: 'base',
