@@ -1,11 +1,12 @@
 import { generateFiles, getProjects, Tree, updateJson } from '@nx/devkit'
-import { Linter } from '@nx/linter'
+import { Linter } from '@nx/eslint'
 import { applicationGenerator as reactApplicationGenerator } from '@nx/next/src/generators/application/application'
 import { join } from 'path'
 import { NormalizedNextApplicationSchema } from './normalize-next-application-schema'
 
 export async function generateNextApplication(tree: Tree, options: NormalizedNextApplicationSchema) {
   await reactApplicationGenerator(tree, {
+    src: false,
     name: options.webName,
     style: 'css',
     skipFormat: true,
