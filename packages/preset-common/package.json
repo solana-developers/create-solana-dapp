@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "This library is a preset for create-solana-dapp with shared code for the other presets.",
   "dependencies": {
-    "@nx/devkit": "18.3.3",
+    "@nx/devkit": "19.0.0",
     "ts-morph": "^22.0.0",
     "tslib": "^2.3.0"
   },

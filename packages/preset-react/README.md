@@ -10,7 +10,7 @@ This library is a preset for [create-solana-dapp](https://npm.im/create-solana-d
 ```bash
 NX   generate @solana-developers/preset-react:react-application [name] [options,...]
 
-From:  @solana-developers/preset-react
+From:  @solana-developers/preset-react (v0.0.1)
 Name:  react-application (aliases: application, preset)
 
   Generates a React application.
@@ -37,7 +37,7 @@ Options:
 ```bash
 NX   generate @solana-developers/preset-react:react-template [name] [options,...]
 
-From:  @solana-developers/preset-react
+From:  @solana-developers/preset-react (v0.0.1)
 Name:  react-template (aliases: template)
 
   Generate React templates
@@ -67,7 +67,7 @@ Options:
 ```bash
 NX   generate @solana-developers/preset-react:react-feature [name] [options,...]
 
-From:  @solana-developers/preset-react
+From:  @solana-developers/preset-react (v0.0.1)
 Name:  react-feature (aliases: feature)
 
   undefined

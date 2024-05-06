@@ -10,7 +10,7 @@ presets.
 ```bash
 NX   generate @solana-developers/preset-common:common-template [name] [options,...]
 
-From:  @solana-developers/preset-common
+From:  @solana-developers/preset-common (v0.0.1)
 Name:  common-template
 
   Generate Common templates

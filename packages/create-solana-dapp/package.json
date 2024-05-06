@@ -4,10 +4,10 @@
   "description": "Get up and running fast with Solana dApps",
   "dependencies": {
     "@clack/prompts": "^0.7.0",
-    "@nx/devkit": "18.3.3",
+    "@nx/devkit": "19.0.0",
     "commander": "^11.1.0",
-    "create-nx-workspace": "18.3.3",
-    "nx": "18.3.3",
+    "create-nx-workspace": "19.0.0",
+    "nx": "19.0.0",
     "tmp": "0.2.1",
     "tslib": "^2.3.0"
   },

@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "This library is a preset for create-solana-dapp that adds anchor support to your project.",
   "dependencies": {
-    "@nx/devkit": "18.3.3",
-    "@nx/js": "18.3.3",
-    "@nx/jest": "18.3.3",
+    "@nx/devkit": "19.0.0",
+    "@nx/js": "19.0.0",
+    "@nx/jest": "19.0.0",
     "@solana-developers/preset-common": "*",
     "@solana/web3.js": "^1.90.0",
     "tslib": "^2.3.0"
