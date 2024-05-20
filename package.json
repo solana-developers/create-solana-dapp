@@ -24,6 +24,7 @@
     "@swc/helpers": "0.5.11",
     "commander": "^11.1.0",
     "create-nx-workspace": "19.3.2",
+    "isomorphic-git": "^1.25.10",
     "json-schema-to-typescript": "^14.0.4",
     "picocolors": "^1.0.1",
     "semver": "^7.6.2",

@@ -1,5 +1,5 @@
-import { PackageManager } from 'nx/src/utils/package-manager'
 import { getArgs } from './get-args'
+import { PackageManager } from './nx-helpers'
 
 describe('get-args', () => {
   describe('expected args', () => {
