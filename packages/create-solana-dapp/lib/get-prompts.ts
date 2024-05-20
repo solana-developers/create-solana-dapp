@@ -1,7 +1,7 @@
 import { cancel, group, log, select, text } from '@clack/prompts'
 import { AnchorTemplate } from './get-anchor-templates'
 import { GetArgsResult } from './get-args-result'
-import { Preset } from './get-presets'
+import { isPresetTemplate, Preset, PresetType } from './get-presets'
 import { validateProjectName } from './validate-project-name'
 
 export function getPrompts({
@@ -37,7 +37,10 @@ export function getPrompts({
       },
       ui: ({ results }) => {
         const preset = results?.preset ?? options.preset
-        const libs = getUiLibraries(preset as 'next' | 'react')
+        if (isPresetTemplate(preset)) {
+          return Promise.resolve(undefined)
+        }
+        const libs = getUiLibraries(preset as PresetType)
 
         if (options.ui) {
           log.success(`UI library: ${libs.find((l) => l.value === options.ui)?.label}`)
@@ -45,11 +48,15 @@ export function getPrompts({
         }
         return select({
           message: 'Select a UI library',
-          options: getUiLibraries(preset as 'next' | 'react'),
+          options: getUiLibraries(preset as PresetType),
           initialValue: libs.find((lib) => lib.value !== 'none')?.value,
         })
       },
-      anchor: () => {
+      anchor: ({ results }) => {
+        const preset = results?.preset ?? options.preset
+        if (isPresetTemplate(preset)) {
+          return Promise.resolve('none')
+        }
         if (options.anchor) {
           const anchor = anchorTemplates.find((a) => a.value === options.anchor)
           log.success(`Anchor template: ${anchor.label}`)
@@ -77,17 +84,17 @@ export function getPrompts({
   )
 }
 
-export function getUiLibraries(preset: 'next' | 'react'): {
+export function getUiLibraries(preset: PresetType): {
   label: string
   value: string
 }[] {
   switch (preset) {
-    case 'next':
+    case PresetType.next:
       return [
         { label: 'None', value: 'none' },
         { label: 'Tailwind', value: 'tailwind' },
       ]
-    case 'react':
+    case PresetType.react:
       return [
         { label: 'None', value: 'none' },
         { label: 'Tailwind', value: 'tailwind' },

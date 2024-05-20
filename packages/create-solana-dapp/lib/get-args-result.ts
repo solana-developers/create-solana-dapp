@@ -1,4 +1,4 @@
-import { CreateWorkspaceOptions } from 'create-nx-workspace'
+import { PackageManager } from './nx-helpers'
 
 export interface GetArgsResult {
   anchor: string | undefined
@@ -6,13 +6,14 @@ export interface GetArgsResult {
   anchorName: string | undefined
   anchorProgram: string | undefined
   dryRun: boolean
+  isTemplate: boolean
   name: string | undefined
   package: string
-  packageManager: CreateWorkspaceOptions['packageManager']
+  packageManager: PackageManager
   pnpm: boolean
   preset: string | undefined
   ui: string | undefined
-  yarn: boolean
   webName: string
   webPort: number
+  yarn: boolean
 }
