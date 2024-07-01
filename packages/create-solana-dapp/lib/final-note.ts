@@ -1,4 +1,4 @@
-import { bold, magentaBright, greenBright, redBright, yellowBright } from 'chalk'
+import { bold, greenBright, magentaBright, yellowBright } from 'chalk'
 import { GetArgsResult } from './get-args-result'
 import { validateAnchorVersion } from './validate-anchor-version'
 
@@ -24,7 +24,7 @@ export function finalNote(args: GetArgsResult & { target: string }): string {
     } else if (!valid) {
       lines.push(
         ...[
-          yellowBright(`Found Anchor version ${version}. Please upgrade to Anchor ${requiredVersion}.`),
+          yellowBright(`Found Anchor version ${version}. Expected Anchor version ${requiredVersion}.`),
           'https://www.anchor-lang.com/release-notes/0.30.0',
         ],
       )
