@@ -8,6 +8,7 @@
     "@solana-developers/preset-common": "*",
     "commander": "^11.1.0",
     "create-nx-workspace": "19.0.0",
+    "isomorphic-git": "^1.25.10",
     "nx": "19.0.0",
     "tmp": "0.2.1",
     "tslib": "^2.3.0"

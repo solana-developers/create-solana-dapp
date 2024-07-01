@@ -92,6 +92,7 @@ Examples:
     name: name ?? '',
     package: '',
     packageManager,
+    path: '',
     pnpm: result.pnpm ? result.pnpm : false,
     preset: result.preset,
     ui: result.ui,
@@ -147,6 +148,11 @@ Examples:
     const packageName = presets.find((preset) => preset.value === options.preset)?.package
     const packageVersion = presets.find((preset) => preset.value === options.preset)?.version
     options.package = `${packageName}@${packageVersion}`
+  }
+
+  const preset = presets.find((preset) => preset.value === options.preset)
+  if (preset.path) {
+    options.path = preset.path
   }
 
   return options

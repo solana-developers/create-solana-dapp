@@ -8,6 +8,7 @@ export interface Preset {
   label: string
   value: string
   package: string
+  path?: string
   type: PresetType
   version: string
 }
@@ -30,6 +31,14 @@ export function getPresets(version: string): {
       package: '@solana-developers/preset-react',
       type: PresetType.react,
       version,
+    },
+    {
+      label: 'Solana Actions Template',
+      value: 'solana-developers/solana-actions',
+      package: '',
+      type: PresetType.template,
+      version: '',
+      path: '/examples/next-js',
     },
     {
       label: 'Solana Mobile Expo Template',

@@ -17,10 +17,10 @@ export async function ensureGitRepo(url: string): Promise<GetRemoteInfoResult> {
   }
 }
 
-export function gitClone({ branch, directory, url }: { branch: string; directory: string; url: string }) {
+export function gitClone({ branch, target, url }: { branch: string; target: string; url: string }) {
   return git.clone({
     depth: 1,
-    dir: directory,
+    dir: target,
     fs,
     http,
     ref: branch,
