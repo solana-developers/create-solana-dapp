@@ -24,6 +24,7 @@
     "@swc/helpers": "~0.5.11",
     "commander": "^11.1.0",
     "create-nx-workspace": "19.0.0",
+    "isomorphic-git": "^1.25.10",
     "json-schema-to-typescript": "^14.0.4",
     "ts-morph": "^22.0.0",
     "tslib": "^2.6.2",

@@ -1,11 +1,11 @@
 import { intro, log } from '@clack/prompts'
 import { program } from 'commander'
-import { PackageManager } from 'nx/src/utils/package-manager'
 import { getAnchorTemplates } from './get-anchor-templates'
 import { getAppInfo } from './get-app-info'
 import { GetArgsResult } from './get-args-result'
-import { getPresets } from './get-presets'
+import { getPresets, isPresetTemplate, PresetType } from './get-presets'
 import { getPrompts, getUiLibraries } from './get-prompts'
+import { PackageManager } from './nx-helpers'
 
 export async function getArgs(argv: string[], pm: PackageManager = 'npm'): Promise<GetArgsResult> {
   // Get app info from package.json
@@ -88,15 +88,17 @@ Examples:
     anchorName: result.anchorName ?? 'anchor',
     anchorProgram: result.anchorProgram ?? name ?? '',
     dryRun: result.dryRun ?? false,
+    isTemplate: isPresetTemplate(result.preset),
     name: name ?? '',
     package: '',
     packageManager,
+    path: '',
     pnpm: result.pnpm ? result.pnpm : false,
     preset: result.preset,
     ui: result.ui,
-    yarn: result.yarn ? result.yarn : false,
     webName: result.webName ?? 'web',
     webPort: result.webPort ?? 3000,
+    yarn: result.yarn ? result.yarn : false,
   }
 
   // Display the intro
@@ -111,12 +113,13 @@ Examples:
   }
   if (prompts.preset) {
     options.preset = prompts.preset
+    options.isTemplate = isPresetTemplate(options.preset)
   }
   if (prompts.ui) {
     options.ui = prompts.ui as string
   }
   if (prompts.anchor) {
-    options.anchor = prompts.anchor
+    options.anchor = prompts.anchor as string
   }
   if (options.anchor !== 'none') {
     options.anchorProgram = prompts.anchorProgram as string
@@ -133,7 +136,7 @@ Examples:
     throw new Error(`Invalid anchor template: ${options.anchor}`)
   }
 
-  const libs = getUiLibraries(options.preset as 'next' | 'react')
+  const libs = getUiLibraries(options.preset as PresetType)
   if (options.ui && !libs.map((l) => l.value).includes(options.ui)) {
     log.error(`Invalid ui library for preset ${options.preset}: ${options.ui}`)
     throw new Error(`Invalid ui library for preset ${options.preset}: ${options.ui}`)
@@ -145,6 +148,11 @@ Examples:
     const packageName = presets.find((preset) => preset.value === options.preset)?.package
     const packageVersion = presets.find((preset) => preset.value === options.preset)?.version
     options.package = `${packageName}@${packageVersion}`
+  }
+
+  const preset = presets.find((preset) => preset.value === options.preset)
+  if (preset.path) {
+    options.path = preset.path
   }
 
   return options
