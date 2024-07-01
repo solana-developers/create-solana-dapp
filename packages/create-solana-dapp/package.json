@@ -5,10 +5,9 @@
   "dependencies": {
     "@clack/prompts": "^0.7.0",
     "@nx/devkit": "19.3.2",
-    "@solana-developers/preset-common": "*",
     "commander": "^11.1.0",
-    "create-nx-workspace": "19.3.2",
     "nx": "19.3.2",
+    "isomorphic-git": "^1.25.10",
     "tslib": "^2.3.0",
     "picocolors": "1.0.1",
     "tmp": "^0.2.3"

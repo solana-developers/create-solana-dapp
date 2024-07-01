@@ -2,12 +2,14 @@ import { CreateProjectFromTemplateArgs } from './create-project-from-template'
 import { GetArgsResult } from './get-args-result'
 
 export function normalizeProjectFromTemplateArgs({
-  name: directory,
+  name: target,
   preset: url,
+  path,
   packageManager,
 }: GetArgsResult): CreateProjectFromTemplateArgs {
   return {
-    directory,
+    target,
+    path,
     packageManager,
     url: url.startsWith('http') ? url : `https://github.com/${url}`,
   }

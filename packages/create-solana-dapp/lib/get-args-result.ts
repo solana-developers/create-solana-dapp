@@ -10,6 +10,7 @@ export interface GetArgsResult {
   name: string | undefined
   package: string
   packageManager: PackageManager
+  path: string
   pnpm: boolean
   preset: string | undefined
   ui: string | undefined
