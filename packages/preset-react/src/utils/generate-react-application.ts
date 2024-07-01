@@ -29,5 +29,14 @@ export async function generateReactApplication(tree: Tree, options: NormalizedRe
     return json
   })
 
+  updateJson(tree, join(project.root, 'tsconfig.app.json'), (json) => {
+    json.compilerOptions = {
+      ...json.compilerOptions,
+      resolveJsonModule: true,
+      allowSyntheticDefaultImports: true,
+    }
+    return json
+  })
+
   return getProjects(tree).get(options.webName)
 }

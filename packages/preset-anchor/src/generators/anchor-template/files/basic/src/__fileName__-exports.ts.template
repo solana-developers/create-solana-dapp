@@ -1,8 +1,8 @@
 // Here we export some useful types and functions for interacting with the Anchor program.
 import { AnchorProvider, Program } from '@coral-xyz/anchor';
-import { PublicKey } from '@solana/web3.js';
+import { Cluster, PublicKey } from '@solana/web3.js';
+import <%= className %>IDL from '../target/idl/<%= fileNameUnderscore %>.json';
 import type { <%= className %> } from '../target/types/<%= fileNameUnderscore %>';
-import { IDL as <%= className %>IDL } from '../target/types/<%= fileNameUnderscore %>';
 
 // Re-export the generated IDL and type
 export { <%= className %>, <%= className %>IDL };
@@ -13,4 +13,15 @@ export const <%= upperCaseName %>_PROGRAM_ID = new PublicKey(<%= className %>IDL
 // This is a helper function to get the <%= className %> Anchor program.
 export function get<%= className %>Program(provider: AnchorProvider) {
   return new Program(<%= className %>IDL as <%= className %>, provider);
+}
+
+// This is a helper function to get the program ID for the <%= className %> program depending on the cluster.
+export function get<%= className %>ProgramId(cluster: Cluster) {
+  switch (cluster) {
+    case 'devnet':
+    case 'testnet':
+    case 'mainnet-beta':
+    default:
+      return <%= upperCaseName %>_PROGRAM_ID
+  }
 }

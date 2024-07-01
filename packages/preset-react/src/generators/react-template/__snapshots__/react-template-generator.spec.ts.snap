@@ -61,6 +61,7 @@ exports[`react-template generator should generate files for base template 1`] = 
       "config.resolve.fallback = {",
       "crypto: require.resolve('crypto-browserify'),",
       "stream: require.resolve('stream-browserify'),",
+      "vm: false,",
       "};",
       "return config;",
       "});",
