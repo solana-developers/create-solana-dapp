@@ -76,6 +76,7 @@ exports[`anchor-application generator should generate app with "basic" template 
   "Anchor.toml": {
     "content": [
       "[toolchain]",
+      "anchor_version = "0.30.0"",
       "[features]",
       "seeds = false",
       "skip-lint = false",
@@ -631,6 +632,7 @@ exports[`anchor-application generator should generate app with "counter" templat
   "Anchor.toml": {
     "content": [
       "[toolchain]",
+      "anchor_version = "0.30.0"",
       "[features]",
       "seeds = false",
       "skip-lint = false",

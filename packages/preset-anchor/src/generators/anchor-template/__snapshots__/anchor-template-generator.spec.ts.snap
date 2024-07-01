@@ -5,6 +5,7 @@ exports[`anchor-template generator should be able to generate two templates side
   "Anchor.toml": {
     "content": [
       "[toolchain]",
+      "anchor_version = "0.30.0"",
       "[features]",
       "seeds = false",
       "skip-lint = false",
@@ -1057,6 +1058,7 @@ exports[`anchor-template generator should generate files for base template 1`] =
   "Anchor.toml": {
     "content": [
       "[toolchain]",
+      "anchor_version = "0.30.0"",
       "[features]",
       "seeds = false",
       "skip-lint = false",
@@ -1140,6 +1142,7 @@ exports[`anchor-template generator should generate files for basic template 1`] 
   "Anchor.toml": {
     "content": [
       "[toolchain]",
+      "anchor_version = "0.30.0"",
       "[features]",
       "seeds = false",
       "skip-lint = false",
@@ -1394,6 +1397,7 @@ exports[`anchor-template generator should generate files for counter template 1`
   "Anchor.toml": {
     "content": [
       "[toolchain]",
+      "anchor_version = "0.30.0"",
       "[features]",
       "seeds = false",
       "skip-lint = false",

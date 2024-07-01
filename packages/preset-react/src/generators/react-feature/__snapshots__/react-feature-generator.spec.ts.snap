@@ -278,6 +278,7 @@ exports[`react-feature generator should generate files for anchor-basic feature 
       "Anchor.toml": {
         "content": [
           "[toolchain]",
+          "anchor_version = "0.30.0"",
           "[features]",
           "seeds = false",
           "skip-lint = false",
@@ -3678,6 +3679,7 @@ exports[`react-feature generator should generate files for anchor-counter featur
       "Anchor.toml": {
         "content": [
           "[toolchain]",
+          "anchor_version = "0.30.0"",
           "[features]",
           "seeds = false",
           "skip-lint = false",

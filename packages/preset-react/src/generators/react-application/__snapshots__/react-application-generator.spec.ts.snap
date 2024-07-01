@@ -964,6 +964,7 @@ exports[`react-application generator default apps should generate default app wi
       "Anchor.toml": {
         "content": [
           "[toolchain]",
+          "anchor_version = "0.30.0"",
           "[features]",
           "seeds = false",
           "skip-lint = false",
@@ -2623,6 +2624,7 @@ exports[`react-application generator default apps should generate default app wi
       "Anchor.toml": {
         "content": [
           "[toolchain]",
+          "anchor_version = "0.30.0"",
           "[features]",
           "seeds = false",
           "skip-lint = false",

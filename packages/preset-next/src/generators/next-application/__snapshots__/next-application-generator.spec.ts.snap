@@ -996,6 +996,7 @@ exports[`application generator default apps should generate default app with "no
       "Anchor.toml": {
         "content": [
           "[toolchain]",
+          "anchor_version = "0.30.0"",
           "[features]",
           "seeds = false",
           "skip-lint = false",
@@ -2688,6 +2689,7 @@ exports[`application generator default apps should generate default app with "ta
       "Anchor.toml": {
         "content": [
           "[toolchain]",
+          "anchor_version = "0.30.0"",
           "[features]",
           "seeds = false",
           "skip-lint = false",
