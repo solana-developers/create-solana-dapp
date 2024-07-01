@@ -61,7 +61,7 @@ export function getPrompts({
         })
       },
       anchorProgram: ({ results }) => {
-        if (options.anchor) {
+        if (options.anchor || results.anchor) {
           const anchorProgram = options.anchorProgram.length ? options.anchorProgram : results.name ?? 'my-program'
           log.success(`Anchor program name: ${anchorProgram}`)
           return Promise.resolve(anchorProgram)
