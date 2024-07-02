@@ -6,11 +6,11 @@
     "@clack/prompts": "^0.7.0",
     "@nx/devkit": "19.3.2",
     "commander": "^11.1.0",
-    "create-nx-workspace": "19.0.0",
-    "nx": "19.0.0",
+    "create-nx-workspace": "19.3.2",
+    "nx": "19.3.2",
     "tslib": "^2.3.0",
-    "tmp": "0.2.3",
-    "picocolors": "1.0.0"
+    "picocolors": "1.0.1",
+    "tmp": "^0.2.3"
   },
   "type": "commonjs",
   "main": "./src/index.js",
@@ -22,9 +22,7 @@
     "solana",
     "next",
     "react",
-    "vue",
     "web3",
-    "yarn",
     "blockchain",
     "nft"
   ],

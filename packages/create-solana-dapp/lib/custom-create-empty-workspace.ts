@@ -7,7 +7,7 @@ import {
   getPackageManagerVersion,
   PackageManager,
 } from 'create-nx-workspace/src/utils/package-manager'
-import { getFileName } from 'create-nx-workspace/src/utils/string-utils'
+
 import { unparse } from 'create-nx-workspace/src/utils/unparse'
 import { join } from 'path'
 
@@ -31,7 +31,6 @@ export async function customCreateEmptyWorkspace<T extends CreateWorkspaceOption
     options.packageManager = packageManager
   }
 
-  options.name = getFileName(name)
   const directory = options.name
 
   const args = unparse({

@@ -1,9 +1,9 @@
 import { program } from 'commander'
 import * as fs from 'fs'
-import * as prettier from 'prettier'
 
 import { readJsonFile } from 'nx/src/utils/fileutils'
 import { join } from 'path'
+import * as prettier from 'prettier'
 import { execCapture } from '../../e2e/e2e-utils/src'
 
 const GENERATOR_FILE = 'generators.json'
@@ -67,7 +67,7 @@ ${readmes
     const help = generatorHelpOutput
       .split('\n')
       .slice(1)
-      .map((line) => line.replace('nx ', 'yarn nx '))
+      .map((line) => line.replace('nx ', 'pnpm nx '))
       .join('\n')
     return `
 ### ${generatorName}
@@ -106,7 +106,7 @@ ${defaultFooter()}`
         .map((change) => change.file.replace(packagesRoot, 'packages'))
         .join('\n - ')}`,
     )
-    console.log(`Run 'yarn sync-readmes' to update them.`)
+    console.log(`Run 'pnpm sync-readmes' to update them.`)
     process.exit(1)
   }
 

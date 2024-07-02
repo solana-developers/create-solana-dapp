@@ -65,7 +65,7 @@ The project is structured as a monorepo, with each package in the `packages` dir
 To view the list of packages, run:
 
 ```shell
-yarn nx show projects
+pnpm nx show projects
 ```
 
 The e2e tests are located in the `e2e` directory.
@@ -75,7 +75,7 @@ The e2e tests are located in the `e2e` directory.
 Nx uses a cache to speed up development. If you want to bypass the cache, you can use the `--skip-nx-cache` flag:
 
 ```shell
-yarn nx build create-solana-dapp --skip-nx-cache
+pnpm nx build create-solana-dapp --skip-nx-cache
 ```
 
 ### Building the Project
@@ -83,19 +83,19 @@ yarn nx build create-solana-dapp --skip-nx-cache
 To compile the project and generate the necessary artifacts, use the build command:
 
 ```shell
-yarn build
+pnpm build
 ```
 
 To build an individual package, invoke the `nx build` command with the project name:
 
 ```shell
-yarn nx build create-solana-dapp
+pnpm nx build create-solana-dapp
 ```
 
 You can build the project in watch mode by appending the `--watch` flag for faster feedback:
 
 ```shell
-yarn nx build create-solana-dapp --watch
+pnpm nx build create-solana-dapp --watch
 ```
 
 ### Running Tests
@@ -103,19 +103,19 @@ yarn nx build create-solana-dapp --watch
 To ensure your contributions do not break any existing functionality, run the test suite with the following command:
 
 ```shell
-yarn test
+pnpm test
 ```
 
 To run the tests for a specific package, invoke the `nx test` command with the project name:
 
 ```shell
-yarn nx test preset-react
+pnpm nx test preset-react
 ```
 
 You can run the tests in watch mode by appending the `--watch` flag for faster feedback:
 
 ```shell
-yarn nx test preset-react --watch
+pnpm nx test preset-react --watch
 ```
 
 ### Snapshots
@@ -131,10 +131,10 @@ To update all snapshots, run the `test` for each preset via NX with the update f
 
 ```shell
 # full command
-yarn nx run-many --target test --skip-nx-cache -u
+pnpm nx run-many --target test --skip-nx-cache -u
 
 # or the shorthand script
-yarn test -u
+pnpm test -u
 ```
 
 ### Linting Your Code
@@ -142,13 +142,13 @@ yarn test -u
 It's important to maintain the coding standards of the project. Lint your code by executing:
 
 ```shell
-yarn lint
+pnpm lint
 ```
 
 To lint a specific package, invoke the `nx lint` command with the project name:
 
 ```shell
-yarn nx lint preset-react
+pnpm nx lint preset-react
 ```
 
 ### Working on the CLI
@@ -160,7 +160,7 @@ If you want to quickly test your changes to the CLI, you can do the following:
 Run the build in watch mode in one terminal:
 
 ```shell
-yarn nx build create-solana-dapp --watch
+pnpm nx build create-solana-dapp --watch
 ```
 
 In another terminal, move to the directory where you want to test the `create-solana-dapp` CLI and run by invoking the
@@ -177,7 +177,7 @@ The same goes for the `solana-dev` CLI:
 
 ```shell
 # In one terminal
-yarn nx build solana-dev --watch
+pnpm nx build solana-dev --watch
 # In another terminal
 cd /tmp
 node ~/path/to/create-solana-dapp/dist/packages/solana-dev/bin/index.js --help
@@ -190,13 +190,13 @@ If you want to test your changes to the CLI in a local registry, you can do the 
 Start the local registry:
 
 ```shell
-yarn local-registry
+pnpm local-registry
 ```
 
 In another terminal, run the following command to publish the packages to the local registry:
 
 ```shell
-yarn local-publish <your-version>
+pnpm local-publish <your-version>
 ```
 
 Note: This will publish all the packages to the local registry with the `local` tag. Therefore, to utilize any of these
@@ -243,7 +243,7 @@ registry=https://registry.npmjs.org/
 To run the e2e tests, use the following command:
 
 ```shell
-yarn nx e2e preset-react-e2e
+pnpm nx e2e preset-react-e2e
 ```
 
 This will spin up a local registry, publish a package with the e2e tag, and run the e2e tests.

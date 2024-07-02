@@ -75,7 +75,7 @@ async function main() {
         .map((change) => change.file.replace(packagesRoot, 'packages'))
         .join('\n - ')}`,
     )
-    console.log(`Run 'yarn sync-schemas' to update them.`)
+    console.log(`Run 'pnpm sync-schemas' to update them.`)
     process.exit(1)
   }
 

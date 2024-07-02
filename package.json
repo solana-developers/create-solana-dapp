@@ -3,17 +3,17 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "yarn nx run-many --target=build --all",
-    "format": "yarn nx format:write --all",
-    "lint": "yarn nx run-many --target=lint --all",
+    "build": "pnpm nx run-many --target=build --all",
+    "format": "pnpm nx format:write --all",
+    "lint": "pnpm nx run-many --target=lint --all",
     "local-registry": "nx run @solana-developers/source:local-registry",
     "prelocal-publish": "ts-node tools/scripts/ensure-local-registry.ts",
     "local-publish": "nx run-many --targets publish --tag local --ver ",
-    "test": "yarn nx run-many --target=test --all",
+    "test": "pnpm nx run-many --target=test --all",
     "sync-readmes": "ts-node ./tools/scripts/sync-readmes.ts",
     "sync-schemas": "ts-node ./tools/scripts/sync-schemas.ts",
     "verify-package-versions": "ts-node tools/scripts/verify-package-versions.ts",
-    "verify-yarn-lock": "ts-node tools/scripts/verify-yarn-lock.ts"
+    "verify-pnpm-lock": "ts-node tools/scripts/verify-pnpm-lock.ts"
   },
   "private": true,
   "dependencies": {
@@ -23,8 +23,11 @@
     "@solana/web3.js": "^1.91.9",
     "@swc/helpers": "0.5.11",
     "commander": "^11.1.0",
-    "create-nx-workspace": "19.0.0",
+    "create-nx-workspace": "19.3.2",
     "json-schema-to-typescript": "^14.0.4",
+    "picocolors": "^1.0.1",
+    "semver": "^7.6.2",
+    "tmp": "^0.2.3",
     "ts-morph": "^22.0.0",
     "tslib": "^2.6.2",
     "yargs": "^17.7.2"
@@ -64,10 +67,11 @@
   },
   "lint-staged": {
     "*.{js,json,css,scss,md,ts,tsx,html,graphql}": [
-      "yarn nx format --uncommitted"
+      "pnpm nx format --uncommitted"
     ]
   },
   "nx": {
     "includedScripts": []
-  }
+  },
+  "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74"
 }

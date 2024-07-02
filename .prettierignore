@@ -4,6 +4,7 @@
 /coverage
 tmp
 /.yarn
+pnpm-lock.yaml
 
 .nx/cache
 # Ignore generated schema files in packages

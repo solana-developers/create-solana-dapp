@@ -4,7 +4,8 @@ import { createPreset } from 'create-nx-workspace/src/create-preset'
 import { execAndWait } from 'create-nx-workspace/src/utils/child-process-utils'
 import { mapErrorToBodyLines } from 'create-nx-workspace/src/utils/error-utils'
 import { initializeGitRepo } from 'create-nx-workspace/src/utils/git/git'
-import { getThirdPartyPreset } from 'create-nx-workspace/src/utils/preset/get-third-party-preset'
+import { getPackageNameFromThirdPartyPreset } from 'create-nx-workspace/src/utils/preset/get-third-party-preset'
+
 import { customCreateEmptyWorkspace } from './custom-create-empty-workspace'
 import { customCreateSandbox } from './custom-create-sandbox'
 
@@ -32,7 +33,7 @@ export async function customCreateWorkspace<T extends CreateWorkspaceOptions>(
   const spin3 = spinner()
   spin3.start(`Installing preset ${preset}`)
 
-  const thirdPartyPreset = await getThirdPartyPreset(preset)
+  const thirdPartyPreset = getPackageNameFromThirdPartyPreset(preset)
   if (thirdPartyPreset) {
     // Hide the stdout of createPreset
     await createPreset(thirdPartyPreset, options, packageManager, directory)

@@ -4,9 +4,9 @@
   "dependencies": {
     "@clack/prompts": "^0.7.0",
     "commander": "^11.1.0",
-    "picocolors": "1.0.0",
-    "semver": "7.6.0",
-    "tslib": "^2.3.0"
+    "picocolors": "1.0.1",
+    "tslib": "^2.3.0",
+    "semver": "^7.6.2"
   },
   "type": "commonjs",
   "main": "./src/index.js",
