@@ -1,4 +1,4 @@
-import { bold, greenBright, magentaBright, yellowBright } from 'chalk'
+import { bold, green, magenta, yellow } from 'picocolors'
 import { GetArgsResult } from './get-args-result'
 import { validateAnchorVersion } from './validate-anchor-version'
 
@@ -17,19 +17,19 @@ export function finalNote(args: GetArgsResult & { target: string }): string {
     if (!version) {
       lines.push(
         ...[
-          bold(yellowBright(`Could not find Anchor version. Please install Anchor.`)),
+          bold(yellow(`Could not find Anchor version. Please install Anchor.`)),
           'https://www.anchor-lang.com/docs/installation',
         ],
       )
     } else if (!valid) {
       lines.push(
         ...[
-          yellowBright(`Found Anchor version ${version}. Expected Anchor version ${requiredVersion}.`),
+          yellow(`Found Anchor version ${version}. Expected Anchor version ${requiredVersion}.`),
           'https://www.anchor-lang.com/release-notes/0.30.0',
         ],
       )
     } else {
-      lines.push(greenBright(`Found Anchor version ${version}. Great!`))
+      lines.push(green(`Found Anchor version ${version}. Great!`))
     }
   }
   return lines.join('\n\n')
@@ -51,5 +51,5 @@ function cmd(pm: string, command: string) {
 }
 
 function msg(message: string) {
-  return bold(magentaBright(message))
+  return bold(magenta(message))
 }

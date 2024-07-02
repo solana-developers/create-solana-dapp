@@ -35,7 +35,7 @@
         "@nx/dependency-checks": [
           "error",
           {
-            "buildTargets": ["build-base"],
+            "buildTargets": ["build"],
             "ignoredDependencies": ["@nx/jest", "prettier"]
           }
         ]

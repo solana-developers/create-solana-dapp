@@ -3,16 +3,16 @@
   "version": "0.0.1",
   "description": "This library is a preset for create-solana-dapp that adds next.js support to your project.",
   "dependencies": {
-    "@nx/devkit": "19.0.0",
+    "@nx/devkit": "19.3.2",
     "@nx/jest": "19.0.0",
-    "@nx/js": "19.0.0",
-    "@nx/eslint": "19.0.0",
-    "@nx/next": "19.0.0",
-    "@solana-developers/preset-anchor": "*",
+    "@nx/js": "^19.3.2",
+    "@nx/eslint": "19.3.2",
+    "@nx/next": "19.3.2",
     "@solana-developers/preset-common": "*",
     "@solana-developers/preset-react": "*",
     "prettier": "^2.6.2",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "@solana/web3.js": "^1.91.9"
   },
   "type": "commonjs",
   "main": "./src/index.js",

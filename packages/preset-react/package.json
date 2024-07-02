@@ -3,15 +3,16 @@
   "version": "0.0.1",
   "description": "This library is a preset for create-solana-dapp that adds React support to your project.",
   "dependencies": {
-    "@nx/devkit": "19.0.0",
-    "@nx/js": "19.0.0",
-    "@nx/eslint": "19.0.0",
-    "@nx/react": "19.0.0",
+    "@nx/devkit": "19.3.2",
+    "@nx/js": "^19.3.2",
+    "@nx/eslint": "19.3.2",
+    "@nx/react": "19.3.2",
     "@nx/webpack": "19.0.0",
     "@solana-developers/preset-anchor": "*",
     "@solana-developers/preset-common": "*",
     "prettier": "^2.6.2",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "@solana/web3.js": "^1.91.9"
   },
   "type": "commonjs",
   "main": "./src/index.js",
