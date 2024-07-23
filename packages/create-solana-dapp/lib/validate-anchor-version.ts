@@ -1,6 +1,6 @@
 import { parseVersion } from './parse-version'
 
-const requiredVersion = '0.30.0'
+const requiredVersion = '0.30.1'
 
 function getAnchorVersion(): string | undefined {
   try {

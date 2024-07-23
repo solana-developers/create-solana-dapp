@@ -1,6 +1,6 @@
 export const packageVersion = {
   '@coral-xyz': {
-    anchor: '^0.30.0',
+    anchor: '^0.30.1',
   },
   '@tailwindcss': {
     typography: '0.5.13',

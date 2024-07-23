@@ -25,7 +25,7 @@ export function finalNote(args: GetArgsResult & { target: string }): string {
       lines.push(
         ...[
           yellow(`Found Anchor version ${version}. Expected Anchor version ${requiredVersion}.`),
-          'https://www.anchor-lang.com/release-notes/0.30.0',
+          'https://www.anchor-lang.com/release-notes/0.30.1',
         ],
       )
     } else {
