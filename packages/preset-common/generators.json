@@ -1,9 +1,0 @@
-{
-  "generators": {
-    "common-template": {
-      "factory": "./src/generators/common-template/common-template-generator",
-      "schema": "./src/generators/common-template/common-template-schema.json",
-      "description": "common-template generator"
-    }
-  }
-}

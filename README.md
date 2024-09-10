@@ -25,7 +25,7 @@ The following UI frameworks are planned and expected to be supported in the futu
 
 ## Supported onchain program frameworks
 
-The following onchain programs (aka smart contract) frameworks are supported within `create-solana-dapp`:
+The following on-chain programs (aka smart contracts) frameworks are supported within `create-solana-dapp`:
 
 - Anchor
 
@@ -34,15 +34,6 @@ The following onchain programs (aka smart contract) frameworks are supported wit
 This projects operates as an NX monorepo that requires each of the child packages deployed to the NPM package registry:
 
 - [create-solana-dapp](./packages/create-solana-dapp): The CLI tool that generates a new project.
-- [preset-anchor](./packages/preset-anchor): A preset for [create-solana-dapp](./packages/create-solana-dapp) that adds
-  [Anchor](https://www.anchor-lang.com) support.
-- [preset-common](./packages/preset-common): Shared utilities for [create-solana-dapp](./packages/create-solana-dapp)
-  presets.
-- [preset-next](./packages/preset-next): A preset for [create-solana-dapp](./packages/create-solana-dapp) that adds
-  [Next.js](https://nextjs.org) support.
-- [preset-react](./packages/preset-react): A preset for [create-solana-dapp](./packages/create-solana-dapp) that adds
-  [React](https://reactjs.org) support.
-- [solana-dev](./packages/solana-dev): A CLI tool that with utilities for developing Solana dApps.
 
 ## Contributing
 
