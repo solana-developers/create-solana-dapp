@@ -12,8 +12,14 @@ npx create-solana-dapp@latest
 
 The following UI frameworks are supported within `create-solana-dapp`:
 
-- ReactJS
-- NextJS
+- Next.js
+  - [Next.js + Tailwind CSS (no Anchor)](https://github.com/solana-developers/template-next-tailwind)
+  - [Next.js + Tailwind CSS + Anchor Basic Example](https://github.com/solana-developers/template-next-tailwind-basic)
+  - [Next.js + Tailwind CSS + Anchor Counter Example](https://github.com/solana-developers/template-next-tailwind-counter)
+- React with Vite
+  - [React with Vite + Tailwind CSS (no Anchor)](https://github.com/solana-developers/template-react-vite-tailwind)
+  - [React with Vite + Tailwind CSS + Anchor Basic Example](https://github.com/solana-developers/template-react-vite-tailwind-basic)
+  - [React with Vite + Tailwind CSS + Anchor Counter Example](https://github.com/solana-developers/template-react-vite-tailwind-counter)
 
 ### Planned frameworks to support
 
@@ -23,17 +29,11 @@ The following UI frameworks are planned and expected to be supported in the futu
 - Svelte
 - React Native
 
-## Supported onchain program frameworks
+## Supported on-chain program frameworks
 
 The following on-chain programs (aka smart contracts) frameworks are supported within `create-solana-dapp`:
 
 - Anchor
-
-## Packages
-
-This projects operates as an NX monorepo that requires each of the child packages deployed to the NPM package registry:
-
-- [create-solana-dapp](./packages/create-solana-dapp): The CLI tool that generates a new project.
 
 ## Contributing
 
@@ -55,12 +55,8 @@ To install the project locally, run the following commands:
 git clone https://github.com/solana-developers/create-solana-dapp.git
 cd create-solana-dapp
 pnpm install
-pnpm run build
+pnpm build
 ```
-
-### Local registry
-
-The `create-solana-dapp` CLI uses a local registry to publish packages to.
 
 ```
 

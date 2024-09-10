@@ -1,0 +1,97 @@
+{
+  "name": "create-solana-dapp",
+  "version": "4.0.0-rc.0",
+  "description": "Get up and running fast with Solana dApps",
+  "repository": {
+    "name": "solana-developers/create-solana-dapp",
+    "type": "git",
+    "url": "https://github.com/solana-developers/create-solana-dapp"
+  },
+  "homepage": "https://github.com/solana-developers/create-solana-dapp#readme",
+  "bugs": {
+    "url": "https://github.com/solana-developers/create-solana-dapp/issues"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "create-solana-dapp": "./dist/bin/index.cjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "build:watch": "unbuild --watch",
+    "dev": "vitest dev",
+    "lint": "eslint . && prettier -c .",
+    "lint:fix": "automd && eslint . --fix && prettier -w .",
+    "prepack": "pnpm build",
+    "release": "pnpm build && pnpm test && npm publish --tag latest && git push --follow-tags",
+    "release:next": "pnpm build && pnpm test && npm publish --tag next && git push --follow-tags",
+    "test": "pnpm lint && pnpm test:types && vitest run --coverage",
+    "test:types": "tsc --noEmit --skipLibCheck"
+  },
+  "devDependencies": {
+    "@types/mock-fs": "^4.13.4",
+    "@types/node": "^22.1.0",
+    "@types/semver": "^7.5.8",
+    "@vitest/coverage-v8": "^2.0.5",
+    "automd": "^0.3.8",
+    "eslint": "^9.8.0",
+    "eslint-config-unjs": "^0.3.2",
+    "mock-fs": "^5.2.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "unbuild": "^3.0.0-rc.7",
+    "vitest": "^2.0.5"
+  },
+  "packageManager": "pnpm@9.7.0",
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "commander": "^12.1.0",
+    "giget": "^1.2.3",
+    "picocolors": "^1.0.1",
+    "semver": "^7.6.3",
+    "zod": "^3.23.8"
+  },
+  "contributors": [
+    {
+      "name": "Joe Caulfield",
+      "url": "https://github.com/jpcaulfi"
+    },
+    {
+      "name": "Jacob Creech",
+      "url": "https://github.com/jacobcreech"
+    },
+    {
+      "name": "Nick Frostbutter",
+      "url": "https://github.com/nickfrosty"
+    },
+    {
+      "name": "Bram Borggreve",
+      "url": "https://github.com/beeman"
+    }
+  ],
+  "keywords": [
+    "solana",
+    "next",
+    "react",
+    "web3",
+    "blockchain",
+    "nft"
+  ]
+}
