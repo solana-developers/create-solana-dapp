@@ -26,7 +26,6 @@ export function detectInvokedPackageManager(): PackageManager {
 
   for (const pkgManager of packageManagers) {
     if (invoker.path.includes(pkgManager)) {
-      console.log(`Found ${pkgManager}`)
       detectedPackageManager = pkgManager
       break
     }
