@@ -20,7 +20,7 @@ export type Task = {
    */
   task: (
     result: (input: { message: string; instructions?: string[] }) => void,
-  ) => Promise<{ message: string; instructions: string[] }> | void | Promise<void>
+  ) => Promise<{ message: string; instructions?: string[] }> | void | Promise<void>
 
   /**
    * If enabled === false the task will be skipped

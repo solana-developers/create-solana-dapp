@@ -1,6 +1,7 @@
 import { log } from '@clack/prompts'
 import { join } from 'node:path'
 import { bold, yellow } from 'picocolors'
+import { ensureTargetPath } from './ensure-target-path'
 import { GetArgsResult } from './get-args-result'
 import { deleteInitScript, getInitScript, InitScript } from './get-init-script'
 import { searchAndReplace } from './search-and-replace'
@@ -13,21 +14,18 @@ export function createAppTaskRunInitScript(args: GetArgsResult): Task {
     enabled: !args.skipInit,
     title: 'Running init script',
     task: async (result) => {
-      const instructions: string[] = []
       try {
         const init = getInitScript(args.targetDirectory)
         if (!init) {
-          return result({ message: 'Repository does not have an init script', instructions })
+          return result({ message: 'Repository does not have an init script' })
         }
 
         await initCheckVersion(init)
         await initRename(args, init)
 
-        instructions.push(
-          ...((await initInstructions(init))
-            ?.filter(Boolean)
-            .map((msg) => msg.replace('{pm}', args.packageManager)) as string[]),
-        )
+        const instructions: string[] = (initInstructions(init) ?? [])
+          ?.filter(Boolean)
+          .map((msg) => msg.replace('{pm}', args.packageManager))
 
         deleteInitScript(args.targetDirectory)
         return result({ message: 'Executed init script!', instructions })
@@ -48,7 +46,7 @@ async function initRename(args: GetArgsResult, init: InitScript) {
   )
 
   // Return early if there are no renames defined in the init script
-  if (!init.rename) {
+  if (!init?.rename) {
     return
   }
 
@@ -62,17 +60,22 @@ async function initRename(args: GetArgsResult, init: InitScript) {
     const toNames = namesValues(to)
 
     for (const path of init.rename[from].paths) {
+      const targetPath = join(args.targetDirectory, path)
+      if (!(await ensureTargetPath(targetPath))) {
+        console.error(`init-script.rename: target does not exist ${targetPath}`)
+        continue
+      }
       await searchAndReplace(join(args.targetDirectory, path), fromNames, toNames, args.dryRun)
     }
   }
 }
 
 async function initCheckVersion(init: InitScript) {
-  if (init.versions.anchor) {
-    await initCheckVersionAnchor(init.versions.anchor)
+  if (init?.versions.anchor) {
+    await initCheckVersionAnchor(init?.versions.anchor)
   }
-  if (init.versions.solana) {
-    await initCheckVersionSolana(init.versions.solana)
+  if (init?.versions.solana) {
+    await initCheckVersionSolana(init?.versions.solana)
   }
 }
 
@@ -122,6 +125,6 @@ async function initCheckVersionSolana(requiredVersion: string) {
   }
 }
 
-async function initInstructions(init: InitScript) {
-  return init.instructions.length === 0 ? undefined : init.instructions
+function initInstructions(init: InitScript) {
+  return init?.instructions?.length === 0 ? [] : init?.instructions
 }
