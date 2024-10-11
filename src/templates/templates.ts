@@ -10,6 +10,24 @@ export interface Template {
   path?: string
 }
 
+export function findTemplate(name: string): Template {
+  // A template name with a `/` is considered external
+  if (name.includes('/')) {
+    return {
+      name,
+      description: `${name} (external)`,
+      repository: name.includes(':') ? name : `gh:${name}`,
+    }
+  }
+
+  const template: Template | undefined = templates.find((template) => template.name === name)
+
+  if (!template) {
+    throw new Error(`Template ${name} not found`)
+  }
+  return template
+}
+
 function getTemplatesForFrameworks(frameworks: Framework[] = []): Template[] {
   return frameworks.reduce((acc, item) => {
     return [...acc, ...getTemplatesForFramework(item)]

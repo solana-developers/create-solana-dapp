@@ -8,9 +8,9 @@ Just run one simple command to generate a new project!
 npx create-solana-dapp@latest
 ```
 
-## Supported UI frameworks
+## Templates
 
-The following UI frameworks are supported within `create-solana-dapp`:
+The templates are supported within `create-solana-dapp`:
 
 - Next.js
   - [Next.js + Tailwind CSS (no Anchor)](https://github.com/solana-developers/template-next-tailwind)
@@ -20,6 +20,16 @@ The following UI frameworks are supported within `create-solana-dapp`:
   - [React with Vite + Tailwind CSS (no Anchor)](https://github.com/solana-developers/template-react-vite-tailwind)
   - [React with Vite + Tailwind CSS + Anchor Basic Example](https://github.com/solana-developers/template-react-vite-tailwind-basic)
   - [React with Vite + Tailwind CSS + Anchor Counter Example](https://github.com/solana-developers/template-react-vite-tailwind-counter)
+
+## External templates
+
+You can also use `create-solana-dapp` to create projects using external templates:
+
+The `--template` (or `-t`) flag supports anything that [giget](https://github.com/unjs/giget) supports
+
+```shell
+pnpx create-solana-dapp --template <github-org>/<github-repo>
+```
 
 ### Planned frameworks to support
 

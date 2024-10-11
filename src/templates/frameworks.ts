@@ -7,7 +7,7 @@ export interface Framework {
   templates: Template[]
 }
 
-export const defaultRepository = `github:solana-developers/template-{{name}}`
+export const defaultRepository = `gh:solana-developers/template-{{name}}`
 
 export const frameworks: Framework[] = [
   {

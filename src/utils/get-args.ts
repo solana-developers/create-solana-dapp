@@ -1,6 +1,6 @@
 import { intro, log, outro } from '@clack/prompts'
 import { program } from 'commander'
-import { listTemplates, Template, templates } from '../templates/templates'
+import { findTemplate, listTemplates, Template } from '../templates/templates'
 import { AppInfo } from './get-app-info'
 import { GetArgsResult } from './get-args-result'
 import { getPrompts } from './get-prompts'
@@ -17,8 +17,7 @@ export async function getArgs(argv: string[], app: AppInfo, pm: PackageManager =
     .option('--yarn', help(`Use yarn as the package manager`), false)
     .option('--pnpm', help(`Use pnpm as the package manager`), false)
     .option('-d, --dry-run', help('Dry run (default: false)'))
-    .option('--template <template-name>', help('Use a template'))
-    .option('--templates', help('List available templates'))
+    .option('-t, --template <template-name>', help('Use a template'))
     .option('--list-templates', help('List available templates'))
     .option('--list-versions', help('Verify your versions of Anchor, AVM, Rust, and Solana'))
     .option('--skip-git', help('Skip git initialization'))
@@ -48,7 +47,9 @@ Examples:
   }
   if (result.listTemplates) {
     listTemplates()
-    outro(`\uD83D\uDCA1 To use a template, run "${app.name}${name ? ` ${name}` : ''} --template <template-name>"`)
+    outro(
+      `\uD83D\uDCA1 To use a template, run "${app.name}${name ? ` ${name}` : ''} --template <template-name>" or "--template <github-org>/<github-repo>" `,
+    )
     process.exit(0)
   }
   let packageManager = result.packageManager ?? pm
@@ -71,13 +72,7 @@ Examples:
   let template: Template | undefined
 
   if (result.template) {
-    template = templates.find((template) => template.name === result.template)
-  }
-
-  if (result.templates) {
-    listTemplates()
-    outro(`\uD83D\uDCA1 To use a template, run "${app.name}${name ? ` ${name}` : ''} --template <template-name>"`)
-    process.exit(0)
+    template = findTemplate(result.template)
   }
 
   // Take the result from the command line and use it to populate the options
