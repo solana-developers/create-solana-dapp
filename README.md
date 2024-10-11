@@ -31,6 +31,42 @@ The `--template` (or `-t`) flag supports anything that [giget](https://github.co
 pnpx create-solana-dapp --template <github-org>/<github-repo>
 ```
 
+## Init script
+
+Template authors can add an init script to the `package.json` file to help set up the project.
+
+Use this script to return instructions to the user, check the `anchor` and `solana` versions, and replace text and files
+in the project.
+
+```json
+{
+  "name": "your-template",
+  "create-solana-dapp": {
+    // These instructions will be returned to the user after installation
+    "instructions": [
+      "Run Anchor commands:",
+      // Adding a '+' will make the line bold and '{pm}' is replaced with the package manager
+      "+{pm} run anchor build | test | localnet | deploy"
+    ],
+    // Rename is a map of terms to rename
+    "rename": {
+      // Rename every instance of counter
+      "counter": {
+        // With the name of the project
+        "to": "{{name}}",
+        // In the following paths
+        "paths": ["anchor", "src"]
+      }
+    },
+    // Check versions and give a warning if it's not installed or the version is lower
+    "versions": {
+      "anchor": "0.30.1",
+      "solana": "1.18.0"
+    }
+  }
+}
+```
+
 ### Planned frameworks to support
 
 The following UI frameworks are planned and expected to be supported in the future:
