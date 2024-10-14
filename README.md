@@ -8,6 +8,9 @@ Just run one simple command to generate a new project!
 npx create-solana-dapp@latest
 ```
 
+[![npm version](https://img.shields.io/npm/v/create-solana-dapp?color=yellow)](https://npmjs.com/package/create-solana-dapp)
+[![npm downloads](https://img.shields.io/npm/dm/create-solana-dapp?color=yellow)](https://npmjs.com/package/create-solana-dapp)
+
 ## Templates
 
 The templates are supported within `create-solana-dapp`:
