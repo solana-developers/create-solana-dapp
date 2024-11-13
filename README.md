@@ -41,7 +41,7 @@ Template authors can add an init script to the `package.json` file to help set u
 Use this script to return instructions to the user, check the `anchor` and `solana` versions, and replace text and files
 in the project.
 
-```json
+```jsonc
 {
   "name": "your-template",
   "create-solana-dapp": {
