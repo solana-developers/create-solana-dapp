@@ -49,7 +49,7 @@ in the project.
     "instructions": [
       "Run Anchor commands:",
       // Adding a '+' will make the line bold and '{pm}' is replaced with the package manager
-      "+{pm} run anchor build | test | localnet | deploy"
+      "+{pm} run anchor build | test | localnet | deploy",
     ],
     // Rename is a map of terms to rename
     "rename": {
@@ -58,15 +58,15 @@ in the project.
         // With the name of the project
         "to": "{{name}}",
         // In the following paths
-        "paths": ["anchor", "src"]
-      }
+        "paths": ["anchor", "src"],
+      },
     },
     // Check versions and give a warning if it's not installed or the version is lower
     "versions": {
       "anchor": "0.30.1",
-      "solana": "1.18.0"
-    }
-  }
+      "solana": "1.18.0",
+    },
+  },
 }
 ```
 
