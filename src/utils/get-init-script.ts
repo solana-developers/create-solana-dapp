@@ -43,10 +43,12 @@ const InitScriptSchema = z
         }),
       )
       .optional(),
-    versions: z.object({
-      anchor: z.string().optional(),
-      solana: z.string().optional(),
-    }),
+    versions: z
+      .object({
+        anchor: z.string().optional(),
+        solana: z.string().optional(),
+      })
+      .optional(),
   })
   .optional()
 

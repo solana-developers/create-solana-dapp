@@ -71,11 +71,11 @@ async function initRename(args: GetArgsResult, init: InitScript) {
 }
 
 async function initCheckVersion(init: InitScript) {
-  if (init?.versions.anchor) {
-    await initCheckVersionAnchor(init?.versions.anchor)
+  if (init?.versions?.anchor) {
+    await initCheckVersionAnchor(init.versions.anchor)
   }
-  if (init?.versions.solana) {
-    await initCheckVersionSolana(init?.versions.solana)
+  if (init?.versions?.solana) {
+    await initCheckVersionSolana(init.versions.solana)
   }
 }
 
