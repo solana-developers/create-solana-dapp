@@ -43,7 +43,7 @@ export const frameworks: Framework[] = [
         repository: defaultRepository,
       },
       {
-        name: 'react-vite-tailwind-hello-world',
+        name: 'react-vite-tailwind-basic',
         description: 'React with Vite + Tailwind CSS + Anchor Hello World Example',
         repository: defaultRepository,
       },
