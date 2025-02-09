@@ -19,15 +19,30 @@ export function createAppTaskRunInitScript(args: GetArgsResult): Task {
         if (!init) {
           return result({ message: 'Repository does not have an init script' })
         }
+        if (args.verbose) {
+          log.warn(`Running init script`)
+        }
 
         await initCheckVersion(init)
-        await initRename(args, init)
+        if (args.verbose) {
+          log.warn(`initCheckVersion done`)
+        }
+        await initRename(args, init, args.verbose)
+        if (args.verbose) {
+          log.warn(`initRename done`)
+        }
 
         const instructions: string[] = (initInstructions(init) ?? [])
           ?.filter(Boolean)
           .map((msg) => msg.replace('{pm}', args.packageManager))
 
+        if (args.verbose) {
+          log.warn(`initInstructions done`)
+        }
         deleteInitScript(args.targetDirectory)
+        if (args.verbose) {
+          log.warn(`deleteInitScript done`)
+        }
         return result({ message: 'Executed init script!', instructions })
       } catch (error) {
         taskFail(`${error}`)
@@ -36,13 +51,14 @@ export function createAppTaskRunInitScript(args: GetArgsResult): Task {
   }
 }
 
-async function initRename(args: GetArgsResult, init: InitScript) {
+async function initRename(args: GetArgsResult, init: InitScript, verbose: boolean) {
   // Rename template to project name throughout the whole project
   await searchAndReplace(
     args.targetDirectory,
     [`template-${args.template.name}`, args.template.name],
     [args.name, args.name],
     false,
+    verbose,
   )
 
   // Return early if there are no renames defined in the init script

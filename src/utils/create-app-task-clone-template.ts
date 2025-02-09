@@ -1,3 +1,4 @@
+import { log } from '@clack/prompts'
 import { downloadTemplate } from 'giget'
 import { existsSync } from 'node:fs'
 import { GetArgsResult } from './get-args-result'
@@ -14,6 +15,9 @@ export function createAppTaskCloneTemplate(args: GetArgsResult): Task {
       }
       if (!args.template.repository) {
         taskFail('No template repository specified')
+      }
+      if (args.verbose) {
+        log.warn(`Cloning template ${args.template.repository} to ${args.targetDirectory}`)
       }
       const { dir } = await downloadTemplate(args.template.repository, {
         dir: args.targetDirectory,

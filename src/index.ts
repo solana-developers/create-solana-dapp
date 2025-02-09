@@ -1,4 +1,4 @@
-import { cancel, note, outro } from '@clack/prompts'
+import { cancel, log, note, outro } from '@clack/prompts'
 import * as process from 'node:process'
 import { createApp } from './utils/create-app'
 import { finalNote } from './utils/final-note'
@@ -21,6 +21,11 @@ export async function main(argv: string[]) {
       note(JSON.stringify(args, undefined, 2), 'Arguments')
       outro('🚀 Dry run was used, no changes were made')
       return
+    }
+
+    if (args.verbose) {
+      log.warn(`Verbose output enabled`)
+      console.warn(args)
     }
 
     // Create the app
