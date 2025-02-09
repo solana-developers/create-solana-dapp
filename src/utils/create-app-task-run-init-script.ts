@@ -52,11 +52,12 @@ export function createAppTaskRunInitScript(args: GetArgsResult): Task {
 }
 
 async function initRename(args: GetArgsResult, init: InitScript, verbose: boolean) {
+  const projectContainsTemplateName = args.name.includes(args.template.name)
   // Rename template to project name throughout the whole project
   await searchAndReplace(
     args.targetDirectory,
-    [`template-${args.template.name}`, args.template.name],
-    [args.name, args.name],
+    projectContainsTemplateName ? [] : [`template-${args.template.name}`, args.template.name],
+    projectContainsTemplateName ? [] : [args.name, args.name],
     false,
     verbose,
   )
@@ -65,23 +66,52 @@ async function initRename(args: GetArgsResult, init: InitScript, verbose: boolea
   if (!init?.rename) {
     return
   }
+  if (args.verbose) {
+    log.warn(`initRename: Found renames in init script`)
+    console.log(init.rename)
+  }
+  let renameCount = 0
 
   // Loop through each word in the rename object
   for (const from of Object.keys(init.rename)) {
+    renameCount += 1
+    if (args.verbose) {
+      log.warn(`initRename: [${renameCount}] Processing ${from}`)
+    }
     // Get the 'to' property from the rename object
     const to = init.rename[from].to.replace('{{name}}', args.name.replace(/-/g, ''))
+    if (args.verbose) {
+      log.warn(`initRename: [${renameCount}] from ${from} to ${to}`)
+    }
 
     // Get the name matrix for the 'from' and the 'to' value
     const fromNames = namesValues(from)
     const toNames = namesValues(to)
 
+    if (args.verbose) {
+      log.warn(`initRename: [${renameCount}] fromNames: ${fromNames.join(', ')}`)
+      log.warn(`initRename: [${renameCount}] ..toNames: ${toNames.join(', ')}`)
+    }
+
     for (const path of init.rename[from].paths) {
+      if (args.verbose) {
+        log.warn(`initRename: [${renameCount}]  => Processing path ${path}`)
+      }
       const targetPath = join(args.targetDirectory, path)
       if (!(await ensureTargetPath(targetPath))) {
         console.error(`init-script.rename: target does not exist ${targetPath}`)
         continue
       }
-      await searchAndReplace(join(args.targetDirectory, path), fromNames, toNames, args.dryRun)
+      if (args.verbose) {
+        log.warn(`initRename: [${renameCount}]  => Searching and replacing ${fromNames.join(', ')} in ${targetPath}`)
+      }
+      await searchAndReplace(join(args.targetDirectory, path), fromNames, toNames, args.dryRun, args.verbose)
+      if (args.verbose) {
+        log.warn(`initRename: [${renameCount}]  => Done`)
+      }
+    }
+    if (args.verbose) {
+      log.warn(`initRename: [${renameCount}] Done`)
     }
   }
 }
