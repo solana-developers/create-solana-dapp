@@ -81,7 +81,7 @@ async function initRename(args: GetArgsResult, init: InitScript, verbose: boolea
         console.error(`init-script.rename: target does not exist ${targetPath}`)
         continue
       }
-      await searchAndReplace(join(args.targetDirectory, path), fromNames, toNames, args.dryRun)
+      await searchAndReplace(join(args.targetDirectory, path), fromNames, toNames, args.dryRun, args.verbose)
     }
   }
 }

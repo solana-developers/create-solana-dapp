@@ -20,6 +20,10 @@ export async function searchAndReplace(
       let newContent = content
 
       for (const [i, fromString] of fromStrings.entries()) {
+        if (newContent.includes(fromString)) {
+          console.log(`searchAndReplace: processFile: Skipping ${filePath} because it includes ${fromString}`)
+          continue
+        }
         const regex = new RegExp(fromString, 'g')
         newContent = newContent.replace(regex, toStrings[i])
         // Make sure we maintain the possible newline at the end of the file
@@ -96,6 +100,12 @@ export async function searchAndReplace(
         let newPath = oldPath
 
         for (const [i, fromString] of fromStrings.entries()) {
+          if (newPath.includes(fromString)) {
+            console.log(
+              `searchAndReplace: renamePaths: Skipping ${oldPath} => ${newPath} because it includes ${fromString}`,
+            )
+            continue
+          }
           newPath = newPath.replace(new RegExp(fromString, 'g'), toStrings[i])
         }
 
