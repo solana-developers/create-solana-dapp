@@ -16,30 +16,33 @@ export async function searchAndReplace(
 
   async function processFile(filePath: string): Promise<void> {
     try {
-      const content = await readFile(filePath, 'utf8')
-      let newContent = content
+      let newContent = await readFile(filePath, 'utf8')
+      let changesMade = false
 
       for (const [i, fromString] of fromStrings.entries()) {
         const regex = new RegExp(fromString, 'g')
-        newContent = newContent.replace(regex, toStrings[i])
+        if (regex.test(newContent)) {
+          newContent = newContent.replace(regex, toStrings[i])
+          changesMade = true
+        }
       }
 
-      if (content !== newContent) {
+      if (changesMade) {
         if (!isDryRun) {
           await writeFile(filePath, newContent, 'utf8')
         }
         if (isVerbose) {
           console.log(`${isDryRun ? '[Dry Run] ' : ''}File modified: ${filePath}`)
-        }
-        for (const [index, fromStr] of fromStrings.entries()) {
-          const count = (newContent.match(new RegExp(toStrings[index], 'g')) || []).length
-          if (count > 0 && isVerbose) {
-            console.log(`  Replaced "${fromStr}" with "${toStrings[index]}" ${count} time(s)`)
+          for (const [index, fromStr] of fromStrings.entries()) {
+            const count = (newContent.match(new RegExp(toStrings[index], 'g')) || []).length
+            if (count > 0) {
+              console.log(`  Replaced "${fromStr}" with "${toStrings[index]}" ${count} time(s)`)
+            }
           }
         }
       }
     } catch (error) {
-      console.error(`Error processing file ${filePath}:`, error)
+      console.error(`Error processing file: ${filePath}`, error)
     }
   }
 
@@ -79,6 +82,7 @@ export async function searchAndReplace(
   async function renamePaths(directoryPath: string): Promise<void> {
     try {
       const entries = await readdir(directoryPath, { withFileTypes: true })
+      const renameQueue: { oldPath: string; newPath: string }[] = []
 
       for (const entry of entries) {
         if (EXCLUDED_DIRECTORIES.has(entry.name)) {
@@ -96,16 +100,23 @@ export async function searchAndReplace(
         }
 
         if (oldPath !== newPath) {
-          if (!isDryRun) {
-            await rename(oldPath, newPath)
-          }
-          if (isVerbose) {
-            console.log(`${isDryRun ? '[Dry Run] ' : ''}Renamed: ${oldPath} -> ${newPath}`)
-          }
+          renameQueue.push({ oldPath, newPath })
         }
 
         if (entry.isDirectory()) {
-          await renamePaths(entry.isDirectory() ? newPath : oldPath)
+          await renamePaths(oldPath) // Process subdirectories first
+        }
+      }
+
+      // Sort by descending path length to rename deepest paths first
+      renameQueue.sort((a, b) => b.oldPath.length - a.oldPath.length)
+
+      for (const { oldPath, newPath } of renameQueue) {
+        if (!isDryRun) {
+          await rename(oldPath, newPath)
+        }
+        if (isVerbose) {
+          console.log(`${isDryRun ? '[Dry Run] ' : ''}Renamed: ${oldPath} -> ${newPath}`)
         }
       }
     } catch (error) {
