@@ -3,7 +3,7 @@ import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { GetArgsResult } from './get-args-result'
 import { execAndWait } from './vendor/child-process-utils'
-import { Task } from './vendor/clack-tasks'
+import { Task, taskFail } from './vendor/clack-tasks'
 import { getPackageManagerCommand } from './vendor/package-manager'
 
 export function createAppTaskInstallDependencies(args: GetArgsResult): Task {
@@ -28,13 +28,15 @@ export function createAppTaskInstallDependencies(args: GetArgsResult): Task {
         }
         await execAndWait(`rm ${lockFile}`, args.targetDirectory)
       }
-
       if (args.verbose) {
         log.warn(`Running ${install}`)
       }
-      await execAndWait(install, args.targetDirectory)
-
-      return result({ message: `Installed via ${pm}` })
+      try {
+        await execAndWait(install, args.targetDirectory)
+        return result({ message: `Installed via ${pm}` })
+      } catch (error) {
+        taskFail(`init: Error installing dependencies: ${error}`)
+      }
     },
   }
 }

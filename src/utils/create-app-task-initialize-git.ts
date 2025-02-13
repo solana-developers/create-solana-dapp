@@ -1,6 +1,6 @@
 import { log } from '@clack/prompts'
 import { GetArgsResult } from './get-args-result'
-import { Task } from './vendor/clack-tasks'
+import { Task, taskFail } from './vendor/clack-tasks'
 import { initializeGitRepo } from './vendor/git'
 
 export function createAppTaskInitializeGit(args: GetArgsResult): Task {
@@ -22,6 +22,7 @@ export function createAppTaskInitializeGit(args: GetArgsResult): Task {
           console.error(error)
         }
         log.error(`${error}`)
+        taskFail(`init: Error initializing git: ${error}`)
       }
     },
   }

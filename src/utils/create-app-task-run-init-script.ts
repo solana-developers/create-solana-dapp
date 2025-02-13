@@ -45,7 +45,7 @@ export function createAppTaskRunInitScript(args: GetArgsResult): Task {
         }
         return result({ message: 'Executed init script!', instructions })
       } catch (error) {
-        taskFail(`${error}`)
+        taskFail(`init: Error running init script: ${error}`)
       }
     },
   }
