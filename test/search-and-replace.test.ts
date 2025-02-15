@@ -91,8 +91,9 @@ describe('searchAndReplace', () => {
     await searchAndReplace(tempDir, ['Hello', 'Old'], ['Hi', 'New'], false, true)
 
     // Check that log shows correct counts for replacements
-    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('Replaced "Hello" with "Hi" 1 time(s)'))
-    expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('Replaced "Old" with "New" 1 time(s)'))
+    expect(consoleLogSpy).toHaveBeenNthCalledWith(2, '  Replaced "Hello" with "Hi" 1 time(s)')
+    expect(consoleLogSpy).toHaveBeenNthCalledWith(4, '  Replaced "Old" with "New" 1 time(s)')
+    expect(consoleLogSpy).toHaveBeenNthCalledWith(6, '  Replaced "Hello" with "Hi" 1 time(s)')
 
     consoleLogSpy.mockRestore()
   })
