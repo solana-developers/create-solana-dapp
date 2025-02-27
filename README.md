@@ -95,7 +95,7 @@ Contributions are welcome! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for m
 >
 > ```sh
 > corepack enable
-> corepack prepare pnpm@9 --activate
+> corepack prepare pnpm@10 --activate
 > ```
 
 To install the project locally, run the following commands:
