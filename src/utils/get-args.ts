@@ -1,5 +1,8 @@
 import { intro, log, outro } from '@clack/prompts'
 import { program } from 'commander'
+import pico from 'picocolors'
+import { getRegistry } from '../registry/registry'
+import { Registry, RegistrySection } from '../registry/validate-registry'
 import { findTemplate, listTemplates, Template } from '../templates/templates'
 import { AppInfo } from './get-app-info'
 import { GetArgsResult } from './get-args-result'
@@ -19,6 +22,7 @@ export async function getArgs(argv: string[], app: AppInfo, pm: PackageManager =
     .option('-d, --dry-run', help('Dry run (default: false)'))
     .option('-t, --template <template-name>', help('Use a template'))
     .option('--list-templates', help('List available templates'))
+    .option('--list-registry', help('List the templates in the registry'))
     .option('--list-versions', help('Verify your versions of Anchor, AVM, Rust, and Solana'))
     .option('--skip-git', help('Skip git initialization'))
     .option('--skip-init', help('Skip running the init script'))
@@ -42,8 +46,14 @@ Examples:
   // Get the options from the command line
   const result = input.opts()
 
+  const registry = await getRegistry()
+
   if (result.listVersions) {
     listVersions()
+    process.exit(0)
+  }
+  if (result.listRegistry) {
+    listRegistry(registry)
     process.exit(0)
   }
   if (result.listTemplates) {
@@ -115,4 +125,36 @@ function help(text: string) {
   return `
 
   ${text}`
+}
+
+function listRegistry(registry: Registry) {
+  const { default: defaultRegistry, ...otherRegistries } = registry
+
+  printRegistrySection(defaultRegistry)
+
+  const others = Object.keys(otherRegistries)
+
+  for (const key of others) {
+    printRegistrySection(otherRegistries[key])
+  }
+}
+
+function printRegistrySection(section: RegistrySection) {
+  console.log(` === ${section.id} === `)
+  console.log(`Name: ${section.name}`)
+  // console.log(`Description: ${section.description}`) // TODO: add description to index.json and the validation
+  console.log(`Groups: ${section.groups.length}`)
+
+  for (const group of section.groups) {
+    console.log(`  === ${group.id} === `)
+    console.log(`Name: ${group.name}`)
+    console.log(pico.gray(`Description: ${group.description}`))
+    console.log(pico.gray(`Templates: ${group.templates.length}`))
+
+    for (const template of group.templates) {
+      console.log(`    ${template.name}`)
+      console.log(pico.gray(`    Description: ${template.description}`))
+      console.log(pico.gray(`    Repository: ${template.repository}`))
+    }
+  }
 }
