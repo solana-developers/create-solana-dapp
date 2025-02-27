@@ -38,17 +38,17 @@ export const frameworks: Framework[] = [
       {
         name: 'react-vite-tailwind-counter',
         description: 'React with Vite + Tailwind CSS + Anchor Counter Example',
-        repository: 'gh:solana-developers/solana-templates/templates/react-vite-tailwind-counter',
+        repository: 'gh:solana-developers/solana-templates/templates/legacy-react-vite-tailwind-counter',
       },
       {
         name: 'react-vite-tailwind-basic',
         description: 'React with Vite + Tailwind CSS + Anchor Basic Example',
-        repository: 'gh:solana-developers/solana-templates/templates/react-vite-tailwind-basic',
+        repository: 'gh:solana-developers/solana-templates/templates/legacy-react-vite-tailwind-basic',
       },
       {
         name: 'react-vite-tailwind',
         description: 'React with Vite + Tailwind CSS, no Anchor',
-        repository: 'gh:solana-developers/solana-templates/templates/react-vite-tailwind',
+        repository: 'gh:solana-developers/solana-templates/templates/legacy-react-vite-tailwind',
       },
     ],
   },
