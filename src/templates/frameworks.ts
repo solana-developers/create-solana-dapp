@@ -7,8 +7,6 @@ export interface Framework {
   templates: Template[]
 }
 
-export const defaultRepository = `gh:solana-developers/template-{{name}}`
-
 export const frameworks: Framework[] = [
   {
     id: 'next',
@@ -18,17 +16,17 @@ export const frameworks: Framework[] = [
       {
         name: 'next-tailwind-counter',
         description: 'Next.js + Tailwind CSS + Anchor Counter Example',
-        repository: defaultRepository,
+        repository: 'gh:solana-developers/solana-templates/templates/legacy-next-tailwind-counter',
       },
       {
         name: 'next-tailwind-basic',
         description: 'Next.js + Tailwind CSS + Anchor Basic Example',
-        repository: defaultRepository,
+        repository: 'gh:solana-developers/solana-templates/templates/legacy-next-tailwind-basic',
       },
       {
         name: 'next-tailwind',
         description: 'Next.js + Tailwind CSS, no Anchor',
-        repository: defaultRepository,
+        repository: 'gh:solana-developers/solana-templates/templates/legacy-next-tailwind',
       },
     ],
   },
@@ -40,17 +38,17 @@ export const frameworks: Framework[] = [
       {
         name: 'react-vite-tailwind-counter',
         description: 'React with Vite + Tailwind CSS + Anchor Counter Example',
-        repository: defaultRepository,
+        repository: 'gh:solana-developers/solana-templates/templates/react-vite-tailwind-counter',
       },
       {
         name: 'react-vite-tailwind-basic',
         description: 'React with Vite + Tailwind CSS + Anchor Basic Example',
-        repository: defaultRepository,
+        repository: 'gh:solana-developers/solana-templates/templates/react-vite-tailwind-basic',
       },
       {
         name: 'react-vite-tailwind',
         description: 'React with Vite + Tailwind CSS, no Anchor',
-        repository: defaultRepository,
+        repository: 'gh:solana-developers/solana-templates/templates/react-vite-tailwind',
       },
     ],
   },
