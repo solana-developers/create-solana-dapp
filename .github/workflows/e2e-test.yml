@@ -1,5 +1,9 @@
 name: Test Templates
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: true
+
 on:
   push:
     branches:
@@ -11,13 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [18, 20, 22]
+        node: [20, 22]
         pm: [npm, pnpm, yarn]
         template:
           [
             next-tailwind,
             next-tailwind-basic,
             next-tailwind-counter,
+            node-script,
             react-vite-tailwind,
             react-vite-tailwind-basic,
             react-vite-tailwind-counter,
@@ -61,14 +66,12 @@ jobs:
           TEMP_DIR=$(mktemp -d)
           cd "$TEMP_DIR"
 
-          BRANCH='main'
-
           CLI_PATH="${{ github.workspace }}/dist/bin/index.cjs"
 
           case ${{ matrix.pm }} in
-          npm)  node "$CLI_PATH" --template gh:solana-developers/template-${{ matrix.template }}#${BRANCH} sandbox ;;
-          pnpm) node "$CLI_PATH" --template gh:solana-developers/template-${{ matrix.template }}#${BRANCH} sandbox --pnpm ;;
-          yarn) node "$CLI_PATH" --template gh:solana-developers/template-${{ matrix.template }}#${BRANCH} sandbox --yarn ;;
+          npm)  node "$CLI_PATH" --template ${{ matrix.template }} sandbox ;;
+          pnpm) node "$CLI_PATH" --template ${{ matrix.template }} sandbox --pnpm ;;
+          yarn) node "$CLI_PATH" --template ${{ matrix.template }} sandbox --yarn ;;
           esac
 
           cd sandbox

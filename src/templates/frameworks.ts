@@ -31,6 +31,18 @@ export const frameworks: Framework[] = [
     ],
   },
   {
+    id: 'node',
+    name: 'Node.js',
+    description: "Node is a JavaScript runtime built on Chrome's V8 JavaScript engine",
+    templates: [
+      {
+        name: 'node-script',
+        description: 'Simple Node script with gill',
+        repository: 'gh:solana-developers/solana-templates/templates/template-node-script',
+      },
+    ],
+  },
+  {
     id: 'react-vite',
     name: 'React with Vite',
     description: 'React with Vite and React Router',
