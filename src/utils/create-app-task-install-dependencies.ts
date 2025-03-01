@@ -8,7 +8,7 @@ import { getPackageManagerCommand } from './vendor/package-manager'
 
 export function createAppTaskInstallDependencies(args: GetArgsResult): Task {
   const pm = args.packageManager
-  const { install, lockFile } = getPackageManagerCommand(pm)
+  const { install, lockFile } = getPackageManagerCommand(pm, args.verbose)
   return {
     enabled: !args.skipInstall,
     title: `Installing via ${pm}`,

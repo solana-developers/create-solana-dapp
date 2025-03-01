@@ -45,7 +45,10 @@ export function detectInvokedPackageManager(): PackageManager {
  * ```
  *
  */
-export function getPackageManagerCommand(packageManager: PackageManager = detectPackageManager()): {
+export function getPackageManagerCommand(
+  packageManager: PackageManager = detectPackageManager(),
+  verbose: boolean,
+): {
   install: string
   exec: string
   preInstall?: string
@@ -56,11 +59,12 @@ export function getPackageManagerCommand(packageManager: PackageManager = detect
 } {
   const pmVersion = getPackageManagerVersion(packageManager)
   const [pmMajor, pmMinor] = pmVersion.split('.')
+  const silent = verbose ? '' : '--silent'
 
   switch (packageManager) {
     case 'yarn': {
       const useBerry = +pmMajor >= 2
-      const installCommand = 'yarn install --silent'
+      const installCommand = `yarn install ${silent}`
       return {
         preInstall: `yarn set version ${pmVersion}`,
         install: useBerry ? installCommand : `${installCommand} --ignore-scripts`,
@@ -78,7 +82,7 @@ export function getPackageManagerCommand(packageManager: PackageManager = detect
         useExec = true
       }
       return {
-        install: 'pnpm install --no-frozen-lockfile --silent --ignore-scripts',
+        install: `pnpm install --no-frozen-lockfile ${silent} --ignore-scripts`,
         exec: useExec ? 'pnpm exec' : 'pnpx',
         globalAdd: 'pnpm add -g',
         getRegistryUrl: 'pnpm config get registry',
@@ -88,7 +92,7 @@ export function getPackageManagerCommand(packageManager: PackageManager = detect
 
     case 'npm': {
       return {
-        install: 'npm install --silent --ignore-scripts',
+        install: `npm install ${silent} --ignore-scripts`,
         exec: 'npx',
         globalAdd: 'npm i -g',
         getRegistryUrl: 'npm config get registry',
