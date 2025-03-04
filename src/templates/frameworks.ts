@@ -36,6 +36,11 @@ export const frameworks: Framework[] = [
     description: "Node is a JavaScript runtime built on Chrome's V8 JavaScript engine",
     templates: [
       {
+        name: 'node-express',
+        description: 'Node Express server with gill',
+        repository: 'gh:solana-developers/solana-templates/templates/template-node-express',
+      },
+      {
         name: 'node-script',
         description: 'Simple Node script with gill',
         repository: 'gh:solana-developers/solana-templates/templates/template-node-script',
