@@ -43,7 +43,7 @@ export function createAppTaskRunInitScript(args: GetArgsResult): Task {
         if (args.verbose) {
           log.warn(`deleteInitScript done`)
         }
-        return result({ message: 'Executed init script!', instructions })
+        return result({ message: 'Executed init script', instructions })
       } catch (error) {
         taskFail(`init: Error running init script: ${error}`)
       }

@@ -33,7 +33,7 @@ export async function main(argv: string[]) {
 
     note(
       finalNote({ ...args, target: args.targetDirectory.replace(process.cwd(), '.'), instructions }),
-      'Installation successful!',
+      'Installation successful',
     )
 
     outro('Good luck with your project!')

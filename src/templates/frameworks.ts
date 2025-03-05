@@ -33,7 +33,7 @@ export const frameworks: Framework[] = [
   {
     id: 'node',
     name: 'Node.js',
-    description: "Node is a JavaScript runtime built on Chrome's V8 JavaScript engine",
+    description: "JavaScript runtime built on Chrome's V8 engine",
     templates: [
       {
         name: 'node-express',
