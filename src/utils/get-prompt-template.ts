@@ -1,4 +1,4 @@
-import { log, select, SelectOptions } from '@clack/prompts'
+import { isCancel, log, select, SelectOptions } from '@clack/prompts'
 import { Framework, frameworks } from '../templates/frameworks'
 import { getTemplatesForFramework, Template } from '../templates/templates'
 import { GetArgsResult } from './get-args-result'
@@ -11,6 +11,9 @@ export function getPromptTemplate({ options }: { options: GetArgsResult }) {
     }
 
     const framework: Framework = await selectFramework(frameworks)
+    if (isCancel(framework)) {
+      throw 'No framework selected'
+    }
 
     return selectTemplate(getTemplatesForFramework(framework))
   }
