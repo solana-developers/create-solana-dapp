@@ -29,7 +29,7 @@ export function deleteInitScript(targetDirectory: string) {
   const packageJson = join(targetDirectory, 'package.json')
   const contents = require(packageJson)
   delete contents[initScriptKey]
-  writeFileSync(packageJson, JSON.stringify(contents, undefined, 2))
+  writeFileSync(packageJson, JSON.stringify(contents, undefined, 2) + '\n')
 }
 
 const InitScriptSchema = z
