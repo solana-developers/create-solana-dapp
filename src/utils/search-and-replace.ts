@@ -22,6 +22,10 @@ export async function searchAndReplace(
       for (const [i, fromString] of fromStrings.entries()) {
         const regex = new RegExp(fromString, 'g')
         newContent = newContent.replace(regex, toStrings[i])
+        // Make sure we maintain the possible newline at the end of the file
+        if (content.endsWith('\n') && !newContent.endsWith('\n')) {
+          newContent += '\n'
+        }
       }
 
       if (content !== newContent) {
