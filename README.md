@@ -107,8 +107,5 @@ pnpm install
 pnpm build
 ```
 
-```
-
 Detailed instructions on the local development workflow are outlined in the
 [Development Workflow](./CONTRIBUTING.md#development-workflow) section of the CONTRIBUTING guidelines.
-```
