@@ -17,15 +17,22 @@ jobs:
       matrix:
         node: [20, 22]
         pm: [npm, pnpm, yarn]
-        template:
-          [
+        template: [
+            legacy-next-tailwind,
+            legacy-next-tailwind-basic,
+            legacy-next-tailwind-counter,
+            legacy-react-vite-tailwind,
+            legacy-react-vite-tailwind-basic,
+            legacy-react-vite-tailwind-counter,
             next-tailwind,
-            next-tailwind-basic,
-            next-tailwind-counter,
+            # next-tailwind-basic,
+            # next-tailwind-counter,
+            node-express,
+            node-script,
             node-script,
             react-vite-tailwind,
-            react-vite-tailwind-basic,
-            react-vite-tailwind-counter,
+            # react-vite-tailwind-basic,
+            # react-vite-tailwind-counter,
           ]
 
     steps:
