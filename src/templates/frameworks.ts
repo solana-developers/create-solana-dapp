@@ -28,6 +28,21 @@ export const frameworks: Framework[] = [
         description: 'Next.js + Tailwind CSS, no Anchor',
         repository: 'gh:solana-developers/solana-templates/templates/template-next-tailwind',
       },
+      {
+        name: 'legacy-next-tailwind-counter',
+        description: 'Legacy Next.js + Tailwind CSS + Anchor Counter Example',
+        repository: 'gh:solana-developers/solana-templates/legacy/legacy-next-tailwind-counter',
+      },
+      {
+        name: 'legacy-next-tailwind-basic',
+        description: 'Legacy Next.js + Tailwind CSS + Anchor Basic Example',
+        repository: 'gh:solana-developers/solana-templates/legacy/legacy-next-tailwind-basic',
+      },
+      {
+        name: 'legacy-next-tailwind',
+        description: 'Legacy Next.js + Tailwind CSS, no Anchor',
+        repository: 'gh:solana-developers/solana-templates/legacy/legacy-next-tailwind',
+      },
     ],
   },
   {
@@ -66,28 +81,6 @@ export const frameworks: Framework[] = [
         name: 'react-vite-tailwind',
         description: 'React with Vite + Tailwind CSS, no Anchor',
         repository: 'gh:solana-developers/solana-templates/templates/template-react-vite-tailwind',
-      },
-    ],
-  },
-  {
-    id: 'legacy',
-    name: 'Legacy templates',
-    description: 'Templates using @solana/web3.js',
-    templates: [
-      {
-        name: 'legacy-next-tailwind-counter',
-        description: 'Next.js + Tailwind CSS + Anchor Counter Example',
-        repository: 'gh:solana-developers/solana-templates/legacy/legacy-next-tailwind-counter',
-      },
-      {
-        name: 'legacy-next-tailwind-basic',
-        description: 'Next.js + Tailwind CSS + Anchor Basic Example',
-        repository: 'gh:solana-developers/solana-templates/legacy/legacy-next-tailwind-basic',
-      },
-      {
-        name: 'legacy-next-tailwind',
-        description: 'Next.js + Tailwind CSS, no Anchor',
-        repository: 'gh:solana-developers/solana-templates/legacy/legacy-next-tailwind',
       },
       {
         name: 'legacy-react-vite-tailwind-counter',
