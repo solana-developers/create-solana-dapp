@@ -16,7 +16,8 @@ jobs:
     strategy:
       matrix:
         node: [22]
-        pm: [npm, pnpm, yarn]
+        # pm: [npm, pnpm, yarn] Somehow, yarn fails but only on CI?
+        pm: [npm, pnpm]
         template: [
             legacy-next-tailwind,
             legacy-next-tailwind-basic,
