@@ -25,7 +25,7 @@ export const frameworks: Framework[] = [
       // },
       {
         name: 'next-tailwind',
-        description: 'Next.js + Tailwind CSS, no Anchor',
+        description: 'Next.js + Tailwind CSS, Gill, no Anchor',
         repository: 'gh:solana-developers/solana-templates/templates/template-next-tailwind',
       },
       {
@@ -79,7 +79,7 @@ export const frameworks: Framework[] = [
       // },
       {
         name: 'react-vite-tailwind',
-        description: 'React with Vite + Tailwind CSS, no Anchor',
+        description: 'React with Vite + Tailwind CSS + Gill, no Anchor',
         repository: 'gh:solana-developers/solana-templates/templates/template-react-vite-tailwind',
       },
       {

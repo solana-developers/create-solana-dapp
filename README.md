@@ -11,19 +11,25 @@ npx create-solana-dapp@latest
 [![npm version](https://img.shields.io/npm/v/create-solana-dapp?color=yellow)](https://npmjs.com/package/create-solana-dapp)
 [![npm downloads](https://img.shields.io/npm/dm/create-solana-dapp?color=yellow)](https://npmjs.com/package/create-solana-dapp)
 
+This is a CLI that automates the initialization of predefined Solana templates (see below). 
+
 ## Templates
 
 The templates are supported within `create-solana-dapp`:
 
-- Next.js
-  - [Next.js + Tailwind CSS (no Anchor)](https://github.com/solana-developers/template-next-tailwind)
-  - [Next.js + Tailwind CSS + Anchor Basic Example](https://github.com/solana-developers/template-next-tailwind-basic)
-  - [Next.js + Tailwind CSS + Anchor Counter Example](https://github.com/solana-developers/template-next-tailwind-counter)
-- React with Vite
-  - [React with Vite + Tailwind CSS (no Anchor)](https://github.com/solana-developers/template-react-vite-tailwind)
-  - [React with Vite + Tailwind CSS + Anchor Basic Example](https://github.com/solana-developers/template-react-vite-tailwind-basic)
-  - [React with Vite + Tailwind CSS + Anchor Counter Example](https://github.com/solana-developers/template-react-vite-tailwind-counter)
+These templates use [Gill](https://github.com/solana-foundation/gill) / [@solana/kit](https://github.com/anza-xyz/kit), except for those marked :warning: legacy.
 
+- Next.js
+  - [Next.js + Tailwind CSS + Gill (no Anchor)](https://github.com/solana-developers/solana-templates/tree/main/templates/template-next-tailwind)
+  - [Next.js + Tailwind CSS + Anchor Basic Example](https://github.com/solana-developers/template-next-tailwind-basic) :warning: legacy
+  - [Next.js + Tailwind CSS + Anchor Counter Example](https://github.com/solana-developers/template-next-tailwind-counter) :warning: legacy
+- React with Vite
+  - [React with Vite + Tailwind CSS + Gill (no Anchor)](https://github.com/solana-developers/solana-templates/tree/main/templates/template-react-vite-tailwind)
+  - [React with Vite + Tailwind CSS + Anchor Basic Example](https://github.com/solana-developers/template-react-vite-tailwind-basic) :warning: legacy
+  - [React with Vite + Tailwind CSS + Anchor Counter Example](https://github.com/solana-developers/template-react-vite-tailwind-counter) :warning: legacy
+- Node.js
+  - [Node Express + Gill](https://github.com/solana-developers/solana-templates/tree/main/templates/template-node-express)
+  - [Node script + Gill](https://github.com/solana-developers/solana-templates/tree/main/templates/template-node-script)
 ## External templates
 
 You can also use `create-solana-dapp` to create projects using external templates:
