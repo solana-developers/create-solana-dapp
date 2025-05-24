@@ -16,13 +16,13 @@ npx create-solana-dapp@latest
 The templates are supported within `create-solana-dapp`:
 
 - Next.js
-  - [Next.js + Tailwind CSS (no Anchor)](https://github.com/solana-developers/template-next-tailwind)
-  - [Next.js + Tailwind CSS + Anchor Basic Example](https://github.com/solana-developers/template-next-tailwind-basic)
-  - [Next.js + Tailwind CSS + Anchor Counter Example](https://github.com/solana-developers/template-next-tailwind-counter)
+  - [Next.js + Tailwind CSS (no Anchor)](https://github.com/solana-developers/solana-templates/tree/main/legacy/legacy-next-tailwind)
+  - [Next.js + Tailwind CSS + Anchor Basic Example](https://github.com/solana-developers/solana-templates/tree/main/legacy/legacy-next-tailwind-basic)
+  - [Next.js + Tailwind CSS + Anchor Counter Example](https://github.com/solana-developers/solana-templates/tree/main/legacy/legacy-next-tailwind-counter)
 - React with Vite
-  - [React with Vite + Tailwind CSS (no Anchor)](https://github.com/solana-developers/template-react-vite-tailwind)
-  - [React with Vite + Tailwind CSS + Anchor Basic Example](https://github.com/solana-developers/template-react-vite-tailwind-basic)
-  - [React with Vite + Tailwind CSS + Anchor Counter Example](https://github.com/solana-developers/template-react-vite-tailwind-counter)
+  - [React with Vite + Tailwind CSS (no Anchor)](https://github.com/solana-developers/solana-templates/tree/main/legacy/legacy-react-vite-tailwind)
+  - [React with Vite + Tailwind CSS + Anchor Basic Example](https://github.com/solana-developers/solana-templates/tree/main/legacy/legacy-react-vite-tailwind-basic)
+  - [React with Vite + Tailwind CSS + Anchor Counter Example](https://github.com/solana-developers/solana-templates/tree/main/legacy/legacy-react-vite-tailwind-counter)
 
 ## External templates
 
