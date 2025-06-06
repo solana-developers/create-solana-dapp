@@ -1,11 +1,10 @@
 import { log } from '@clack/prompts'
 import { join } from 'node:path'
-import { bold, yellow } from 'picocolors'
 import { ensureTargetPath } from './ensure-target-path'
 import { GetArgsResult } from './get-args-result'
 import { deleteInitScript, getInitScript, InitScript } from './get-init-script'
+import { initCheckVersion } from './init-check-version'
 import { searchAndReplace } from './search-and-replace'
-import { validateAnchorVersion, validateSolanaVersion } from './validate-version'
 import { Task, taskFail } from './vendor/clack-tasks'
 import { namesValues } from './vendor/names'
 
@@ -83,61 +82,6 @@ async function initRename(args: GetArgsResult, init: InitScript, verbose: boolea
       }
       await searchAndReplace(join(args.targetDirectory, path), fromNames, toNames, args.dryRun)
     }
-  }
-}
-
-async function initCheckVersion(init: InitScript) {
-  if (init?.versions?.anchor) {
-    await initCheckVersionAnchor(init.versions.anchor)
-  }
-  if (init?.versions?.solana) {
-    await initCheckVersionSolana(init.versions.solana)
-  }
-}
-
-async function initCheckVersionAnchor(requiredVersion: string) {
-  try {
-    const { required, valid, version } = validateAnchorVersion(requiredVersion)
-    if (!version) {
-      log.warn(
-        [
-          bold(yellow(`Could not find Anchor version. Please install Anchor.`)),
-          'https://www.anchor-lang.com/docs/installation',
-        ].join(' '),
-      )
-    } else if (!valid) {
-      log.warn(
-        [
-          yellow(`Found Anchor version ${version}. Expected Anchor version ${required}.`),
-          'https://www.anchor-lang.com/release-notes/0.30.1',
-        ].join(' '),
-      )
-    }
-  } catch (error_) {
-    log.warn(`Error ${error_}`)
-  }
-}
-
-async function initCheckVersionSolana(requiredVersion: string) {
-  try {
-    const { required, valid, version } = validateSolanaVersion(requiredVersion)
-    if (!version) {
-      log.warn(
-        [
-          bold(yellow(`Could not find Solana version. Please install Solana.`)),
-          'https://docs.solana.com/cli/install-solana-cli-tools',
-        ].join(' '),
-      )
-    } else if (!valid) {
-      log.warn(
-        [
-          yellow(`Found Solana version ${version}. Expected Solana version ${required}.`),
-          'https://docs.solana.com/cli/install-solana-cli-tools',
-        ].join(' '),
-      )
-    }
-  } catch (error_) {
-    log.warn(`Error ${error_}`)
   }
 }
 

@@ -57,6 +57,7 @@ in the project.
     },
     // Check versions and give a warning if it's not installed or the version is lower
     "versions": {
+      "adb": "33.0.0",
       "anchor": "0.30.1",
       "solana": "1.18.0",
     },

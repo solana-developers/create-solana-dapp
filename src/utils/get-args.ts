@@ -4,7 +4,7 @@ import { findTemplate, listTemplates, Template } from '../templates/templates'
 import { AppInfo } from './get-app-info'
 import { GetArgsResult } from './get-args-result'
 import { getPrompts } from './get-prompts'
-import { listVersions } from './validate-version'
+import { listVersions } from './list-versions'
 import { PackageManager } from './vendor/package-manager'
 
 export async function getArgs(argv: string[], app: AppInfo, pm: PackageManager = 'npm'): Promise<GetArgsResult> {
