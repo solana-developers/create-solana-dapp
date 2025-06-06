@@ -1,17 +1,19 @@
 import { log } from '@clack/prompts'
-import { InitScriptVersions } from './get-init-script'
-import { initScriptVersionAdb } from './init-script-version-adb'
-import { initScriptVersionAnchor } from './init-script-version-anchor'
-import { initScriptVersionSolana } from './init-script-version-solana'
+import { InitScriptVersions } from './init-script-schema'
+import { initScriptVersionCheck } from './init-script-version-check'
 
 export async function initScriptVersion(versions?: InitScriptVersions, verbose = false) {
+  const tag = `initScriptVersion`
   if (!versions) {
     if (verbose) {
-      log.warn(`initScriptCheckVersion: no versions found`)
+      log.warn(`${tag}: no versions found`)
     }
     return
   }
-  await initScriptVersionAdb(versions.adb, verbose)
-  await initScriptVersionAnchor(versions.anchor, verbose)
-  await initScriptVersionSolana(versions.solana, verbose)
+  await initScriptVersionCheck('adb', versions.adb, verbose)
+  await initScriptVersionCheck('anchor', versions.anchor, verbose)
+  await initScriptVersionCheck('solana', versions.solana, verbose)
+  if (verbose) {
+    log.warn(`${tag}: done`)
+  }
 }

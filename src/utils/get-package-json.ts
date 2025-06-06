@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { z } from 'zod'
 import { getPackageJsonPath } from './get-package-json-path'
+import { initScriptKey, InitScriptSchema } from './init-script-schema'
 
 export function getPackageJson(targetDirectory: string): { path: string; contents: PackageJson } {
   const path = getPackageJsonPath(targetDirectory)
@@ -26,6 +27,7 @@ const PackageJsonSchema = z
   .object({
     name: z.string().optional(),
     scripts: z.record(z.string()).optional(),
+    [initScriptKey]: InitScriptSchema.optional(),
   })
   .passthrough()
 

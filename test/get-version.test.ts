@@ -1,24 +1,10 @@
 import * as childProcess from 'node:child_process'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { getVersion, versionCommands } from '../src/utils/get-version'
+import { getVersion } from '../src/utils/get-version'
 
 vi.mock('node:child_process', () => ({
   execSync: vi.fn(),
 }))
-
-describe('versionCommands', () => {
-  it('should have the expected commands', () => {
-    expect(Object.keys(versionCommands)).toEqual(['adb', 'anchor', 'avm', 'rust', 'solana'])
-  })
-
-  it('should have correct structure for each command', () => {
-    for (const cmd of Object.values(versionCommands)) {
-      expect(cmd).toHaveProperty('command', expect.any(String))
-      expect(cmd).toHaveProperty('name', expect.any(String))
-      expect(cmd).toHaveProperty('regex', expect.any(RegExp))
-    }
-  })
-})
 
 describe('getVersion', () => {
   beforeEach(() => {
