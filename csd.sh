@@ -6,7 +6,7 @@
 # $ ln -s $HOME/path/to/create-solana-dapp/csd.sh ~/.local/bin/csd
 # or
 # $ ln -s $HOME/path/to/create-solana-dapp/csd.sh ~/bin/csd
-
+#
 # Create an app using the default prompts and a random unique name:
 # $ csd
 #
@@ -15,6 +15,9 @@
 #
 # Create an app using a template and a specific name:
 # $ csd gh:solana-developers/solana-templates/templates/template-node-express my-api
+#
+# Create an app using a template from a pull request number 35 (must be an active or recent PR):
+# $ csd gh:solana-developers/solana-templates/templates/template-node-express#refs/pull/35/merge
 #
 # Create an app using create-solana-dapp@next
 # $ TAG=next csd
@@ -42,12 +45,15 @@ else
   read -ra CMD <<< "${CMD}"
 fi
 
-# Get first argument or show error if none provided
+# Set a random name for the app in case none is provided
+RANDOM_NAME="app$(date +%s)"
+
+# First argument is the template. If we don't have it, we'll run the default prompts and use the random name
 if [[ $# -eq 0 ]]; then
-  # Create app without any arguments
-  "${CMD[@]}" "app$(date +%s)"
+  echo "${CMD[@]}" "${RANDOM_NAME}"
+  "${CMD[@]}" "${RANDOM_NAME}"
 else
-  # Store argument in URL variable
+  # Template has been provided so no prompts are needed
   TEMPLATE="$1"
 
   # Verify if this looks like a TEMPLATE url by checking if it starts with https?:// or gh:
@@ -56,13 +62,13 @@ else
     exit 1
   fi
 
-  ## Check if we have any second argument
+  ## Second argument is the name. If we don't have it, we'll use the random name
   if [[ $# -eq 2 ]]; then
     # Store second argument in NAME variable
     NAME="$2"
   else
     # Set default NAME
-    NAME="app$(date +%s)"
+    NAME="${RANDOM_NAME}"
   fi
 
   # Create app with the provided TEMPLATE and NAME
