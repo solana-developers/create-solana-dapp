@@ -15,32 +15,32 @@ export const frameworks: Framework[] = [
     templates: [
       // {
       //   name: 'next-tailwind-counter',
-      //   description: 'Next.js + Tailwind CSS + Anchor Counter Example',
+      //   description: 'Next.js, Tailwind, Anchor Counter Example, gill (based on @solana/kit), Wallet UI',
       //   repository: 'gh:solana-developers/solana-templates/templates/template-next-tailwind-counter',
       // },
       // {
       //   name: 'next-tailwind-basic',
-      //   description: 'Next.js + Tailwind CSS + Anchor Basic Example',
+      //   description: 'Next.js, Tailwind, basic Anchor example, gill (based on @solana/kit), Wallet UI',
       //   repository: 'gh:solana-developers/solana-templates/templates/template-next-tailwind-basic',
       // },
       {
         name: 'next-tailwind',
-        description: 'Next.js + Tailwind CSS, Gill, no Anchor',
+        description: 'Next.js, Tailwind, gill (based on @solana/kit), Wallet UI',
         repository: 'gh:solana-developers/solana-templates/templates/template-next-tailwind',
       },
       {
         name: 'legacy-next-tailwind-counter',
-        description: 'Legacy Next.js + Tailwind CSS + Anchor Counter Example',
+        description: 'Next.js, Tailwind, Anchor Counter Example, @solana/web3.js, Wallet Adapter',
         repository: 'gh:solana-developers/solana-templates/legacy/legacy-next-tailwind-counter',
       },
       {
         name: 'legacy-next-tailwind-basic',
-        description: 'Legacy Next.js + Tailwind CSS + Anchor Basic Example',
+        description: 'Legacy Next.js, Tailwind, basic Anchor example, @solana/web3.js, Wallet Adapter',
         repository: 'gh:solana-developers/solana-templates/legacy/legacy-next-tailwind-basic',
       },
       {
         name: 'legacy-next-tailwind',
-        description: 'Legacy Next.js + Tailwind CSS, no Anchor',
+        description: 'Legacy Next.js, Tailwind, no Anchor, @solana/web3.js, Wallet Adapter',
         repository: 'gh:solana-developers/solana-templates/legacy/legacy-next-tailwind',
       },
     ],
@@ -69,32 +69,32 @@ export const frameworks: Framework[] = [
     templates: [
       // {
       //   name: 'react-vite-tailwind-counter',
-      //   description: 'React with Vite + Tailwind CSS + Anchor Counter Example',
+      //   description: 'React with Vite, Tailwind, Anchor Counter Example',
       //   repository: 'gh:solana-developers/solana-templates/templates/template-react-vite-tailwind-counter',
       // },
       // {
       //   name: 'react-vite-tailwind-basic',
-      //   description: 'React with Vite + Tailwind CSS + Anchor Basic Example',
+      //   description: 'React with Vite, Tailwind, basic Anchor example',
       //   repository: 'gh:solana-developers/solana-templates/templates/template-react-vite-tailwind-basic',
       // },
       {
         name: 'react-vite-tailwind',
-        description: 'React with Vite + Tailwind CSS + Gill, no Anchor',
+        description: 'React with Vite, Tailwind, gill (based on @solana/kit), Wallet UI',
         repository: 'gh:solana-developers/solana-templates/templates/template-react-vite-tailwind',
       },
       {
         name: 'legacy-react-vite-tailwind-counter',
-        description: 'React with Vite + Tailwind CSS + Anchor Counter Example',
+        description: 'React with Vite, Tailwind, Anchor Counter Example, @solana/web3.js, Wallet Adapter',
         repository: 'gh:solana-developers/solana-templates/legacy/legacy-react-vite-tailwind-counter',
       },
       {
         name: 'legacy-react-vite-tailwind-basic',
-        description: 'React with Vite + Tailwind CSS + Anchor Basic Example',
+        description: 'React with Vite, Tailwind, basic Anchor example, @solana/web3.js, Wallet Adapter',
         repository: 'gh:solana-developers/solana-templates/legacy/legacy-react-vite-tailwind-basic',
       },
       {
         name: 'legacy-react-vite-tailwind',
-        description: 'React with Vite + Tailwind CSS, no Anchor',
+        description: 'React with Vite, Tailwind, @solana/web3.js, Wallet Adapter',
         repository: 'gh:solana-developers/solana-templates/legacy/legacy-react-vite-tailwind',
       },
     ],
