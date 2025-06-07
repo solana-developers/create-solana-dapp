@@ -1,4 +1,4 @@
-import { existsSync, writeFileSync } from 'node:fs'
+import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { z } from 'zod'
 
@@ -25,32 +25,28 @@ export function getInitScript(targetDirectory: string): InitScript | undefined {
   return parsed.data
 }
 
-export function deleteInitScript(targetDirectory: string) {
-  const packageJson = join(targetDirectory, 'package.json')
-  const contents = require(packageJson)
-  delete contents[initScriptKey]
-  writeFileSync(packageJson, JSON.stringify(contents, undefined, 2) + '\n')
-}
+const InitScriptInstructionsSchema = z.array(z.string())
+const InitScriptRenameSchema = z.record(
+  z.object({
+    to: z.string(),
+    paths: z.array(z.string()),
+  }),
+)
+const InitScriptVersionsSchema = z.object({
+  adb: z.string().optional(),
+  anchor: z.string().optional(),
+  solana: z.string().optional(),
+})
 
 const InitScriptSchema = z
   .object({
-    instructions: z.array(z.string()).optional(),
-    rename: z
-      .record(
-        z.object({
-          to: z.string(),
-          paths: z.array(z.string()),
-        }),
-      )
-      .optional(),
-    versions: z
-      .object({
-        adb: z.string().optional(),
-        anchor: z.string().optional(),
-        solana: z.string().optional(),
-      })
-      .optional(),
+    instructions: InitScriptInstructionsSchema.optional(),
+    rename: InitScriptRenameSchema.optional(),
+    versions: InitScriptVersionsSchema.optional(),
   })
   .optional()
 
 export type InitScript = z.infer<typeof InitScriptSchema>
+export type InitScriptInstructions = z.infer<typeof InitScriptInstructionsSchema>
+export type InitScriptRename = z.infer<typeof InitScriptRenameSchema>
+export type InitScriptVersions = z.infer<typeof InitScriptVersionsSchema>

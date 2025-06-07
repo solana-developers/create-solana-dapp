@@ -3,9 +3,15 @@ import { bold, yellow } from 'picocolors'
 import { getVersion } from './get-version'
 import { validateVersion } from './validate-version'
 
-export async function initCheckVersionSolana(required: string) {
+export async function initScriptVersionSolana(required?: string, verbose = false) {
+  if (!required) {
+    return
+  }
   try {
     const { valid, version } = validateVersion({ required, version: getVersion('solana') })
+    if (verbose) {
+      log.warn(`initScriptVersionSolana: required: ${required}, version: ${version ?? '*none*'}, valid: ${valid}`)
+    }
     if (!version) {
       log.warn(
         [
