@@ -45,6 +45,7 @@ const InitScriptSchema = z
       .optional(),
     versions: z
       .object({
+        adb: z.string().optional(),
         anchor: z.string().optional(),
         solana: z.string().optional(),
       })
