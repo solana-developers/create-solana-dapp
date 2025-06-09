@@ -1,13 +1,19 @@
 import { intro, log, outro } from '@clack/prompts'
 import { program } from 'commander'
 import { findTemplate, listTemplates, Template } from '../templates/templates'
+import { GeneratorContext } from './generator-context'
 import { AppInfo } from './get-app-info'
-import { GetArgsResult } from './get-args-result'
 import { getPrompts } from './get-prompts'
 import { listVersions } from './list-versions'
 import { PackageManager } from './vendor/package-manager'
 
-export async function getArgs(argv: string[], app: AppInfo, pm: PackageManager = 'npm'): Promise<GetArgsResult> {
+export interface GetGeneratorContextOptions {
+  app: AppInfo
+  argv: string[]
+  pm: PackageManager
+}
+
+export async function getGeneratorContext({ app, argv, pm }: GetGeneratorContextOptions): Promise<GeneratorContext> {
   // Get the result from the command line
   const input = program
     .name(app.name)
@@ -78,9 +84,8 @@ Examples:
 
   // Take the result from the command line and use it to populate the options
   const cwd = process.cwd()
-  const options: Omit<GetArgsResult, 'template'> & { template?: Template } = {
+  const options: Omit<GeneratorContext, 'template'> & { template?: Template } = {
     dryRun: result.dryRun ?? false,
-    app,
     name: name ?? '',
     packageManager,
     skipGit: result.skipGit ?? false,
@@ -92,7 +97,7 @@ Examples:
   }
 
   // Get the prompts for any missing options
-  const prompts = await getPrompts({ options: options as GetArgsResult })
+  const prompts = await getPrompts({ name: options.name, template: options.template })
 
   // Populate the options with the prompts
   if (prompts.name) {
@@ -107,7 +112,7 @@ Examples:
     throw new Error('No template specified')
   }
 
-  return options as GetArgsResult
+  return options as GeneratorContext
 }
 
 // Helper function to add a newline before the text

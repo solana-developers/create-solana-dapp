@@ -30,7 +30,7 @@ export function detectInvokedPackageManager(): PackageManager {
       break
     }
   }
-  return detectedPackageManager
+  return detectedPackageManager ?? 'npm'
 }
 
 /**

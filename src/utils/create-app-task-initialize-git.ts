@@ -1,23 +1,32 @@
 import { log } from '@clack/prompts'
-import { GetArgsResult } from './get-args-result'
 import { Task, taskFail } from './vendor/clack-tasks'
 import { initializeGitRepo } from './vendor/git'
 
-export function createAppTaskInitializeGit(args: GetArgsResult): Task {
+export interface CreateAppTaskInitializeGitOptions {
+  skipGit: boolean
+  targetDirectory: string
+  verbose: boolean
+}
+
+export function createAppTaskInitializeGit({
+  skipGit,
+  targetDirectory,
+  verbose,
+}: CreateAppTaskInitializeGitOptions): Task {
   return {
-    enabled: !args.skipGit,
+    enabled: !skipGit,
     title: 'Initializing git',
     task: async (result) => {
       try {
-        if (args.verbose) {
+        if (verbose) {
           log.warn(`Initializing git repo`)
         }
-        await initializeGitRepo(args.targetDirectory, {
+        await initializeGitRepo(targetDirectory, {
           commit: { email: '', name: '', message: 'chore: initial commit' },
         })
         return result({ message: 'Initialized git repo' })
       } catch (error) {
-        if (args.verbose) {
+        if (verbose) {
           log.error(`Error initializing git repo: ${error}`)
           console.error(error)
         }

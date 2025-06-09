@@ -1,12 +1,11 @@
 import { log, text } from '@clack/prompts'
-import { GetArgsResult } from './get-args-result'
 import { validateProjectName } from './validate-project-name'
 
-export function getPromptName({ options }: { options: GetArgsResult }) {
+export function getPromptName({ name }: { name: string }) {
   return () => {
-    if (options.name) {
-      log.success(`Project name: ${options.name}`)
-      return Promise.resolve(options.name)
+    if (name?.length) {
+      log.success(`Project name: ${name}`)
+      return Promise.resolve(name)
     }
     return text({
       message: 'Enter project name',

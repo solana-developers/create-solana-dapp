@@ -3,7 +3,7 @@ import * as process from 'node:process'
 import { createApp } from './utils/create-app'
 import { finalNote } from './utils/final-note'
 import { getAppInfo } from './utils/get-app-info'
-import { getArgs } from './utils/get-args'
+import { getGeneratorContext } from './utils/get-generator-context'
 import { detectInvokedPackageManager } from './utils/vendor/package-manager'
 
 export async function main(argv: string[]) {
@@ -14,25 +14,25 @@ export async function main(argv: string[]) {
   const app = getAppInfo()
 
   try {
-    // Get the result from the command line and prompts
-    const args = await getArgs(argv, app, pm)
+    // Create the context based on the arguments and prompts
+    const context = await getGeneratorContext({ app, argv, pm })
 
-    if (args.dryRun) {
-      note(JSON.stringify(args, undefined, 2), 'Arguments')
+    if (context.dryRun) {
+      note(JSON.stringify(context, undefined, 2), 'Context')
       outro('🚀 Dry run was used, no changes were made')
       return
     }
 
-    if (args.verbose) {
+    if (context.verbose) {
       log.warn(`Verbose output enabled`)
-      console.warn(args)
+      console.warn(context)
     }
 
     // Create the app
-    const instructions = await createApp(args)
+    const instructions = await createApp(context)
 
     note(
-      finalNote({ ...args, target: args.targetDirectory.replace(process.cwd(), '.'), instructions }),
+      finalNote({ ...context, target: context.targetDirectory.replace(process.cwd(), '.'), instructions }),
       'Installation successful',
     )
 
