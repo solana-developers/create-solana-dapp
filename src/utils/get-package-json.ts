@@ -1,9 +1,9 @@
 import { existsSync, readFileSync } from 'node:fs'
-import { join } from 'node:path'
 import { z } from 'zod'
+import { getPackageJsonPath } from './get-package-json-path'
 
 export function getPackageJson(targetDirectory: string): PackageJson {
-  const packageJson = join(targetDirectory, 'package.json')
+  const packageJson = getPackageJsonPath(targetDirectory)
   const exists = existsSync(packageJson)
   if (!exists) {
     throw new Error('No package.json found')
