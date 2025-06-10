@@ -3,7 +3,12 @@ import { GetArgsResult } from './get-args-result'
 import { getPackageJson } from './get-package-json'
 import { getStartScript } from './get-start-script'
 
-export function finalNote(args: GetArgsResult & { target: string; instructions: string[] }): string {
+export interface FinalNoteArgs extends GetArgsResult {
+  target: string
+  instructions: string[]
+}
+
+export function finalNote(args: FinalNoteArgs): string {
   const packageJson = getPackageJson(args.targetDirectory)
   const startScript = getStartScript(packageJson.scripts)
 
@@ -11,6 +16,7 @@ export function finalNote(args: GetArgsResult & { target: string; instructions: 
     `That's it!`,
     `Change to your new directory and start developing:`,
     msg(`cd ${args.target}`),
+    ...(args.skipInstall ? [`Install dependencies:`, cmd(args.packageManager, 'install')] : []),
     ...(startScript ? [`Start the app:`, cmd(args.packageManager, startScript)] : []),
     ...args.instructions.map((line) => (line.startsWith('+') ? msg(line.slice(1)) : line)),
   ]
