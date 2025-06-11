@@ -1,12 +1,15 @@
 name: Version & Publish Packages
 
+# on:
+#   workflow_dispatch:
+#     branches:
+#       - main
+#   push:
+#     branches:
+#       - main
+
 on:
-  workflow_dispatch:
-    branches:
-      - main
-  push:
-    branches:
-      - main
+  pull_request:
 
 env:
   # See https://consoledonottrack.com/
