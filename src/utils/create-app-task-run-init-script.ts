@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import { ensureTargetPath } from './ensure-target-path'
 import { GetArgsResult } from './get-args-result'
 import { deleteInitScript, getInitScript, InitScript } from './get-init-script'
+import { getPackageJson } from './get-package-json'
 import { initCheckVersion } from './init-check-version'
 import { searchAndReplace } from './search-and-replace'
 import { Task, taskFail } from './vendor/clack-tasks'
@@ -51,14 +52,11 @@ export function createAppTaskRunInitScript(args: GetArgsResult): Task {
 }
 
 async function initRename(args: GetArgsResult, init: InitScript, verbose: boolean) {
-  // Rename template to project name throughout the whole project
-  await searchAndReplace(
-    args.targetDirectory,
-    [`template-${args.template.name}`, args.template.name],
-    [args.name, args.name],
-    false,
-    verbose,
-  )
+  const { contents } = getPackageJson(args.targetDirectory)
+  // Rename template from package.json to project name throughout the whole project
+  if (contents.name) {
+    await searchAndReplace(args.targetDirectory, [contents.name], [args.name], false, verbose)
+  }
 
   // Return early if there are no renames defined in the init script
   if (!init?.rename) {

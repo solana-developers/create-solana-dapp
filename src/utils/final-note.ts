@@ -9,8 +9,8 @@ export interface FinalNoteArgs extends GetArgsResult {
 }
 
 export function finalNote(args: FinalNoteArgs): string {
-  const packageJson = getPackageJson(args.targetDirectory)
-  const startScript = getStartScript(packageJson.scripts)
+  const { contents } = getPackageJson(args.targetDirectory)
+  const startScript = getStartScript(contents.scripts)
 
   const lines: string[] = [
     `That's it!`,
