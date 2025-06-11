@@ -1,4 +1,4 @@
-name: Version & Publish Packages
+name: Publish Canary Releases
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ env:
   DO_NOT_TRACK: '1'
 
 jobs:
-  build-and-publish-to-npm:
+  build-and-publish-snapshots-to-npm:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,26 +22,25 @@ jobs:
       - name: Install Dependencies
         uses: ./.github/workflows/actions/install-dependencies
 
+      - name: Run Test & Lint
+        run: pnpm test
+
+      - name: Run Build Step
+        run: pnpm build
+
       - name: Configure NPM token
         run: |
           pnpm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Create Changesets Pull Request or Trigger an NPM Publish
-        id: changesets
-        uses: changesets/action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Choose Build Step
-        id: build-step-decider
-        run:
-          echo "step-name=${{ steps.changesets.outputs.hasChangesets == 'false' && 'publish-packages
-          --concurrency=${TURBO_CONCURRENCY:-1}' || 'build' }}" >> $GITHUB_OUTPUT
-
-      - name: Run Build Step
-        run: pnpm ${{ steps.build-step-decider.outputs.step-name }}
+      - name: Publish Canary Release
+        run: |
+          pnpm pkg delete devDependencies
+          pnpm changeset version --snapshot canary
+          pnpm publish-packages
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PUBLISH_TAG: canary

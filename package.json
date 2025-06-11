@@ -39,9 +39,9 @@
     "dev": "vitest dev",
     "lint": "eslint . && prettier -c .",
     "lint:fix": "automd && eslint . --fix && prettier -w .",
-    "prepack": "pnpm build",
-    "release": "pnpm build && pnpm test && npm publish --tag latest && git push --follow-tags",
-    "release:next": "pnpm build && pnpm test && npm publish --tag next && git push --follow-tags",
+    "prepublishOnly": "pnpm pkg delete devDependencies",
+    "publish-impl": "npm view $npm_package_name@$npm_package_version > /dev/null 2>&1 || pnpm publish --tag ${PUBLISH_TAG:-canary} --access public --no-git-checks",
+    "publish-packages": "pnpm prepublishOnly && pnpm publish-impl",
     "test": "pnpm lint && pnpm test:types && vitest run --coverage",
     "test:types": "tsc --noEmit --skipLibCheck"
   },
