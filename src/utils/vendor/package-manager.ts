@@ -11,26 +11,28 @@
  */
 import { execSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
-import { join } from 'node:path'
+import { join, sep } from 'node:path'
 
-export const packageManagers = ['pnpm', 'npm', 'yarn'] as const
+export const packageManagers = ['pnpm', 'npm', 'yarn', 'bun'] as const
 export type PackageManager = (typeof packageManagers)[number]
 
 export function detectInvokedPackageManager(): PackageManager {
-  let detectedPackageManager: PackageManager = 'npm'
-  const invoker = require.main
-
-  if (!invoker) {
-    return detectedPackageManager
-  }
-
-  for (const pkgManager of packageManagers) {
-    if (invoker.path.includes(pkgManager)) {
-      detectedPackageManager = pkgManager
-      break
+  if (process.env.npm_config_user_agent) {
+    for (const pm of packageManagers) {
+      if (process.env.npm_config_user_agent.startsWith(`${pm}/`)) {
+        return pm
+      }
     }
   }
-  return detectedPackageManager
+
+  if (process.env.npm_execpath) {
+    for (const pm of packageManagers) {
+      if (process.env.npm_execpath.split(sep).includes(pm)) {
+        return pm
+      }
+    }
+  }
+  return 'npm'
 }
 
 /**
@@ -99,6 +101,15 @@ export function getPackageManagerCommand(
         lockFile: 'package-lock.json',
       }
     }
+
+    case 'bun': {
+      return {
+        install: `bun install ${silent}`,
+        exec: 'bun',
+        globalAdd: 'bun add -g',
+        lockFile: 'bun.lock',
+      }
+    }
   }
 }
 const pmVersionCache = new Map<PackageManager, string>()
@@ -122,6 +133,9 @@ export function detectPackageManager(dir: string = ''): PackageManager {
   }
   if (existsSync(join(dir, 'pnpm-lock.yaml'))) {
     return 'pnpm'
+  }
+  if (existsSync(join(dir, 'bun.lock'))) {
+    return 'bun'
   }
 
   return 'npm'
