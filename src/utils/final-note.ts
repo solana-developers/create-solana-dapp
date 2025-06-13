@@ -16,7 +16,7 @@ export function finalNote(args: FinalNoteArgs): string {
     `That's it!`,
     `Change to your new directory and start developing:`,
     msg(`cd ${args.target}`),
-    ...(args.skipInstall ? [`Install dependencies:`, cmd(args.packageManager, 'install')] : []),
+    ...(args.skipInstall ? [`Install dependencies:`, msg(`${args.packageManager} install`)] : []),
     ...(startScript ? [`Start the app:`, cmd(args.packageManager, startScript)] : []),
     ...args.instructions.map((line) => (line.startsWith('+') ? msg(line.slice(1)) : line)),
   ]

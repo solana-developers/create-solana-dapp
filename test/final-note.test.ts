@@ -33,7 +33,7 @@ describe('finalNote', () => {
     const result = finalNote({ ...baseArgs, skipInstall: true })
 
     expect(result).toContain('Install dependencies:')
-    expect(result).toContain('npm run install')
+    expect(result).toContain('npm install')
   })
 
   it('should not include install instructions when skipInstall is false', () => {
@@ -44,7 +44,7 @@ describe('finalNote', () => {
     const result = finalNote({ ...baseArgs, skipInstall: false })
 
     expect(result).not.toContain('Install dependencies:')
-    expect(result).not.toContain('npm run install')
+    expect(result).not.toContain('npm install')
   })
 
   it('should use yarn when packageManager is yarn and skipInstall is true', () => {
@@ -58,6 +58,6 @@ describe('finalNote', () => {
       packageManager: 'yarn' as FinalNoteArgs['packageManager'],
     })
 
-    expect(result).toContain('yarn run install')
+    expect(result).toContain('yarn install')
   })
 })

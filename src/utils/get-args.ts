@@ -16,6 +16,7 @@ export async function getArgs(argv: string[], app: AppInfo, pm: PackageManager =
     .option('--pm, --package-manager <package-manager>', help(`Package manager to use (default: npm)`))
     .option('--yarn', help(`Use yarn as the package manager`), false)
     .option('--pnpm', help(`Use pnpm as the package manager`), false)
+    .option('--bun', help(`Use bun as the package manager`), false)
     .option('-d, --dry-run', help('Dry run (default: false)'))
     .option('-t, --template <template-name>', help('Use a template'))
     .option('--list-templates', help('List available templates'))
@@ -55,16 +56,20 @@ Examples:
   }
   let packageManager = result.packageManager ?? pm
 
-  // The 'yarn' and 'pnpm' options are mutually exclusive, and will override the 'packageManager' option
-  if (result.pnpm && result.yarn) {
-    log.error(`Both pnpm and yarn were specified. Please specify only one.`)
-    throw new Error(`Both pnpm and yarn were specified. Please specify only one.`)
+  // The 'yarn', 'pnpm' and 'bun' options are mutually exclusive, and will override the 'packageManager' option
+  const managers = [result.pnpm && 'pnpm', result.yarn && 'yarn', result.bun && 'bun'].filter(Boolean)
+  if (managers.length > 1) {
+    log.error(`Multiple package managers were specified: ${managers.join(', ')}. Please specify only one.`)
+    throw new Error(`Multiple package managers were specified: ${managers.join(', ')}. Please specify only one.`)
   }
   if (result.pnpm) {
     packageManager = 'pnpm'
   }
   if (result.yarn) {
     packageManager = 'yarn'
+  }
+  if (result.bun) {
+    packageManager = 'bun'
   }
 
   // Display the intro
