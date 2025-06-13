@@ -5,7 +5,14 @@
 Just run one simple command to generate a new project!
 
 ```shell
-npx create-solana-dapp@latest
+# npm
+npm create solana-dapp@latest
+
+# pnpm
+pnpm create solana-dapp@latest
+
+# yarn (only supports the 'latest' tag)
+yarn create solana-dapp
 ```
 
 [![npm version](https://img.shields.io/npm/v/create-solana-dapp?color=yellow)](https://npmjs.com/package/create-solana-dapp)
@@ -25,7 +32,14 @@ You can also use `create-solana-dapp` to create projects using external template
 The `--template` (or `-t`) flag supports anything that [giget](https://github.com/unjs/giget) supports
 
 ```shell
-pnpx create-solana-dapp --template <github-org>/<github-repo>
+# npm
+npm create solana-dapp@latest -t <github-org>/<github-repo>
+
+# pnpm
+pnpm create solana-dapp@latest -t <github-org>/<github-repo>
+
+# yarn
+yarn create solana-dapp -t <github-org>/<github-repo>
 ```
 
 ## Init script
@@ -64,20 +78,6 @@ in the project.
   },
 }
 ```
-
-### Planned frameworks to support
-
-The following UI frameworks are planned and expected to be supported in the future:
-
-- VueJS
-- Svelte
-- React Native
-
-## Supported on-chain program frameworks
-
-The following on-chain programs (aka smart contracts) frameworks are supported within `create-solana-dapp`:
-
-- Anchor
 
 ## Contributing
 

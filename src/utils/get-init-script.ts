@@ -1,16 +1,11 @@
-import { existsSync, writeFileSync } from 'node:fs'
+import { writeFileSync } from 'node:fs'
 import { z } from 'zod'
-import { getPackageJsonPath } from './get-package-json-path'
+import { getPackageJson } from './get-package-json'
 
 export const initScriptKey = 'create-solana-dapp'
 
 export function getInitScript(targetDirectory: string): InitScript | undefined {
-  const packageJson = getPackageJsonPath(targetDirectory)
-  const exists = existsSync(packageJson)
-  if (!exists) {
-    throw new Error('No package.json found')
-  }
-  const contents = require(packageJson)
+  const { contents } = getPackageJson(targetDirectory)
   if (!contents) {
     throw new Error('Error loading package.json')
   }
@@ -26,10 +21,9 @@ export function getInitScript(targetDirectory: string): InitScript | undefined {
 }
 
 export function deleteInitScript(targetDirectory: string) {
-  const packageJson = getPackageJsonPath(targetDirectory)
-  const contents = require(packageJson)
+  const { path, contents } = getPackageJson(targetDirectory)
   delete contents[initScriptKey]
-  writeFileSync(packageJson, JSON.stringify(contents, undefined, 2) + '\n')
+  writeFileSync(path, JSON.stringify(contents, undefined, 2) + '\n')
 }
 
 const InitScriptSchema = z
