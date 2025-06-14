@@ -4,7 +4,7 @@ import { ensureTargetPath } from './ensure-target-path'
 import { GetArgsResult } from './get-args-result'
 import { deleteInitScript, getInitScript, InitScript } from './get-init-script'
 import { getPackageJson } from './get-package-json'
-import { initCheckVersion } from './init-check-version'
+import { initScriptVersion } from './init-script-version'
 import { searchAndReplace } from './search-and-replace'
 import { Task, taskFail } from './vendor/clack-tasks'
 import { namesValues } from './vendor/names'
@@ -23,7 +23,7 @@ export function createAppTaskRunInitScript(args: GetArgsResult): Task {
           log.warn(`Running init script`)
         }
 
-        await initCheckVersion(init)
+        await initScriptVersion(init.versions, args.verbose)
         if (args.verbose) {
           log.warn(`initCheckVersion done`)
         }

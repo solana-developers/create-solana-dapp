@@ -26,6 +26,12 @@ export function deleteInitScript(targetDirectory: string) {
   writeFileSync(path, JSON.stringify(contents, undefined, 2) + '\n')
 }
 
+const InitScriptVersionsSchema = z.object({
+  adb: z.string().optional(),
+  anchor: z.string().optional(),
+  solana: z.string().optional(),
+})
+
 const InitScriptSchema = z
   .object({
     instructions: z.array(z.string()).optional(),
@@ -37,14 +43,9 @@ const InitScriptSchema = z
         }),
       )
       .optional(),
-    versions: z
-      .object({
-        adb: z.string().optional(),
-        anchor: z.string().optional(),
-        solana: z.string().optional(),
-      })
-      .optional(),
+    versions: InitScriptVersionsSchema.optional(),
   })
   .optional()
 
 export type InitScript = z.infer<typeof InitScriptSchema>
+export type InitScriptVersions = z.infer<typeof InitScriptVersionsSchema>

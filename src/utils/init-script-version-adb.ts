@@ -3,9 +3,15 @@ import { bold, yellow } from 'picocolors'
 import { getVersion } from './get-version'
 import { validateVersion } from './validate-version'
 
-export async function initCheckVersionAdb(required: string) {
+export async function initScriptVersionAdb(required?: string, verbose = false) {
+  if (!required) {
+    return
+  }
   try {
     const { valid, version } = validateVersion({ required, version: getVersion('adb') })
+    if (verbose) {
+      log.warn(`initScriptVersionAdb: required: ${required}, version: ${version ?? '*none*'}, valid: ${valid}`)
+    }
     if (!version) {
       log.warn(
         [

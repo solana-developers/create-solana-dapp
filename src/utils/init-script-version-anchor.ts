@@ -3,9 +3,15 @@ import { bold, yellow } from 'picocolors'
 import { getVersion } from './get-version'
 import { validateVersion } from './validate-version'
 
-export async function initCheckVersionAnchor(required: string) {
+export async function initScriptVersionAnchor(required?: string, verbose = false) {
+  if (!required) {
+    return
+  }
   try {
     const { valid, version } = validateVersion({ required, version: getVersion('anchor') })
+    if (verbose) {
+      log.warn(`initScriptVersionAnchor: required: ${required}, version: ${version ?? '*none*'}, valid: ${valid}`)
+    }
     if (!version) {
       log.warn(
         [
