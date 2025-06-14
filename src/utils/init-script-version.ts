@@ -1,8 +1,8 @@
 import { log } from '@clack/prompts'
-import { InitScriptVersions } from './get-init-script'
 import { initScriptVersionAdb } from './init-script-version-adb'
 import { initScriptVersionAnchor } from './init-script-version-anchor'
 import { initScriptVersionSolana } from './init-script-version-solana'
+import { InitScriptVersions } from './init-script-versions-schema'
 
 export async function initScriptVersion(versions?: InitScriptVersions, verbose = false) {
   if (!versions) {
