@@ -11,7 +11,7 @@ export async function createApp(args: GetArgsResult) {
     createAppTaskCloneTemplate(args),
     // Install the dependencies
     createAppTaskInstallDependencies(args),
-    // Run the init script define in package.json .init property
+    // Run the (optional) init script defined in package.json
     createAppTaskRunInitScript(args),
     // Initialize git repository
     createAppTaskInitializeGit(args),
