@@ -1,5 +1,13 @@
 # create-solana-dapp
 
+## 4.3.2
+
+### Patch Changes
+
+- [#164](https://github.com/solana-developers/create-solana-dapp/pull/164)
+  [`dde3428`](https://github.com/solana-developers/create-solana-dapp/commit/dde3428b7236bbe73fecb1016cfa1c21b0996f0c)
+  Thanks [@beeman](https://github.com/beeman)! - add build step to publish-packages workflow
+
 ## 4.3.1
 
 ### Patch Changes
