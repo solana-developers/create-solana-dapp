@@ -37,8 +37,8 @@ jobs:
       - name: Choose Build Step
         id: build-step-decider
         run:
-          echo "step-name=${{ steps.changesets.outputs.hasChangesets == 'false' && 'publish-packages
-          --concurrency=${TURBO_CONCURRENCY:-1}' || 'build' }}" >> $GITHUB_OUTPUT
+          echo "step-name=${{ steps.changesets.outputs.hasChangesets == 'false' && 'publish-packages' || 'build' }}" >>
+          $GITHUB_OUTPUT
 
       - name: Run Build Step
         run: pnpm ${{ steps.build-step-decider.outputs.step-name }}
