@@ -1,5 +1,13 @@
 # create-solana-dapp
 
+## 4.3.1
+
+### Patch Changes
+
+- [#162](https://github.com/solana-developers/create-solana-dapp/pull/162)
+  [`f833848`](https://github.com/solana-developers/create-solana-dapp/commit/f833848bd6623ada20b67c776ffbe6cbfac035e4)
+  Thanks [@beeman](https://github.com/beeman)! - remove 'concurrency' parameter from build-step-decider
+
 ## 4.3.0
 
 ### Minor Changes
