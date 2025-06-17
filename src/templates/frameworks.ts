@@ -72,16 +72,16 @@ export const frameworks: Framework[] = [
         description: 'React with Vite, Tailwind, gill (based on @solana/kit), Wallet UI',
         repository: 'gh:solana-developers/solana-templates/templates/template-react-vite-tailwind',
       },
-      // {
-      //   name: 'gill-react-vite-tailwind-basic',
-      //   description: 'React with Vite, Tailwind, basic Anchor example',
-      //   repository: 'gh:solana-developers/solana-templates/templates/template-react-vite-tailwind-basic',
-      // },
-      // {
-      //   name: 'gill-react-vite-tailwind-counter',
-      //   description: 'React with Vite, Tailwind, Anchor Counter Example',
-      //   repository: 'gh:solana-developers/solana-templates/templates/template-react-vite-tailwind-counter',
-      // },
+      {
+        name: 'gill-react-vite-tailwind-basic',
+        description: 'React with Vite, Tailwind, basic Anchor example',
+        repository: 'gh:solana-developers/solana-templates/templates/template-react-vite-tailwind-basic',
+      },
+      {
+        name: 'gill-react-vite-tailwind-counter',
+        description: 'React with Vite, Tailwind, Anchor Counter Example',
+        repository: 'gh:solana-developers/solana-templates/templates/template-react-vite-tailwind-counter',
+      },
       {
         name: 'web3js-react-vite-tailwind',
         description: 'React with Vite, Tailwind, @solana/web3.js, Wallet Adapter',

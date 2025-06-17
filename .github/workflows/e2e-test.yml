@@ -17,15 +17,16 @@ jobs:
       matrix:
         node: [20, 22]
         pm: [npm, pnpm, yarn]
-        template: [
+        template:
+          [
             gill-next-tailwind,
             gill-next-tailwind-basic,
             gill-next-tailwind-counter,
             gill-node-express,
             gill-node-script,
             gill-react-vite-tailwind,
-            # gill-react-vite-tailwind-basic,
-            # gill-react-vite-tailwind-counter,
+            gill-react-vite-tailwind-basic,
+            gill-react-vite-tailwind-counter,
             web3js-next-tailwind,
             web3js-next-tailwind-basic,
             web3js-next-tailwind-counter,
