@@ -37,6 +37,8 @@
     "build": "unbuild",
     "build:watch": "unbuild --watch",
     "dev": "vitest dev",
+    "docker:build": "docker build -t create-solana-dapp:latest .",
+    "docker:run": "docker run --rm --name create-solana-dapp -v \"${PWD}/dist:/workspace/dist\" -it create-solana-dapp:latest",
     "lint": "eslint . && prettier -c .",
     "lint:fix": "automd && eslint . --fix && prettier -w .",
     "prepublishOnly": "pnpm pkg delete devDependencies",
