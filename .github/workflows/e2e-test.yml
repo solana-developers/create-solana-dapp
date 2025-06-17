@@ -19,8 +19,8 @@ jobs:
         pm: [npm, pnpm, yarn]
         template: [
             gill-next-tailwind,
-            # gill-next-tailwind-basic,
-            # gill-next-tailwind-counter,
+            gill-next-tailwind-basic,
+            gill-next-tailwind-counter,
             gill-node-express,
             gill-node-script,
             gill-react-vite-tailwind,
