@@ -1,5 +1,13 @@
 # create-solana-dapp
 
+## 4.3.3
+
+### Patch Changes
+
+- [#168](https://github.com/solana-developers/create-solana-dapp/pull/168)
+  [`7cf4cfb`](https://github.com/solana-developers/create-solana-dapp/commit/7cf4cfb1c3e561f9712000f6bb5c4558b1954220)
+  Thanks [@beeman](https://github.com/beeman)! - enable template-react-vite-tailwind-{basic,counter} template
+
 ## 4.3.2
 
 ### Patch Changes
