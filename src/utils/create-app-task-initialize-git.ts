@@ -12,9 +12,7 @@ export function createAppTaskInitializeGit(args: GetArgsResult): Task {
         if (args.verbose) {
           log.warn(`Initializing git repo`)
         }
-        await initializeGitRepo(args.targetDirectory, {
-          commit: { email: '', name: '', message: 'chore: initial commit' },
-        })
+        await initializeGitRepo(args.targetDirectory, args.verbose)
         return result({ message: 'Initialized git repo' })
       } catch (error) {
         if (args.verbose) {

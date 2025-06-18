@@ -12,23 +12,34 @@
 import { log } from '@clack/prompts'
 import { execSync, spawn, SpawnOptions } from 'node:child_process'
 
-export function checkGitVersion(): string | undefined {
+function runCheck(cmd: string): string | undefined {
   try {
-    const gitVersionOutput = execSync('git --version', { windowsHide: true }).toString().trim()
-    return gitVersionOutput.match(/\d+\.\d+\.+\d+/)?.[0]
+    return execSync(cmd, { windowsHide: true }).toString().trim()
   } catch {
     return undefined
   }
 }
+function checkGitVersion(): string | undefined {
+  return runCheck('git --version')?.match(/\d+\.\d+\.+\d+/)?.[0]
+}
+function checkGitUserName(): string | undefined {
+  return runCheck('git config --global user.name') ?? 'bot'
+}
+function checkGitUserEmail(): string | undefined {
+  return runCheck('git config --global user.email') ?? 'bot@example.com'
+}
 
-export async function initializeGitRepo(
-  directory: string,
-  options: {
-    defaultBase?: string
-    commit?: { message: string; name: string; email: string }
-  },
-) {
+export async function initializeGitRepo(directory: string, verbose = false) {
+  const name = checkGitUserName()
+  const email = checkGitUserEmail()
+  if (verbose) {
+    log.warn(`Committing using name: ${name} and email: ${email}`)
+  }
+
   const execute = (args: ReadonlyArray<string>, ignoreErrorStream = false) => {
+    if (verbose) {
+      log.warn(`Executing command: git ${args.join(' ')}`)
+    }
     const outputStream = 'ignore'
     const errorStream = ignoreErrorStream ? 'ignore' : process.stderr
     const spawnOptions: SpawnOptions = {
@@ -37,18 +48,10 @@ export async function initializeGitRepo(
       cwd: directory,
       env: {
         ...process.env,
-        ...(options.commit?.name
-          ? {
-              GIT_AUTHOR_NAME: options.commit.name,
-              GIT_COMMITTER_NAME: options.commit.name,
-            }
-          : {}),
-        ...(options.commit?.email
-          ? {
-              GIT_AUTHOR_EMAIL: options.commit.email,
-              GIT_COMMITTER_EMAIL: options.commit.email,
-            }
-          : {}),
+        GIT_AUTHOR_NAME: name,
+        GIT_COMMITTER_NAME: name,
+        GIT_AUTHOR_EMAIL: email,
+        GIT_COMMITTER_EMAIL: email,
       },
     }
     return new Promise<void>((resolve, reject) => {
@@ -73,7 +76,7 @@ export async function initializeGitRepo(
     log.warn('Directory is already under version control. Skipping initialization of git.')
     return
   }
-  const defaultBase = options.defaultBase || 'main'
+  const defaultBase = 'main'
   const [gitMajor, gitMinor] = gitVersion.split('.')
 
   if (+gitMajor > 2 || (+gitMajor === 2 && +gitMinor >= 28)) {
@@ -83,8 +86,6 @@ export async function initializeGitRepo(
     await execute(['checkout', '-b', defaultBase]) // Git < 2.28 doesn't support -b on git init.
   }
   await execute(['add', '.'])
-  if (options.commit) {
-    const message = `${options.commit.message}` || 'initial commit'
-    await execute(['commit', `-m "${message}"`])
-  }
+  const message = 'chore: initial commit'
+  await execute(['commit', `-m "${message}"`])
 }
