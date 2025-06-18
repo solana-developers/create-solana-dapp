@@ -1,5 +1,6 @@
 import { cancel, log, note, outro } from '@clack/prompts'
 import * as process from 'node:process'
+import { checkCliVersion } from './utils/check-cli-version'
 import { createApp } from './utils/create-app'
 import { finalNote } from './utils/final-note'
 import { getAppInfo } from './utils/get-app-info'
@@ -16,6 +17,15 @@ export async function main(argv: string[]) {
   try {
     // Get the result from the command line and prompts
     const args = await getArgs(argv, app, pm)
+
+    // Check CLI version and block if outdated (unless skipped)
+    // This ensures users always get the latest templates and features
+    if (!args.skipVersionCheck) {
+      await checkCliVersion(app, {
+        blockOnOutdated: true, // Default behavior: block execution if outdated
+        verbose: args.verbose,
+      })
+    }
 
     if (args.dryRun) {
       note(JSON.stringify(args, undefined, 2), 'Arguments')
