@@ -1,10 +1,12 @@
 import { intro, log, outro } from '@clack/prompts'
 import { program } from 'commander'
+import * as process from 'node:process'
 import { findTemplate, listTemplates, Template } from '../templates/templates'
 import { AppInfo } from './get-app-info'
 import { GetArgsResult } from './get-args-result'
 import { getPrompts } from './get-prompts'
 import { listVersions } from './list-versions'
+import { runVersionCheck } from './run-version-check'
 import { PackageManager } from './vendor/package-manager'
 
 export async function getArgs(argv: string[], app: AppInfo, pm: PackageManager = 'npm'): Promise<GetArgsResult> {
@@ -24,6 +26,7 @@ export async function getArgs(argv: string[], app: AppInfo, pm: PackageManager =
     .option('--skip-git', help('Skip git initialization'))
     .option('--skip-init', help('Skip running the init script'))
     .option('--skip-install', help('Skip installing dependencies'))
+    .option('--skip-version-check', help('Skip checking for CLI updates (not recommended)'))
     .option('-v, --verbose', help('Verbose output (default: false)'))
     .helpOption('-h, --help', help('Display help for command'))
     .addHelpText(
@@ -42,6 +45,7 @@ Examples:
 
   // Get the options from the command line
   const result = input.opts()
+  const verbose = result.verbose ?? false
 
   if (result.listVersions) {
     listVersions()
@@ -56,7 +60,7 @@ Examples:
   }
   let packageManager = result.packageManager ?? pm
 
-  // The 'yarn', 'pnpm' and 'bun' options are mutually exclusive, and will override the 'packageManager' option
+  // The 'yarn', 'pnpm' and 'bun' options are mutually exclusive and will override the 'packageManager' option
   const managers = [result.pnpm && 'pnpm', result.yarn && 'yarn', result.bun && 'bun'].filter(Boolean)
   if (managers.length > 1) {
     log.error(`Multiple package managers were specified: ${managers.join(', ')}. Please specify only one.`)
@@ -70,6 +74,10 @@ Examples:
   }
   if (result.bun) {
     packageManager = 'bun'
+  }
+
+  if (!result.skipVersionCheck) {
+    await runVersionCheck({ app, packageManager, verbose })
   }
 
   // Display the intro
@@ -93,7 +101,7 @@ Examples:
     skipInstall: result.skipInstall ?? false,
     targetDirectory: `${cwd}/${name}`,
     template,
-    verbose: result.verbose ?? false,
+    verbose,
   }
 
   // Get the prompts for any missing options
