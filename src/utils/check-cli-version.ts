@@ -95,8 +95,18 @@ async function showVersionWarning(app: AppInfo, latestVersion: string, blockOnOu
     bold(`  bun create ${packageName}@latest`),
     '',
     blockOnOutdated
-      ? red('This version is no longer supported. Please update to continue.')
-      : 'Using an outdated version may result in issues with templates or functionality.',
+      ? [
+          red('This version is no longer supported. Please update to continue.'),
+          '',
+          'Alternatively, you can skip this check (not recommended):',
+          bold(`  npx ${packageName}@${currentVersion} --skip-version-check`),
+        ].join('\n')
+      : [
+          'Using an outdated version may result in issues with templates or functionality.',
+          '',
+          'To skip this warning in the future, use:',
+          bold(`  npx ${packageName}@${currentVersion} --skip-version-check`),
+        ].join('\n'),
     '',
   ].join('\n')
 
