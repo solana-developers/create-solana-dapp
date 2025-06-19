@@ -11,6 +11,9 @@ npm create solana-dapp@latest
 # pnpm
 pnpm create solana-dapp@latest
 
+# bun
+bun create solana-dapp@latest
+
 # yarn (only supports the 'latest' tag)
 yarn create solana-dapp
 ```
