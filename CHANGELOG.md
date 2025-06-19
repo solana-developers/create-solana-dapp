@@ -1,5 +1,13 @@
 # create-solana-dapp
 
+## 4.3.4
+
+### Patch Changes
+
+- [#170](https://github.com/solana-developers/create-solana-dapp/pull/170)
+  [`090b4d7`](https://github.com/solana-developers/create-solana-dapp/commit/090b4d7cb4019a7addb51113321d82f289b820e3)
+  Thanks [@beeman](https://github.com/beeman)! - gracefully handle git commits with no configured name and email
+
 ## 4.3.3
 
 ### Patch Changes
