@@ -1,5 +1,5 @@
 import { log } from '@clack/prompts'
-import { bold, yellow } from 'picocolors'
+import pico from 'picocolors'
 import { getVersion } from './get-version'
 import { VersionCommand } from './get-version-command'
 import { getVersionUrls } from './get-version-urls'
@@ -25,7 +25,7 @@ export async function initScriptVersionCheck(versionCommand: VersionCommand, req
     if (!version) {
       log.warn(
         [
-          bold(yellow(`Could not find ${versionCommand} version. Please install ${versionCommand}.`)),
+          pico.bold(pico.yellow(`Could not find ${versionCommand} version. Please install ${versionCommand}.`)),
           install?.replace('{required}', required),
         ].join(' '),
       )
@@ -34,7 +34,7 @@ export async function initScriptVersionCheck(versionCommand: VersionCommand, req
     if (!valid) {
       log.warn(
         [
-          yellow(`Found ${versionCommand} version ${version}. Expected ${versionCommand} version ${required}.`),
+          pico.yellow(`Found ${versionCommand} version ${version}. Expected ${versionCommand} version ${required}.`),
           update?.replace('{required}', required),
         ].join(' '),
       )

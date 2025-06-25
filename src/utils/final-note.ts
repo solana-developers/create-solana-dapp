@@ -1,4 +1,4 @@
-import { bold, white } from 'picocolors'
+import pico from 'picocolors'
 import { GetArgsResult } from './get-args-result'
 import { getPackageJson } from './get-package-json'
 import { getStartScript } from './get-start-script'
@@ -29,5 +29,5 @@ function cmd(pm: string, command: string) {
 }
 
 function msg(message: string) {
-  return bold(white(message))
+  return pico.bold(pico.white(message))
 }
