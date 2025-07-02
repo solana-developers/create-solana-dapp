@@ -1,5 +1,17 @@
 # create-solana-dapp
 
+## 4.3.4
+
+### Patch Changes
+
+- [#170](https://github.com/solana-developers/create-solana-dapp/pull/170)
+  [`090b4d7`](https://github.com/solana-developers/create-solana-dapp/commit/090b4d7cb4019a7addb51113321d82f289b820e3)
+  Thanks [@beeman](https://github.com/beeman)! - gracefully handle git commits with no configured name and email
+
+- [#178](https://github.com/solana-developers/create-solana-dapp/pull/178)
+  [`7c28c56`](https://github.com/solana-developers/create-solana-dapp/commit/7c28c56a5ddf00716e3d52b078197bbc95066831)
+  Thanks [@beeman](https://github.com/beeman)! - update picocolors import to resolve SyntaxError in ESM module
+
 ## 4.3.3
 
 ### Patch Changes
