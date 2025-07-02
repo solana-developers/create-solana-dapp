@@ -99,4 +99,21 @@ export const frameworks: Framework[] = [
       },
     ],
   },
+  {
+    id: 'solana-mobile',
+    name: 'Solana Mobile',
+    description: 'Solana Mobile Templates based on Expo',
+    templates: [
+      {
+        name: 'web3js-expo',
+        description: 'Expo React Native app with Mobile Wallet Adapter and @solana/web3.js',
+        repository: 'gh:solana-developers/solana-mobile-templates/templates/web3js-expo',
+      },
+      {
+        name: 'web3js-expo-paper',
+        description: 'Expo React Native Paper app with Mobile Wallet Adapter and @solana/web3.js',
+        repository: 'gh:solana-developers/solana-mobile-templates/templates/web3js-expo-paper',
+      },
+    ],
+  },
 ]

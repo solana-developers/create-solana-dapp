@@ -27,6 +27,8 @@ jobs:
             gill-react-vite-tailwind,
             gill-react-vite-tailwind-basic,
             gill-react-vite-tailwind-counter,
+            web3js-expo,
+            web3js-expo-paper,
             web3js-next-tailwind,
             web3js-next-tailwind-basic,
             web3js-next-tailwind-counter,
