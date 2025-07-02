@@ -1,7 +1,7 @@
+import { fs, vol } from 'memfs'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { finalNote, FinalNoteArgs } from '../src/utils/final-note'
-import { fs, vol } from 'memfs'
 
 vi.mock('node:fs')
 
@@ -59,5 +59,29 @@ describe('finalNote', () => {
     })
 
     expect(result).toContain('yarn install')
+  })
+
+  it('should show the start script if there is no instructions array', () => {
+    const packageJson = { scripts: { dev: 'vite', start: 'node server.js' } }
+    fs.mkdirSync('/template')
+    fs.writeFileSync('/template/package.json', JSON.stringify(packageJson))
+
+    const result = finalNote({ ...baseArgs, instructions: [] })
+
+    expect(result).toContain('Start the app:')
+    expect(result).toContain('npm run dev')
+  })
+
+  it('should show the start script and instructions if they are provided', () => {
+    const packageJson = { scripts: { dev: 'vite', start: 'node server.js' } }
+    fs.mkdirSync('/template')
+    fs.writeFileSync('/template/package.json', JSON.stringify(packageJson))
+
+    const result = finalNote({ ...baseArgs, instructions: ['Start the Expo dev server:', 'npm run android'] })
+
+    expect(result).toContain('Start the Expo dev server:')
+    expect(result).toContain('npm run android')
+    expect(result).not.toContain('Start the app:')
+    expect(result).not.toContain('npm run dev')
   })
 })

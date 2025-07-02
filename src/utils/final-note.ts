@@ -11,14 +11,17 @@ export interface FinalNoteArgs extends GetArgsResult {
 export function finalNote(args: FinalNoteArgs): string {
   const { contents } = getPackageJson(args.targetDirectory)
   const startScript = getStartScript(contents.scripts)
+  const instructions =
+    args.instructions.length > 0
+      ? args.instructions
+      : [...(startScript ? [`Start the app:`, cmd(args.packageManager, startScript)] : [])]
 
   const lines: string[] = [
     `That's it!`,
-    `Change to your new directory and start developing:`,
+    `Change to your new directory:`,
     msg(`cd ${args.target}`),
     ...(args.skipInstall ? [`Install dependencies:`, msg(`${args.packageManager} install`)] : []),
-    ...(startScript ? [`Start the app:`, cmd(args.packageManager, startScript)] : []),
-    ...args.instructions.map((line) => (line.startsWith('+') ? msg(line.slice(1)) : line)),
+    ...instructions.map((line) => (line.startsWith('+') ? msg(line.slice(1)) : line)),
   ]
 
   return lines.filter(Boolean).join('\n\n')
