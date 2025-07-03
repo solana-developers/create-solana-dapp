@@ -1,5 +1,7 @@
 import { cancel, log, note, outro } from '@clack/prompts'
 import * as process from 'node:process'
+import updateNotifier from 'update-notifier'
+
 import { createApp } from './utils/create-app'
 import { finalNote } from './utils/final-note'
 import { getAppInfo } from './utils/get-app-info'
@@ -12,6 +14,7 @@ export async function main(argv: string[]) {
 
   // Get app info from package.json
   const app = getAppInfo()
+  const notifier = updateNotifier({ pkg: app })
 
   try {
     // Get the result from the command line and prompts
@@ -26,6 +29,10 @@ export async function main(argv: string[]) {
     if (args.verbose) {
       log.warn(`Verbose output enabled`)
       console.warn(args)
+    }
+
+    if (!args.skipVersionCheck) {
+      notifier.notify()
     }
 
     // Create the app

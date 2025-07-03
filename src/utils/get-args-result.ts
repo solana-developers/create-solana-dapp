@@ -11,6 +11,7 @@ export interface GetArgsResult {
   skipGit: boolean
   skipInit: boolean
   skipInstall: boolean
+  skipVersionCheck: boolean
   template: Template
   verbose: boolean
 }
