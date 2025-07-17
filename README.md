@@ -88,8 +88,8 @@ Contributions are welcome! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for m
 
 ## Local development
 
-> [!TIP] This project uses [pnpm](https://pnpm.io/) as the package manager. If you don't have it, you can install it
-> using `corepack`:
+> [!TIP] 
+> This project uses [pnpm](https://pnpm.io/) as the package manager. If you don't have it, you can install it using `corepack`:
 >
 > ```sh
 > corepack enable
