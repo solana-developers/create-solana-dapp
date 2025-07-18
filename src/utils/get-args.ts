@@ -24,6 +24,7 @@ export async function getArgs(argv: string[], app: AppInfo, pm: PackageManager =
     .option('--skip-git', help('Skip git initialization'))
     .option('--skip-init', help('Skip running the init script'))
     .option('--skip-install', help('Skip installing dependencies'))
+    .option('--skip-version-check', help('Skip checking for CLI updates (not recommended)'))
     .option('-v, --verbose', help('Verbose output (default: false)'))
     .helpOption('-h, --help', help('Display help for command'))
     .addHelpText(
@@ -91,6 +92,7 @@ Examples:
     skipGit: result.skipGit ?? false,
     skipInit: result.skipInit ?? false,
     skipInstall: result.skipInstall ?? false,
+    skipVersionCheck: result.skipVersionCheck ?? false,
     targetDirectory: `${cwd}/${name}`,
     template,
     verbose: result.verbose ?? false,
