@@ -1,15 +1,15 @@
 {
   "name": "create-solana-dapp",
   "version": "4.4.0",
-  "description": "Get up and running fast with Solana dApps",
+  "description": "The fastest way to create Solana apps",
   "repository": {
-    "name": "solana-developers/create-solana-dapp",
+    "name": "solana-foundation/create-solana-dapp",
     "type": "git",
-    "url": "https://github.com/solana-developers/create-solana-dapp"
+    "url": "https://github.com/solana-foundation/create-solana-dapp"
   },
-  "homepage": "https://github.com/solana-developers/create-solana-dapp#readme",
+  "homepage": "https://github.com/solana-foundation/create-solana-dapp#readme",
   "bugs": {
-    "url": "https://github.com/solana-developers/create-solana-dapp/issues"
+    "url": "https://github.com/solana-foundation/create-solana-dapp/issues"
   },
   "license": "MIT",
   "sideEffects": false,

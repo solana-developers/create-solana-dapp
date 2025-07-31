@@ -11,13 +11,13 @@
 # $ csd
 #
 # Create an app using a template and a random unique name:
-# $ csd gh:solana-developers/solana-templates/templates/template-node-express
+# $ csd gh:solana-foundation/templates/templates/template-node-express
 #
 # Create an app using a template and a specific name:
-# $ csd gh:solana-developers/solana-templates/templates/template-node-express my-api
+# $ csd gh:solana-foundation/templates/templates/template-node-express my-api
 #
 # Create an app using a template from a pull request number 35 (must be an active or recent PR):
-# $ csd gh:solana-developers/solana-templates/templates/template-node-express#refs/pull/35/merge
+# $ csd gh:solana-foundation/templates/templates/template-node-express#refs/pull/35/merge
 #
 # Create an app using create-solana-dapp@next
 # $ TAG=next csd

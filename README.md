@@ -1,8 +1,8 @@
 # create-solana-dapp
 
-:zap: Get up and running fast with Solana dApps :zap:
+The fastest way to create Solana apps :rocket:
 
-Just run one simple command to generate a new project!
+Run one command to generate a new project:
 
 ```shell
 # npm
@@ -26,7 +26,7 @@ This is a CLI that automates the initialization of predefined Solana templates (
 ## Templates
 
 The official `create-solana-dapp` templates can be found in
-[this repository](https://github.com/solana-developers/solana-templates).
+[this repository](https://github.com/solana-foundation/templates).
 
 ## External templates
 
@@ -99,7 +99,7 @@ Contributions are welcome! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for m
 To install the project locally, run the following commands:
 
 ```shell
-git clone https://github.com/solana-developers/create-solana-dapp.git
+git clone https://github.com/solana-foundation/create-solana-dapp.git
 cd create-solana-dapp
 pnpm install
 pnpm build

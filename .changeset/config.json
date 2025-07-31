@@ -5,7 +5,7 @@
   "changelog": [
     "@changesets/changelog-github",
     {
-      "repo": "solana-developers/create-solana-dapp"
+      "repo": "solana-foundation/create-solana-dapp"
     }
   ],
   "commit": false,
