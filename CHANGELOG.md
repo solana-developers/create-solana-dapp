@@ -1,5 +1,19 @@
 # create-solana-dapp
 
+## 4.5.0
+
+### Minor Changes
+
+- [#184](https://github.com/solana-foundation/create-solana-dapp/pull/184)
+  [`f752313`](https://github.com/solana-foundation/create-solana-dapp/commit/f752313290b5f59aa98a19ddd6d927a3202ece2e)
+  Thanks [@beeman](https://github.com/beeman)! - add version check (update notification)
+
+### Patch Changes
+
+- [#185](https://github.com/solana-foundation/create-solana-dapp/pull/185)
+  [`7659159`](https://github.com/solana-foundation/create-solana-dapp/commit/7659159f554b73fe2b92c0f31d6058e56a8fc994)
+  Thanks [@beeman](https://github.com/beeman)! - don't run e2e tests when Markdown files are changed
+
 ## 4.4.0
 
 ### Minor Changes
