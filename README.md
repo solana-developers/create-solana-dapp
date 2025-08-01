@@ -90,7 +90,7 @@ Contributions are welcome! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for m
 
 > [!TIP] This project uses [pnpm](https://pnpm.io/) as the package manager. If you don't have it, you can install it
 > using `corepack`:
->
+
 > ```sh
 > corepack enable
 > corepack prepare pnpm@10 --activate
