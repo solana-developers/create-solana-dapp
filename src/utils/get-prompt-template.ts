@@ -1,29 +1,34 @@
 import { isCancel, log, select, SelectOptions } from '@clack/prompts'
-import { Framework, frameworks } from '../templates/frameworks'
-import { getTemplatesForFramework, Template } from '../templates/templates'
 import { GetArgsResult } from './get-args-result'
+import { MenuItem } from '@beeman/repokit'
+import { Template } from './template'
 
-export function getPromptTemplate({ options }: { options: GetArgsResult }) {
+export function getPromptTemplate({ items, options }: { items: MenuItem[]; options: GetArgsResult }) {
   return async () => {
     if (options.template) {
       log.success(`Template: ${options.template.description}`)
       return options.template
     }
 
-    const framework: Framework = await selectFramework(frameworks)
-    if (isCancel(framework)) {
-      throw 'No framework selected'
+    const group: MenuItem = await selectGroup(items)
+    if (isCancel(group)) {
+      throw 'No group selected'
     }
 
-    return selectTemplate(getTemplatesForFramework(framework))
+    return selectTemplate(group.templates)
   }
 }
 
-function getFrameworkSelectOptions(
-  values: Framework[],
-): SelectOptions<{ value: Framework; label: string; hint?: string | undefined }[], Framework> {
+function getGroupSelectOptions(values: MenuItem[]): SelectOptions<
+  {
+    value: MenuItem
+    label: string
+    hint?: string | undefined
+  }[],
+  MenuItem
+> {
   return {
-    message: 'Select a framework',
+    message: 'Select a group',
     options: values.map((value) => ({
       label: value.name,
       value,
@@ -32,8 +37,8 @@ function getFrameworkSelectOptions(
   }
 }
 
-function selectFramework(values: Framework[]): Promise<Framework> {
-  return select(getFrameworkSelectOptions(values)) as Promise<Framework>
+function selectGroup(values: MenuItem[]): Promise<MenuItem> {
+  return select(getGroupSelectOptions(values)) as Promise<MenuItem>
 }
 
 function getTemplateSelectOptions(

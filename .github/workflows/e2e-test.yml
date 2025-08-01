@@ -21,24 +21,24 @@ jobs:
       matrix:
         node: [20, 22]
         pm: [npm, pnpm, yarn]
-        template:
-          [
-            gill-next-tailwind,
-            gill-next-tailwind-basic,
-            gill-next-tailwind-counter,
-            gill-node-express,
-            gill-node-script,
-            gill-react-vite-tailwind,
-            gill-react-vite-tailwind-basic,
-            gill-react-vite-tailwind-counter,
+        template: [
+            # TODO: Make these values dynamic by adding a parameter to CLI
+            template-next-tailwind,
+            template-next-tailwind-basic,
+            template-next-tailwind-counter,
+            template-node-express,
+            template-node-script,
+            template-react-vite-tailwind,
+            template-react-vite-tailwind-basic,
+            template-react-vite-tailwind-counter,
             web3js-expo,
             web3js-expo-paper,
-            web3js-next-tailwind,
-            web3js-next-tailwind-basic,
-            web3js-next-tailwind-counter,
-            web3js-react-vite-tailwind,
-            web3js-react-vite-tailwind-basic,
-            web3js-react-vite-tailwind-counter,
+            legacy-next-tailwind,
+            legacy-next-tailwind-basic,
+            legacy-next-tailwind-counter,
+            legacy-react-vite-tailwind,
+            legacy-react-vite-tailwind-basic,
+            legacy-react-vite-tailwind-counter,
           ]
 
     steps:
