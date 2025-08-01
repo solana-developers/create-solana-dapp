@@ -1,13 +1,18 @@
 import { intro, log, outro } from '@clack/prompts'
 import { program } from 'commander'
 import * as process from 'node:process'
-import { findTemplate, listTemplates, Template } from '../templates/templates'
+import { fetchTemplateData } from './fetch-template-data'
 import { AppInfo } from './get-app-info'
 import { GetArgsResult } from './get-args-result'
 import { getPrompts } from './get-prompts'
 import { listVersions } from './list-versions'
 import { runVersionCheck } from './run-version-check'
 import { PackageManager } from './vendor/package-manager'
+import { getTemplatesUrl } from './get-templates-url'
+import { findTemplate } from './find-template'
+import { getMenuConfig } from './get-menu-config'
+import { listTemplates } from './list-templates'
+import { Template } from './template'
 
 export async function getArgs(argv: string[], app: AppInfo, pm: PackageManager = 'npm'): Promise<GetArgsResult> {
   // Get the result from the command line
@@ -27,6 +32,7 @@ export async function getArgs(argv: string[], app: AppInfo, pm: PackageManager =
     .option('--skip-init', help('Skip running the init script'))
     .option('--skip-install', help('Skip installing dependencies'))
     .option('--skip-version-check', help('Skip checking for CLI updates (not recommended)'))
+    .option('--templates-url', help('Url to templates.json'), getTemplatesUrl())
     .option('-v, --verbose', help('Verbose output (default: false)'))
     .helpOption('-h, --help', help('Display help for command'))
     .addHelpText(
@@ -47,12 +53,16 @@ Examples:
   const result = input.opts()
   const verbose = result.verbose ?? false
 
+  // Fetch the templates url, parse the template data and create menu items following our menu config
+  const { templates, items } = await fetchTemplateData({ config: getMenuConfig(), url: result.templatesUrl, verbose })
+
   if (result.listVersions) {
     listVersions()
     process.exit(0)
   }
+
   if (result.listTemplates) {
-    listTemplates()
+    listTemplates({ templates })
     outro(
       `\uD83D\uDCA1 To use a template, run "${app.name}${name ? ` ${name}` : ''} --template <template-name>" or "--template <github-org>/<github-repo>" `,
     )
@@ -86,7 +96,7 @@ Examples:
   let template: Template | undefined
 
   if (result.template) {
-    template = findTemplate(result.template)
+    template = findTemplate({ name: result.template, templates, verbose })
   }
 
   // Take the result from the command line and use it to populate the options
@@ -105,7 +115,7 @@ Examples:
   }
 
   // Get the prompts for any missing options
-  const prompts = await getPrompts({ options: options as GetArgsResult })
+  const prompts = await getPrompts({ items, options: options as GetArgsResult })
 
   // Populate the options with the prompts
   if (prompts.name) {
