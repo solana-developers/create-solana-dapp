@@ -1,5 +1,13 @@
 # create-solana-dapp
 
+## 4.6.0
+
+### Minor Changes
+
+- [#111](https://github.com/solana-foundation/create-solana-dapp/pull/111)
+  [`bd604d3`](https://github.com/solana-foundation/create-solana-dapp/commit/bd604d3dc646191c0427ce2d6ee7911ae61a7c78)
+  Thanks [@beeman](https://github.com/beeman)! - dynamic template lists by fetching them from registry url
+
 ## 4.5.0
 
 ### Minor Changes
